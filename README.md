@@ -39,7 +39,7 @@ Let's assume that your USB flash drive is on `E:`.
 		$ ln -s /Other/cyg-wrapper.sh /bin/cyg-wrapper.sh
 		$ ln -s /Other/startSumatra.sh /bin/startSumatra.sh
 
-7. Now if you go to the PortableApps menu and refresh it, three Cygwin Utilities should show up, those being:
+7. Now if you go to the PortableApps menu and refresh it, three Cygwin utilities should show up, those being:
 	- Cygwin Setup
 	- Cygwin Terminal
 	- Start XWin Server
