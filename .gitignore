@@ -5,6 +5,6 @@
 !cygwinConfig.vbs
 !CygwinTerminal.vbs
 !XWinServer.vbs
-
+# and these directories
 !App/
 !Other/
