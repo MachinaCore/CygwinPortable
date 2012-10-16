@@ -3,17 +3,8 @@
 # except
 !.gitignore
 !cygwinConfig.vbs
-!cygwinConfig.bat
 !CygwinTerminal.vbs
-!CygwinTerminal.bat
-!user_setup.bat
 !XWinServer.vbs
-!XWinServer.bat
-!bashrc
 
 !App/
-!App/*
 !Other/
-!Other/*
-
-
