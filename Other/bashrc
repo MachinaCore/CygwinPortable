@@ -211,6 +211,10 @@ DISPLAY=:0; export DISPLAY
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 
+# Tell lynx where the color settings are that were adjusted for the
+# Solarized color scheme
+export LYNX_LSS=~/.config/lynx.lss
+
 # Mount the portable Documents folder, if it isn't already
 if [ ! -d Documents ];
 then mount -f $(cygpath -m $USBDRVPATH)Documents /home/ntmoe/Documents;
