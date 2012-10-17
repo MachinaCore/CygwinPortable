@@ -237,6 +237,7 @@ alias gtypist='gtypist -wi'
 alias explorer='cyg-wrapper.sh "explorer" --slashed-opt'
 alias startxwin='run /usr/bin/bash.exe -l -c "/usr/bin/startxwin -- -nolock -unixkill"'
 alias sumatra='startSumatra.sh'
+alias lynx='lynx -use_mouse'
 
 # Set a default prompt of: user@host and current_directory
 PS1='\[\e]0;\w\a\]\n\[\e[36m\]\u@\h: \[\e[33m\]\w\[\e[0m\]\n\$ '
