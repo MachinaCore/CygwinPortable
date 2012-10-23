@@ -9,8 +9,8 @@ rem cd ..\..
 rem Find the USB stick's drive letter and the path for the Cygwin directory
 rem CYGROOT will be something like E:\PortableApps\CygwinPortable\
 rem USBDRV will be something like E:
-SET CYGROOT=%cd%\
+SET CYGROOT=%cd%
 SET USBDRV=%~d0
 
-start %CYGROOT%cygwinConfig.exe -R %CYGROOT% -l %CYGROOT%packages -n
-rem cd App/CygwinPortable
+start %CYGROOT%\cygwinConfig.exe -R %CYGROOT% -l %CYGROOT%\packages -n
+rem cd App\CygwinPortable
