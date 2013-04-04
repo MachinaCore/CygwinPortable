@@ -5,6 +5,9 @@
 !cygwinConfig.vbs
 !CygwinTerminal.vbs
 !XWinServer.vbs
+!CygwinPortable.au3
+!CygwinPortable.exe
+!CygwinPortable.ini
 # and these directories
 !App/
 !Other/
