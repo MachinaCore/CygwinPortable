@@ -9,6 +9,6 @@
 !CygwinPortable.exe
 !CygwinPortable.ini
 # and these directories
-!App/
-!Other/
-!Resources/
+![aA]pp/
+![oO]ther/
+![rR]esources/
