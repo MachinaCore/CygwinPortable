@@ -71,7 +71,7 @@ EndIf
 
 ReadCmdLineParams()
 
-Global $tray_ReStartApache,$tray_phpMyAdmin,$AppsStopped,$tray_TrayExit,$tray_menu_seperator,$tray_menu_seperator2,$nSideItem3,$nTrayIcon1,$nTrayMenu1,$tray_openCygwinConfig,$tray_sub_QuickLaunch,$tray_sub_Drives,$tray_sub_QuickLink,$tray_menu_seperator_quick_launch
+Global $tray_ReStartApache,$tray_phpMyAdmin,$AppsStopped,$tray_TrayExit,$tray_menu_seperator,$tray_menu_seperator2,$nSideItem3,$nTrayIcon1,$nTrayMenu1,$tray_openCygwinConfig,$tray_sub_QuickLaunch,$tray_sub_Drives,$tray_sub_QuickLink,$tray_menu_seperator_quick_launch,$tray_openXServer
 
 if $cygwinTrayMenu == True and $CmdLine[0] == 0 Then
 BuildTrayMenu()
@@ -99,6 +99,7 @@ Func DeleteMenu()
 	_TrayDeleteItem($tray_menu_seperator)
 	_TrayDeleteItem($tray_menu_seperator2)
 	_TrayDeleteItem($tray_phpMyAdmin)
+	_TrayDeleteItem($tray_openXServer)
 	_TrayDeleteItem($tray_ReStartApache)
 	_TrayDeleteItem($tray_sub_QuickLaunch)
 	_TrayDeleteItem($tray_sub_Drives)
@@ -204,6 +205,10 @@ Func BuildMenu()
 	_TrayItemSetIcon($tray_phpMyAdmin, "shell32.dll", -15)
 	GUICtrlSetOnEvent(-1, "TrayEvent")
 
+	$tray_openXServer = _TrayCreateItem("open XServer")
+	_TrayItemSetIcon($tray_openXServer, "shell32.dll", -15)
+	GUICtrlSetOnEvent(-1, "TrayEvent")
+
 	$tray_openCygwinConfig = _TrayCreateItem("Open Cygwin Setup")
 	_TrayItemSetIcon($tray_openCygwinConfig, "shell32.dll", -58)
 	GUICtrlSetOnEvent(-1, "TrayEvent")
@@ -253,9 +258,15 @@ Func TrayEvent()
 		Case $tray_phpMyAdmin
 			ShellExecute("http://127.0.0.1/phpMyAdmin")
 		Case $tray_openCygwinConfig
-			ShellExecute(@ScriptDir & "\cygwinConfig.exe", " -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s ftp://lug.mtu.edu/cygwin" , @ScriptDir, "")
+			OpenConfig()
+		Case $tray_openXServer
+			Run (@ScriptDir & "\bin\run.exe /bin/bash.exe -c '/usr/bin/startxwin.exe -- -nolock -unixkill'", "", @SW_HIDE )
 	EndSwitch
 EndFunc   ;==>TrayEvent
+
+Func OpenConfig()
+	ShellExecute(@ScriptDir & "\cygwinConfig.exe", " -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s ftp://lug.mtu.edu/cygwin" , @ScriptDir, "")
+EndFunc
 
 Func CleanUpSysTray()
 	$count = _SysTrayIconCount()
@@ -299,6 +310,9 @@ Func ReadCmdLineParams() 	;Read in the optional switch set in the users profile 
 					$exitAfterExec = True
 				EndIf
 				$noCorrectParameter = False
+			case $cmdLine[$i] = "-config"
+				OpenConfig()
+				Exit
 		EndSelect
 	Next
 

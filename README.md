@@ -3,6 +3,14 @@ CygwinPortable
 
 Configuration files to make Cygwin portable on a USB flash drive.
 
+Possible parameters:
+
+CygwinPortable.exe -help		-> Show help screen
+CygwinPortable.exe -config 		-> Open Config (setup.exe)
+CygwinPortable.exe -exit [0/1]	-> Exit the cygwin window after execution
+CygwinPortable.exe -path [PATH] -> Open the folder in path or execute the file (if the file is executable)
+CygwinPortable.exe [PATH] 		-> Open the folder in path or execute the file (if the file is executable) - All other parameters are ignored (needed for "open with" in Windows)
+
 Setup
 -----
 
