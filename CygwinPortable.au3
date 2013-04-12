@@ -37,11 +37,6 @@ EnvSet("HOME",  "/home/cygwin")
 
 Run(@ScriptDir & "\bin\bash /Other/user_setup.sh", @SW_HIDE)
 
-Global $msgHeader	 	= ""			;Varible for the message header
-Global $msgBody			= ""			;Varible for the message body
-Global $flagX 			= "False"		;Flag X
-Global $flagY 			= "False"		;Flag y
-
 Global $szDrive, $szDir, $szFName, $szExt, $cygdrive,$cygfolder,$cygfolder1,$cygfile, $executableExtension, $executable, $exitAfterExec, $setContextMenu, $cygwinUsername
 
 $executable = False
@@ -77,7 +72,8 @@ EndIf
 ReadCmdLineParams()
 
 Global $tray_ReStartApache,$tray_phpMyAdmin,$AppsStopped,$tray_TrayExit,$tray_menu_seperator,$tray_menu_seperator2,$nSideItem3,$nTrayIcon1,$nTrayMenu1,$tray_openCygwinConfig,$tray_sub_QuickLaunch,$tray_sub_Drives,$tray_sub_QuickLink,$tray_menu_seperator_quick_launch
-if $cygwinTrayMenu == True Then
+
+if $cygwinTrayMenu == True and $CmdLine[0] == 0 Then
 BuildTrayMenu()
 BuildMenu()
 While 1
@@ -339,6 +335,7 @@ Func ReadCmdLineParams() 	;Read in the optional switch set in the users profile 
 	If $CmdLine[0] <> 0 And $noCorrectParameter == True Then
 			cygwinOpen($cmdLine[1])
 	EndIf
+
 EndFunc
 
 Func cmdLineHelpMsg()
