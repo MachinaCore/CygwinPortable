@@ -1,7 +1,7 @@
 #NoTrayIcon
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
-#AutoIt3Wrapper_icon=App\AppInfo\appicon1.ico
-#AutoIt3Wrapper_UseUpx=N
+#AutoIt3Wrapper_Icon=App\AppInfo\appicon1.ico
+#AutoIt3Wrapper_Compression=4
 #AutoIt3Wrapper_Res_Description=CygwinPortable
 #AutoIt3Wrapper_Res_Fileversion=0.8.0.0
 #AutoIt3Wrapper_Res_ProductVersion=0.8
