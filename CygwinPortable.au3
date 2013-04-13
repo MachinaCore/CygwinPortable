@@ -49,6 +49,7 @@ $setContextMenu = False
 $cygwinNoMsgBox = False
 $cygwinFirstInstallDeleteUnneeded = True
 $cygwinMirror = "ftp://lug.mtu.edu/cygwin"
+$cygwinPortsMirror ="ftp://ftp.cygwinports.org/pub/cygwinports"
 $cygwinFirstInstallAdditions = ""
 $cygwinDeleteInstallation = False
 $installUnofficial = False
@@ -78,6 +79,9 @@ Else
 		if $iniMain[$iniMainValue][0] == 'CygwinMirror' Then
 			$cygwinMirror = $iniMain[$iniMainValue][1]
 		EndIf
+		if $iniMain[$iniMainValue][0] == 'CygwinPortsMirror' Then
+			$cygwinPortsMirror = $iniMain[$iniMainValue][1]
+		EndIf
 		if $iniMain[$iniMainValue][0] == 'CygwinFirstInstallAdditions' Then
 			$cygwinFirstInstallAdditions = $iniMain[$iniMainValue][1]
 		EndIf
@@ -90,6 +94,8 @@ Else
 		if $iniMain[$iniMainValue][0] == 'InstallUnofficial' Then
 			$installUnofficial = $iniMain[$iniMainValue][1]
 		EndIf
+
+
 	Next
 EndIf
 
@@ -166,7 +172,9 @@ EndIf
 If Not FileExists(@ScriptDir & "\bin\bash.exe") then
 	$DownloadCygwinEnvironment = MsgBox (4, "Download cygwin Environment" ,"This is the first launch of Cygwin portable. Download the default cygwin packages (incl. X11) now ?")
 	If $DownloadCygwinEnvironment = 6 Then
+
 		ShellExecuteWait(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe", " -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s " & $cygwinMirror & " -q" & " -P " & $cygwinFirstInstallAdditions, @ScriptDir, "")
+
 		if $cygwinFirstInstallDeleteUnneeded == True Then
 			FileDelete (@ScriptDir & "\Cygwin.ico")
 			FileDelete (@ScriptDir & "\Cygwin.bat")
@@ -187,7 +195,7 @@ If Not FileExists(@ScriptDir & "\bin\bash.exe") then
 
 ReadCmdLineParams()
 
-Global $tray_ReStartApache,$tray_openbash,$AppsStopped,$tray_TrayExit,$tray_menu_seperator,$tray_menu_seperator2,$nSideItem3,$nTrayIcon1,$nTrayMenu1,$tray_openCygwinConfig,$tray_sub_QuickLaunch,$tray_sub_Drives,$tray_sub_QuickLink,$tray_menu_seperator_quick_launch,$tray_openXServer
+Global $tray_ReStartApache,$tray_openbash,$AppsStopped,$tray_TrayExit,$tray_menu_seperator,$tray_menu_seperator2,$nSideItem3,$nTrayIcon1,$nTrayMenu1,$tray_openCygwinConfig,$tray_sub_QuickLaunch,$tray_sub_Drives,$tray_sub_QuickLink,$tray_menu_seperator_quick_launch,$tray_openXServer,$tray_openCygwinConfigPorts
 
 if $cygwinTrayMenu == True and $CmdLine[0] == 0 Then
 BuildTrayMenu()
@@ -211,6 +219,7 @@ EndFunc   ;==>MMOwningRebuild
 
 Func DeleteMenu()
 	_TrayDeleteItem($tray_openCygwinConfig)
+	_TrayDeleteItem($tray_openCygwinConfigPorts)
 	_TrayDeleteItem($tray_TrayExit)
 	_TrayDeleteItem($tray_menu_seperator)
 	_TrayDeleteItem($tray_menu_seperator2)
@@ -329,6 +338,11 @@ Func BuildMenu()
 	_TrayItemSetIcon($tray_openCygwinConfig, "shell32.dll", -58)
 	GUICtrlSetOnEvent(-1, "TrayEvent")
 
+	$tray_openCygwinConfigPorts = _TrayCreateItem("Open Cygwin Setup (cygwinports)")
+	_TrayItemSetIcon($tray_openCygwinConfigPorts, "shell32.dll", -58)
+	GUICtrlSetOnEvent(-1, "TrayEvent")
+
+
 	$tray_menu_seperator2 = _TrayCreateItem("")
 	_TrayItemSetIcon($tray_menu_seperator2, "", 0)
 
@@ -375,13 +389,19 @@ Func TrayEvent()
 			cygwinOpen("C:\")
 		Case $tray_openCygwinConfig
 			OpenConfig()
+		Case $tray_openCygwinConfigPorts
+			OpenConfigPorts()
 		Case $tray_openXServer
 			Run (@ScriptDir & "\bin\run.exe /bin/bash.exe -c '/usr/bin/startxwin.exe -- -nolock -unixkill'", "", @SW_HIDE )
 	EndSwitch
 EndFunc   ;==>TrayEvent
 
 Func OpenConfig()
-	ShellExecute(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe", " -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s ftp://lug.mtu.edu/cygwin" , @ScriptDir, "")
+	ShellExecute(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe", " -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s " & $cygwinMirror , @ScriptDir, "")
+EndFunc
+
+Func OpenConfigPorts()
+	ShellExecute(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe", " -K http://cygwinports.org/ports.gpg -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s " & $cygwinPortsMirror, @ScriptDir, "")
 EndFunc
 
 Func CleanUpSysTray()
