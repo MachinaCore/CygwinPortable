@@ -1,7 +1,7 @@
 #NoTrayIcon
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_Icon=App\AppInfo\appicon1.ico
-#AutoIt3Wrapper_Compression=4
+#AutoIt3Wrapper_Compression=0
 #AutoIt3Wrapper_Res_Description=CygwinPortable
 #AutoIt3Wrapper_Res_Fileversion=0.8.0.0
 #AutoIt3Wrapper_Res_ProductVersion=0.8
@@ -25,9 +25,12 @@
 #include <File.au3>
 #Include <Array.au3>
 #include <Process.au3>
+#include <GUIConstantsEx.au3>
 #include "resources\resources.au3"
 #include "resources\_ModernMenuRaw.au3"
 #include "resources\_SysTray.au3"
+#include "resources\_InetGetGUI.au3"
+
 
 EnvSet("PATH",  @ScriptDir & "\bin")
 EnvSet("ALLUSERSPROFILE",  "C:\ProgramData")
@@ -43,6 +46,8 @@ $executable = False
 $exitAfterExec = True
 $setContextMenu = False
 $cygwinNoMsgBox = False
+$cygwinMirror = "ftp://lug.mtu.edu/cygwin"
+$cygwinFirstInstallAdditions = ""
 
 Local $iniMain = IniReadSection(@ScriptDir & "\CygwinPortable.ini", "Main")
 If @error Then
@@ -66,8 +71,64 @@ Else
 		if $iniMain[$iniMainValue][0] == 'NoMsgBox' Then
 			$cygwinNoMsgBox = $iniMain[$iniMainValue][1]
 		EndIf
+		if $iniMain[$iniMainValue][0] == 'CygwinMirror' Then
+			$cygwinMirror = $iniMain[$iniMainValue][1]
+		EndIf
+		if $iniMain[$iniMainValue][0] == 'CygwinFirstInstallAdditions' Then
+			$cygwinFirstInstallAdditions = $iniMain[$iniMainValue][1]
+		EndIf
 	Next
 EndIf
+
+If Not FileExists(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe") then
+	DownloadSetup()
+ Endif
+
+Func DownloadSetup()
+    Local $sFilePathURL = "http://cygwin.com/setup.exe"
+    Local $hGUI, $iButton, $iLabel, $iProgressBar, $sFilePath
+
+    $hGUI = GUICreate("Cygwin setup.exe Downloader", 370, 90, -1, -1)
+    $iLabel = GUICtrlCreateLabel("Cygwin setup.exe is missing - This file is needed!", 5, 5, 270, 40)
+    $iButton = GUICtrlCreateButton("&Download", 275, 2.5, 90, 25)
+    $iProgressBar = GUICtrlCreateProgress(5, 60, 360, 20)
+    GUISetState(@SW_SHOW, $hGUI)
+	Local $downloadSuccess = False
+    While $downloadSuccess == False
+                $sFilePath = _InetGetGUI($sFilePathURL, $iLabel, $iProgressBar, $iButton, @ScriptDir)
+                If @error Then
+                    Switch @extended ; Check what the actual error was by using the @extended command.
+                        Case 0
+                            MsgBox(64, "Error", "Check the URL or your Internet Connection!")
+
+                        Case 1
+                            MsgBox(64, "Fail", "Seems the download was canecelled, but the file was >> " & $sFilePath)
+
+                    EndSwitch
+                Else
+                    ;MsgBox(64, "Success", "Downloaded >> " & $sFilePath & @CRLF & @CRLF & "Please restart this program")
+					FileMove(@ScriptDir & "\setup.exe",@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe",1)
+					GUISetState(@SW_HIDE, $hGUI)
+					$downloadSuccess = True
+                EndIf
+    WEnd
+EndFunc
+
+If Not FileExists(@ScriptDir & "\bin\bash.exe") then
+	$DownloadCygwinEnvironment = MsgBox (4, "Download cygwin Environment" ,"This is the first launch of Cygwin portable. Download the default cygwin packages (incl. X11) now ?")
+	If $DownloadCygwinEnvironment = 6 Then
+		ShellExecuteWait(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe", " -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s " & $cygwinMirror & " -q" & " -P " & $cygwinFirstInstallAdditions, @ScriptDir, "")
+		if FileExists(@ScriptDir & "\CygwinPortable.exe") then
+			ShellExecute(@ScriptDir & "\CygwinPortable.exe", "", @ScriptDir, "")
+			Exit
+		EndIf
+	ElseIf $DownloadCygwinEnvironment = 7 Then
+		MsgBox(16, "Error", "Cygwin environment setup canceled. Can't continue", 16)
+		Exit
+	EndIf
+
+;~ 	ShellExecuteWait(@ScriptDir & "\cygwinConfig.exe", " -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s " & $cygwinMirror & " -q" & " -P " & $cygwinFirstInstallAdditions, @ScriptDir, "")
+ Endif
 
 ReadCmdLineParams()
 
@@ -265,7 +326,7 @@ Func TrayEvent()
 EndFunc   ;==>TrayEvent
 
 Func OpenConfig()
-	ShellExecute(@ScriptDir & "\cygwinConfig.exe", " -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s ftp://lug.mtu.edu/cygwin" , @ScriptDir, "")
+	ShellExecute(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe", " -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s ftp://lug.mtu.edu/cygwin" , @ScriptDir, "")
 EndFunc
 
 Func CleanUpSysTray()
