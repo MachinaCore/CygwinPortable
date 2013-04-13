@@ -53,6 +53,9 @@ $cygwinPortsMirror ="ftp://ftp.cygwinports.org/pub/cygwinports"
 $cygwinFirstInstallAdditions = ""
 $cygwinDeleteInstallation = False
 $installUnofficial = False
+$shell = "mintty"
+
+
 
 Local $iniMain = IniReadSection(@ScriptDir & "\CygwinPortable.ini", "Main")
 If @error Then
@@ -72,6 +75,9 @@ Else
 		EndIf
 		if $iniMain[$iniMainValue][0] == 'TrayMenu' Then
 			$cygwinTrayMenu = $iniMain[$iniMainValue][1]
+		EndIf
+		if $iniMain[$iniMainValue][0] == 'Shell' Then
+			$shell = $iniMain[$iniMainValue][1]
 		EndIf
 		if $iniMain[$iniMainValue][0] == 'NoMsgBox' Then
 			$cygwinNoMsgBox = $iniMain[$iniMainValue][1]
@@ -94,9 +100,11 @@ Else
 		if $iniMain[$iniMainValue][0] == 'InstallUnofficial' Then
 			$installUnofficial = $iniMain[$iniMainValue][1]
 		EndIf
-
-
 	Next
+EndIf
+
+If $shell == "ConEmu" and Not FileExists(@ScriptDir & "\ConEmu\ConEmu.exe") then
+	$shell = "mintty"
 EndIf
 
 ;Delete Installation ?
@@ -197,18 +205,18 @@ ReadCmdLineParams()
 
 Global $tray_ReStartApache,$tray_openbash,$AppsStopped,$tray_TrayExit,$tray_menu_seperator,$tray_menu_seperator2,$nSideItem3,$nTrayIcon1,$nTrayMenu1,$tray_openCygwinConfig,$tray_sub_QuickLaunch,$tray_sub_Drives,$tray_sub_QuickLink,$tray_menu_seperator_quick_launch,$tray_openXServer,$tray_openCygwinConfigPorts
 
+if $setContextMenu == True Then
+	cygwinSetContextMenu()
+Else
+	cygwinUnSetContextMenu()
+EndIf
+
 if $cygwinTrayMenu == True and $CmdLine[0] == 0 Then
 BuildTrayMenu()
 BuildMenu()
 While 1
 	Sleep(1000)
 WEnd
-EndIf
-
-if $setContextMenu == True Then
-	cygwinSetContextMenu()
-Else
-	cygwinUnSetContextMenu()
 EndIf
 
 
@@ -552,18 +560,35 @@ Func cygwinOpen($cygwinOpenPath="")
 				next
 			EndIf
 		Next
-
+		;Run (@ScriptDir & "\ConEmu\ConEmu.exe /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c cd C:")
+		;ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd /home;exec /bin/bash.exe" , @ScriptDir, "")
 		if $cygfile <> "" and $executable == True Then
 			if $exitAfterExec == False Then
-				Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & ";exec /bin/bash.exe'")
+				if $shell == "ConEmu" Then
+					ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & ";exec /bin/bash.exe'" , @ScriptDir, "")
+				Else
+					Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & ";exec /bin/bash.exe'")
+				EndIf
 			Else
-				Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & "'")
+				if $shell == "ConEmu" Then
+					ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & "'" , @ScriptDir, "")
+				Else
+					Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & "'")
+				EndIf
 			EndIf
 		Else
-			Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & "/; exec /bin/bash.exe'")
+			if $shell == "ConEmu" Then
+				ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & "/; exec /bin/bash.exe'", @ScriptDir, "")
+			Else
+				Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & "/; exec /bin/bash.exe'")
+			EndIf
 		EndIf
 	ElseIf $correctPath <> 0 and $existingPath <> False Then
-	   Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd C:;exec /bin/bash.exe'")
+		if $shell == "ConEmu" Then
+			ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd C:;exec /bin/bash.exe'", @ScriptDir, "")
+		Else
+			Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd C:;exec /bin/bash.exe'")
+		EndIf
 	EndIf
 EndFunc
 
@@ -581,7 +606,7 @@ Func cygwinSetContextMenu()
 	RegWrite('HKEY_CLASSES_ROOT\Drive\shell\OpenDriveInCygwin\command', '', 'REG_SZ', '"' & @ScriptDir & '\CygwinPortable.exe" -path "%1"')
 	RegWrite('HKEY_CLASSES_ROOT\Drive\shell\OpenDriveInCygwin', 'Icon', 'REG_EXPAND_SZ', '' & @ScriptDir & '\CygwinPortable.exe')
 	;Open Folder (Background)
-	RegWrite('HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\Background\shell\OpenDirectoryInCygwinBackground', '', 'REG_SZ', 'Open Drive in Cygwin')
+	RegWrite('HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\Background\shell\OpenDirectoryInCygwinBackground', '', 'REG_SZ', 'Open Folder/Drive in Cygwin')
 	;RegWrite('HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\Background\shell\OpenDirectoryInCygwinBackground', 'Extended', 'REG_SZ', '')
 	RegWrite('HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\Background\shell\OpenDirectoryInCygwinBackground\command', '', 'REG_SZ', '"' & @ScriptDir & '\CygwinPortable.exe" -path "%v"')
 	RegWrite('HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\Background\shell\OpenDirectoryInCygwinBackground', 'Icon', 'REG_EXPAND_SZ', '' & @ScriptDir & '\CygwinPortable.exe')
