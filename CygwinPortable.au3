@@ -1,12 +1,14 @@
 #NoTrayIcon
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_Icon=App\AppInfo\appicon1.ico
+#AutoIt3Wrapper_UseUpx=n
 #AutoIt3Wrapper_Res_Description=CygwinPortable
 #AutoIt3Wrapper_Res_Fileversion=0.8.0.0
 #AutoIt3Wrapper_Res_ProductVersion=0.8
 #AutoIt3Wrapper_Res_LegalCopyright=CybeSystems
 #AutoIt3Wrapper_Res_Language=1031
-#AutoIt3Wrapper_Res_File_Add=resources/cs_sidebar.bmp, rt_bitmap, CYBESYSTEMS_SIDEBAR
+#AutoIt3Wrapper_Res_Icon_Add=App\AppInfo\appicon1.ico
+#AutoIt3Wrapper_Res_File_Add=Resources\cs_sidebar.bmp, rt_bitmap, CYBESYSTEMS_SIDEBAR
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 #Region AutoIt3Wrapper directives section
 ;===============================================================================================================
@@ -222,7 +224,7 @@ EndFunc   ;==>DeleteMenu
 
 Func BuildTrayMenu()
 	Opt("GUIOnEventMode", 1)
-	$nTrayIcon1 = _TrayIconCreate("CygwinPortable.exe", "CygwinPortable.exe", "MMO_ICON")
+	$nTrayIcon1 = _TrayIconCreate("CygwinPortable.exe", "CygwinPortable.exe")
 	$nTrayMenu1 = _TrayCreateContextMenu()
 	$nSideItem3 = _CreateSideMenu($nTrayMenu1)
 	_SetSideMenuText($nSideItem3, "CygwinPortable")
