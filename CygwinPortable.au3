@@ -541,8 +541,6 @@ Func cygwinOpen($cygwinOpenPath="")
 			EndIf
 		Else
 			Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & "/; exec /bin/bash.exe'")
-			;Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & ";echo " &$cygdrive & $cygfolder &"; exec /bin/bash.exe'")
-			FileWrite ( @ScriptDir & "\TEST.txt",$cygdrive & $cygfolder )
 		EndIf
 	ElseIf $correctPath <> 0 and $existingPath <> False Then
 	   Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd C:;exec /bin/bash.exe'")
