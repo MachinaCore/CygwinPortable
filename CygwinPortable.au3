@@ -1,7 +1,6 @@
 #NoTrayIcon
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_Icon=App\AppInfo\appicon1.ico
-#AutoIt3Wrapper_Compression=0
 #AutoIt3Wrapper_Res_Description=CygwinPortable
 #AutoIt3Wrapper_Res_Fileversion=0.8.0.0
 #AutoIt3Wrapper_Res_ProductVersion=0.8
@@ -46,8 +45,11 @@ $executable = False
 $exitAfterExec = True
 $setContextMenu = False
 $cygwinNoMsgBox = False
+$cygwinFirstInstallDeleteUnneeded = True
 $cygwinMirror = "ftp://lug.mtu.edu/cygwin"
 $cygwinFirstInstallAdditions = ""
+$cygwinDeleteInstallation = False
+$installUnofficial = False
 
 Local $iniMain = IniReadSection(@ScriptDir & "\CygwinPortable.ini", "Main")
 If @error Then
@@ -77,7 +79,36 @@ Else
 		if $iniMain[$iniMainValue][0] == 'CygwinFirstInstallAdditions' Then
 			$cygwinFirstInstallAdditions = $iniMain[$iniMainValue][1]
 		EndIf
+		if $iniMain[$iniMainValue][0] == 'CygwinFirstInstallDeleteUnneeded' Then
+			$cygwinFirstInstallDeleteUnneeded = $iniMain[$iniMainValue][1]
+		EndIf
+		if $iniMain[$iniMainValue][0] == 'CygwinDeleteInstallation' Then
+			$cygwinDeleteInstallation = $iniMain[$iniMainValue][1]
+		EndIf
+		if $iniMain[$iniMainValue][0] == 'InstallUnofficial' Then
+			$installUnofficial = $iniMain[$iniMainValue][1]
+		EndIf
 	Next
+EndIf
+
+;Delete Installation ?
+if $cygwinDeleteInstallation == True Then
+	$DeleteInstallation = MsgBox (4, "Delete/Reinstall Cygwin" ,"Do you REALLY want to delete and reinstall your Cygwin installation ?")
+	If $DeleteInstallation = 6 Then
+		For $iniMainValue = 1 To $iniMain[0][0]
+			;Is the selected file executable ?
+			if $iniMain[$iniMainValue][0] == 'CygwinDeleteInstallationFolders' Then
+				$cygwinDeleteInstallationFolders = StringSplit($iniMain[$iniMainValue][1], ",")
+				for $iniMainExecutableExtensionArray=1 to ubound($cygwinDeleteInstallationFolders,1) -1
+					FileDelete (@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe")
+					DirRemove ( @ScriptDir & "\" & $cygwinDeleteInstallationFolders[$iniMainExecutableExtensionArray], 1)
+				next
+			EndIf
+		Next
+	ElseIf $DeleteInstallation = 7 Then
+		MsgBox(16, "Error", "Cygwin environment setup canceled. Can't continue", 16)
+		Exit
+	EndIf
 EndIf
 
 If Not FileExists(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe") then
@@ -114,10 +145,32 @@ Func DownloadSetup()
     WEnd
 EndFunc
 
+if $installUnofficial == True Then
+	$installUnofficialFileList=_FileListToArray(@ScriptDir & "\App\CygwinUnofficial\", "*")
+	If Not @error Then
+		$count = $installUnofficialFileList[0]
+		for $x = 1 to $count
+			If Not @error Then
+				if Not FileExists(@ScriptDir & "\bin\" & $installUnofficialFileList[$x]) then
+					ConsoleWrite($installUnofficialFileList[$x])
+					FileCopy(@ScriptDir & "\App\CygwinUnofficial\" & $installUnofficialFileList[$x], @ScriptDir & "\bin\" & $installUnofficialFileList[$x])
+					Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'chmod +x /bin/" & $installUnofficialFileList[$x] & "'")
+				EndIf
+			EndIf
+		Next
+	EndIf
+EndIf
+
 If Not FileExists(@ScriptDir & "\bin\bash.exe") then
 	$DownloadCygwinEnvironment = MsgBox (4, "Download cygwin Environment" ,"This is the first launch of Cygwin portable. Download the default cygwin packages (incl. X11) now ?")
 	If $DownloadCygwinEnvironment = 6 Then
 		ShellExecuteWait(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe", " -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s " & $cygwinMirror & " -q" & " -P " & $cygwinFirstInstallAdditions, @ScriptDir, "")
+		if $cygwinFirstInstallDeleteUnneeded == True Then
+			FileDelete (@ScriptDir & "\Cygwin.ico")
+			FileDelete (@ScriptDir & "\Cygwin.bat")
+			FileDelete (@ScriptDir & "\setup.log")
+			FileDelete (@ScriptDir & "\setup.log.full")
+		EndIf
 		if FileExists(@ScriptDir & "\CygwinPortable.exe") then
 			ShellExecute(@ScriptDir & "\CygwinPortable.exe", "", @ScriptDir, "")
 			Exit
@@ -132,7 +185,7 @@ If Not FileExists(@ScriptDir & "\bin\bash.exe") then
 
 ReadCmdLineParams()
 
-Global $tray_ReStartApache,$tray_phpMyAdmin,$AppsStopped,$tray_TrayExit,$tray_menu_seperator,$tray_menu_seperator2,$nSideItem3,$nTrayIcon1,$nTrayMenu1,$tray_openCygwinConfig,$tray_sub_QuickLaunch,$tray_sub_Drives,$tray_sub_QuickLink,$tray_menu_seperator_quick_launch,$tray_openXServer
+Global $tray_ReStartApache,$tray_openbash,$AppsStopped,$tray_TrayExit,$tray_menu_seperator,$tray_menu_seperator2,$nSideItem3,$nTrayIcon1,$nTrayMenu1,$tray_openCygwinConfig,$tray_sub_QuickLaunch,$tray_sub_Drives,$tray_sub_QuickLink,$tray_menu_seperator_quick_launch,$tray_openXServer
 
 if $cygwinTrayMenu == True and $CmdLine[0] == 0 Then
 BuildTrayMenu()
@@ -159,7 +212,7 @@ Func DeleteMenu()
 	_TrayDeleteItem($tray_TrayExit)
 	_TrayDeleteItem($tray_menu_seperator)
 	_TrayDeleteItem($tray_menu_seperator2)
-	_TrayDeleteItem($tray_phpMyAdmin)
+	_TrayDeleteItem($tray_openbash)
 	_TrayDeleteItem($tray_openXServer)
 	_TrayDeleteItem($tray_ReStartApache)
 	_TrayDeleteItem($tray_sub_QuickLaunch)
@@ -262,12 +315,12 @@ Func BuildMenu()
 	$tray_menu_seperator = _TrayCreateItem("")
 	_TrayItemSetIcon($tray_menu_seperator, "", 0)
 
-	$tray_phpMyAdmin = _TrayCreateItem("phpMyAdmin")
-	_TrayItemSetIcon($tray_phpMyAdmin, "shell32.dll", -15)
+	$tray_openbash = _TrayCreateItem("Open Bash (C:\)")
+	_TrayItemSetIcon($tray_openbash, @ScriptDir & "\App\AppInfo\appicon2.ico")
 	GUICtrlSetOnEvent(-1, "TrayEvent")
 
 	$tray_openXServer = _TrayCreateItem("open XServer")
-	_TrayItemSetIcon($tray_openXServer, "shell32.dll", -15)
+	_TrayItemSetIcon($tray_openXServer, @ScriptDir & "\App\AppInfo\appicon3.ico")
 	GUICtrlSetOnEvent(-1, "TrayEvent")
 
 	$tray_openCygwinConfig = _TrayCreateItem("Open Cygwin Setup")
@@ -316,8 +369,8 @@ Func TrayEvent()
 			_TrayIconDelete($nTrayIcon1)
 			CleanUpSysTray()
 			Exit
-		Case $tray_phpMyAdmin
-			ShellExecute("http://127.0.0.1/phpMyAdmin")
+		Case $tray_openbash
+			cygwinOpen("C:\")
 		Case $tray_openCygwinConfig
 			OpenConfig()
 		Case $tray_openXServer
@@ -425,26 +478,23 @@ EndFunc
 
 
 Func cygwinOpen($cygwinOpenPath="")
-	ConsoleWrite($cygwinOpenPath)
 
-	Local $correctPath = StringInStr($cygwinOpenPath, ":/")
-	Local $correctPath2 = StringInStr($cygwinOpenPath, ":\")
+	Local $correctPath = StringInStr($cygwinOpenPath, ":")
+	Local $existingPath = FileExists ($cygwinOpenPath)
 
-	if $correctPath == 0 and $correctPath2 == 0 Then
+	if $correctPath == 0 Then
 		if $cygwinNoMsgBox == False Then
 			MsgBox(16, "Error", $cygwinOpenPath & " is not a correct Windows path", 16)
 		 EndIf
-		 Exit
 	 EndIf
 
 	if FileExists ($cygwinOpenPath)<> True Then
 		if $cygwinNoMsgBox == False Then
 			MsgBox(16, "Error", $cygwinOpenPath & " is not a existing file or directory", 16)
 		 EndIf
-		 Exit
 	 EndIf
 
-	if $cygwinOpenPath <> "" Then
+	if $cygwinOpenPath <> "" and $correctPath <> 0 and $existingPath <> False Then
 		$fullPath = $cygwinOpenPath
 		_PathSplit($fullPath, $szDrive, $szDir, $szFName, $szExt)
 		$cygdrive = "/cygdrive/" & StringReplace($szDrive, ":", "" )
@@ -492,7 +542,7 @@ Func cygwinOpen($cygwinOpenPath="")
 			;Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & ";echo " &$cygdrive & $cygfolder &"; exec /bin/bash.exe'")
 			FileWrite ( @ScriptDir & "\TEST.txt",$cygdrive & $cygfolder )
 		EndIf
-	Else
+	ElseIf $correctPath <> 0 and $existingPath <> False Then
 	   Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd C:;exec /bin/bash.exe'")
 	EndIf
 EndFunc
