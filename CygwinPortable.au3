@@ -706,9 +706,9 @@ Func cygwinOpen($cygwinOpenPath="")
 		For $iniMainValue = 1 To $iniMain[0][0]
 			;Is the selected file executable ?
 			if $iniMain[$iniMainValue][0] == 'ExecutableExtension' Then
-				$executableExtension = StringSplit($iniMain[$iniMainValue][1], ",")
-				for $iniMainExecutableExtensionArray=1 to ubound($executableExtension,1) -1
-					if $executableExtension[$iniMainExecutableExtensionArray] == StringReplace($szExt, ".", "" ) Then
+				$executableExtensionRun = StringSplit($iniMain[$iniMainValue][1], ",")
+				for $iniMainExecutableExtensionArray=1 to ubound($executableExtensionRun,1) -1
+					if $executableExtensionRun[$iniMainExecutableExtensionArray] == StringReplace($szExt, ".", "" ) Then
 						$executable = True
 					EndIf
 				next
