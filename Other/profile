@@ -41,7 +41,7 @@ USER="$(id -un)"
 # Translate $USBDRV to a Unix path
 USBDRVPATH=/cygdrive/$(echo $USBDRV | sed s/://g | tr "[:upper:]" "[:lower:]")
 patternToMatch="s/"$USBDRV"\///"
-CYGROOT=$USBDRVPATH/$(cygpath -m $CYGROOT | sed $patternToMatch | awk -F "" '{ for (i = 1; i < NF; i++) printf "%s", $i }')
+#CYGROOT=$USBDRVPATH/$(cygpath -m $CYGROOT | sed $patternToMatch | awk -F "" '{ for (i = 1; i < NF; i++) printf "%s", $i }')
 
 # Add TeXLive paths
 PATH="${USBDRVPATH}/texlive/bin/win32:${PATH}"

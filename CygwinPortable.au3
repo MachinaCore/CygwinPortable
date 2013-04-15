@@ -41,7 +41,7 @@
 Run(@ScriptDir & "\bin\bash /Other/user_setup.sh", @SW_HIDE)
 
 Global $szDrive, $szDir, $szFName, $szExt, $cygdrive,$cygfolder,$cygfolder1,$cygfile, $executableExtension, $executable, $exitAfterExec, $setContextMenu, $cygwinUsername,$cygwinTrayMenu,$shell,$cygwinNoMsgBox,$cygwinMirror,$cygwinPortsMirror,$cygwinFirstInstallAdditions
-Global $cygwinFirstInstallDeleteUnneeded, $cygwinDeleteInstallation, $installUnofficial,$cygwinDeleteInstallationFolders,$tray_openCygwinPortableConfig
+Global $cygwinFirstInstallDeleteUnneeded, $cygwinDeleteInstallation, $installUnofficial,$cygwinDeleteInstallationFolders,$tray_openCygwinPortableConfig,$windowsPathToCygwin
 Global $WS_GROUP
 
 Local $iniMain = IniReadSection(@ScriptDir & "\CygwinPortable.ini", "Main")
@@ -64,6 +64,7 @@ Func ReadSettings()
 	$cygwinFirstInstallAdditions = IniRead($iniFile, "Main", "CygwinFirstInstallAdditions", "")
 	$cygwinFirstInstallDeleteUnneeded = IniRead($iniFile, "Main", "CygwinFirstInstallDeleteUnneeded", True)
 	$installUnofficial = IniRead($iniFile, "Main", "InstallUnofficial", False)
+	$windowsPathToCygwin = IniRead($iniFile, "Main", "WindowsPathToCygwin", True)
 	$cygwinUsername = IniRead($iniFile, "Static", "Username", "")
 	$cygwinDeleteInstallation = IniRead($iniFile, "Expert", "CygwinDeleteInstallation", False)
 	$cygwinDeleteInstallationFolders = IniRead($iniFile, "Expert", "CygwinDeleteInstallationFolders", False)
@@ -103,12 +104,31 @@ Func UsernameExit()
 	GUIDelete($username_form)
 EndFunc
 
-EnvSet("PATH",  @ScriptDir & "\bin")
+
+_PathSplit(@ScriptDir, $szDrive, $szDir, $szFName, $szExt)
+if $windowsPathToCygwin == True then
+	$path = EnvGet("PATH")
+	If StringRight($path, 1) <> ";" Then
+		$path &= ";"
+	EndIf
+	EnvSet("PATH",$path & @ScriptDir & "\bin")
+Else
+	EnvSet("PATH",@ScriptDir & "\bin")
+EndIf
 EnvSet("ALLUSERSPROFILE",  "C:\ProgramData")
 EnvSet("ProgramData",  "C:\ProgramData")
-EnvSet("CYGWIN",  "nodosfilewarning")
+EnvSet("CYGWIN",  "nodosfilewarning1")
 EnvSet("USERNAME",  $cygwinUsername)
 EnvSet("HOME",  "/home/" & $cygwinUsername)
+EnvSet("USBDRV",  $szDrive)
+EnvSet("USBDRVPATH",  $szDrive)
+$TwoFoldersUp = _PathFull(@ScriptDir & "..\..\..\")
+If FileExists($TwoFoldersUp & "\StartPortableApps.exe") then
+	EnvSet("PORTABLEAPPS",  "true")
+Else
+	EnvSet("PORTABLEAPPS",  "false")
+EndIf
+
 
 Func Bool(Const ByRef $checkbox)
     If GUICtrlRead($checkbox) = $GUI_CHECKED Then
@@ -119,12 +139,12 @@ Func Bool(Const ByRef $checkbox)
 EndFunc
 
 Func CygwinPortableSettingsGUI()
-	Global $settings_form,$settings_chk_ExitAfterExec,$settings_chk_SetContextMenu,$settings_chk_TrayMenu, $settings_dropdown_shell, $settings_chk_NoMsgBox, $settings_input_ExecutableExtension,$settings_input_CygwinMirror,$settings_input_CygwinPortsMirror
+	Global $settings_form,$settings_chk_ExitAfterExec,$settings_chk_SetContextMenu,$settings_chk_TrayMenu, $settings_dropdown_shell, $settings_chk_NoMsgBox, $settings_input_ExecutableExtension,$settings_input_CygwinMirror,$settings_input_CygwinPortsMirror,$settings_chk_windows_to_cygwinpath
 	Global $settings_input_CygwinFirstInstallAdditions, $settings_chk_CygwinFirstInstallDeleteUnneeded, $settings_chk_InstallUnofficial, $settings_chk_CygwinDeleteInstallation,$settings_input_CygwinDeleteInstallationFolders,$settings_input_Username,$settings_btn_save,$settings_btn_cancel
 	#Region ### START Koda GUI section ###
-	$settings_form_1 = GUICreate("Cygwin Portable Launcher Settings", 412, 234, -1, -1)
+	$settings_form_1 = GUICreate("Cygwin Portable Launcher Settings", 412, 247, -1, -1)
 	GUISetIcon("D:\005.ico")
-	$PageControl1 = GUICtrlCreateTab(8, 8, 396, 184)
+	$PageControl1 = GUICtrlCreateTab(8, 8, 396, 200)
 	GUICtrlSetFont(-1, 8, 400, 0, "MS Sans Serif")
 	GUICtrlSetResizing(-1, $GUI_DOCKWIDTH+$GUI_DOCKHEIGHT)
 	$TabSheet1 = GUICtrlCreateTabItem("Settings")
@@ -137,6 +157,7 @@ Func CygwinPortableSettingsGUI()
 	$settings_lbl_shell = GUICtrlCreateLabel("Shell:", 24, 39, 30, 17)
 	$settings_lbl_ExecutableExtension = GUICtrlCreateLabel("Executable File Extensions:", 24, 63, 133, 17)
 	$settings_input_ExecutableExtension = GUICtrlCreateInput("settings_input_ExecutableExtension", 168, 63, 225, 21)
+	$settings_chk_windows_to_cygwinpath = GUICtrlCreateCheckbox("Add Windows PATH variables to Cygwin", 24, 184, 361, 17)
 	$TabSheet2 = GUICtrlCreateTabItem("Installer")
 	$settings_lbl_CygwinMirror = GUICtrlCreateLabel("Cygwin Mirror:", 16, 39, 70, 17)
 	$settings_input_CygwinMirror = GUICtrlCreateInput("settings_input_CygwinMirror", 128, 39, 257, 21)
@@ -154,9 +175,9 @@ Func CygwinPortableSettingsGUI()
 	$settings_input_Username = GUICtrlCreateInput("settings_input_Username", 176, 111, 209, 21)
 	$settings_lbl_username = GUICtrlCreateLabel("Username:", 16, 111, 55, 17)
 	GUICtrlCreateTabItem("")
-	$settings_btn_save = GUICtrlCreateButton("&Save", 246, 200, 75, 25, $WS_GROUP)
-	$settings_btn_cancel = GUICtrlCreateButton("&Cancel", 326, 200, 75, 25, $WS_GROUP)
-	GUISetState(@SW_SHOW)
+	$settings_btn_save = GUICtrlCreateButton("&Save", 246, 216, 75, 25, $WS_GROUP)
+	$settings_btn_cancel = GUICtrlCreateButton("&Cancel", 326, 216, 75, 25, $WS_GROUP)
+
 	#EndRegion ### END Koda GUI section ###
 
 
@@ -181,6 +202,9 @@ Func CygwinPortableSettingsGUI()
 	if $cygwinDeleteInstallation == True Then
 		GUICtrlSetState($settings_chk_CygwinDeleteInstallation, $GUI_CHECKED)
 	EndIf
+	if $windowsPathToCygwin == True Then
+		GUICtrlSetState($settings_chk_windows_to_cygwinpath, $GUI_CHECKED)
+	EndIf
 
 	;Set variables
 	GUICtrlSetData($settings_dropdown_shell,$shell)
@@ -192,6 +216,8 @@ Func CygwinPortableSettingsGUI()
 	GUICtrlSetData($settings_input_CygwinDeleteInstallationFolders,$cygwinDeleteInstallationFolders)
 	GUICtrlSetOnEvent($settings_btn_save, "ConfigSave")
 	GUICtrlSetOnEvent($settings_btn_cancel, "ConfigExit")
+
+	GUISetState(@SW_SHOW)
 EndFunc
 
 
@@ -207,6 +233,7 @@ Func ConfigSave()
 	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "CygwinFirstInstallAdditions", GuiCtrlRead($settings_input_CygwinFirstInstallAdditions))
 	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "CygwinFirstInstallDeleteUnneeded", Bool($settings_chk_CygwinFirstInstallDeleteUnneeded))
 	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "InstallUnofficial", Bool($settings_chk_InstallUnofficial))
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "WindowsPathToCygwin", Bool($settings_chk_windows_to_cygwinpath))
 	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Expert", "CygwinDeleteInstallation", Bool($settings_chk_CygwinDeleteInstallation))
 	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Expert", "CygwinDeleteInstallationFolders", GuiCtrlRead($settings_input_CygwinDeleteInstallationFolders))
 	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Static", "Username", GuiCtrlRead($settings_input_Username))
