@@ -35,6 +35,7 @@
 #include <GUIConstantsEx.au3>
 #include <TabConstants.au3>
 #include <StaticConstants.au3>
+#Include <Misc.au3>
 
 #include "resources\_InetGetGUI.au3"
 
@@ -356,7 +357,7 @@ Else
 	cygwinUnSetContextMenu()
 EndIf
 
-if $cygwinTrayMenu == True and $CmdLine[0] == 0 Then
+if $cygwinTrayMenu == True and $CmdLine[0] == 0  and not _Singleton("CygwinPortable.exe", 1) = 0 Then
 BuildTrayMenu()
 BuildMenu()
 While 1
@@ -412,6 +413,7 @@ Func BuildMenu()
 		for $x = 1 to $count
 			_PathSplit(@ScriptDir & "\App\ShellScript\" & $FolderList[$x], $szDrive, $szDir, $szFName, $szExt)
 			if $szExt <> ".ico" and $szExt <> ".lnk" Then
+
 				local $quicklaunch = _TrayCreateItem($FolderList[$x], $tray_sub_QuickLaunch)
 				If FileExists(@ScriptDir & "\App\ShellScript\" & $FolderList[$x] & ".ico") then
 					_TrayItemSetIcon($quicklaunch, @ScriptDir & "\App\ShellScript\" & $FolderList[$x] & ".ico")
