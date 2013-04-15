@@ -314,7 +314,6 @@ if $installUnofficial == True Then
 		for $x = 1 to $count
 			If Not @error Then
 				if Not FileExists(@ScriptDir & "\bin\" & $installUnofficialFileList[$x]) then
-					ConsoleWrite($installUnofficialFileList[$x])
 					FileCopy(@ScriptDir & "\App\CygwinUnofficial\" & $installUnofficialFileList[$x], @ScriptDir & "\bin\" & $installUnofficialFileList[$x])
 					Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'chmod +x /bin/" & $installUnofficialFileList[$x] & "'")
 				EndIf
@@ -407,35 +406,34 @@ Func BuildMenu()
 	$tray_sub_QuickLaunch = _TrayCreateMenu("Scripte")
 	_TrayItemSetIcon(-1, @ScriptDir & "\App\AppInfo\appicon1.ico")
 
-	$FolderList=_FileListToArray(@ScriptDir & "\quicklaunch\", "*")
+	$FolderList=_FileListToArray(@ScriptDir & "\App\ShellScript\", "*")
 	If Not @error Then
 		$count = $FolderList[0]
 		for $x = 1 to $count
-			_PathSplit(@ScriptDir & "\quicklaunch\" & $FolderList[$x], $szDrive, $szDir, $szFName, $szExt)
+			_PathSplit(@ScriptDir & "\App\ShellScript\" & $FolderList[$x], $szDrive, $szDir, $szFName, $szExt)
 			if $szExt <> ".ico" and $szExt <> ".lnk" Then
 				local $quicklaunch = _TrayCreateItem($FolderList[$x], $tray_sub_QuickLaunch)
-				If FileExists(@ScriptDir & "\quicklaunch\" & $FolderList[$x] & ".ico") then
-					_TrayItemSetIcon($quicklaunch, @ScriptDir & "\quicklaunch\" & $FolderList[$x] & ".ico")
+				If FileExists(@ScriptDir & "\App\ShellScript\" & $FolderList[$x] & ".ico") then
+					_TrayItemSetIcon($quicklaunch, @ScriptDir & "\App\ShellScript\" & $FolderList[$x] & ".ico")
 				ElseIf $szExt == '.sh' Then
 					_TrayItemSetIcon($quicklaunch, @ScriptDir & "\App\AppInfo\appicon1.ico")
 				ElseIf $szExt == '.bat' Then
 					_TrayItemSetIcon($quicklaunch, "shell32.dll", -72)
 				ElseIf $szExt == '.exe' Then
-					_TrayItemSetIcon($quicklaunch, @ScriptDir & "\quicklaunch\" & $FolderList[$x])
+					_TrayItemSetIcon($quicklaunch, @ScriptDir & "\App\ShellScript\" & $FolderList[$x])
 				Else
 					_TrayItemSetIcon($quicklaunch, "shell32.dll", -3)
 
 				EndIf
-				GUICtrlSetOnEvent(-1, "cygwinOpenGuiQuicklaunch")
+				GUICtrlSetOnEvent(-1, "cygwinOpenShellScript")
 			EndIf
 			if $szExt == ".lnk" Then
-				Local $aDetails = FileGetShortcut(@ScriptDir & "\quicklinks\" & $FolderList[$x])
+				Local $aDetails = FileGetShortcut(@ScriptDir & "\App\ShellScript\" & $FolderList[$x])
 				If Not @error Then
 					if $szExt == ".lnk" Then
 						local $quicklink = _TrayCreateItem($szFName, $tray_sub_QuickLaunch)
 						;_TrayItemSetIcon($quicklink, $aDetails[4])
 						_TrayItemSetIcon($quicklink, $aDetails[0])
-						ConsoleWrite($aDetails[5])
 					EndIf
 					GUICtrlSetOnEvent(-1, "cygwinOpenGuiQuickkinks")
 				EndIf
@@ -447,18 +445,17 @@ Func BuildMenu()
 	$tray_sub_QuickLink = _TrayCreateMenu("Shortcuts")
 	_TrayItemSetIcon(-1, "shell32.dll", -264)
 
-	$QuickLinksFolderList=_FileListToArray(@ScriptDir & "\quicklinks\", "*")
+	$QuickLinksFolderList=_FileListToArray(@ScriptDir & "\App\Shortcuts\", "*")
 	If Not @error Then
 		$count = $QuickLinksFolderList[0]
 		for $x = 1 to $count
-			_PathSplit(@ScriptDir & "\quicklinks\" & $QuickLinksFolderList[$x], $szDrive, $szDir, $szFName, $szExt)
-			Local $aDetails = FileGetShortcut(@ScriptDir & "\quicklinks\" & $QuickLinksFolderList[$x])
+			_PathSplit(@ScriptDir & "\App\Shortcuts\" & $QuickLinksFolderList[$x], $szDrive, $szDir, $szFName, $szExt)
+			Local $aDetails = FileGetShortcut(@ScriptDir & "\App\Shortcuts\" & $QuickLinksFolderList[$x])
 			If Not @error Then
 				if $szExt == ".lnk" Then
 					local $quicklink = _TrayCreateItem($szFName, $tray_sub_QuickLink)
 					;_TrayItemSetIcon($quicklink, $aDetails[4])
 					_TrayItemSetIcon($quicklink, $aDetails[0])
-					ConsoleWrite($aDetails[5])
 				EndIf
 				GUICtrlSetOnEvent(-1, "cygwinOpenGuiQuickkinks")
 			EndIf
@@ -514,8 +511,8 @@ Func BuildMenu()
 	;TrayMenuRightClick()
 EndFunc   ;==>BuildMenu
 
-Func cygwinOpenGuiQuicklaunch()
-	cygwinOpen(@ScriptDir & "\quicklaunch\" & _GetMenuText(@GUI_CtrlId))
+Func cygwinOpenShellScript()
+	cygwinOpen(@ScriptDir & "\App\ShellScript\" & _GetMenuText(@GUI_CtrlId))
 EndFunc   ;==>TrayEvent
 
 Func cygwinOpenGuiDrive()
@@ -523,12 +520,12 @@ Func cygwinOpenGuiDrive()
 EndFunc   ;==>TrayEvent
 
 Func cygwinOpenGuiQuickkinks()
-	$QuickLinksFolderList=_FileListToArray(@ScriptDir & "\quicklinks\", "*")
+	$QuickLinksFolderList=_FileListToArray(@ScriptDir & "\App\Shortcuts\", "*")
 	$count = $QuickLinksFolderList[0]
 	for $x = 1 to $count
-		_PathSplit(@ScriptDir & "\quicklinks\" & $QuickLinksFolderList[$x], $szDrive, $szDir, $szFName, $szExt)
+		_PathSplit(@ScriptDir & "\App\Shortcuts\" & $QuickLinksFolderList[$x], $szDrive, $szDir, $szFName, $szExt)
 		if $szFName == _GetMenuText(@GUI_CtrlId) Then
-			Local $aDetails = FileGetShortcut(@ScriptDir & "\quicklinks\" & $QuickLinksFolderList[$x])
+			Local $aDetails = FileGetShortcut(@ScriptDir & "\App\Shortcuts\" & $QuickLinksFolderList[$x])
 				cygwinOpen($aDetails[0])
 		EndIf
 	Next
