@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<object type="TAForm" name="settings_form_1">
+	<properties>
+		<property name="Left" vt="Int16">191</property>
+		<property name="Top" vt="Int8">122</property>
+		<property name="Width" vt="Int16">427</property>
+		<property name="Height" vt="Int16">271</property>
+		<property name="Caption" vt="String">Cygwin Portable Launcher Settings</property>
+		<property name="Color" vt="Ident">clBtnFace</property>
+		<property name="Font.Charset" vt="Ident">DEFAULT_CHARSET</property>
+		<property name="Font.Color" vt="Ident">clWindowText</property>
+		<property name="Font.Height" vt="Int8">-11</property>
+		<property name="Font.Name" vt="String">MS Sans Serif</property>
+		<property name="Font.Style" vt="Set"/>
+		<property name="Icon.Data" vt="Binary">
+			<bin>0000010001002020000001000800A80800001600000028000000200000004000</bin>
+			<bin>0000010008000000000000040000000000000000000000010000000100000000</bin>
+			<bin>0000FF000000FF00FF0080808000C0C0C000FFFFFF0000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000003</bin>
+			<bin>0303030303030303030303030303030303030303030303030303030303030000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000030005</bin>
+			<bin>0303030303030303030303030303030303030303030303030303030300030005</bin>
+			<bin>0405040504050405040504050405040504050405040504050405040300030005</bin>
+			<bin>0500000000000000000000000000000000000000000000000000050300030005</bin>
+			<bin>0400050303030303030303030303030303030303030303030300040300030005</bin>
+			<bin>0500050405040504050405040504050405040504050405040300050300030005</bin>
+			<bin>0400050504050405040504050405040504040000000000050300040300030005</bin>
+			<bin>0500050405040504050405040504050405040505050500040300050300030005</bin>
+			<bin>0400050504050405040504050405040504040404040404050300040300030005</bin>
+			<bin>0500050405040504050405040504050405040000000000040300050300030005</bin>
+			<bin>0400050504050405040504050405040504040505050500050300040300030005</bin>
+			<bin>0500050405040504050405040504050405040404040404040300050300030005</bin>
+			<bin>0400050504050405040504050405040504040000000000050300040300030005</bin>
+			<bin>0500050405040504050405040504050405040505050500040300050300030005</bin>
+			<bin>0400050504050405040504050405040504040404040404050300040300030005</bin>
+			<bin>0500050405040504050405040504050405040504050405040300050300030005</bin>
+			<bin>0400050504050405040505050505050505050505050505050500040300030005</bin>
+			<bin>0500050405040504050000000000000000000000000000000000050300030005</bin>
+			<bin>0400050504050405050005040504050404000504050405040400040300030005</bin>
+			<bin>0504000505050505000400050405050400040005040504040004050300030005</bin>
+			<bin>0405000000000000000500000000000000050000000000000005040300030005</bin>
+			<bin>0505050505050505050505050505050505050505050505050505050500030000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000030001</bin>
+			<bin>0101010101010101010101010101010101010101010100040004000400030000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>000000000000000000000000000000000000000000000000000000000000FFFF</bin>
+			<bin>FFFFFFFFFFFFFFFFFFFF80000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>0000000000000000000000000000000000000000000000000000000000000000</bin>
+			<bin>000000000000000000000000000000000001FFFFFFFFFFFFFFFFFFFFFFFF</bin>
+		</property>
+		<property name="OldCreateOrder" vt="False">False</property>
+		<property name="Position" vt="Ident">poDesktopCenter</property>
+		<property name="Visible" vt="True">True</property>
+		<property name="PicturePath" vt="String">D:\005.ico</property>
+		<property name="Style" vt="Int32">-1798701056</property>
+		<property name="ExStyle" vt="Int16">256</property>
+		<property name="Version" vt="String">1.04</property>
+		<property name="Description" vt="String">Tabbed pages Dialog.</property>
+		<property name="PixelsPerInch" vt="Int8">96</property>
+		<property name="TextHeight" vt="Int8">13</property>
+	</properties>
+	<components>
+		<object type="TATab" name="PageControl1">
+			<properties>
+				<property name="Left" vt="Int8">8</property>
+				<property name="Top" vt="Int8">8</property>
+				<property name="Width" vt="Int16">396</property>
+				<property name="Height" vt="Int16">184</property>
+				<property name="ActivePage" vt="Ident">TabSheet1</property>
+				<property name="Constraints.MaxWidth" vt="Int32">1409482752</property>
+				<property name="Font.Charset" vt="Ident">ANSI_CHARSET</property>
+				<property name="Font.Color" vt="Ident">clWindowText</property>
+				<property name="Font.Height" vt="Int8">-11</property>
+				<property name="Font.Name" vt="String">MS Sans Serif</property>
+				<property name="Font.Style" vt="Set"/>
+				<property name="ParentFont" vt="False">False</property>
+				<property name="TabOrder" vt="Int8">0</property>
+				<property name="CtrlStyle" vt="Int32">1409351680</property>
+				<property name="CtrlExStyle" vt="Int8">0</property>
+				<property name="Resizing" vt="Set">DockWidth, DockHeight</property>
+			</properties>
+			<components>
+				<object type="TTabSheet" name="TabSheet1">
+					<properties>
+						<property name="Caption" vt="String">Settings</property>
+					</properties>
+					<components>
+						<object type="TACheckbox" name="settings_chk_ExitAfterExec">
+							<properties>
+								<property name="Left" vt="Int8">12</property>
+								<property name="Top" vt="Int8">103</property>
+								<property name="Width" vt="Int16">233</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">Exit after Execution</property>
+								<property name="TabOrder" vt="Int8">0</property>
+								<property name="CtrlStyle" vt="Int32">1342242819</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+						<object type="TACheckbox" name="settings_chk_SetContextMenu">
+							<properties>
+								<property name="Left" vt="Int8">12</property>
+								<property name="Top" vt="Int8">55</property>
+								<property name="Width" vt="Int16">313</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">Set Windows Context Menus (registry)</property>
+								<property name="TabOrder" vt="Int8">1</property>
+								<property name="CtrlStyle" vt="Int32">1342242819</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+						<object type="TACheckbox" name="settings_chk_TrayMenu">
+							<properties>
+								<property name="Left" vt="Int8">12</property>
+								<property name="Top" vt="Int8">79</property>
+								<property name="Width" vt="Int8">97</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">Use TrayMenu</property>
+								<property name="TabOrder" vt="Int8">2</property>
+								<property name="CtrlStyle" vt="Int32">1342242819</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+						<object type="TACombo" name="settings_dropdown_shell">
+							<properties>
+								<property name="Left" vt="Int16">156</property>
+								<property name="Top" vt="Int8">7</property>
+								<property name="Width" vt="Int16">225</property>
+								<property name="Height" vt="Int8">25</property>
+								<property name="ItemHeight" vt="Int8">13</property>
+								<property name="TabOrder" vt="Int8">3</property>
+								<property name="Text" vt="String">mintty</property>
+								<property name="Items.Strings" vt="List">
+									<list>
+										<li vt="String">ConEmu</li>
+									</list>
+								</property>
+								<property name="CtrlStyle" vt="Int32">1342243394</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+						<object type="TACheckbox" name="settings_chk_NoMsgBox">
+							<properties>
+								<property name="Left" vt="Int8">12</property>
+								<property name="Top" vt="Int8">127</property>
+								<property name="Width" vt="Int16">337</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">Disable Message Boxes (errors will not be show !)</property>
+								<property name="TabOrder" vt="Int8">4</property>
+								<property name="CtrlStyle" vt="Int32">1342242819</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+						<object type="TALabel" name="settings_lbl_shell">
+							<properties>
+								<property name="Left" vt="Int8">12</property>
+								<property name="Top" vt="Int8">7</property>
+								<property name="Width" vt="Int8">30</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">Shell:</property>
+								<property name="TabOrder" vt="Int8">5</property>
+								<property name="HaveVariable" vt="False">False</property>
+								<property name="CtrlStyle" vt="Int32">1342177536</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set"/>
+							</properties>
+							<components/>
+						</object>
+						<object type="TALabel" name="settings_lbl_ExecutableExtension">
+							<properties>
+								<property name="Left" vt="Int8">12</property>
+								<property name="Top" vt="Int8">31</property>
+								<property name="Width" vt="Int16">133</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">Executable File Extensions:</property>
+								<property name="TabOrder" vt="Int8">6</property>
+								<property name="HaveVariable" vt="False">False</property>
+								<property name="CtrlStyle" vt="Int32">1342177536</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set"/>
+							</properties>
+							<components/>
+						</object>
+						<object type="TAInput" name="settings_input_ExecutableExtension">
+							<properties>
+								<property name="Left" vt="Int16">156</property>
+								<property name="Top" vt="Int8">31</property>
+								<property name="Width" vt="Int16">225</property>
+								<property name="Height" vt="Int8">21</property>
+								<property name="TabOrder" vt="Int8">7</property>
+								<property name="Text" vt="String">settings_input_ExecutableExtension</property>
+								<property name="CtrlStyle" vt="Int32">1342242944</property>
+								<property name="CtrlExStyle" vt="Int16">512</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+					</components>
+				</object>
+				<object type="TTabSheet" name="TabSheet2">
+					<properties>
+						<property name="Caption" vt="String">Installer</property>
+					</properties>
+					<components>
+						<object type="TALabel" name="settings_lbl_CygwinMirror">
+							<properties>
+								<property name="Left" vt="Int8">4</property>
+								<property name="Top" vt="Int8">7</property>
+								<property name="Width" vt="Int8">70</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">Cygwin Mirror:</property>
+								<property name="TabOrder" vt="Int8">0</property>
+								<property name="HaveVariable" vt="False">False</property>
+								<property name="CtrlStyle" vt="Int32">1342177536</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set"/>
+							</properties>
+							<components/>
+						</object>
+						<object type="TAInput" name="settings_input_CygwinMirror">
+							<properties>
+								<property name="Left" vt="Int8">116</property>
+								<property name="Top" vt="Int8">7</property>
+								<property name="Width" vt="Int16">257</property>
+								<property name="Height" vt="Int8">21</property>
+								<property name="TabOrder" vt="Int8">1</property>
+								<property name="Text" vt="String">settings_input_CygwinMirror</property>
+								<property name="CtrlStyle" vt="Int32">1342242944</property>
+								<property name="CtrlExStyle" vt="Int16">512</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+						<object type="TALabel" name="settings_lbl_CygwinPortsMirror">
+							<properties>
+								<property name="Left" vt="Int8">4</property>
+								<property name="Top" vt="Int8">31</property>
+								<property name="Width" vt="Int8">97</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">Cygwin Ports Mirror:</property>
+								<property name="TabOrder" vt="Int8">2</property>
+								<property name="HaveVariable" vt="False">False</property>
+								<property name="CtrlStyle" vt="Int32">1342177536</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set"/>
+							</properties>
+							<components/>
+						</object>
+						<object type="TAInput" name="settings_input_CygwinPortsMirror">
+							<properties>
+								<property name="Left" vt="Int8">116</property>
+								<property name="Top" vt="Int8">31</property>
+								<property name="Width" vt="Int16">257</property>
+								<property name="Height" vt="Int8">21</property>
+								<property name="TabOrder" vt="Int8">3</property>
+								<property name="Text" vt="String">settings_input_CygwinPortsMirror</property>
+								<property name="CtrlStyle" vt="Int32">1342242944</property>
+								<property name="CtrlExStyle" vt="Int16">512</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+						<object type="TALabel" name="settings_lbl_CygwinFirstInstallAdditions">
+							<properties>
+								<property name="Left" vt="Int8">4</property>
+								<property name="Top" vt="Int8">55</property>
+								<property name="Width" vt="Int8">100</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">First install additions:</property>
+								<property name="TabOrder" vt="Int8">4</property>
+								<property name="HaveVariable" vt="False">False</property>
+								<property name="CtrlStyle" vt="Int32">1342177536</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set"/>
+							</properties>
+							<components/>
+						</object>
+						<object type="TAInput" name="settings_input_CygwinFirstInstallAdditions">
+							<properties>
+								<property name="Left" vt="Int8">116</property>
+								<property name="Top" vt="Int8">55</property>
+								<property name="Width" vt="Int16">257</property>
+								<property name="Height" vt="Int8">21</property>
+								<property name="TabOrder" vt="Int8">5</property>
+								<property name="Text" vt="String">settings_input_CygwinFirstInstallAdditions</property>
+								<property name="CtrlStyle" vt="Int32">1342242944</property>
+								<property name="CtrlExStyle" vt="Int16">512</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+						<object type="TACheckbox" name="settings_chk_CygwinFirstInstallDeleteUnneeded">
+							<properties>
+								<property name="Left" vt="Int8">4</property>
+								<property name="Top" vt="Int8">79</property>
+								<property name="Width" vt="Int16">145</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">Delete unneeded files</property>
+								<property name="TabOrder" vt="Int8">6</property>
+								<property name="CtrlStyle" vt="Int32">1342242819</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+						<object type="TACheckbox" name="settings_chk_InstallUnofficial">
+							<properties>
+								<property name="Left" vt="Int8">4</property>
+								<property name="Top" vt="Int8">103</property>
+								<property name="Width" vt="Int16">241</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">Install unofficial Cygwin Tools</property>
+								<property name="TabOrder" vt="Int8">7</property>
+								<property name="CtrlStyle" vt="Int32">1342242819</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+					</components>
+				</object>
+				<object type="TTabSheet" name="TabSheet3">
+					<properties>
+						<property name="Caption" vt="String">Expert</property>
+					</properties>
+					<components>
+						<object type="TACheckbox" name="settings_chk_CygwinDeleteInstallation">
+							<properties>
+								<property name="Left" vt="Int8">4</property>
+								<property name="Top" vt="Int8">31</property>
+								<property name="Width" vt="Int16">225</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">Delete complete installation (Reinstall)</property>
+								<property name="TabOrder" vt="Int8">0</property>
+								<property name="CtrlStyle" vt="Int32">1342242819</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+						<object type="TALabel" name="settings_lbl_Warning">
+							<properties>
+								<property name="Left" vt="Int8">4</property>
+								<property name="Top" vt="Int8">7</property>
+								<property name="Width" vt="Int16">376</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">WARNING: Dont change anything here if not not exactly know what you doing</property>
+								<property name="TabOrder" vt="Int8">1</property>
+								<property name="HaveVariable" vt="False">False</property>
+								<property name="CtrlStyle" vt="Int32">1342177536</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set"/>
+							</properties>
+							<components/>
+						</object>
+						<object type="TALabel" name="settings_lbl_CygwinDeleteInstallationFolders">
+							<properties>
+								<property name="Left" vt="Int8">4</property>
+								<property name="Top" vt="Int8">55</property>
+								<property name="Width" vt="Int16">151</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">Drop these folders on Reinstall:</property>
+								<property name="TabOrder" vt="Int8">2</property>
+								<property name="HaveVariable" vt="False">False</property>
+								<property name="CtrlStyle" vt="Int32">1342177536</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set"/>
+							</properties>
+							<components/>
+						</object>
+						<object type="TAInput" name="settings_input_CygwinDeleteInstallationFolders">
+							<properties>
+								<property name="Left" vt="Int16">164</property>
+								<property name="Top" vt="Int8">55</property>
+								<property name="Width" vt="Int16">209</property>
+								<property name="Height" vt="Int8">21</property>
+								<property name="TabOrder" vt="Int8">3</property>
+								<property name="Text" vt="String">settings_input_CygwinDeleteInstallationFolders</property>
+								<property name="CtrlStyle" vt="Int32">1342242944</property>
+								<property name="CtrlExStyle" vt="Int16">512</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+						<object type="TAInput" name="settings_input_Username">
+							<properties>
+								<property name="Left" vt="Int16">164</property>
+								<property name="Top" vt="Int8">79</property>
+								<property name="Width" vt="Int16">209</property>
+								<property name="Height" vt="Int8">21</property>
+								<property name="TabOrder" vt="Int8">4</property>
+								<property name="Text" vt="String">settings_input_Username</property>
+								<property name="CtrlStyle" vt="Int32">1342242944</property>
+								<property name="CtrlExStyle" vt="Int16">512</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+						<object type="TALabel" name="settings_lbl_username">
+							<properties>
+								<property name="Left" vt="Int8">4</property>
+								<property name="Top" vt="Int8">79</property>
+								<property name="Width" vt="Int8">55</property>
+								<property name="Height" vt="Int8">17</property>
+								<property name="Caption" vt="String">Username:</property>
+								<property name="TabOrder" vt="Int8">5</property>
+								<property name="HaveVariable" vt="False">False</property>
+								<property name="CtrlStyle" vt="Int32">1342177536</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set"/>
+							</properties>
+							<components/>
+						</object>
+					</components>
+				</object>
+			</components>
+		</object>
+		<object type="TAButton" name="settings_btn_save">
+			<properties>
+				<property name="Left" vt="Int16">246</property>
+				<property name="Top" vt="Int16">200</property>
+				<property name="Width" vt="Int8">75</property>
+				<property name="Height" vt="Int8">25</property>
+				<property name="Caption" vt="String">&amp;Save</property>
+				<property name="Constraints.MaxWidth" vt="Int32">1342242816</property>
+				<property name="TabOrder" vt="Int8">1</property>
+				<property name="Color" vt="Ident">clBtnFace</property>
+				<property name="CtrlStyle" vt="Int32">1342390272</property>
+				<property name="CtrlExStyle" vt="Int8">0</property>
+				<property name="Resizing" vt="Set">DockWidth, DockHeight</property>
+			</properties>
+			<components/>
+		</object>
+		<object type="TAButton" name="settings_btn_cancel">
+			<properties>
+				<property name="Left" vt="Int16">326</property>
+				<property name="Top" vt="Int16">200</property>
+				<property name="Width" vt="Int8">75</property>
+				<property name="Height" vt="Int8">25</property>
+				<property name="Caption" vt="String">&amp;Cancel</property>
+				<property name="Constraints.MaxWidth" vt="Int32">1342242816</property>
+				<property name="TabOrder" vt="Int8">2</property>
+				<property name="Color" vt="Ident">clBtnFace</property>
+				<property name="CtrlStyle" vt="Int32">1342390272</property>
+				<property name="CtrlExStyle" vt="Int8">0</property>
+				<property name="Resizing" vt="Set">DockWidth, DockHeight</property>
+			</properties>
+			<components/>
+		</object>
+	</components>
+</object>

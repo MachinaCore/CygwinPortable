@@ -26,85 +26,204 @@
 #include <File.au3>
 #Include <Array.au3>
 #include <Process.au3>
-#include <GUIConstantsEx.au3>
 #include "resources\resources.au3"
 #include "resources\_ModernMenuRaw.au3"
 #include "resources\_SysTray.au3"
+#include <ButtonConstants.au3>
+#include <ComboConstants.au3>
+#include <EditConstants.au3>
+#include <GUIConstantsEx.au3>
+#include <TabConstants.au3>
+#include <StaticConstants.au3>
+
 #include "resources\_InetGetGUI.au3"
 
+Run(@ScriptDir & "\bin\bash /Other/user_setup.sh", @SW_HIDE)
+
+Global $szDrive, $szDir, $szFName, $szExt, $cygdrive,$cygfolder,$cygfolder1,$cygfile, $executableExtension, $executable, $exitAfterExec, $setContextMenu, $cygwinUsername,$cygwinTrayMenu,$shell,$cygwinNoMsgBox,$cygwinMirror,$cygwinPortsMirror,$cygwinFirstInstallAdditions
+Global $cygwinFirstInstallDeleteUnneeded, $cygwinDeleteInstallation, $installUnofficial,$cygwinDeleteInstallationFolders,$tray_openCygwinPortableConfig
+Global $WS_GROUP
+
+Local $iniMain = IniReadSection(@ScriptDir & "\CygwinPortable.ini", "Main")
+Local $iniFile = @ScriptDir & "\CygwinPortable.ini"
+If @error Then
+	MsgBox(4096, "", "CygwinPortable.ini not found")
+Else
+	ReadSettings()
+EndIf
+
+Func ReadSettings()
+	$exitAfterExec = IniRead($iniFile, "Main", "ExitAfterExec", True)
+	$setContextMenu = IniRead($iniFile, "Main", "SetContextMenu", False)
+	$cygwinTrayMenu = IniRead($iniFile, "Main", "TrayMenu", True)
+	$shell = IniRead($iniFile, "Main", "Shell", "mintty")
+	$cygwinNoMsgBox = IniRead($iniFile, "Main", "NoMsgBox", False)
+	$executableExtension = IniRead($iniFile, "Main", "ExecutableExtension", "exe,bat,sh,pl,bat")
+	$cygwinMirror = IniRead($iniFile, "Main", "CygwinMirror", "ftp://lug.mtu.edu/cygwin")
+	$cygwinPortsMirror = IniRead($iniFile, "Main", "CygwinPortsMirror", "ftp://ftp.cygwinports.org/pub/cygwinports")
+	$cygwinFirstInstallAdditions = IniRead($iniFile, "Main", "CygwinFirstInstallAdditions", "")
+	$cygwinFirstInstallDeleteUnneeded = IniRead($iniFile, "Main", "CygwinFirstInstallDeleteUnneeded", True)
+	$installUnofficial = IniRead($iniFile, "Main", "InstallUnofficial", False)
+	$cygwinUsername = IniRead($iniFile, "Static", "Username", "")
+	$cygwinDeleteInstallation = IniRead($iniFile, "Expert", "CygwinDeleteInstallation", False)
+	$cygwinDeleteInstallationFolders = IniRead($iniFile, "Expert", "CygwinDeleteInstallationFolders", False)
+EndFunc
+
+If $shell == "ConEmu" and Not FileExists(@ScriptDir & "\ConEmu\ConEmu.exe") then
+	$shell = "mintty"
+EndIf
+
+
+if $cygwinUsername == "" Then
+	Global $username_form,$username_input_username,$username_btn_save,$username_btn_save
+	#Region ### START Koda GUI section ###
+	$username_form = GUICreate("Username", 234, 89, -1, -1)
+	$username_lbl_username = GUICtrlCreateLabel("Please enter a username for Cygwin Portable", 8, 8, 215, 17)
+	$username_input_username = GUICtrlCreateInput("cygwin", 8, 32, 217, 21)
+	$username_btn_save = GUICtrlCreateButton("Save", 72, 56, 75, 25, $WS_GROUP)
+	$username_btn_exit = GUICtrlCreateButton("Exit", 152, 56, 75, 25, $WS_GROUP)
+	GUISetState(@SW_SHOW)
+	#EndRegion ### END Koda GUI section ###
+	GUICtrlSetOnEvent($username_btn_save, "UsernameSave")
+	GUICtrlSetOnEvent($username_btn_exit, "UsernameExit")
+EndIf
+
+Func UsernameSave()
+	if StringIsAlpha (GuiCtrlRead($username_input_username)) == 1 Then
+		$cygwinUsername = GuiCtrlRead($username_input_username)
+		IniWrite(@ScriptDir & "\CygwinPortable.ini", "Static", "Username", GuiCtrlRead($username_input_username))
+		GUIDelete($username_form)
+		ReadSettings()
+	Else
+		MsgBox(16,"Error","The username contains invalid characters (only alphabetic characters allowed)",16)
+	EndIf
+EndFunc
+
+Func UsernameExit()
+	GUIDelete($username_form)
+EndFunc
 
 EnvSet("PATH",  @ScriptDir & "\bin")
 EnvSet("ALLUSERSPROFILE",  "C:\ProgramData")
 EnvSet("ProgramData",  "C:\ProgramData")
 EnvSet("CYGWIN",  "nodosfilewarning")
-EnvSet("HOME",  "/home/cygwin")
+EnvSet("USERNAME",  $cygwinUsername)
+EnvSet("HOME",  "/home/" & $cygwinUsername)
 
-Run(@ScriptDir & "\bin\bash /Other/user_setup.sh", @SW_HIDE)
+Func Bool(Const ByRef $checkbox)
+    If GUICtrlRead($checkbox) = $GUI_CHECKED Then
+        Return True
+    ElseIf GUICtrlRead($checkbox) = $GUI_UNCHECKED Then
+        Return False
+    EndIf
+EndFunc
 
-Global $szDrive, $szDir, $szFName, $szExt, $cygdrive,$cygfolder,$cygfolder1,$cygfile, $executableExtension, $executable, $exitAfterExec, $setContextMenu, $cygwinUsername
+Func CygwinPortableSettingsGUI()
+	Global $settings_form,$settings_chk_ExitAfterExec,$settings_chk_SetContextMenu,$settings_chk_TrayMenu, $settings_dropdown_shell, $settings_chk_NoMsgBox, $settings_input_ExecutableExtension,$settings_input_CygwinMirror,$settings_input_CygwinPortsMirror
+	Global $settings_input_CygwinFirstInstallAdditions, $settings_chk_CygwinFirstInstallDeleteUnneeded, $settings_chk_InstallUnofficial, $settings_chk_CygwinDeleteInstallation,$settings_input_CygwinDeleteInstallationFolders,$settings_input_Username,$settings_btn_save,$settings_btn_cancel
+	#Region ### START Koda GUI section ###
+	$settings_form_1 = GUICreate("Cygwin Portable Launcher Settings", 412, 234, -1, -1)
+	GUISetIcon("D:\005.ico")
+	$PageControl1 = GUICtrlCreateTab(8, 8, 396, 184)
+	GUICtrlSetFont(-1, 8, 400, 0, "MS Sans Serif")
+	GUICtrlSetResizing(-1, $GUI_DOCKWIDTH+$GUI_DOCKHEIGHT)
+	$TabSheet1 = GUICtrlCreateTabItem("Settings")
+	$settings_chk_ExitAfterExec = GUICtrlCreateCheckbox("Exit after Execution", 24, 135, 233, 17)
+	$settings_chk_SetContextMenu = GUICtrlCreateCheckbox("Set Windows Context Menus (registry)", 24, 87, 313, 17)
+	$settings_chk_TrayMenu = GUICtrlCreateCheckbox("Use TrayMenu", 24, 111, 97, 17)
+	$settings_dropdown_shell = GUICtrlCreateCombo("mintty", 168, 39, 225, 25)
+	GUICtrlSetData(-1, "ConEmu")
+	$settings_chk_NoMsgBox = GUICtrlCreateCheckbox("Disable Message Boxes (errors will not be show !)", 24, 159, 337, 17)
+	$settings_lbl_shell = GUICtrlCreateLabel("Shell:", 24, 39, 30, 17)
+	$settings_lbl_ExecutableExtension = GUICtrlCreateLabel("Executable File Extensions:", 24, 63, 133, 17)
+	$settings_input_ExecutableExtension = GUICtrlCreateInput("settings_input_ExecutableExtension", 168, 63, 225, 21)
+	$TabSheet2 = GUICtrlCreateTabItem("Installer")
+	$settings_lbl_CygwinMirror = GUICtrlCreateLabel("Cygwin Mirror:", 16, 39, 70, 17)
+	$settings_input_CygwinMirror = GUICtrlCreateInput("settings_input_CygwinMirror", 128, 39, 257, 21)
+	$settings_lbl_CygwinPortsMirror = GUICtrlCreateLabel("Cygwin Ports Mirror:", 16, 63, 97, 17)
+	$settings_input_CygwinPortsMirror = GUICtrlCreateInput("settings_input_CygwinPortsMirror", 128, 63, 257, 21)
+	$settings_lbl_CygwinFirstInstallAdditions = GUICtrlCreateLabel("First install additions:", 16, 87, 100, 17)
+	$settings_input_CygwinFirstInstallAdditions = GUICtrlCreateInput("settings_input_CygwinFirstInstallAdditions", 128, 87, 257, 21)
+	$settings_chk_CygwinFirstInstallDeleteUnneeded = GUICtrlCreateCheckbox("Delete unneeded files", 16, 111, 145, 17)
+	$settings_chk_InstallUnofficial = GUICtrlCreateCheckbox("Install unofficial Cygwin Tools", 16, 135, 241, 17)
+	$TabSheet3 = GUICtrlCreateTabItem("Expert")
+	$settings_chk_CygwinDeleteInstallation = GUICtrlCreateCheckbox("Delete complete installation (Reinstall)", 16, 63, 225, 17)
+	$settings_lbl_Warning = GUICtrlCreateLabel("WARNING: Dont change anything here if not not exactly know what you doing", 16, 39, 376, 17)
+	$settings_lbl_CygwinDeleteInstallationFolders = GUICtrlCreateLabel("Drop these folders on Reinstall:", 16, 87, 151, 17)
+	$settings_input_CygwinDeleteInstallationFolders = GUICtrlCreateInput("settings_input_CygwinDeleteInstallationFolders", 176, 87, 209, 21)
+	$settings_input_Username = GUICtrlCreateInput("settings_input_Username", 176, 111, 209, 21)
+	$settings_lbl_username = GUICtrlCreateLabel("Username:", 16, 111, 55, 17)
+	GUICtrlCreateTabItem("")
+	$settings_btn_save = GUICtrlCreateButton("&Save", 246, 200, 75, 25, $WS_GROUP)
+	$settings_btn_cancel = GUICtrlCreateButton("&Cancel", 326, 200, 75, 25, $WS_GROUP)
+	GUISetState(@SW_SHOW)
+	#EndRegion ### END Koda GUI section ###
 
-$executable = False
-$exitAfterExec = True
-$setContextMenu = False
-$cygwinNoMsgBox = False
-$cygwinFirstInstallDeleteUnneeded = True
-$cygwinMirror = "ftp://lug.mtu.edu/cygwin"
-$cygwinPortsMirror ="ftp://ftp.cygwinports.org/pub/cygwinports"
-$cygwinFirstInstallAdditions = ""
-$cygwinDeleteInstallation = False
-$installUnofficial = False
-$shell = "mintty"
+
+	if $exitAfterExec == True Then
+		GUICtrlSetState($settings_chk_ExitAfterExec, $GUI_CHECKED)
+	EndIf
+	if $setContextMenu == True Then
+		GUICtrlSetState($settings_chk_SetContextMenu, $GUI_CHECKED)
+	EndIf
+	if $cygwinTrayMenu == True Then
+		GUICtrlSetState($settings_chk_TrayMenu, $GUI_CHECKED)
+	EndIf
+	if $cygwinNoMsgBox == True Then
+		GUICtrlSetState($settings_chk_NoMsgBox, $GUI_CHECKED)
+	EndIf
+	if $cygwinFirstInstallDeleteUnneeded == True Then
+		GUICtrlSetState($settings_chk_CygwinFirstInstallDeleteUnneeded, $GUI_CHECKED)
+	EndIf
+	if $installUnofficial == True Then
+		GUICtrlSetState($settings_chk_InstallUnofficial, $GUI_CHECKED)
+	EndIf
+	if $cygwinDeleteInstallation == True Then
+		GUICtrlSetState($settings_chk_CygwinDeleteInstallation, $GUI_CHECKED)
+	EndIf
+
+	;Set variables
+	GUICtrlSetData($settings_dropdown_shell,$shell)
+	GUICtrlSetData($settings_input_ExecutableExtension,$executableExtension)
+	GUICtrlSetData($settings_input_CygwinMirror,$cygwinMirror)
+	GUICtrlSetData($settings_input_CygwinPortsMirror,$cygwinPortsMirror)
+	GUICtrlSetData($settings_input_Username,$cygwinUsername)
+	GUICtrlSetData($settings_input_CygwinFirstInstallAdditions,$cygwinFirstInstallAdditions)
+	GUICtrlSetData($settings_input_CygwinDeleteInstallationFolders,$cygwinDeleteInstallationFolders)
+	GUICtrlSetOnEvent($settings_btn_save, "ConfigSave")
+	GUICtrlSetOnEvent($settings_btn_cancel, "ConfigExit")
+EndFunc
 
 
+Func ConfigSave()
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "ExitAfterExec", Bool($settings_chk_ExitAfterExec))
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "SetContextMenu", Bool($settings_chk_SetContextMenu))
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "TrayMenu", Bool($settings_chk_TrayMenu))
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "Shell", GuiCtrlRead($settings_dropdown_shell))
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "NoMsgBox", Bool($settings_chk_NoMsgBox))
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "ExecutableExtension", GuiCtrlRead($settings_input_ExecutableExtension))
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "CygwinMirror", GuiCtrlRead($settings_input_CygwinMirror))
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "CygwinPortsMirror", GuiCtrlRead($settings_input_CygwinPortsMirror))
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "CygwinFirstInstallAdditions", GuiCtrlRead($settings_input_CygwinFirstInstallAdditions))
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "CygwinFirstInstallDeleteUnneeded", Bool($settings_chk_CygwinFirstInstallDeleteUnneeded))
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Main", "InstallUnofficial", Bool($settings_chk_InstallUnofficial))
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Expert", "CygwinDeleteInstallation", Bool($settings_chk_CygwinDeleteInstallation))
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Expert", "CygwinDeleteInstallationFolders", GuiCtrlRead($settings_input_CygwinDeleteInstallationFolders))
+	IniWrite(@ScriptDir & "\CygwinPortable.ini", "Static", "Username", GuiCtrlRead($settings_input_Username))
+	GUIDelete($settings_form)
+	ReadSettings()
+EndFunc
 
-Local $iniMain = IniReadSection(@ScriptDir & "\CygwinPortable.ini", "Main")
-If @error Then
-	MsgBox(4096, "", "CygwinPortable.ini not found")
-Else
-	For $iniMainValue = 1 To $iniMain[0][0]
-		;Close console after execution ?
-		if $iniMain[$iniMainValue][0] == 'ExitAfterExec' Then
-			$exitAfterExec = $iniMain[$iniMainValue][1]
-		EndIf
-		if $iniMain[$iniMainValue][0] == 'SetContextMenu' Then
-			$setContextMenu = $iniMain[$iniMainValue][1]
-		EndIf
-		if $iniMain[$iniMainValue][0] == 'Username' Then
-			$cygwinUsername = $iniMain[$iniMainValue][1]
-			EnvSet("HOME",  "/home/" & $cygwinUsername)
-		EndIf
-		if $iniMain[$iniMainValue][0] == 'TrayMenu' Then
-			$cygwinTrayMenu = $iniMain[$iniMainValue][1]
-		EndIf
-		if $iniMain[$iniMainValue][0] == 'Shell' Then
-			$shell = $iniMain[$iniMainValue][1]
-		EndIf
-		if $iniMain[$iniMainValue][0] == 'NoMsgBox' Then
-			$cygwinNoMsgBox = $iniMain[$iniMainValue][1]
-		EndIf
-		if $iniMain[$iniMainValue][0] == 'CygwinMirror' Then
-			$cygwinMirror = $iniMain[$iniMainValue][1]
-		EndIf
-		if $iniMain[$iniMainValue][0] == 'CygwinPortsMirror' Then
-			$cygwinPortsMirror = $iniMain[$iniMainValue][1]
-		EndIf
-		if $iniMain[$iniMainValue][0] == 'CygwinFirstInstallAdditions' Then
-			$cygwinFirstInstallAdditions = $iniMain[$iniMainValue][1]
-		EndIf
-		if $iniMain[$iniMainValue][0] == 'CygwinFirstInstallDeleteUnneeded' Then
-			$cygwinFirstInstallDeleteUnneeded = $iniMain[$iniMainValue][1]
-		EndIf
-		if $iniMain[$iniMainValue][0] == 'CygwinDeleteInstallation' Then
-			$cygwinDeleteInstallation = $iniMain[$iniMainValue][1]
-		EndIf
-		if $iniMain[$iniMainValue][0] == 'InstallUnofficial' Then
-			$installUnofficial = $iniMain[$iniMainValue][1]
-		EndIf
-	Next
-EndIf
+Func ConfigExit()
+	GUIDelete($settings_form)
+EndFunc   ;==>ConfigExit
 
-If $shell == "ConEmu" and Not FileExists(@ScriptDir & "\ConEmu\ConEmu.exe") then
-	$shell = "mintty"
+If Not FileExists(@ScriptDir & "\home\" & $cygwinUsername) and FileExists(@ScriptDir & "\bin\bash.exe") then
+	ShellExecuteWait(@ScriptDir & "\bin\bash.exe", "--login -i -c 'exit'" , @ScriptDir, "")
+	FileDelete (@ScriptDir & "/home/" & $cygwinUsername & "/.bashrc")
+	FileDelete (@ScriptDir & "/home/" & $cygwinUsername & "/.minttyrc")
+	FileDelete (@ScriptDir & "/etc/profile")
+	ShellExecute(@ScriptDir & "\bin\bash.exe", "--login -i -c 'ln -s /Other/bashrc ~/.bashrc;ln -s /Other/dircolors ~/.dircolors;ln -s /Other/minttyrc ~/.minttyrc;ln -s /Other/profile /etc/profile;ln -s /Other/cyg-wrapper.sh /bin/cyg-wrapper.sh;ln -s /Other/startSumatra.sh /bin/startSumatra.sh;exec /bin/bash.exe'" , @ScriptDir, "")
 EndIf
 
 ;Delete Installation ?
@@ -170,7 +289,7 @@ if $installUnofficial == True Then
 				if Not FileExists(@ScriptDir & "\bin\" & $installUnofficialFileList[$x]) then
 					ConsoleWrite($installUnofficialFileList[$x])
 					FileCopy(@ScriptDir & "\App\CygwinUnofficial\" & $installUnofficialFileList[$x], @ScriptDir & "\bin\" & $installUnofficialFileList[$x])
-					Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'chmod +x /bin/" & $installUnofficialFileList[$x] & "'")
+					Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'chmod +x /bin/" & $installUnofficialFileList[$x] & "'")
 				EndIf
 			EndIf
 		Next
@@ -227,6 +346,7 @@ EndFunc   ;==>MMOwningRebuild
 
 Func DeleteMenu()
 	_TrayDeleteItem($tray_openCygwinConfig)
+	_TrayDeleteItem($tray_openCygwinPortableConfig)
 	_TrayDeleteItem($tray_openCygwinConfigPorts)
 	_TrayDeleteItem($tray_TrayExit)
 	_TrayDeleteItem($tray_menu_seperator)
@@ -350,6 +470,11 @@ Func BuildMenu()
 	_TrayItemSetIcon($tray_openCygwinConfigPorts, "shell32.dll", -58)
 	GUICtrlSetOnEvent(-1, "TrayEvent")
 
+	$tray_openCygwinPortableConfig = _TrayCreateItem("CygwinPortable Settings")
+	_TrayItemSetIcon($tray_openCygwinPortableConfig, "shell32.dll", -58)
+	GUICtrlSetOnEvent(-1, "TrayEvent")
+
+
 
 	$tray_menu_seperator2 = _TrayCreateItem("")
 	_TrayItemSetIcon($tray_menu_seperator2, "", 0)
@@ -399,6 +524,8 @@ Func TrayEvent()
 			OpenConfig()
 		Case $tray_openCygwinConfigPorts
 			OpenConfigPorts()
+		Case $tray_openCygwinPortableConfig
+			CygwinPortableSettingsGUI()
 		Case $tray_openXServer
 			Run (@ScriptDir & "\bin\run.exe /bin/bash.exe -c '/usr/bin/startxwin.exe -- -nolock -unixkill'", "", @SW_HIDE )
 	EndSwitch
@@ -567,27 +694,27 @@ Func cygwinOpen($cygwinOpenPath="")
 				if $shell == "ConEmu" Then
 					ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & ";exec /bin/bash.exe'" , @ScriptDir, "")
 				Else
-					Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & ";exec /bin/bash.exe'")
+					Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & ";exec /bin/bash.exe'")
 				EndIf
 			Else
 				if $shell == "ConEmu" Then
 					ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & "'" , @ScriptDir, "")
 				Else
-					Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & "'")
+					Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & "'")
 				EndIf
 			EndIf
 		Else
 			if $shell == "ConEmu" Then
 				ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & "/; exec /bin/bash.exe'", @ScriptDir, "")
 			Else
-				Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & "/; exec /bin/bash.exe'")
+				Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & "/; exec /bin/bash.exe'")
 			EndIf
 		EndIf
 	ElseIf $correctPath <> 0 and $existingPath <> False Then
 		if $shell == "ConEmu" Then
 			ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd C:;exec /bin/bash.exe'", @ScriptDir, "")
 		Else
-			Run (@ScriptDir & "\bin\mintty --config /home/ntmoe/.minttyrc -e /bin/bash.exe -c 'cd C:;exec /bin/bash.exe'")
+			Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd C:;exec /bin/bash.exe'")
 		EndIf
 	EndIf
 EndFunc
