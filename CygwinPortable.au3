@@ -729,17 +729,22 @@ Func cygwinOpen($cygwinOpenPath="")
 		;Run (@ScriptDir & "\ConEmu\ConEmu.exe /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c cd C:")
 		;ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd /home;exec /bin/bash.exe" , @ScriptDir, "")
 		if $cygfile <> "" and $executable == True Then
+			local $executeCommand = ";./" & $cygfile
+			if $szExt == "py" Then
+				local $executeCommand = "python " & $cygfile
+			EndIf
+
 			if $exitAfterExec == False Then
 				if $shell == "ConEmu" Then
-					ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & ";exec /bin/bash.exe'" , @ScriptDir, "")
+					ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & $executeCommand & ";exec /bin/bash.exe'" , @ScriptDir, "")
 				Else
-					Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & ";exec /bin/bash.exe'")
+					Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & $executeCommand & ";exec /bin/bash.exe'")
 				EndIf
 			Else
 				if $shell == "ConEmu" Then
-					ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & "'" , @ScriptDir, "")
+					ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & $executeCommand & "'" , @ScriptDir, "")
 				Else
-					Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & ";./" & $cygfile & "'")
+					Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & $executeCommand & "'")
 				EndIf
 			EndIf
 		Else
