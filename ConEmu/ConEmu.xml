@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2013-04-15 05:19:40">
+		<key name=".Vanilla" modified="2013-04-23 04:41:30">
 			<value name="SingleInstance" type="hex" data="01"/>
 			<value name="KeyboardHooks" type="hex" data="02"/>
 			<value name="UseInjects" type="hex" data="00"/>
@@ -60,7 +60,7 @@
 			<value name="ClipboardArrowStart" type="hex" data="01"/>
 			<value name="ClipboardAllLines" type="hex" data="01"/>
 			<value name="ClipboardFirstLine" type="hex" data="01"/>
-			<value name="ClipboardClickPromptPosition" type="hex" data="02"/>
+			<value name="ClipboardClickPromptPosition" type="hex" data="00"/>
 			<value name="ClipboardDeleteLeftWord" type="hex" data="02"/>
 			<value name="TrueColorerSupport" type="hex" data="01"/>
 			<value name="FadeInactive" type="hex" data="01"/>
@@ -129,8 +129,8 @@
 			<value name="ConWnd Width" type="dword" data="00000064"/>
 			<value name="ConWnd Height" type="dword" data="0000001d"/>
 			<value name="Cascaded" type="hex" data="01"/>
-			<value name="ConWnd X" type="dword" data="00000227"/>
-			<value name="ConWnd Y" type="dword" data="000001ab"/>
+			<value name="ConWnd X" type="dword" data="00000188"/>
+			<value name="ConWnd Y" type="dword" data="000001e5"/>
 			<value name="16bit Height" type="dword" data="00000000"/>
 			<value name="AutoSaveSizePos" type="hex" data="00"/>
 			<value name="QuakeStyle" type="hex" data="00"/>
@@ -470,20 +470,20 @@
 			<value name="KeyMacro32" type="dword" data="00000000"/>
 			<value name="KeyMacro32.Text" type="string" data=""/>
 			<value name="CTS.VkBlock" type="hex" data="a4"/>
-			<value name="CTS.VkText" type="hex" data="a0"/>
+			<value name="CTS.VkText" type="hex" data="00"/>
 			<value name="CTS.VkAct" type="hex" data="00"/>
 			<value name="CTS.VkPrompt" type="hex" data="00"/>
 			<value name="FarGotoEditorVk" type="hex" data="a2"/>
 			<value name="DndLKey" type="hex" data="00"/>
 			<value name="DndRKey" type="hex" data="a2"/>
 			<value name="WndDragKey" type="dword" data="00121101"/>
-				<key name="Tasks" modified="2013-04-15 05:19:40">
+				<key name="Tasks" modified="2013-04-23 04:41:30">
 				<value name="Count" type="dword" data="00000000"/>
 			</key>
-				<key name="Apps" modified="2013-04-15 05:19:40">
+				<key name="Apps" modified="2013-04-23 04:41:30">
 				<value name="Count" type="dword" data="00000000"/>
 			</key>
-				<key name="Colors" modified="2013-04-15 05:19:40">
+				<key name="Colors" modified="2013-04-23 04:41:30">
 				<value name="Count" type="dword" data="00000000"/>
 			</key>
 		</key>
