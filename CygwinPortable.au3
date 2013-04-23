@@ -42,7 +42,7 @@
 Run(@ScriptDir & "\bin\bash /Other/user_setup.sh", @SW_HIDE)
 
 Global $szDrive, $szDir, $szFName, $szExt, $cygdrive,$cygfolder,$cygfolder1,$cygfile, $executableExtension, $executable, $exitAfterExec, $setContextMenu, $cygwinUsername,$cygwinTrayMenu,$shell,$cygwinNoMsgBox,$cygwinMirror,$cygwinPortsMirror,$cygwinFirstInstallAdditions
-Global $cygwinFirstInstallDeleteUnneeded, $cygwinDeleteInstallation, $installUnofficial,$cygwinDeleteInstallationFolders,$tray_openCygwinPortableConfig,$windowsPathToCygwin
+Global $cygwinFirstInstallDeleteUnneeded, $cygwinDeleteInstallation, $installUnofficial,$cygwinDeleteInstallationFolders,$tray_openCygwinPortableConfig,$windowsPathToCygwin,$windowsAdditionalPath,$windowsPythonPath
 Global $WS_GROUP
 
 Local $iniMain = IniReadSection(@ScriptDir & "\CygwinPortable.ini", "Main")
@@ -66,6 +66,8 @@ Func ReadSettings()
 	$cygwinFirstInstallDeleteUnneeded = IniRead($iniFile, "Main", "CygwinFirstInstallDeleteUnneeded", True)
 	$installUnofficial = IniRead($iniFile, "Main", "InstallUnofficial", False)
 	$windowsPathToCygwin = IniRead($iniFile, "Main", "WindowsPathToCygwin", True)
+	$windowsAdditionalPath = IniRead($iniFile, "Main", "WindowsAdditionalPath", True)
+	$windowsPythonPath = IniRead($iniFile, "Main", "WindowsPythonPath", True)
 	$cygwinUsername = IniRead($iniFile, "Static", "Username", "")
 	$cygwinDeleteInstallation = IniRead($iniFile, "Expert", "CygwinDeleteInstallation", False)
 	$cygwinDeleteInstallationFolders = IniRead($iniFile, "Expert", "CygwinDeleteInstallationFolders", False)
@@ -112,6 +114,10 @@ if $windowsPathToCygwin == True then
 	If StringRight($path, 1) <> ";" Then
 		$path &= ";"
 	EndIf
+	if $windowsAdditionalPath <> "" then
+		$path &= $windowsAdditionalPath & ";"
+	EndIf
+	ConsoleWrite($path)
 	EnvSet("PATH",$path & @ScriptDir & "\bin")
 Else
 	EnvSet("PATH",@ScriptDir & "\bin")
@@ -123,6 +129,13 @@ EnvSet("USERNAME",  $cygwinUsername)
 EnvSet("HOME",  "/home/" & $cygwinUsername)
 EnvSet("USBDRV",  $szDrive)
 EnvSet("USBDRVPATH",  $szDrive)
+if $windowsPythonPath <> "" then
+	EnvSet("PYTHONPATH",$windowsPythonPath & ";")
+EndIf
+;~ If Not FileExists(@ScriptDir & "\bin\python2.7.exe") then
+;~ 	$pythonpath = EnvGet("PYTHONPATH")
+;~ 	ConsoleWrite($pythonpath)
+;~ EndIf
 $TwoFoldersUp = _PathFull(@ScriptDir & "..\..\..\")
 If FileExists($TwoFoldersUp & "\StartPortableApps.exe") then
 	EnvSet("PORTABLEAPPS",  "true")
