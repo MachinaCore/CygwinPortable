@@ -47,6 +47,11 @@ Global $szDrive, $szDir, $szFName, $szExt, $cygdrive,$cygfolder,$cygfolder1,$cyg
 Global $cygwinFirstInstallDeleteUnneeded, $cygwinDeleteInstallation, $installUnofficial,$cygwinDeleteInstallationFolders,$tray_openCygwinPortableConfig,$windowsPathToCygwin,$windowsAdditionalPath,$windowsPythonPath
 Global $WS_GROUP
 
+;create Cygwin Folder
+If Not FileExists(@ScriptDir & "\app\cygwin") then
+	DirCreate(@ScriptDir & "\app\Cygwin")
+EndIf
+
 
 Func Folder2CygFolder($winFolder)
 	;ConsoleWrite($winFolder)
@@ -294,6 +299,7 @@ Func ConfigExit()
 	GUIDelete($settings_form)
 EndFunc   ;==>ConfigExit
 
+;crate Userfolder
 If Not FileExists(@ScriptDir & "\app\cygwin\home\" & $cygwinUsername) and FileExists(@ScriptDir & "\app\cygwin\bin\bash.exe") then
 	DirCreate(@ScriptDir & "\app\cygwin\home\" & $cygwinUsername)
 	ShellExecuteWait(@ScriptDir & "\app\cygwin\bin\bash.exe", "--login -i -c 'exit'" , @ScriptDir, "")
@@ -302,6 +308,10 @@ If Not FileExists(@ScriptDir & "\app\cygwin\home\" & $cygwinUsername) and FileEx
 	FileDelete (@ScriptDir & "/app/cygwin/etc/profile")
 	ShellExecute(@ScriptDir & "\app\cygwin\bin\bash.exe", "--login -i -c 'ln -s /Other/profile/bashrc ~/.bashrc;ln -s /Other/profile/dircolors ~/.dircolors;ln -s /Other/profile/minttyrc ~/.minttyrc;ln -s /Other/profile/profile /etc/profile;ln -s /Other/helper/cyg-wrapper.sh /bin/cyg-wrapper.sh;ln -s /Other/helper/startSumatra.sh /bin/startSumatra.sh;exec /bin/bash.exe'" , @ScriptDir, "")
 	;ShellExecute(@ScriptDir & "\app\cygwin\bin\bash.exe", "--login -i -c 'ln -s " & $cygScriptDir & "/Other/bashrc ~/.bashrc;ln -s " & $cygScriptDir & "/Other/dircolors ~/.dircolors;ln -s " & $cygScriptDir & "/Other/minttyrc ~/.minttyrc;ln -s " & $cygScriptDir & "/Other/profile /etc/profile;ln -s " & $cygScriptDir & "/Other/cyg-wrapper.sh /bin/cyg-wrapper.sh;ln -s /Other/startSumatra.sh /bin/startSumatra.sh;exec /bin/bash.exe'" , @ScriptDir, "")
+EndIf
+
+If Not FileExists(@ScriptDir & "\data") then
+	DirCopy (@ScriptDir & "\app\defaultdata", @ScriptDir & "\data" )
 EndIf
 
 ;Delete Installation ?
@@ -313,7 +323,7 @@ if $cygwinDeleteInstallation == True Then
 			if $iniMain[$iniMainValue][0] == 'CygwinDeleteInstallationFolders' Then
 				$cygwinDeleteInstallationFolders = StringSplit($iniMain[$iniMainValue][1], ",")
 				for $iniMainExecutableExtensionArray=1 to ubound($cygwinDeleteInstallationFolders,1) -1
-					FileDelete (@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe")
+					FileDelete (@ScriptDir & "\App\Cygwin\CygwinConfig.exe")
 					DirRemove ( @ScriptDir & "\" & $cygwinDeleteInstallationFolders[$iniMainExecutableExtensionArray], 1)
 				next
 			EndIf
@@ -324,7 +334,7 @@ if $cygwinDeleteInstallation == True Then
 	EndIf
 EndIf
 
-If Not FileExists(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe") then
+If Not FileExists(@ScriptDir & "\App\Cygwin\CygwinConfig.exe") then
 	DownloadSetup()
  Endif
 
@@ -351,7 +361,7 @@ Func DownloadSetup()
                     EndSwitch
                 Else
                     ;MsgBox(64, "Success", "Downloaded >> " & $sFilePath & @CRLF & @CRLF & "Please restart this program")
-					FileMove(@ScriptDir & "\setup.exe",@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe",1)
+					FileMove(@ScriptDir & "\setup-x86.exe",@ScriptDir & "\App\Cygwin\CygwinConfig.exe",1)
 					GUISetState(@SW_HIDE, $hGUI)
 					$downloadSuccess = True
                 EndIf
@@ -359,13 +369,13 @@ Func DownloadSetup()
 EndFunc
 
 if $installUnofficial == True Then
-	$installUnofficialFileList=_FileListToArray(@ScriptDir & "\App\CygwinUnofficial\", "*")
+	$installUnofficialFileList=_FileListToArray(@ScriptDir & "\other\unofficial\", "*")
 	If Not @error Then
 		$count = $installUnofficialFileList[0]
 		for $x = 1 to $count
 			If Not @error Then
 				if Not FileExists(@ScriptDir & "\app\cygwin\bin\" & $installUnofficialFileList[$x]) then
-					FileCopy(@ScriptDir & "\App\CygwinUnofficial\" & $installUnofficialFileList[$x], @ScriptDir & "\app\cygwin\bin\" & $installUnofficialFileList[$x])
+					FileCopy(@ScriptDir & "\other\unofficial\" & $installUnofficialFileList[$x], @ScriptDir & "\app\cygwin\bin\" & $installUnofficialFileList[$x])
 					Run (@ScriptDir & "\app\cygwin\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'chmod +x /bin/" & $installUnofficialFileList[$x] & "'")
 				EndIf
 			EndIf
@@ -373,11 +383,16 @@ if $installUnofficial == True Then
 	EndIf
 EndIf
 
+;Copy Batch Files
+If Not FileExists(@ScriptDir & "\app\cygwin\CygwinPortableConfig.bat") then
+	 FileCopy(@ScriptDir & "\other\batch\*.bat", @ScriptDir & "\app\cygwin")
+ EndIf
+
 If Not FileExists(@ScriptDir & "\app\cygwin\bin\bash.exe") then
 	$DownloadCygwinEnvironment = MsgBox (4, "Download cygwin Environment" ,"This is the first launch of Cygwin portable. Download the default cygwin packages (incl. X11) now ?")
 	If $DownloadCygwinEnvironment = 6 Then
 
-		ShellExecuteWait(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe", " -R " & @ScriptDir & "\app\cygwin\ -l " & @ScriptDir & "\app\cygwin\packages -n -d -N -s " & $cygwinMirror & " -q" & " -P " & $cygwinFirstInstallAdditions, @ScriptDir, "")
+		ShellExecuteWait(@ScriptDir & "\App\Cygwin\CygwinConfig.exe", " -R " & @ScriptDir & "\app\cygwin\ -l " & @ScriptDir & "\app\cygwin\packages -n -d -N -s " & $cygwinMirror & " -q" & " -P " & $cygwinFirstInstallAdditions, @ScriptDir, "")
 
 		if $cygwinFirstInstallDeleteUnneeded == True Then
 			FileDelete (@ScriptDir & "\Cygwin.ico")
@@ -385,10 +400,10 @@ If Not FileExists(@ScriptDir & "\app\cygwin\bin\bash.exe") then
 			FileDelete (@ScriptDir & "\setup.log")
 			FileDelete (@ScriptDir & "\setup.log.full")
 		EndIf
-		if FileExists(@ScriptDir & "\CygwinPortable.exe") then
-			ShellExecute(@ScriptDir & "\CygwinPortable.exe", "", @ScriptDir, "")
-			Exit
-		EndIf
+		;if FileExists(@ScriptDir & "\CygwinPortable.exe") then
+		;	ShellExecute(@ScriptDir & "\CygwinPortable.exe", "", @ScriptDir, "")
+		;	Exit
+		;EndIf
 	ElseIf $DownloadCygwinEnvironment = 7 Then
 		MsgBox(16, "Error", "Cygwin environment setup canceled. Can't continue", 16)
 		Exit
@@ -457,22 +472,22 @@ Func BuildMenu()
 	$tray_sub_QuickLaunch = _TrayCreateMenu("Scripte")
 	_TrayItemSetIcon(-1, @ScriptDir & "\App\AppInfo\appicon1.ico")
 
-	$FolderList=_FileListToArray(@ScriptDir & "\App\ShellScript\", "*")
+	$FolderList=_FileListToArray(@ScriptDir & "\data\ShellScript\", "*")
 	If Not @error Then
 		$count = $FolderList[0]
 		for $x = 1 to $count
-			_PathSplit(@ScriptDir & "\App\ShellScript\" & $FolderList[$x], $szDrive, $szDir, $szFName, $szExt)
+			_PathSplit(@ScriptDir & "\data\ShellScript\" & $FolderList[$x], $szDrive, $szDir, $szFName, $szExt)
 			if $szExt <> ".ico" and $szExt <> ".lnk" Then
 
 				local $quicklaunch = _TrayCreateItem($FolderList[$x], $tray_sub_QuickLaunch)
-				If FileExists(@ScriptDir & "\App\ShellScript\" & $FolderList[$x] & ".ico") then
-					_TrayItemSetIcon($quicklaunch, @ScriptDir & "\App\ShellScript\" & $FolderList[$x] & ".ico")
+				If FileExists(@ScriptDir & "\data\ShellScript\" & $FolderList[$x] & ".ico") then
+					_TrayItemSetIcon($quicklaunch, @ScriptDir & "\data\ShellScript\" & $FolderList[$x] & ".ico")
 				ElseIf $szExt == '.sh' Then
 					_TrayItemSetIcon($quicklaunch, @ScriptDir & "\App\AppInfo\appicon1.ico")
 				ElseIf $szExt == '.bat' Then
 					_TrayItemSetIcon($quicklaunch, "shell32.dll", -72)
 				ElseIf $szExt == '.exe' Then
-					_TrayItemSetIcon($quicklaunch, @ScriptDir & "\App\ShellScript\" & $FolderList[$x])
+					_TrayItemSetIcon($quicklaunch, @ScriptDir & "\data\ShellScript\" & $FolderList[$x])
 				Else
 					_TrayItemSetIcon($quicklaunch, "shell32.dll", -3)
 
@@ -480,7 +495,7 @@ Func BuildMenu()
 				GUICtrlSetOnEvent(-1, "cygwinOpenShellScript")
 			EndIf
 			if $szExt == ".lnk" Then
-				Local $aDetails = FileGetShortcut(@ScriptDir & "\App\ShellScript\" & $FolderList[$x])
+				Local $aDetails = FileGetShortcut(@ScriptDir & "\data\ShellScript\" & $FolderList[$x])
 				If Not @error Then
 					if $szExt == ".lnk" Then
 						local $quicklink = _TrayCreateItem($szFName, $tray_sub_QuickLaunch)
@@ -497,12 +512,12 @@ Func BuildMenu()
 	$tray_sub_QuickLink = _TrayCreateMenu("Shortcuts")
 	_TrayItemSetIcon(-1, "shell32.dll", -264)
 
-	$QuickLinksFolderList=_FileListToArray(@ScriptDir & "\App\Shortcuts\", "*")
+	$QuickLinksFolderList=_FileListToArray(@ScriptDir & "\data\Shortcuts\", "*")
 	If Not @error Then
 		$count = $QuickLinksFolderList[0]
 		for $x = 1 to $count
-			_PathSplit(@ScriptDir & "\App\Shortcuts\" & $QuickLinksFolderList[$x], $szDrive, $szDir, $szFName, $szExt)
-			Local $aDetails = FileGetShortcut(@ScriptDir & "\App\Shortcuts\" & $QuickLinksFolderList[$x])
+			_PathSplit(@ScriptDir & "\data\Shortcuts\" & $QuickLinksFolderList[$x], $szDrive, $szDir, $szFName, $szExt)
+			Local $aDetails = FileGetShortcut(@ScriptDir & "\data\Shortcuts\" & $QuickLinksFolderList[$x])
 			If Not @error Then
 				if $szExt == ".lnk" Then
 					local $quicklink = _TrayCreateItem($szFName, $tray_sub_QuickLink)
@@ -564,7 +579,7 @@ Func BuildMenu()
 EndFunc   ;==>BuildMenu
 
 Func cygwinOpenShellScript()
-	cygwinOpen(@ScriptDir & "\App\ShellScript\" & _GetMenuText(@GUI_CtrlId))
+	cygwinOpen(@ScriptDir & "\data\ShellScript\" & _GetMenuText(@GUI_CtrlId))
 EndFunc   ;==>TrayEvent
 
 Func cygwinOpenGuiDrive()
@@ -572,12 +587,12 @@ Func cygwinOpenGuiDrive()
 EndFunc   ;==>TrayEvent
 
 Func cygwinOpenGuiQuickkinks()
-	$QuickLinksFolderList=_FileListToArray(@ScriptDir & "\App\Shortcuts\", "*")
+	$QuickLinksFolderList=_FileListToArray(@ScriptDir & "\data\Shortcuts\", "*")
 	$count = $QuickLinksFolderList[0]
 	for $x = 1 to $count
-		_PathSplit(@ScriptDir & "\App\Shortcuts\" & $QuickLinksFolderList[$x], $szDrive, $szDir, $szFName, $szExt)
+		_PathSplit(@ScriptDir & "\data\Shortcuts\" & $QuickLinksFolderList[$x], $szDrive, $szDir, $szFName, $szExt)
 		if $szFName == _GetMenuText(@GUI_CtrlId) Then
-			Local $aDetails = FileGetShortcut(@ScriptDir & "\App\Shortcuts\" & $QuickLinksFolderList[$x])
+			Local $aDetails = FileGetShortcut(@ScriptDir & "\data\Shortcuts\" & $QuickLinksFolderList[$x])
 				cygwinOpen($aDetails[0])
 		EndIf
 	Next
@@ -608,11 +623,11 @@ Func TrayEvent()
 EndFunc   ;==>TrayEvent
 
 Func OpenConfig()
-	ShellExecute(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe", " -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s " & $cygwinMirror , @ScriptDir, "")
+	ShellExecute(@ScriptDir & "\App\Cygwin\CygwinConfig.exe", " -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s " & $cygwinMirror , @ScriptDir, "")
 EndFunc
 
 Func OpenConfigPorts()
-	ShellExecute(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe", " -K http://cygwinports.org/ports.gpg -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s " & $cygwinPortsMirror, @ScriptDir, "")
+	ShellExecute(@ScriptDir & "\App\Cygwin\CygwinConfig.exe", " -K http://cygwinports.org/ports.gpg -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s " & $cygwinPortsMirror, @ScriptDir, "")
 EndFunc
 
 Func CleanUpSysTray()
