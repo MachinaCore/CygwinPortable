@@ -48,7 +48,7 @@ Global $cygwinFirstInstallDeleteUnneeded, $cygwinDeleteInstallation, $installUno
 Global $WS_GROUP
 
 ;create Cygwin Folder
-If Not FileExists(@ScriptDir & "\app\cygwin") then
+If Not FileExists(@ScriptDir & "\app\Cygwin") then
 	DirCreate(@ScriptDir & "\app\Cygwin")
 EndIf
 
@@ -360,12 +360,15 @@ Func DownloadSetup()
 
                     EndSwitch
                 Else
-                    ;MsgBox(64, "Success", "Downloaded >> " & $sFilePath & @CRLF & @CRLF & "Please restart this program")
-					FileMove(@ScriptDir & "\setup-x86.exe",@ScriptDir & "\App\Cygwin\CygwinConfig.exe",1)
-					GUISetState(@SW_HIDE, $hGUI)
 					$downloadSuccess = True
                 EndIf
     WEnd
+	if $downloadSuccess == True Then
+		;MsgBox(64, "Success", "Downloaded >> " & $sFilePath & @CRLF & @CRLF & "Please restart this program")
+		sleep(2000)
+		FileMove(@ScriptDir & "\setup-x86.exe",@ScriptDir & "\App\Cygwin\CygwinConfig.exe",1)
+		GUISetState(@SW_HIDE, $hGUI)
+	EndIf
 EndFunc
 
 if $installUnofficial == True Then
