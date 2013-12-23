@@ -1,2 +1,2 @@
 @echo off
-CygwinPortable.exe -path C:\
+..\..\CygwinPortable.exe -path C:\

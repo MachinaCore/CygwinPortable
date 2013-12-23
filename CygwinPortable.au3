@@ -639,11 +639,11 @@ Func TrayEvent()
 EndFunc   ;==>TrayEvent
 
 Func OpenConfig()
-	ShellExecute(@ScriptDir & "\App\Cygwin\CygwinConfig.exe", " -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s " & $cygwinMirror , @ScriptDir, "")
+	ShellExecute(@ScriptDir & "\App\Cygwin\CygwinConfig.exe", " -R " & @ScriptDir & "\app\cygwin\ -l " & @ScriptDir & "\app\cygwin\packages -n -d -N -s " & $cygwinMirror, @ScriptDir, "")
 EndFunc
 
 Func OpenConfigPorts()
-	ShellExecute(@ScriptDir & "\App\Cygwin\CygwinConfig.exe", " -K http://cygwinports.org/ports.gpg -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s " & $cygwinPortsMirror, @ScriptDir, "")
+	ShellExecute(@ScriptDir & "\App\Cygwin\CygwinConfig.exe", " -K http://cygwinports.org/ports.gpg -R " & @ScriptDir & "\app\cygwin\ -l " & @ScriptDir & "\app\cygwin\packages -n -d -N -s " & $cygwinPortsMirror, @ScriptDir, "")
 EndFunc
 
 Func CleanUpSysTray()
@@ -690,6 +690,9 @@ Func ReadCmdLineParams() 	;Read in the optional switch set in the users profile 
 				$noCorrectParameter = False
 			case $cmdLine[$i] = "-config"
 				OpenConfig()
+				Exit
+			case $cmdLine[$i] = "-startx"
+				Run (@ScriptDir & "\app\cygwin\bin\run.exe /bin/bash.exe -c '/usr/bin/startxwin.exe -- -nolock -unixkill'", "", @SW_HIDE )
 				Exit
 		EndSelect
 	Next
