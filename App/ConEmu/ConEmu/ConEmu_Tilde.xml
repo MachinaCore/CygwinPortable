@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2013-04-23 04:41:30">
-			<value name="SingleInstance" type="hex" data="01"/>
-			<value name="KeyboardHooks" type="hex" data="02"/>
-			<value name="UseInjects" type="hex" data="00"/>
+		<key name=".Vanilla" modified="2012-06-12 13:38:59">
+			<value name="KeyboardHooks" type="hex" data="01"/>
+			<value name="UseInjects" type="hex" data="01"/>
 			<value name="Update.CheckOnStartup" type="hex" data="00"/>
 			<value name="Update.CheckHourly" type="hex" data="00"/>
 			<value name="Update.ConfirmDownload" type="hex" data="01"/>
 			<value name="Update.UseBuilds" type="hex" data="02"/>
+			<value name="TabMargins" type="hex" data="00,00,00,00,19,00,00,00,00,00,00,00,00,00,00,00"/>
 			<value name="ColorTable00" type="dword" data="00000000"/>
-			<value name="ColorTable01" type="dword" data="00ee0000"/>
-			<value name="ColorTable02" type="dword" data="0000cd00"/>
-			<value name="ColorTable03" type="dword" data="00cdcd00"/>
-			<value name="ColorTable04" type="dword" data="000000cd"/>
-			<value name="ColorTable05" type="dword" data="00cd00cd"/>
-			<value name="ColorTable06" type="dword" data="0000cdcd"/>
-			<value name="ColorTable07" type="dword" data="00e5e5e5"/>
-			<value name="ColorTable08" type="dword" data="007f7f7f"/>
-			<value name="ColorTable09" type="dword" data="00ff5c5c"/>
+			<value name="ColorTable01" type="dword" data="00800000"/>
+			<value name="ColorTable02" type="dword" data="00008000"/>
+			<value name="ColorTable03" type="dword" data="00808000"/>
+			<value name="ColorTable04" type="dword" data="00000080"/>
+			<value name="ColorTable05" type="dword" data="00800080"/>
+			<value name="ColorTable06" type="dword" data="00008080"/>
+			<value name="ColorTable07" type="dword" data="00c0c0c0"/>
+			<value name="ColorTable08" type="dword" data="00808080"/>
+			<value name="ColorTable09" type="dword" data="00ff0000"/>
 			<value name="ColorTable10" type="dword" data="0000ff00"/>
 			<value name="ColorTable11" type="dword" data="00ffff00"/>
 			<value name="ColorTable12" type="dword" data="000000ff"/>
@@ -26,15 +26,15 @@
 			<value name="ColorTable14" type="dword" data="0000ffff"/>
 			<value name="ColorTable15" type="dword" data="00ffffff"/>
 			<value name="ColorTable16" type="dword" data="00000000"/>
-			<value name="ColorTable17" type="dword" data="00ee0000"/>
-			<value name="ColorTable18" type="dword" data="0000cd00"/>
-			<value name="ColorTable19" type="dword" data="00cdcd00"/>
-			<value name="ColorTable20" type="dword" data="000000cd"/>
-			<value name="ColorTable21" type="dword" data="00cd00cd"/>
-			<value name="ColorTable22" type="dword" data="0000cdcd"/>
-			<value name="ColorTable23" type="dword" data="00e5e5e5"/>
-			<value name="ColorTable24" type="dword" data="007f7f7f"/>
-			<value name="ColorTable25" type="dword" data="00ff5c5c"/>
+			<value name="ColorTable17" type="dword" data="00800000"/>
+			<value name="ColorTable18" type="dword" data="00008000"/>
+			<value name="ColorTable19" type="dword" data="00808000"/>
+			<value name="ColorTable20" type="dword" data="00000080"/>
+			<value name="ColorTable21" type="dword" data="00800080"/>
+			<value name="ColorTable22" type="dword" data="00008080"/>
+			<value name="ColorTable23" type="dword" data="00c0c0c0"/>
+			<value name="ColorTable24" type="dword" data="00808080"/>
+			<value name="ColorTable25" type="dword" data="00ff0000"/>
 			<value name="ColorTable26" type="dword" data="0000ff00"/>
 			<value name="ColorTable27" type="dword" data="00ffff00"/>
 			<value name="ColorTable28" type="dword" data="000000ff"/>
@@ -43,71 +43,50 @@
 			<value name="ColorTable31" type="dword" data="00ffffff"/>
 			<value name="ExtendColors" type="hex" data="00"/>
 			<value name="ExtendColorIdx" type="hex" data="0e"/>
-			<value name="TextColorIdx" type="hex" data="10"/>
-			<value name="BackColorIdx" type="hex" data="10"/>
-			<value name="PopTextColorIdx" type="hex" data="10"/>
-			<value name="PopBackColorIdx" type="hex" data="10"/>
 			<value name="ExtendFonts" type="hex" data="00"/>
 			<value name="ExtendFontNormalIdx" type="hex" data="01"/>
 			<value name="ExtendFontBoldIdx" type="hex" data="0c"/>
 			<value name="ExtendFontItalicIdx" type="hex" data="0d"/>
-			<value name="CursorTypeActive" type="dword" data="000232c1"/>
-			<value name="CursorTypeInactive" type="dword" data="00823283"/>
-			<value name="ClipboardDetectLineEnd" type="hex" data="01"/>
-			<value name="ClipboardBashMargin" type="hex" data="00"/>
-			<value name="ClipboardTrimTrailing" type="hex" data="02"/>
-			<value name="ClipboardEOL" type="hex" data="00"/>
-			<value name="ClipboardArrowStart" type="hex" data="01"/>
+			<value name="CursorType" type="hex" data="01"/>
+			<value name="CursorColor" type="hex" data="01"/>
+			<value name="CursorBlink" type="hex" data="01"/>
+			<value name="CursorBlockInactive" type="hex" data="01"/>
+			<value name="CursorIgnoreSize" type="hex" data="00"/>
 			<value name="ClipboardAllLines" type="hex" data="01"/>
 			<value name="ClipboardFirstLine" type="hex" data="01"/>
-			<value name="ClipboardClickPromptPosition" type="hex" data="00"/>
-			<value name="ClipboardDeleteLeftWord" type="hex" data="02"/>
 			<value name="TrueColorerSupport" type="hex" data="01"/>
 			<value name="FadeInactive" type="hex" data="01"/>
 			<value name="FadeInactiveLow" type="hex" data="00"/>
 			<value name="FadeInactiveHigh" type="hex" data="d0"/>
 			<value name="ConVisible" type="hex" data="00"/>
 			<value name="ConInMode" type="dword" data="ffffffff"/>
-			<value name="SetDefaultTerminal" type="hex" data="00"/>
-			<value name="SetDefaultTerminalStartup" type="hex" data="00"/>
-			<value name="DefaultTerminalNoInjects" type="hex" data="00"/>
-			<value name="DefaultTerminalConfirm" type="hex" data="01"/>
-			<value name="DefaultTerminalApps" type="string" data="explorer.exe"/>
 			<value name="ProcessAnsi" type="hex" data="01"/>
-			<value name="UseClink" type="hex" data="01"/>
 			<value name="StartType" type="hex" data="00"/>
-			<value name="CmdLine" type="string" data=""/>
+			<value name="CmdLine" type="string" data="cmd"/>
 			<value name="StartTasksFile" type="string" data=""/>
 			<value name="StartTasksName" type="string" data=""/>
 			<value name="StartFarFolders" type="hex" data="00"/>
 			<value name="StartFarEditors" type="hex" data="00"/>
 			<value name="StoreTaskbarkTasks" type="hex" data="00"/>
 			<value name="StoreTaskbarCommands" type="hex" data="00"/>
+			<value name="CmdLineHistory" type="multi"><line data="c:\windows\syswow64\cmd.exe"/><line data="c:\windows\syswow64.exe"/></value>
 			<value name="Multi" type="hex" data="01"/>
-			<value name="Multi.ShowButtons" type="hex" data="01"/>
-			<value name="Multi.NumberInCaption" type="hex" data="00"/>
 			<value name="Multi.CloseConfirm" type="hex" data="00"/>
-			<value name="Multi.CloseEditViewConfirm" type="hex" data="00"/>
 			<value name="Multi.NewConfirm" type="hex" data="01"/>
 			<value name="Multi.UseArrows" type="hex" data="00"/>
 			<value name="Multi.UseNumbers" type="hex" data="01"/>
 			<value name="Multi.UseWinTab" type="hex" data="00"/>
 			<value name="Multi.AutoCreate" type="hex" data="00"/>
 			<value name="Multi.LeaveOnClose" type="hex" data="00"/>
-			<value name="Multi.HideOnClose" type="hex" data="01"/>
-			<value name="Multi.MinByEsc" type="hex" data="02"/>
-			<value name="MapShiftEscToEsc" type="hex" data="01"/>
 			<value name="Multi.Iterate" type="hex" data="01"/>
-			<value name="Multi.SplitWidth" type="hex" data="04"/>
-			<value name="Multi.SplitHeight" type="hex" data="04"/>
-			<value name="FontName" type="string" data="Courier"/>
+			<value name="FontName" type="string" data="Lucida Console"/>
 			<value name="FontName2" type="string" data="Lucida Console"/>
 			<value name="FontAutoSize" type="hex" data="00"/>
-			<value name="FontSize" type="dword" data="0000000e"/>
+			<value name="FontSize" type="dword" data="00000010"/>
 			<value name="FontSizeX" type="dword" data="00000000"/>
 			<value name="FontSizeX2" type="dword" data="00000000"/>
 			<value name="FontSizeX3" type="dword" data="00000000"/>
-			<value name="FontCharSet" type="hex" data="00"/>
+			<value name="FontCharSet" type="hex" data="cc"/>
 			<value name="Anti-aliasing" type="dword" data="00000004"/>
 			<value name="FontBold" type="hex" data="00"/>
 			<value name="FontItalic" type="hex" data="00"/>
@@ -118,28 +97,14 @@
 			<value name="bgImageColors" type="dword" data="ffffffff"/>
 			<value name="bgOperation" type="hex" data="00"/>
 			<value name="bgPluginAllowed" type="hex" data="01"/>
-			<value name="AlphaValue" type="hex" data="ff"/>
-			<value name="AlphaValueSeparate" type="hex" data="00"/>
-			<value name="AlphaValueInactive" type="hex" data="ff"/>
+			<value name="AlphaValue" type="hex" data="b9"/>
 			<value name="UserScreenTransparent" type="hex" data="00"/>
 			<value name="ColorKeyTransparent" type="hex" data="00"/>
 			<value name="ColorKeyValue" type="dword" data="00010101"/>
-			<value name="UseCurrentSizePos" type="hex" data="01"/>
 			<value name="WindowMode" type="dword" data="0000051f"/>
-			<value name="ConWnd Width" type="dword" data="00000064"/>
-			<value name="ConWnd Height" type="dword" data="0000001d"/>
-			<value name="Cascaded" type="hex" data="01"/>
-			<value name="ConWnd X" type="dword" data="00000188"/>
-			<value name="ConWnd Y" type="dword" data="000001e5"/>
-			<value name="16bit Height" type="dword" data="00000000"/>
-			<value name="AutoSaveSizePos" type="hex" data="00"/>
-			<value name="QuakeStyle" type="hex" data="00"/>
-			<value name="QuakeAnimation" type="dword" data="0000012c"/>
 			<value name="HideCaption" type="hex" data="00"/>
-			<value name="HideChildCaption" type="hex" data="01"/>
-			<value name="FocusInChildWindows" type="hex" data="01"/>
 			<value name="HideCaptionAlways" type="hex" data="00"/>
-			<value name="HideCaptionAlwaysFrame" type="hex" data="ff"/>
+			<value name="HideCaptionAlwaysFrame" type="hex" data="00"/>
 			<value name="HideCaptionAlwaysDelay" type="dword" data="000007d0"/>
 			<value name="HideCaptionAlwaysDisappear" type="dword" data="000007d0"/>
 			<value name="DownShowHiddenMessage" type="hex" data="00"/>
@@ -152,14 +117,8 @@
 			<value name="ComSpec.Type" type="hex" data="00"/>
 			<value name="ComSpec.Bits" type="hex" data="00"/>
 			<value name="ComSpec.UpdateEnv" type="hex" data="00"/>
-			<value name="ComSpec.EnvAddPath" type="hex" data="01"/>
-			<value name="ComSpec.EnvAddExePath" type="hex" data="01"/>
-			<value name="ComSpec.UncPaths" type="hex" data="00"/>
 			<value name="ComSpec.Path" type="string" data=""/>
 			<value name="ConsoleTextSelection" type="hex" data="01"/>
-			<value name="CTS.AutoCopy" type="hex" data="01"/>
-			<value name="CTS.EndOnTyping" type="hex" data="00"/>
-			<value name="CTS.EndOnKeyPress" type="hex" data="00"/>
 			<value name="CTS.Freeze" type="hex" data="00"/>
 			<value name="CTS.SelectBlock" type="hex" data="01"/>
 			<value name="CTS.SelectText" type="hex" data="01"/>
@@ -169,8 +128,7 @@
 			<value name="CTS.ColorIndex" type="hex" data="e0"/>
 			<value name="ClipboardConfirmEnter" type="hex" data="01"/>
 			<value name="ClipboardConfirmLonger" type="dword" data="000000c8"/>
-			<value name="FarGotoEditorOpt" type="hex" data="01"/>
-			<value name="FarGotoEditorPath" type="string" data="far.exe /e%1:%2 &quot;%3&quot;"/>
+			<value name="FarGotoEditor" type="string" data="far.exe /e%1:%2 &quot;%3&quot;"/>
 			<value name="FixFarBorders" type="hex" data="01"/>
 			<value name="FixFarBordersRanges" type="string" data="2013-25C4;"/>
 			<value name="ExtendUCharMap" type="hex" data="01"/>
@@ -182,12 +140,15 @@
 			<value name="PartBrushBlack" type="hex" data="20"/>
 			<value name="RightClick opens context menu" type="hex" data="02"/>
 			<value name="RightClickMacro2" type="string" data=""/>
+			<value name="AltEnter" type="hex" data="00"/>
+			<value name="AltSpace" type="hex" data="00"/>
 			<value name="SendAltTab" type="hex" data="00"/>
 			<value name="SendAltEsc" type="hex" data="00"/>
 			<value name="SendAltPrintScrn" type="hex" data="00"/>
 			<value name="SendPrintScrn" type="hex" data="00"/>
 			<value name="SendCtrlEsc" type="hex" data="00"/>
-			<value name="Min2Tray" type="hex" data="00"/>
+			<value name="SendAltF9" type="hex" data="00"/>
+			<value name="Min2Tray" type="hex" data="01"/>
 			<value name="AlwaysShowTrayIcon" type="hex" data="00"/>
 			<value name="SafeFarClose" type="hex" data="01"/>
 			<value name="SafeFarCloseMacro" type="string" data=""/>
@@ -211,7 +172,6 @@
 			<value name="DragPanelBothEdges" type="hex" data="00"/>
 			<value name="KeyBarRClick" type="hex" data="01"/>
 			<value name="StatusBar.Show" type="hex" data="00"/>
-			<value name="StatusBar.Flags" type="dword" data="00000002"/>
 			<value name="StatusFontFace" type="string" data="Tahoma"/>
 			<value name="StatusFontCharSet" type="dword" data="00000000"/>
 			<value name="StatusFontHeight" type="dword" data="0000000e"/>
@@ -224,13 +184,9 @@
 			<value name="StatusBar.Hide.ScrL" type="hex" data="00"/>
 			<value name="StatusBar.Hide.Lang" type="hex" data="01"/>
 			<value name="StatusBar.Hide.WPos" type="hex" data="01"/>
-			<value name="StatusBar.Hide.WSize" type="hex" data="01"/>
-			<value name="StatusBar.Hide.WClient" type="hex" data="01"/>
+			<value name="StatusBar.Hide.WSize" type="hex" data="00"/>
+			<value name="StatusBar.Hide.WClient" type="hex" data="00"/>
 			<value name="StatusBar.Hide.WWork" type="hex" data="01"/>
-			<value name="StatusBar.Hide.Style" type="hex" data="01"/>
-			<value name="StatusBar.Hide.StyleEx" type="hex" data="01"/>
-			<value name="StatusBar.Hide.hFore" type="hex" data="01"/>
-			<value name="StatusBar.Hide.hFocus" type="hex" data="01"/>
 			<value name="StatusBar.Hide.ABuf" type="hex" data="00"/>
 			<value name="StatusBar.Hide.CPos" type="hex" data="00"/>
 			<value name="StatusBar.Hide.CSize" type="hex" data="00"/>
@@ -240,29 +196,19 @@
 			<value name="StatusBar.Hide.CurS" type="hex" data="00"/>
 			<value name="StatusBar.Hide.CurI" type="hex" data="01"/>
 			<value name="StatusBar.Hide.ConEmuPID" type="hex" data="01"/>
-			<value name="StatusBar.Hide.ConEmuHWND" type="hex" data="01"/>
-			<value name="StatusBar.Hide.ConEmuView" type="hex" data="01"/>
 			<value name="StatusBar.Hide.Srv" type="hex" data="00"/>
-			<value name="StatusBar.Hide.SrvHWND" type="hex" data="01"/>
 			<value name="StatusBar.Hide.Transparency" type="hex" data="00"/>
-			<value name="StatusBar.Hide.New" type="hex" data="00"/>
-			<value name="StatusBar.Hide.Sync" type="hex" data="00"/>
-			<value name="StatusBar.Hide.Proc" type="hex" data="00"/>
-			<value name="StatusBar.Hide.Title" type="hex" data="01"/>
-			<value name="StatusBar.Hide.Resize" type="hex" data="00"/>
-			<value name="Tabs" type="hex" data="01"/>
-			<value name="TabsLocation" type="hex" data="00"/>
+			<value name="Tabs" type="hex" data="02"/>
 			<value name="TabSelf" type="hex" data="01"/>
 			<value name="TabLazy" type="hex" data="01"/>
 			<value name="TabRecent" type="hex" data="01"/>
-			<value name="TabDblClick" type="dword" data="00000001"/>
 			<value name="TabsOnTaskBar" type="hex" data="02"/>
-			<value name="TaskBarOverlay" type="hex" data="01"/>
 			<value name="TabCloseMacro" type="string" data=""/>
 			<value name="TabFontFace" type="string" data="Tahoma"/>
 			<value name="TabFontCharSet" type="dword" data="00000000"/>
 			<value name="TabFontHeight" type="dword" data="00000010"/>
 			<value name="SaveAllEditors" type="string" data=""/>
+			<value name="TabFrame" type="hex" data="01"/>
 			<value name="ToolbarAddSpace" type="dword" data="00000000"/>
 			<value name="TabConsole" type="string" data="&lt;%c&gt; %s"/>
 			<value name="TabSkipWords" type="string" data="Administrator:|Администратор:"/>
@@ -276,21 +222,23 @@
 			<value name="HideInactiveConsoleTabs" type="hex" data="00"/>
 			<value name="ShowFarWindows" type="hex" data="01"/>
 			<value name="TryToCenter" type="hex" data="00"/>
-			<value name="CenterConsolePad" type="dword" data="00000000"/>
 			<value name="ShowScrollbar" type="hex" data="02"/>
-			<value name="ScrollBarAppearDelay" type="dword" data="00000064"/>
-			<value name="ScrollBarDisappearDelay" type="dword" data="000003e8"/>
 			<value name="IconID" type="dword" data="00000001"/>
+			<value name="ConWnd Width" type="dword" data="00000080"/>
+			<value name="ConWnd Height" type="dword" data="0000000e"/>
+			<value name="16bit Height" type="dword" data="00000000"/>
+			<value name="ConWnd X" type="dword" data="fffffff8"/>
+			<value name="ConWnd Y" type="dword" data="ffffffe2"/>
+			<value name="Cascaded" type="hex" data="00"/>
+			<value name="AutoSaveSizePos" type="hex" data="00"/>
 			<value name="MainTimerElapse" type="dword" data="0000000a"/>
 			<value name="MainTimerInactiveElapse" type="dword" data="000003e8"/>
 			<value name="AffinityMask" type="dword" data="00000000"/>
 			<value name="SkipFocusEvents" type="hex" data="00"/>
 			<value name="MonitorConsoleLang" type="hex" data="03"/>
 			<value name="DesktopMode" type="hex" data="00"/>
-			<value name="SnapToDesktopEdges" type="hex" data="00"/>
 			<value name="AlwaysOnTop" type="hex" data="00"/>
 			<value name="SleepInBackground" type="hex" data="00"/>
-			<value name="MinimizeOnLoseFocus" type="hex" data="00"/>
 			<value name="DisableFarFlashing" type="hex" data="00"/>
 			<value name="DisableAllFlashing" type="hex" data="00"/>
 			<value name="FindText" type="string" data=""/>
@@ -331,86 +279,46 @@
 			<value name="Update.Proxy" type="string" data=""/>
 			<value name="Update.ProxyUser" type="string" data=""/>
 			<value name="Update.ProxyPassword" type="string" data=""/>
+			<value name="Update.DownloadSetup" type="hex" data="00"/>
 			<value name="Update.ExeCmdLine" type="string" data=""/>
 			<value name="Update.ArcCmdLine" type="string" data=""/>
-			<value name="Update.DownloadPath" type="string" data="%TEMP%\ConEmu"/>
+			<value name="Update.DownloadPath" type="string" data="%TEMP%"/>
 			<value name="Update.LeavePackages" type="hex" data="00"/>
 			<value name="Update.PostUpdateCmd" type="string" data="echo Last successful update&gt;ConEmuUpdate.info &amp;&amp; date /t&gt;&gt;ConEmuUpdate.info &amp;&amp; time /t&gt;&gt;ConEmuUpdate.info"/>
 			<value name="Multi.Modifier" type="dword" data="0000005b"/>
 			<value name="Multi.ArrowsModifier" type="dword" data="0000005b"/>
-			<value name="KeyMacroVersion" type="hex" data="02"/>
-			<value name="MinimizeRestore" type="dword" data="000011c0"/>
-			<value name="MinimizeRestore2" type="dword" data="00000000"/>
-			<value name="GlobalRestore" type="dword" data="00000000"/>
+			<value name="MinimizeRestore" type="dword" data="808080c0"/>
 			<value name="ForcedFullScreen" type="dword" data="12115b0d"/>
-			<value name="SwitchGuiFocus" type="dword" data="00000000"/>
-			<value name="SetFocusGui" type="dword" data="00000000"/>
-			<value name="SetFocusChild" type="dword" data="00000000"/>
-			<value name="ChildSystemMenu" type="dword" data="00000000"/>
 			<value name="Multi.NewConsole" type="dword" data="00005b57"/>
 			<value name="Multi.NewConsoleShift" type="dword" data="00105b57"/>
 			<value name="Multi.NewConsolePopup" type="dword" data="00005b4e"/>
 			<value name="Multi.NewWindow" type="dword" data="00000000"/>
-			<value name="Multi.NewSplitV" type="dword" data="0010114f"/>
-			<value name="Multi.NewSplitH" type="dword" data="00101145"/>
 			<value name="Multi.NewAttach" type="dword" data="00005b47"/>
 			<value name="Multi.Next" type="dword" data="00005b51"/>
 			<value name="Multi.NextShift" type="dword" data="00105b51"/>
-			<value name="Multi.Recreate" type="dword" data="00005bc0"/>
+			<value name="Multi.Recreate" type="dword" data="00105bc0"/>
 			<value name="Multi.AltCon" type="dword" data="00005b41"/>
 			<value name="Multi.Scroll" type="dword" data="00005b53"/>
 			<value name="Multi.Close" type="dword" data="00005b2e"/>
-			<value name="CloseTabKey" type="dword" data="00125b2e"/>
-			<value name="CloseGroupKey" type="dword" data="00000000"/>
 			<value name="TerminateProcessKey" type="dword" data="00105b2e"/>
-			<value name="DuplicateRootKey" type="dword" data="00000000"/>
-			<value name="CloseConEmuKey" type="dword" data="00005b73"/>
-			<value name="Multi.Rename" type="dword" data="00005d52"/>
-			<value name="Multi.MoveLeft" type="dword" data="00125b25"/>
-			<value name="Multi.MoveRight" type="dword" data="00125b27"/>
 			<value name="Multi.CmdKey" type="dword" data="00005b58"/>
 			<value name="CTS.VkBlockStart" type="dword" data="00000000"/>
 			<value name="CTS.VkTextStart" type="dword" data="00000000"/>
-			<value name="Multi.ShowTabsList" type="dword" data="00000000"/>
-			<value name="Multi.ShowTabsList2" type="dword" data="00005d7b"/>
+			<value name="Multi.ShowTabsList" type="dword" data="8080807b"/>
 			<value name="ClipboardVkAllLines" type="dword" data="0000102d"/>
 			<value name="ClipboardVkFirstLine" type="dword" data="00001156"/>
-			<value name="DeleteWordToLeft" type="dword" data="00001108"/>
 			<value name="FindTextKey" type="dword" data="00005d46"/>
 			<value name="ScreenshotKey" type="dword" data="00005b48"/>
 			<value name="ScreenshotFullKey" type="dword" data="00105b48"/>
 			<value name="ShowStatusBarKey" type="dword" data="00005d53"/>
 			<value name="ShowTabBarKey" type="dword" data="00005d54"/>
-			<value name="ShowCaptionKey" type="dword" data="00005d43"/>
 			<value name="AlwaysOnTopKey" type="dword" data="00000000"/>
-			<value name="Key.TabMenu" type="dword" data="00005d20"/>
-			<value name="Key.TabMenu2" type="dword" data="00001002"/>
-			<value name="Key.TabPane1" type="dword" data="00005d09"/>
-			<value name="Key.TabPane2" type="dword" data="00105d09"/>
-			<value name="Key.Maximize" type="dword" data="00001278"/>
-			<value name="Key.FullScreen" type="dword" data="0000120d"/>
-			<value name="Key.SysMenu" type="dword" data="00001220"/>
-			<value name="Key.SysMenu2" type="dword" data="00001102"/>
-			<value name="Key.BufUp" type="dword" data="00001126"/>
-			<value name="Key.BufDn" type="dword" data="00001128"/>
-			<value name="Key.BufPgUp" type="dword" data="00001121"/>
-			<value name="Key.BufPgDn" type="dword" data="00001122"/>
-			<value name="Key.PicViewSlide" type="dword" data="80808013"/>
-			<value name="Key.PicViewSlower" type="dword" data="808080bd"/>
-			<value name="Key.PicViewFaster" type="dword" data="808080bb"/>
-			<value name="FontLargerKey" type="dword" data="000011d0"/>
-			<value name="FontSmallerKey" type="dword" data="000011d1"/>
-			<value name="PasteFileKey" type="dword" data="00101146"/>
-			<value name="PastePathKey" type="dword" data="00101144"/>
-			<value name="PasteCygwinKey" type="dword" data="00005d2d"/>
-			<value name="Key.JumpPrevMonitor" type="dword" data="00105b25"/>
-			<value name="Key.JumpNextMonitor" type="dword" data="00105b27"/>
-			<value name="KeyMacro01" type="dword" data="00000000"/>
-			<value name="KeyMacro01.Text" type="string" data=""/>
-			<value name="KeyMacro02" type="dword" data="00000000"/>
-			<value name="KeyMacro02.Text" type="string" data=""/>
-			<value name="KeyMacro03" type="dword" data="00000000"/>
-			<value name="KeyMacro03.Text" type="string" data=""/>
+			<value name="KeyMacro01" type="dword" data="000011d0"/>
+			<value name="KeyMacro01.Text" type="string" data="FontSetSize(1,2)"/>
+			<value name="KeyMacro02" type="dword" data="000011d1"/>
+			<value name="KeyMacro02.Text" type="string" data="FontSetSize(1,-2)"/>
+			<value name="KeyMacro03" type="dword" data="00005d7b"/>
+			<value name="KeyMacro03.Text" type="string" data="Tabs(8)"/>
 			<value name="KeyMacro04" type="dword" data="00000000"/>
 			<value name="KeyMacro04.Text" type="string" data=""/>
 			<value name="KeyMacro05" type="dword" data="00000000"/>
@@ -470,22 +378,18 @@
 			<value name="KeyMacro32" type="dword" data="00000000"/>
 			<value name="KeyMacro32.Text" type="string" data=""/>
 			<value name="CTS.VkBlock" type="hex" data="a4"/>
-			<value name="CTS.VkText" type="hex" data="00"/>
+			<value name="CTS.VkText" type="hex" data="a0"/>
 			<value name="CTS.VkAct" type="hex" data="00"/>
-			<value name="CTS.VkPrompt" type="hex" data="00"/>
 			<value name="FarGotoEditorVk" type="hex" data="a2"/>
 			<value name="DndLKey" type="hex" data="00"/>
 			<value name="DndRKey" type="hex" data="a2"/>
-			<value name="WndDragKey" type="dword" data="00121101"/>
-				<key name="Tasks" modified="2013-04-23 04:41:30">
+				<key name="Tasks" modified="2012-06-12 13:38:59">
 				<value name="Count" type="dword" data="00000000"/>
 			</key>
-				<key name="Apps" modified="2013-04-23 04:41:30">
+				<key name="Apps" modified="2012-06-12 13:38:59">
 				<value name="Count" type="dword" data="00000000"/>
 			</key>
-				<key name="Colors" modified="2013-04-23 04:41:30">
-				<value name="Count" type="dword" data="00000000"/>
-			</key>
+			<value name="QuakeStyle" type="hex" data="01"/>
 		</key>
 	</key>
 </key>

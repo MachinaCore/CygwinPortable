@@ -1,0 +1,20 @@
+
+// This is sample macro-file for MacroLib plugin for Far Manager 2.x
+// You can download plugin here:
+// http://code.google.com/p/far-plugins/wiki/MacroLib
+
+
+//include "Consts.fmi"
+const ConEmu   = 0x43454D55
+
+macro Descr="ConEmu: Increase ConEmu font size"
+  Key="CtrlMsWheelUp"
+{{
+  callplugin(#%ConEmu,"FontSetSize(1,2)")
+}}
+
+macro Descr="ConEmu: Increase ConEmu font size"
+  Key="CtrlMsWheelDown"
+{{
+  callplugin(#%ConEmu,"FontSetSize(1,-2)")
+}}

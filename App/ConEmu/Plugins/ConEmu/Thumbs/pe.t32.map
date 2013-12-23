@@ -1,0 +1,168 @@
+ pe
+
+ Timestamp is 51674c37 (Fri Apr 12 03:50:15 2013)
+
+ Preferred load address is 10000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000050H .idata$5                CODE
+ 0001:00000050 000001c4H .rdata                  CODE
+ 0001:00000214 00000068H .rdata$debug            CODE
+ 0001:00000280 000019c8H .text                   CODE
+ 0001:00001c48 00000028H .idata$2                CODE
+ 0001:00001c70 00000014H .idata$3                CODE
+ 0001:00001c84 00000050H .idata$4                CODE
+ 0001:00001cd4 0000010cH .idata$6                CODE
+ 0001:00001de0 00000090H .edata                  CODE
+ 0002:00000000 00000000H .data                   DATA
+ 0002:00000000 00000008H .bss                    DATA
+ 0003:00000000 00000058H .rsrc$01                DATA
+ 0003:00000060 00000270H .rsrc$02                DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       ___safe_se_handler_count   00000000     <absolute>
+ 0000:00000000       ___safe_se_handler_table   00000000     <absolute>
+ 0001:00000000       __imp__HeapFree@12         10001000     kernel32:KERNEL32.dll
+ 0001:00000004       __imp__GetProcessHeap@0    10001004     kernel32:KERNEL32.dll
+ 0001:00000008       __imp__lstrcatW@8          10001008     kernel32:KERNEL32.dll
+ 0001:0000000c       __imp__lstrcpyW@8          1000100c     kernel32:KERNEL32.dll
+ 0001:00000010       __imp__lstrlenW@4          10001010     kernel32:KERNEL32.dll
+ 0001:00000014       __imp__lstrcmpiW@8         10001014     kernel32:KERNEL32.dll
+ 0001:00000018       __imp__lstrcmpW@8          10001018     kernel32:KERNEL32.dll
+ 0001:0000001c       __imp__lstrcmpA@8          1000101c     kernel32:KERNEL32.dll
+ 0001:00000020       __imp__MultiByteToWideChar@24 10001020     kernel32:KERNEL32.dll
+ 0001:00000024       __imp__lstrcmpiA@8         10001024     kernel32:KERNEL32.dll
+ 0001:00000028       __imp__lstrcpynW@12        10001028     kernel32:KERNEL32.dll
+ 0001:0000002c       __imp__HeapAlloc@12        1000102c     kernel32:KERNEL32.dll
+ 0001:00000030       __imp__HeapCreate@12       10001030     kernel32:KERNEL32.dll
+ 0001:00000034       __imp__HeapDestroy@4       10001034     kernel32:KERNEL32.dll
+ 0001:00000038       __imp__HeapReAlloc@16      10001038     kernel32:KERNEL32.dll
+ 0001:0000003c       __imp__HeapValidate@12     1000103c     kernel32:KERNEL32.dll
+ 0001:00000040       __imp__lstrlenA@4          10001040     kernel32:KERNEL32.dll
+ 0001:00000044       \177KERNEL32_NULL_THUNK_DATA 10001044     kernel32:KERNEL32.dll
+ 0001:00000048       __imp__wsprintfW           10001048     user32:USER32.dll
+ 0001:0000004c       \177USER32_NULL_THUNK_DATA 1000104c     user32:USER32.dll
+ 0001:0000006c       ??_C@_13DIBMAFH@?$AA?$CJ?$AA?$AA@ 1000106c     pe.obj
+ 0001:00000070       ??_C@_1BO@IJOOPNFP@?$AA?$CF?$AAi?$AA?0?$AA?5?$AA?$CF?$AAi?$AA?0?$AA?5?$AA?$CF?$AAi?$AA?0?$AA?5?$AA?$CF?$AAi?$AA?$AA@ 10001070     pe.obj
+ 0001:00000090       ??_C@_1M@NEPJOGKK@?$AA?$CF?$AAi?$AA?4?$AA?$CF?$AAi?$AA?$AA@ 10001090     pe.obj
+ 0001:0000009c       ??_C@_1BC@JDEOJIFO@?$AA?$CF?$AAi?$AA?4?$AA?$CF?$AAi?$AA?4?$AA?$CF?$AAi?$AA?$AA@ 1000109c     pe.obj
+ 0001:000000b0       ??_C@_1BI@KONPHAJJ@?$AA?$CF?$AAi?$AA?4?$AA?$CF?$AAi?$AA?4?$AA?$CF?$AAi?$AA?4?$AA?$CF?$AAi?$AA?$AA@ 100010b0     pe.obj
+ 0001:000000c8       ??_C@_1BO@OKEPMKJE@?$AAP?$AAr?$AAo?$AAd?$AAu?$AAc?$AAt?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AA?$AA@ 100010c8     pe.obj
+ 0001:000000e8       ??_C@_1BI@HCCAONKE@?$AAF?$AAi?$AAl?$AAe?$AAV?$AAe?$AAr?$AAs?$AAi?$AAo?$AAn?$AA?$AA@ 100010e8     pe.obj
+ 0001:00000100       ??_C@_0P@PLANDJKO@ProductVersion?$AA@ 10001100     pe.obj
+ 0001:00000110       ??_C@_0M@OBEGHOED@FileVersion?$AA@ 10001110     pe.obj
+ 0001:0000011c       ??_C@_1BI@LJHFMFCG@?$AAV?$AAa?$AAr?$AAF?$AAi?$AAl?$AAe?$AAI?$AAn?$AAf?$AAo?$AA?$AA@ 1000111c     pe.obj
+ 0001:00000134       ??_C@_1BO@PBBNDBNF@?$AAS?$AAt?$AAr?$AAi?$AAn?$AAg?$AAF?$AAi?$AAl?$AAe?$AAI?$AAn?$AAf?$AAo?$AA?$AA@ 10001134     pe.obj
+ 0001:00000154       ??_C@_0P@EMOHHAPL@StringFileInfo?$AA@ 10001154     pe.obj
+ 0001:00000164       ??_C@_0BA@PIFPCFJM@OpenFilePluginW?$AA@ 10001164     pe.obj
+ 0001:00000174       ??_C@_0M@DMAKBKI@OpenPluginW?$AA@ 10001174     pe.obj
+ 0001:00000180       ??_C@_0P@LBJHCIBL@GetGlobalInfoW?$AA@ 10001180     pe.obj
+ 0001:00000190       ??_C@_0BA@IDLLFCLM@SetStartupInfoW?$AA@ 10001190     pe.obj
+ 0001:000001a0       ??_C@_0P@JNNILPEA@SetStartupInfo?$AA@ 100011a0     pe.obj
+ 0001:000001b0       ??_C@_19BHIGINDB@?$AA?4?$AAd?$AAl?$AAl?$AA?$AA@ 100011b0     pe.obj
+ 0001:000001bc       ??_C@_13OHNMPHJM@?$AA?$FN?$AA?$AA@ 100011bc     pe.obj
+ 0001:000001c0       ??_C@_15FFJNNDMJ@?$AA?5?$AA?$FL?$AA?$AA@ 100011c0     pe.obj
+ 0001:000001c8       ??_C@_1M@FNNDEIFD@?$AA?4?$AAN?$AAe?$AAt?$AA?5?$AA?$AA@ 100011c8     pe.obj
+ 0001:000001d4       ??_C@_19KIFLGLIH@?$AAU?$AAp?$AAx?$AA?5?$AA?$AA@ 100011d4     pe.obj
+ 0001:000001e0       ??_C@_13HOIJIPNN@?$AA?5?$AA?$AA@ 100011e0     pe.obj
+ 0001:000001e4       ??_C@_13DMCFHHKM@?$AA3?$AA?$AA@ 100011e4     pe.obj
+ 0001:000001e8       ??_C@_13IEJJBAMJ@?$AA2?$AA?$AA@ 100011e8     pe.obj
+ 0001:000001ec       ??_C@_13FLOCNAAB@?$AA?$CG?$AA?$AA@ 100011ec     pe.obj
+ 0001:000001f0       ??_C@_13JGCMLPCH@?$AA1?$AA?$AA@ 100011f0     pe.obj
+ 0001:000001f4       ??_C@_17HHLBFPBE@?$AAF?$AAa?$AAr?$AA?$AA@ 100011f4     pe.obj
+ 0001:000001fc       ??_C@_17HIBPHNJA@?$AA3?$AA2?$AA?5?$AA?$AA@ 100011fc     pe.obj
+ 0001:00000204       ??_C@_17KBKLDIPL@?$AA1?$AA6?$AA?5?$AA?$AA@ 10001204     pe.obj
+ 0001:0000020c       ??_C@_17OGKGJAOJ@?$AA6?$AA4?$AA?5?$AA?$AA@ 1000120c     pe.obj
+ 0001:00000280       __alloca_probe             10001280     chkstk.obj
+ 0001:00000280       __chkstk                   10001280 f   chkstk.obj
+ 0001:000002ab       ?wcschr@@YAPA_WPA_W_W@Z    100012ab f i pe.obj
+ 0001:000002b0       ?Close@PEData@@QAEXXZ      100012b0 f i pe.obj
+ 0001:000002c1       ?Max@@YIIII@Z              100012c1 f   pe.obj
+ 0001:000002ca       ?ValidateMemory@@YI_NPAUPEData@@PBXI@Z 100012ca f   pe.obj
+ 0001:0000031a       ?ParseVersionInfoFixed@@YIXPAUPEData@@PAUtagVS_FIXEDFILEINFO@@@Z 1000131a f   pe.obj
+ 0001:00000488       ?ParseVersionInfoVariableString@@YIXPAUPEData@@PAXAAKPAG@Z 10001488 f   pe.obj
+ 0001:00000613       ?ParseVersionInfoVariableStringA@@YIXPAUPEData@@PAXAAKPAD@Z 10001613 f   pe.obj
+ 0001:000007bf       ?ParseVersionInfoVariableVar@@YIXPAUPEData@@PAXAAKPAG@Z 100017bf f   pe.obj
+ 0001:00000845       ?ParseVersionInfoVariable@@YIXPAUPEData@@PAXAAKPAG@Z 10001845 f   pe.obj
+ 0001:000008bc       ?ParseVersionInfoVariableA@@YIXPAUPEData@@PAXAAKPAD@Z 100018bc f   pe.obj
+ 0001:000008fc       ?ParseVersionInfo@@YIXPAUPEData@@AAPAXAAK@Z 100018fc f   pe.obj
+ 0001:000009d8       ?ParseVersionInfoA@@YIXPAUPEData@@AAPAXAAK@Z 100019d8 f   pe.obj
+ 0001:00000ab0       ?CreateResource@@YIXPAUPEData@@KPAXKKK@Z 10001ab0 f   pe.obj
+ 0001:00000b57       ?DumpSectionTable@@YIXPAUPEData@@PAU_IMAGE_SECTION_HEADER@@IH@Z 10001b57 f   pe.obj
+ 0001:00000b9a       ?CET_Init@@YGHPAU0@@Z      10001b9a f   pe.obj
+ 0001:00000bc4       ?CET_Done@@YGXPAUCET_Init@@@Z 10001bc4 f   pe.obj
+ 0001:00000bcc       ?CET_Free@@YGXPAUCET_LoadInfo@@@Z 10001bcc f   pe.obj
+ 0001:00000c0d       ?CET_Cancel@@YGXPAX@Z      10001c0d f   pe.obj
+ 0001:00000c10       ??$DumpCOR20Header@U_IMAGE_NT_HEADERS64@@@@YIXPAUPEData@@PAEPAU_IMAGE_NT_HEADERS64@@@Z 10001c10 f i pe.obj
+ 0001:00000c27       ??$DumpCOR20Header@U_IMAGE_NT_HEADERS@@@@YIXPAUPEData@@PAEPAU_IMAGE_NT_HEADERS@@@Z 10001c27 f i pe.obj
+ 0001:00000c3e       ??$DumpCertificates@U_IMAGE_NT_HEADERS64@@@@YIXPAUPEData@@PAEPAU_IMAGE_NT_HEADERS64@@@Z 10001c3e f i pe.obj
+ 0001:00000c6d       ??$DumpCertificates@U_IMAGE_NT_HEADERS@@@@YIXPAUPEData@@PAEPAU_IMAGE_NT_HEADERS@@@Z 10001c6d f i pe.obj
+ 0001:00000c9c       ??$GetEnclosingSectionHeader@U_IMAGE_NT_HEADERS64@@@@YIPAU_IMAGE_SECTION_HEADER@@KPAU_IMAGE_NT_HEADERS64@@@Z 10001c9c f i pe.obj
+ 0001:00000cd6       ??$GetEnclosingSectionHeader@U_IMAGE_NT_HEADERS@@@@YIPAU_IMAGE_SECTION_HEADER@@KPAU_IMAGE_NT_HEADERS@@@Z 10001cd6 f i pe.obj
+ 0001:00000d10       ?DumpNEResourceTable@@YIXPAUPEData@@PAU_IMAGE_DOS_HEADER@@PAE@Z 10001d10 f   pe.obj
+ 0001:00000dce       ?DumpExeFileNE@@YI_NPAUPEData@@PAU_IMAGE_DOS_HEADER@@PAU_IMAGE_OS2_HEADER@@@Z 10001dce f   pe.obj
+ 0001:00000e02       ??$GetPtrFromRVA@U_IMAGE_NT_HEADERS64@@@@YIPAXKPAU_IMAGE_NT_HEADERS64@@PAE@Z 10001e02 f i pe.obj
+ 0001:00000e2f       ??$GetPtrFromRVA@U_IMAGE_NT_HEADERS@@@@YIPAXKPAU_IMAGE_NT_HEADERS@@PAE@Z 10001e2f f i pe.obj
+ 0001:00000e5c       ??$DumpExportsSection@U_IMAGE_NT_HEADERS64@@@@YIXPAUPEData@@PAEPAU_IMAGE_NT_HEADERS64@@@Z 10001e5c f i pe.obj
+ 0001:00001041       ??$DumpExportsSection@U_IMAGE_NT_HEADERS@@@@YIXPAUPEData@@PAEPAU_IMAGE_NT_HEADERS@@@Z 10002041 f i pe.obj
+ 0001:00001223       ?DumpResourceEntry@@YIXPAUPEData@@KPAU_IMAGE_RESOURCE_DIRECTORY_ENTRY@@PAEKKK@Z 10002223 f   pe.obj
+ 0001:000012b9       ?DumpResourceDirectory@@YIXPAUPEData@@PAU_IMAGE_RESOURCE_DIRECTORY@@PAEKKKK@Z 100022b9 f   pe.obj
+ 0001:00001387       ??$DumpResourceSection@U_IMAGE_NT_HEADERS64@@@@YIXPAUPEData@@PAEPAU_IMAGE_NT_HEADERS64@@@Z 10002387 f i pe.obj
+ 0001:000013bf       ??$DumpResourceSection@U_IMAGE_NT_HEADERS@@@@YIXPAUPEData@@PAEPAU_IMAGE_NT_HEADERS@@@Z 100023bf f i pe.obj
+ 0001:000013f7       ?DumpResources@@YIXPAUPEData@@PAEPAU_IMAGE_NT_HEADERS@@@Z 100023f7 f   pe.obj
+ 0001:0000142e       ?DumpExeFilePE@@YI_NPAUPEData@@PAU_IMAGE_DOS_HEADER@@PAU_IMAGE_NT_HEADERS@@@Z 1000242e f   pe.obj
+ 0001:000014ce       ?DumpExeFile@@YI_NPAUPEData@@PAU_IMAGE_DOS_HEADER@@@Z 100024ce f   pe.obj
+ 0001:00001519       ?DumpFile@@YI_NPAUPEData@@PAE_J2@Z 10002519 f   pe.obj
+ 0001:0000156f       ?CET_Load@@YGHPAUCET_LoadInfo@@@Z 1000256f f   pe.obj
+ 0001:00001898       ?HeapInitialize@@YI_NXZ    10002898 f   Memory.obj
+ 0001:000018be       ?HeapDeinitialize@@YIXXZ   100028be f   Memory.obj
+ 0001:000018d6       ?xf_malloc@@YAPAXI@Z       100028d6 f   Memory.obj
+ 0001:000018e9       ?xf_calloc@@YAPAXII@Z      100028e9 f   Memory.obj
+ 0001:00001902       ?xf_realloc@@YAPAXPAXI@Z   10002902 f   Memory.obj
+ 0001:00001919       ?xf_free@@YAXPAX@Z         10002919 f   Memory.obj
+ 0001:00001937       ?xf_validate@@YA_NPAX@Z    10002937 f   Memory.obj
+ 0001:00001950       ??2@YAPAXI@Z               10002950 f   Memory.obj
+ 0001:00001955       ??_U@YAPAXI@Z              10002955 f   Memory.obj
+ 0001:0000195a       ??3@YAXPAX@Z               1000295a f   Memory.obj
+ 0001:0000195f       ??_V@YAXPAX@Z              1000295f f   Memory.obj
+ 0001:00001964       ?lstrdupW@@YIPA_WPBDI@Z    10002964 f   Memory.obj
+ 0001:000019ac       ?StringCchCopyA@@YGJPADIPBD@Z 100029ac f i Memory.obj
+ 0001:00001a0c       ?StringCchCopyW@@YGJPA_WIPB_W@Z 10002a0c f i Memory.obj
+ 0001:00001a73       ?lstrdup@@YIPADPBD@Z       10002a73 f   Memory.obj
+ 0001:00001aae       ?lstrdup@@YIPA_WPB_W@Z     10002aae f   Memory.obj
+ 0001:00001aeb       ?lstrmerge@@YIPA_WPB_W000@Z 10002aeb f   Memory.obj
+ 0001:00001b80       _wcschr                    10002b80 f   libCRT:strchr.obj
+ 0001:00001bb0       _wcsrchr                   10002bb0 f   libCRT:strrchr.obj
+ 0001:00001bdc       _HeapFree@12               10002bdc f   kernel32:KERNEL32.dll
+ 0001:00001be2       _GetProcessHeap@0          10002be2 f   kernel32:KERNEL32.dll
+ 0001:00001be8       _lstrcatW@8                10002be8 f   kernel32:KERNEL32.dll
+ 0001:00001bee       _lstrcpyW@8                10002bee f   kernel32:KERNEL32.dll
+ 0001:00001bf4       _lstrlenW@4                10002bf4 f   kernel32:KERNEL32.dll
+ 0001:00001bfa       _lstrcmpiW@8               10002bfa f   kernel32:KERNEL32.dll
+ 0001:00001c00       _lstrcmpW@8                10002c00 f   kernel32:KERNEL32.dll
+ 0001:00001c06       _lstrcmpA@8                10002c06 f   kernel32:KERNEL32.dll
+ 0001:00001c0c       _MultiByteToWideChar@24    10002c0c f   kernel32:KERNEL32.dll
+ 0001:00001c12       _lstrcmpiA@8               10002c12 f   kernel32:KERNEL32.dll
+ 0001:00001c18       _lstrcpynW@12              10002c18 f   kernel32:KERNEL32.dll
+ 0001:00001c1e       _HeapAlloc@12              10002c1e f   kernel32:KERNEL32.dll
+ 0001:00001c24       _HeapCreate@12             10002c24 f   kernel32:KERNEL32.dll
+ 0001:00001c2a       _HeapDestroy@4             10002c2a f   kernel32:KERNEL32.dll
+ 0001:00001c30       _HeapReAlloc@16            10002c30 f   kernel32:KERNEL32.dll
+ 0001:00001c36       _HeapValidate@12           10002c36 f   kernel32:KERNEL32.dll
+ 0001:00001c3c       _lstrlenA@4                10002c3c f   kernel32:KERNEL32.dll
+ 0001:00001c42       _wsprintfW                 10002c42 f   user32:USER32.dll
+ 0001:00001c48       __IMPORT_DESCRIPTOR_KERNEL32 10002c48     kernel32:KERNEL32.dll
+ 0001:00001c5c       __IMPORT_DESCRIPTOR_USER32 10002c5c     user32:USER32.dll
+ 0001:00001c70       __NULL_IMPORT_DESCRIPTOR   10002c70     kernel32:KERNEL32.dll
+ 0002:00000000       ?ghModule@@3PAUHINSTANCE__@@A 10003000     pe.obj
+ 0002:00000004       ?ghHeap@@3PAXA             10003004     Memory.obj
+
+ entry point at        0000:00000000
+
+ Static symbols
+
+ 0001:000017da       ?StringValidateDestA@@YGJPBDII@Z 100027da f   Memory.obj
+ 0001:000017ee       ?StringValidateDestW@@YGJPB_WII@Z 100027ee f   Memory.obj
+ 0001:00001802       ?StringCopyWorkerA@@YGJPADIPAIPBDI@Z 10002802 f   Memory.obj
+ 0001:00001849       ?StringCopyWorkerW@@YGJPA_WIPAIPB_WI@Z 10002849 f   Memory.obj

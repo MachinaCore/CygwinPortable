@@ -1,0 +1,13 @@
+REGEDIT4
+
+; Increase/decrease ConEmu GUI font size
+
+[HKEY_CURRENT_USER\Software\Far\KeyMacros\Common\CtrlMsWheelDown]
+"Sequence"="F11 $if (menu.Select(\"ConEmu\",2)<=0) MsgBox(\"ConEmu\",\"Plugin was not found in list!\",1) $Exit $end Enter $if (menu.select(\"~.\",1)>0) ~ $Text \"FontSetSize(1,-2)\" Enter $end Esc"
+"DisableOutput"=dword:00000001
+"Description"="ConEmu: Decrease GUI font size"
+
+[HKEY_CURRENT_USER\Software\Far\KeyMacros\Common\CtrlMsWheelUp]
+"Sequence"="F11 $if (menu.Select(\"ConEmu\",2)<=0) MsgBox(\"ConEmu\",\"Plugin was not found in list!\",1) $Exit $end Enter $if (menu.select(\"~.\",1)>0) ~ $Text \"FontSetSize(1,2)\" Enter $end Esc"
+"DisableOutput"=dword:00000001
+"Description"="ConEmu: Increase GUI font size"

@@ -1,0 +1,8 @@
+.Language=English,English
+
+// Plugin title
+"ConEmu Background"
+"&Enable plugin"
+"&Settings file path (Background.xml)"
+"OK"
+"Cancel"
