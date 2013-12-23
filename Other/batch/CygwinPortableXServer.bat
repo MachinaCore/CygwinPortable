@@ -1,2 +1,2 @@
 @echo off
-..\..\CygwinPortable.exe -startx
+CygwinPortable.exe -startx

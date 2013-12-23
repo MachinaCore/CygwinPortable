@@ -429,7 +429,7 @@ ReadCmdLineParams()
 
 Global $tray_ReStartApache,$tray_openbash,$AppsStopped,$tray_TrayExit,$tray_menu_seperator,$tray_menu_seperator2,$nSideItem3,$nTrayIcon1,$nTrayMenu1,$tray_openCygwinConfig,$tray_sub_QuickLaunch,$tray_sub_Drives,$tray_sub_QuickLink,$tray_menu_seperator_quick_launch,$tray_openXServer,$tray_openCygwinConfigPorts
 
-if $setContextMenu == True Then
+if $setContextMenu == True and $CmdLine[0] == 0 Then
     If IsAdmin() = 0 Then
         $admin = MsgBox(0, "Admin Rights", "User " & @UserName & " does not have admin rights" & @CRLF & "Set Context Menu needs admin right - Please restart Cygwin Portable with admin rights")
 	EndIf

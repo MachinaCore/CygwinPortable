@@ -1,2 +1,2 @@
 @echo off
-..\..\CygwinPortable.exe -config
+CygwinPortable.exe -config
