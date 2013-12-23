@@ -39,7 +39,7 @@
 
 #include "other\source\resources\_InetGetGUI.au3"
 
-Run(@ScriptDir & "\app\cygwin\bin\bash /Other/user_setup.sh", @SW_HIDE)
+Run(@ScriptDir & "\app\cygwin\bin\bash /Other/helper/user_setup.sh", @SW_HIDE)
 
 
 
@@ -300,7 +300,7 @@ If Not FileExists(@ScriptDir & "\app\cygwin\home\" & $cygwinUsername) and FileEx
 	FileDelete (@ScriptDir & "/app/cygwin/home/" & $cygwinUsername & "/.bashrc")
 	FileDelete (@ScriptDir & "/app/cygwin/home/" & $cygwinUsername & "/.minttyrc")
 	FileDelete (@ScriptDir & "/app/cygwin/etc/profile")
-	ShellExecute(@ScriptDir & "\app\cygwin\bin\bash.exe", "--login -i -c 'ln -s /Other/bashrc ~/.bashrc;ln -s /Other/dircolors ~/.dircolors;ln -s /Other/minttyrc ~/.minttyrc;ln -s /Other/profile /etc/profile;ln -s /Other/cyg-wrapper.sh /bin/cyg-wrapper.sh;ln -s /Other/startSumatra.sh /bin/startSumatra.sh;exec /bin/bash.exe'" , @ScriptDir, "")
+	ShellExecute(@ScriptDir & "\app\cygwin\bin\bash.exe", "--login -i -c 'ln -s /Other/profile/bashrc ~/.bashrc;ln -s /Other/profile/dircolors ~/.dircolors;ln -s /Other/profile/minttyrc ~/.minttyrc;ln -s /Other/profile/profile /etc/profile;ln -s /Other/helper/cyg-wrapper.sh /bin/cyg-wrapper.sh;ln -s /Other/helper/startSumatra.sh /bin/startSumatra.sh;exec /bin/bash.exe'" , @ScriptDir, "")
 	;ShellExecute(@ScriptDir & "\app\cygwin\bin\bash.exe", "--login -i -c 'ln -s " & $cygScriptDir & "/Other/bashrc ~/.bashrc;ln -s " & $cygScriptDir & "/Other/dircolors ~/.dircolors;ln -s " & $cygScriptDir & "/Other/minttyrc ~/.minttyrc;ln -s " & $cygScriptDir & "/Other/profile /etc/profile;ln -s " & $cygScriptDir & "/Other/cyg-wrapper.sh /bin/cyg-wrapper.sh;ln -s /Other/startSumatra.sh /bin/startSumatra.sh;exec /bin/bash.exe'" , @ScriptDir, "")
 EndIf
 
