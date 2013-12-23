@@ -400,10 +400,15 @@ If Not FileExists(@ScriptDir & "\app\cygwin\bin\bash.exe") then
 			FileDelete (@ScriptDir & "\setup.log")
 			FileDelete (@ScriptDir & "\setup.log.full")
 		EndIf
-		;if FileExists(@ScriptDir & "\CygwinPortable.exe") then
-		;	ShellExecute(@ScriptDir & "\CygwinPortable.exe", "", @ScriptDir, "")
-		;	Exit
-		;EndIf
+		If IsAdmin() = 0 Then
+			$admin = MsgBox(0, "Cygwin Portable", "User " & @UserName & " does not have admin rights" & @CRLF & " You must restart Cygwin Portable after installation is finished")
+			Exit
+		Else
+			if FileExists(@ScriptDir & "\CygwinPortable.exe") then
+				ShellExecute(@ScriptDir & "\CygwinPortable.exe", "", @ScriptDir, "")
+				Exit
+			EndIf
+		EndIf
 	ElseIf $DownloadCygwinEnvironment = 7 Then
 		MsgBox(16, "Error", "Cygwin environment setup canceled. Can't continue", 16)
 		Exit
@@ -417,6 +422,9 @@ ReadCmdLineParams()
 Global $tray_ReStartApache,$tray_openbash,$AppsStopped,$tray_TrayExit,$tray_menu_seperator,$tray_menu_seperator2,$nSideItem3,$nTrayIcon1,$nTrayMenu1,$tray_openCygwinConfig,$tray_sub_QuickLaunch,$tray_sub_Drives,$tray_sub_QuickLink,$tray_menu_seperator_quick_launch,$tray_openXServer,$tray_openCygwinConfigPorts
 
 if $setContextMenu == True Then
+    If IsAdmin() = 0 Then
+        $admin = MsgBox(4, "Admin Rights", "User " & @UserName & " does not have admin rights" & @CRLF & "Set Context Menu needs admin right - Please restart Cygwin Portable with admin rights")
+	EndIf
 	cygwinSetContextMenu()
 Else
 	cygwinUnSetContextMenu()
