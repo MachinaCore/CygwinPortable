@@ -8,7 +8,7 @@
 #AutoIt3Wrapper_Res_LegalCopyright=CybeSystems
 #AutoIt3Wrapper_Res_Language=1031
 #AutoIt3Wrapper_Res_Icon_Add=App\AppInfo\appicon1.ico
-#AutoIt3Wrapper_Res_File_Add=Resources\cs_sidebar.bmp, rt_bitmap, CYBESYSTEMS_SIDEBAR
+#AutoIt3Wrapper_Res_File_Add=other\source\Resources\cs_sidebar.bmp, rt_bitmap, CYBESYSTEMS_SIDEBAR
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 #Region AutoIt3Wrapper directives section
 ;===============================================================================================================
@@ -26,9 +26,9 @@
 #include <File.au3>
 #Include <Array.au3>
 #include <Process.au3>
-#include "resources\resources.au3"
-#include "resources\_ModernMenuRaw.au3"
-#include "resources\_SysTray.au3"
+#include "other\source\resources\resources.au3"
+#include "other\source\resources\_ModernMenuRaw.au3"
+#include "other\source\resources\_SysTray.au3"
 #include <ButtonConstants.au3>
 #include <ComboConstants.au3>
 #include <EditConstants.au3>
@@ -37,7 +37,7 @@
 #include <StaticConstants.au3>
 #Include <Misc.au3>
 
-#include "resources\_InetGetGUI.au3"
+#include "other\source\resources\_InetGetGUI.au3"
 
 Run(@ScriptDir & "\bin\bash /Other/user_setup.sh", @SW_HIDE)
 
