@@ -73,7 +73,7 @@ Func ReadSettings()
 	$cygwinDeleteInstallationFolders = IniRead($iniFile, "Expert", "CygwinDeleteInstallationFolders", False)
 EndFunc
 
-If $shell == "ConEmu" and Not FileExists(@ScriptDir & "\ConEmu\ConEmu.exe") then
+If $shell == "ConEmu" and Not FileExists(@ScriptDir & "\app\ConEmu\ConEmu.exe") then
 	$shell = "mintty"
 EndIf
 
@@ -726,8 +726,8 @@ Func cygwinOpen($cygwinOpenPath="")
 				next
 			EndIf
 		Next
-		;Run (@ScriptDir & "\ConEmu\ConEmu.exe /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c cd C:")
-		;ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd /home;exec /bin/bash.exe" , @ScriptDir, "")
+		;Run (@ScriptDir & "\app\ConEmu\ConEmu.exe /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c cd C:")
+		;ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd /home;exec /bin/bash.exe" , @ScriptDir, "")
 		if $cygfile <> "" and $executable == True Then
 			local $executeCommand = ";./" & $cygfile
 			if $szExt == "py" Then
@@ -736,27 +736,27 @@ Func cygwinOpen($cygwinOpenPath="")
 
 			if $exitAfterExec == False Then
 				if $shell == "ConEmu" Then
-					ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & $executeCommand & ";exec /bin/bash.exe'" , @ScriptDir, "")
+					ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & $executeCommand & ";exec /bin/bash.exe'" , @ScriptDir, "")
 				Else
 					Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & $executeCommand & ";exec /bin/bash.exe'")
 				EndIf
 			Else
 				if $shell == "ConEmu" Then
-					ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & $executeCommand & "'" , @ScriptDir, "")
+					ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & $executeCommand & "'" , @ScriptDir, "")
 				Else
 					Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & $executeCommand & "'")
 				EndIf
 			EndIf
 		Else
 			if $shell == "ConEmu" Then
-				ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & "/; exec /bin/bash.exe'", @ScriptDir, "")
+				ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & "/; exec /bin/bash.exe'", @ScriptDir, "")
 			Else
 				Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & "/; exec /bin/bash.exe'")
 			EndIf
 		EndIf
 	ElseIf $correctPath <> 0 and $existingPath <> False Then
 		if $shell == "ConEmu" Then
-			ShellExecute(@ScriptDir & "\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd C:;exec /bin/bash.exe'", @ScriptDir, "")
+			ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd C:;exec /bin/bash.exe'", @ScriptDir, "")
 		Else
 			Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd C:;exec /bin/bash.exe'")
 		EndIf
