@@ -310,8 +310,8 @@ If Not FileExists(@ScriptDir & "\app\cygwin\home\" & $cygwinUsername) and FileEx
 	;ShellExecute(@ScriptDir & "\app\cygwin\bin\bash.exe", "--login -i -c 'ln -s " & $cygScriptDir & "/Other/bashrc ~/.bashrc;ln -s " & $cygScriptDir & "/Other/dircolors ~/.dircolors;ln -s " & $cygScriptDir & "/Other/minttyrc ~/.minttyrc;ln -s " & $cygScriptDir & "/Other/profile /etc/profile;ln -s " & $cygScriptDir & "/Other/cyg-wrapper.sh /bin/cyg-wrapper.sh;ln -s /Other/startSumatra.sh /bin/startSumatra.sh;exec /bin/bash.exe'" , @ScriptDir, "")
 EndIf
 
-If Not FileExists(@ScriptDir & "\data") then
-	DirCopy (@ScriptDir & "\app\defaultdata", @ScriptDir & "\data" )
+If Not FileExists(@ScriptDir & "\Data") then
+	DirCopy (@ScriptDir & "\app\defaultdata", @ScriptDir & "\Data" )
 EndIf
 
 ;Delete Installation ?
@@ -388,6 +388,11 @@ If Not FileExists(@ScriptDir & "\app\cygwin\CygwinPortableConfig.bat") then
 	 FileCopy(@ScriptDir & "\other\batch\*.bat", @ScriptDir & "\app\cygwin")
  EndIf
 
+if StringInStr(@ScriptDir, " ") Then
+	MsgBox (0, "Path Error" ,@ScriptDir & " contain spaces in pathname" & @CRLF & "Cygwin path does not allow spaces - Please move folder")
+	exit
+EndIf
+
 If Not FileExists(@ScriptDir & "\app\cygwin\bin\bash.exe") then
 	$DownloadCygwinEnvironment = MsgBox (4, "Download cygwin Environment" ,"This is the first launch of Cygwin portable. Download the default cygwin packages (incl. X11) now ?")
 	If $DownloadCygwinEnvironment = 6 Then
@@ -423,7 +428,7 @@ Global $tray_ReStartApache,$tray_openbash,$AppsStopped,$tray_TrayExit,$tray_menu
 
 if $setContextMenu == True Then
     If IsAdmin() = 0 Then
-        $admin = MsgBox(4, "Admin Rights", "User " & @UserName & " does not have admin rights" & @CRLF & "Set Context Menu needs admin right - Please restart Cygwin Portable with admin rights")
+        $admin = MsgBox(0, "Admin Rights", "User " & @UserName & " does not have admin rights" & @CRLF & "Set Context Menu needs admin right - Please restart Cygwin Portable with admin rights")
 	EndIf
 	cygwinSetContextMenu()
 Else
