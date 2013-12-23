@@ -1,19 +1,2 @@
-# Ignore all files
-*
-# except
-!.gitignore
-!cygwinConfig.vbs
-!CygwinTerminal.vbs
-!XWinServer.vbs
-!CygwinPortable.au3
-!CygwinPortable.exe
-!CygwinPortable.ini
-!README.md
-!CygwinPortableConfig.bat
-!CygwinPortableTerminal.bat
-!CygwinPortableXServer.bat
-# and these directories
-![aA]pp/
-![oO]ther/
-![rR]esources/
-![cC]onEmu/
+[aA]pp/[cC]yg[wW]in/
+[dD]ata/
