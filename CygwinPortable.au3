@@ -39,11 +39,46 @@
 
 #include "other\source\resources\_InetGetGUI.au3"
 
-Run(@ScriptDir & "\bin\bash /Other/user_setup.sh", @SW_HIDE)
+Run(@ScriptDir & "\app\cygwin\bin\bash /Other/user_setup.sh", @SW_HIDE)
+
+
 
 Global $szDrive, $szDir, $szFName, $szExt, $cygdrive,$cygfolder,$cygfolder1,$cygfile, $executableExtension, $executable, $exitAfterExec, $setContextMenu, $cygwinUsername,$cygwinTrayMenu,$shell,$cygwinNoMsgBox,$cygwinMirror,$cygwinPortsMirror,$cygwinFirstInstallAdditions
 Global $cygwinFirstInstallDeleteUnneeded, $cygwinDeleteInstallation, $installUnofficial,$cygwinDeleteInstallationFolders,$tray_openCygwinPortableConfig,$windowsPathToCygwin,$windowsAdditionalPath,$windowsPythonPath
 Global $WS_GROUP
+
+
+Func Folder2CygFolder($winFolder)
+	;ConsoleWrite($winFolder)
+
+	$fullPath = $winFolder
+	_PathSplit($fullPath, $szDrive, $szDir, $szFName, $szExt)
+	$cygdrive = "/cygdrive/" & StringReplace($szDrive, ":", "" )
+	$cygfile = $szFName & $szExt
+
+	;Check for windows lnk files
+	if $szExt == ".lnk" Then
+		Local $aDetails = FileGetShortcut($fullPath)
+		$fullPath = $aDetails[0]
+		_PathSplit($fullPath, $szDrive, $szDir, $szFName, $szExt)
+		$cygdrive = "/cygdrive/" & StringReplace($szDrive, ":", "" )
+		$cygfile = $szFName & $szExt
+	EndIf
+
+	;Check if selected file or folder
+	if $szExt <> "" Then
+		$cygfolder1 = StringReplace($szDir & "\", "\", "/" )
+	else
+		$cygfolder1 = StringReplace($szDir & $szFName, "\", "/" )
+	EndIf
+
+	$cygfolder = StringReplace($cygfolder1, " ", "\ " )
+	Return($cygdrive & $cygfolder)
+
+EndFunc
+
+
+Local $cygScriptDir = Folder2CygFolder(@ScriptDir)
 
 Local $iniMain = IniReadSection(@ScriptDir & "\CygwinPortable.ini", "Main")
 Local $iniFile = @ScriptDir & "\CygwinPortable.ini"
@@ -117,10 +152,10 @@ if $windowsPathToCygwin == True then
 	if $windowsAdditionalPath <> "" then
 		$path &= $windowsAdditionalPath & ";"
 	EndIf
-	ConsoleWrite($path)
-	EnvSet("PATH",$path & @ScriptDir & "\bin")
+	;ConsoleWrite($path)
+	EnvSet("PATH",$path & @ScriptDir & "\app\cygwin\bin")
 Else
-	EnvSet("PATH",@ScriptDir & "\bin")
+	EnvSet("PATH",@ScriptDir & "\app\cygwin\bin")
 EndIf
 EnvSet("ALLUSERSPROFILE",  "C:\ProgramData")
 EnvSet("ProgramData",  "C:\ProgramData")
@@ -132,7 +167,7 @@ EnvSet("USBDRVPATH",  $szDrive)
 if $windowsPythonPath <> "" then
 	EnvSet("PYTHONPATH",$windowsPythonPath & ";")
 EndIf
-;~ If Not FileExists(@ScriptDir & "\bin\python2.7.exe") then
+;~ If Not FileExists(@ScriptDir & "\app\cygwin\bin\python2.7.exe") then
 ;~ 	$pythonpath = EnvGet("PYTHONPATH")
 ;~ 	ConsoleWrite($pythonpath)
 ;~ EndIf
@@ -259,12 +294,14 @@ Func ConfigExit()
 	GUIDelete($settings_form)
 EndFunc   ;==>ConfigExit
 
-If Not FileExists(@ScriptDir & "\home\" & $cygwinUsername) and FileExists(@ScriptDir & "\bin\bash.exe") then
-	ShellExecuteWait(@ScriptDir & "\bin\bash.exe", "--login -i -c 'exit'" , @ScriptDir, "")
-	FileDelete (@ScriptDir & "/home/" & $cygwinUsername & "/.bashrc")
-	FileDelete (@ScriptDir & "/home/" & $cygwinUsername & "/.minttyrc")
-	FileDelete (@ScriptDir & "/etc/profile")
-	ShellExecute(@ScriptDir & "\bin\bash.exe", "--login -i -c 'ln -s /Other/bashrc ~/.bashrc;ln -s /Other/dircolors ~/.dircolors;ln -s /Other/minttyrc ~/.minttyrc;ln -s /Other/profile /etc/profile;ln -s /Other/cyg-wrapper.sh /bin/cyg-wrapper.sh;ln -s /Other/startSumatra.sh /bin/startSumatra.sh;exec /bin/bash.exe'" , @ScriptDir, "")
+If Not FileExists(@ScriptDir & "\app\cygwin\home\" & $cygwinUsername) and FileExists(@ScriptDir & "\app\cygwin\bin\bash.exe") then
+	DirCreate(@ScriptDir & "\app\cygwin\home\" & $cygwinUsername)
+	ShellExecuteWait(@ScriptDir & "\app\cygwin\bin\bash.exe", "--login -i -c 'exit'" , @ScriptDir, "")
+	FileDelete (@ScriptDir & "/app/cygwin/home/" & $cygwinUsername & "/.bashrc")
+	FileDelete (@ScriptDir & "/app/cygwin/home/" & $cygwinUsername & "/.minttyrc")
+	FileDelete (@ScriptDir & "/app/cygwin/etc/profile")
+	ShellExecute(@ScriptDir & "\app\cygwin\bin\bash.exe", "--login -i -c 'ln -s /Other/bashrc ~/.bashrc;ln -s /Other/dircolors ~/.dircolors;ln -s /Other/minttyrc ~/.minttyrc;ln -s /Other/profile /etc/profile;ln -s /Other/cyg-wrapper.sh /bin/cyg-wrapper.sh;ln -s /Other/startSumatra.sh /bin/startSumatra.sh;exec /bin/bash.exe'" , @ScriptDir, "")
+	;ShellExecute(@ScriptDir & "\app\cygwin\bin\bash.exe", "--login -i -c 'ln -s " & $cygScriptDir & "/Other/bashrc ~/.bashrc;ln -s " & $cygScriptDir & "/Other/dircolors ~/.dircolors;ln -s " & $cygScriptDir & "/Other/minttyrc ~/.minttyrc;ln -s " & $cygScriptDir & "/Other/profile /etc/profile;ln -s " & $cygScriptDir & "/Other/cyg-wrapper.sh /bin/cyg-wrapper.sh;ln -s /Other/startSumatra.sh /bin/startSumatra.sh;exec /bin/bash.exe'" , @ScriptDir, "")
 EndIf
 
 ;Delete Installation ?
@@ -292,7 +329,7 @@ If Not FileExists(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe") then
  Endif
 
 Func DownloadSetup()
-    Local $sFilePathURL = "http://cygwin.com/setup.exe"
+    Local $sFilePathURL = "http://cygwin.com/setup-x86.exe"
     Local $hGUI, $iButton, $iLabel, $iProgressBar, $sFilePath
 
     $hGUI = GUICreate("Cygwin setup.exe Downloader", 370, 90, -1, -1)
@@ -327,20 +364,20 @@ if $installUnofficial == True Then
 		$count = $installUnofficialFileList[0]
 		for $x = 1 to $count
 			If Not @error Then
-				if Not FileExists(@ScriptDir & "\bin\" & $installUnofficialFileList[$x]) then
-					FileCopy(@ScriptDir & "\App\CygwinUnofficial\" & $installUnofficialFileList[$x], @ScriptDir & "\bin\" & $installUnofficialFileList[$x])
-					Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'chmod +x /bin/" & $installUnofficialFileList[$x] & "'")
+				if Not FileExists(@ScriptDir & "\app\cygwin\bin\" & $installUnofficialFileList[$x]) then
+					FileCopy(@ScriptDir & "\App\CygwinUnofficial\" & $installUnofficialFileList[$x], @ScriptDir & "\app\cygwin\bin\" & $installUnofficialFileList[$x])
+					Run (@ScriptDir & "\app\cygwin\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'chmod +x /bin/" & $installUnofficialFileList[$x] & "'")
 				EndIf
 			EndIf
 		Next
 	EndIf
 EndIf
 
-If Not FileExists(@ScriptDir & "\bin\bash.exe") then
+If Not FileExists(@ScriptDir & "\app\cygwin\bin\bash.exe") then
 	$DownloadCygwinEnvironment = MsgBox (4, "Download cygwin Environment" ,"This is the first launch of Cygwin portable. Download the default cygwin packages (incl. X11) now ?")
 	If $DownloadCygwinEnvironment = 6 Then
 
-		ShellExecuteWait(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe", " -R " & @ScriptDir & " -l " & @ScriptDir & "\packages -n -d -N -s " & $cygwinMirror & " -q" & " -P " & $cygwinFirstInstallAdditions, @ScriptDir, "")
+		ShellExecuteWait(@ScriptDir & "\App\CygwinPortable\CygwinConfig.exe", " -R " & @ScriptDir & "\app\cygwin\ -l " & @ScriptDir & "\app\cygwin\packages -n -d -N -s " & $cygwinMirror & " -q" & " -P " & $cygwinFirstInstallAdditions, @ScriptDir, "")
 
 		if $cygwinFirstInstallDeleteUnneeded == True Then
 			FileDelete (@ScriptDir & "\Cygwin.ico")
@@ -566,7 +603,7 @@ Func TrayEvent()
 		Case $tray_openCygwinPortableConfig
 			CygwinPortableSettingsGUI()
 		Case $tray_openXServer
-			Run (@ScriptDir & "\bin\run.exe /bin/bash.exe -c '/usr/bin/startxwin.exe -- -nolock -unixkill'", "", @SW_HIDE )
+			Run (@ScriptDir & "\app\cygwin\bin\run.exe /bin/bash.exe -c '/usr/bin/startxwin.exe -- -nolock -unixkill'", "", @SW_HIDE )
 	EndSwitch
 EndFunc   ;==>TrayEvent
 
@@ -726,8 +763,8 @@ Func cygwinOpen($cygwinOpenPath="")
 				next
 			EndIf
 		Next
-		;Run (@ScriptDir & "\app\ConEmu\ConEmu.exe /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c cd C:")
-		;ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd /home;exec /bin/bash.exe" , @ScriptDir, "")
+		;Run (@ScriptDir & "\app\ConEmu\ConEmu.exe /cmd " & @ScriptDir & "\app\cygwin\bin\bash.exe --login -i -c cd C:")
+		;ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\app\cygwin\bin\bash.exe --login -i -c 'cd /home;exec /bin/bash.exe" , @ScriptDir, "")
 		if $cygfile <> "" and $executable == True Then
 			local $executeCommand = ";./" & $cygfile
 			if $szExt == "py" Then
@@ -736,29 +773,29 @@ Func cygwinOpen($cygwinOpenPath="")
 
 			if $exitAfterExec == False Then
 				if $shell == "ConEmu" Then
-					ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & $executeCommand & ";exec /bin/bash.exe'" , @ScriptDir, "")
+					ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\app\cygwin\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & $executeCommand & ";exec /bin/bash.exe'" , @ScriptDir, "")
 				Else
-					Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & $executeCommand & ";exec /bin/bash.exe'")
+					Run (@ScriptDir & "\app\cygwin\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & $executeCommand & ";exec /bin/bash.exe'")
 				EndIf
 			Else
 				if $shell == "ConEmu" Then
-					ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & $executeCommand & "'" , @ScriptDir, "")
+					ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\app\cygwin\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & $executeCommand & "'" , @ScriptDir, "")
 				Else
-					Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & $executeCommand & "'")
+					Run (@ScriptDir & "\app\cygwin\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & $executeCommand & "'")
 				EndIf
 			EndIf
 		Else
 			if $shell == "ConEmu" Then
-				ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & "/; exec /bin/bash.exe'", @ScriptDir, "")
+				ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\app\cygwin\bin\bash.exe --login -i -c 'cd " & $cygdrive & $cygfolder & "/; exec /bin/bash.exe'", @ScriptDir, "")
 			Else
-				Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & "/; exec /bin/bash.exe'")
+				Run (@ScriptDir & "\app\cygwin\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd " & $cygdrive & $cygfolder & "/; exec /bin/bash.exe'")
 			EndIf
 		EndIf
 	ElseIf $correctPath <> 0 and $existingPath <> False Then
 		if $shell == "ConEmu" Then
-			ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\bin\bash.exe --login -i -c 'cd C:;exec /bin/bash.exe'", @ScriptDir, "")
+			ShellExecute(@ScriptDir & "\app\ConEmu\ConEmu.exe", " /cmd " & @ScriptDir & "\app\cygwin\bin\bash.exe --login -i -c 'cd C:;exec /bin/bash.exe'", @ScriptDir, "")
 		Else
-			Run (@ScriptDir & "\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd C:;exec /bin/bash.exe'")
+			Run (@ScriptDir & "\app\cygwin\bin\mintty --config /home/" & $cygwinUsername & "/.minttyrc -e /bin/bash.exe -c 'cd C:;exec /bin/bash.exe'")
 		EndIf
 	EndIf
 EndFunc
