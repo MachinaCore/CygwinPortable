@@ -1,7 +1,7 @@
 CygwinPortable
 ==============
 
-A portable Cygwin environment with much options. It's very useful for "static" installations too. It can create ShellExtensions in Windows Explorer ("Open Folder in Cygwin", "Open Drive in Cygwin", "Run in Cygwin"). "Open with -> CygwinPortable.exe" is also supported (you can register e.g. .sh extensions with CygwinPortable.exe). The default installation support XServer.
+A portable Cygwin environment with much options. It's very useful for "static" installations too. It can create ShellExtensions in Windows Explorer ("Open Folder in Cygwin", "Open Drive in Cygwin", "Run in Cygwin").  "Open with -> CygwinPortable.exe" is also supported (you can register e.g. .sh extensions with CygwinPortable.exe). The default installation support XServer. ShellExtensions needs admin rights!
 
 First Start
 -----
@@ -29,8 +29,8 @@ Special Folders
 -----
 There are 2 special Folders - Samples are included: 
 
-- CYGWINPORTABLE/App/ShellScript: Quick access to ShellScripts (rightclick Trayicon -> ShellScripts)
-- CYGWINPORTABLE/App/Shortcuts: Quick access to Windows Shortcuts (rightclick Trayicon -> Shortcuts)
+- CYGWINPORTABLE/Data/ShellScript: Quick access to ShellScripts (rightclick Trayicon -> ShellScripts)
+- CYGWINPORTABLE/Data/Shortcuts: Quick access to Windows Shortcuts (rightclick Trayicon -> Shortcuts)
 
 Settings
 -----
@@ -39,7 +39,7 @@ There are some interesting options - Rightclick on the CygwinPortable Trayicon -
 
 **Settings:**
 
- - Shell: You can choose between mintty (default) and ConEmu. If you want to use ConEmu (more powerful than mintty) please download it from http://sourceforge.net/projects/conemu/ and extract it to /CYGWINPORTABLEFOLDER/ConEmu. A default ConEmu.xml is already included.
+ - Shell: You can choose between mintty (default) and ConEmu. I've already included the last stable version of ConEmu (you can replace it with beta if you want - You should only preserve my ConEmu.xml file).
  - Executable File Extensions: Define what extensions are should by executed with Cygwin. This will NOT register the files directly ! This option will tell Cygwin Portable if a "open with" under windows is a extension that can be used from bash. If you open a file with a unknown extesion CygwinPortable will open the folder and not run the file.
  - Use TrayMenu: Enable/Disable the Traymenu (NOT RECOMMEND !) - if the Traymenu is disabled you can reactivate this option in CygwinPortable.ini -> TrayMenu=True
  - Exit after execution: If you open a file in Cygwin (e.g. a Shellscript) the window is closed after successfully execution. If you want see the output leave it disabled.
@@ -52,7 +52,7 @@ There are some interesting options - Rightclick on the CygwinPortable Trayicon -
 - Cygwin Ports Mirror: Cygwin Ports have much more packages than the official Cygwin mirrors. Use it if needed
 - First install additions: The packages that are additional installed to the default Cygwin packages
 - Delete unneeded files: Drop unneeded files  or files that are not working in portable mode (e.g. cygwin.bat)
-- Install unofficial Tools: Install files from CYGWINPORTABLE/App/CygwinUnofficial folder. Default package is only apt-cyg (a tool that works like apt-get from debian based distros)
+- Install unofficial Tools: Install files from CYGWINPORTABLE/other/unofficial folder. Default package is only apt-cyg (a tool that works like apt-get from debian based distros)
 
 **Expert:**
 
