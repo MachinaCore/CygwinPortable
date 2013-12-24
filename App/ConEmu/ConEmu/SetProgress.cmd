@@ -23,7 +23,8 @@ rem Note!
 rem "Inject ConEmuHk" and "ANSI X3.64" options
 rem must be turned ON in ConEmu Settings!
 
-set ESC=
+rem set ESC=
+call "%~dp0SetEscChar.cmd"
 
 if not "%~1"=="" goto set_pr
 

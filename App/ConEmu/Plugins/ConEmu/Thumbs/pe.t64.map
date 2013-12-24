@@ -1,24 +1,24 @@
  pe
 
- Timestamp is 51674f72 (Fri Apr 12 04:04:02 2013)
+ Timestamp is 52ae3acc (Mon Dec 16 03:27:08 2013)
 
  Preferred load address is 0000000180000000
 
  Start         Length     Name                   Class
  0001:00000000 000000a0H .idata$5                CODE
  0001:000000a0 000001d8H .rdata                  CODE
- 0001:00000278 00000068H .rdata$debug            CODE
- 0001:000002e0 000021c4H .text                   CODE
- 0001:000024b0 0000005eH .text$00                CODE
- 0001:00002510 000002a4H .xdata                  CODE
- 0001:000027b4 00000028H .idata$2                CODE
- 0001:000027dc 00000014H .idata$3                CODE
- 0001:000027f0 000000a0H .idata$4                CODE
- 0001:00002890 0000010cH .idata$6                CODE
- 0001:000029a0 00000090H .edata                  CODE
+ 0001:00000278 0000005eH .rdata$debug            CODE
+ 0001:000002e0 00002204H .text                   CODE
+ 0001:000024f0 0000005eH .text$00                CODE
+ 0001:00002550 000002b0H .xdata                  CODE
+ 0001:00002800 00000028H .idata$2                CODE
+ 0001:00002828 00000014H .idata$3                CODE
+ 0001:00002840 000000a0H .idata$4                CODE
+ 0001:000028e0 0000010cH .idata$6                CODE
+ 0001:000029f0 00000090H .edata                  CODE
  0002:00000000 00000000H .data                   DATA
  0002:00000000 00000010H .bss                    DATA
- 0003:00000000 000001f8H .pdata                  DATA
+ 0003:00000000 00000204H .pdata                  DATA
  0004:00000000 00000058H .rsrc$01                DATA
  0004:00000060 00000270H .rsrc$02                DATA
 
@@ -133,32 +133,33 @@
  0001:000021b0       ?lstrdup@@YAPEADPEBD@Z     00000001800031b0 f   Memory.obj
  0001:0000224c       ?lstrdup@@YAPEA_WPEB_W@Z   000000018000324c f   Memory.obj
  0001:000022d4       ?lstrmerge@@YAPEA_WPEB_W000@Z 00000001800032d4 f   Memory.obj
- 0001:000023c0       wcschr                     00000001800033c0 f   libCRT64:strchr.obj
- 0001:000023e0       wcsrchr                    00000001800033e0 f   libCRT64:strrchr.obj
- 0001:00002410       memset                     0000000180003410 f   libCRT64:memset.obj
- 0001:00002438       HeapFree                   0000000180003438 f   kernel32:KERNEL32.dll
- 0001:0000243e       GetProcessHeap             000000018000343e f   kernel32:KERNEL32.dll
- 0001:00002444       lstrcatW                   0000000180003444 f   kernel32:KERNEL32.dll
- 0001:0000244a       lstrcpyW                   000000018000344a f   kernel32:KERNEL32.dll
- 0001:00002450       lstrlenW                   0000000180003450 f   kernel32:KERNEL32.dll
- 0001:00002456       lstrcmpiW                  0000000180003456 f   kernel32:KERNEL32.dll
- 0001:0000245c       lstrcmpW                   000000018000345c f   kernel32:KERNEL32.dll
- 0001:00002462       lstrcmpA                   0000000180003462 f   kernel32:KERNEL32.dll
- 0001:00002468       MultiByteToWideChar        0000000180003468 f   kernel32:KERNEL32.dll
- 0001:0000246e       lstrcmpiA                  000000018000346e f   kernel32:KERNEL32.dll
- 0001:00002474       lstrcpynW                  0000000180003474 f   kernel32:KERNEL32.dll
- 0001:0000247a       HeapAlloc                  000000018000347a f   kernel32:KERNEL32.dll
- 0001:00002480       HeapCreate                 0000000180003480 f   kernel32:KERNEL32.dll
- 0001:00002486       HeapDestroy                0000000180003486 f   kernel32:KERNEL32.dll
- 0001:0000248c       HeapReAlloc                000000018000348c f   kernel32:KERNEL32.dll
- 0001:00002492       HeapValidate               0000000180003492 f   kernel32:KERNEL32.dll
- 0001:00002498       lstrlenA                   0000000180003498 f   kernel32:KERNEL32.dll
- 0001:0000249e       wsprintfW                  000000018000349e f   user32:USER32.dll
- 0001:000024c0       _alloca_probe              00000001800034c0     chkstk.obj
- 0001:000024c0       __chkstk                   00000001800034c0 f   chkstk.obj
- 0001:000027b4       __IMPORT_DESCRIPTOR_KERNEL32 00000001800037b4     kernel32:KERNEL32.dll
- 0001:000027c8       __IMPORT_DESCRIPTOR_USER32 00000001800037c8     user32:USER32.dll
- 0001:000027dc       __NULL_IMPORT_DESCRIPTOR   00000001800037dc     kernel32:KERNEL32.dll
+ 0001:000023c0       ?lstrmerge@@YA_NPEAPEA_WPEB_W11@Z 00000001800033c0 f   Memory.obj
+ 0001:00002400       wcschr                     0000000180003400 f   libCRT64:strchr.obj
+ 0001:00002420       wcsrchr                    0000000180003420 f   libCRT64:strrchr.obj
+ 0001:00002450       memset                     0000000180003450 f   libCRT64:memset.obj
+ 0001:00002478       HeapFree                   0000000180003478 f   kernel32:KERNEL32.dll
+ 0001:0000247e       GetProcessHeap             000000018000347e f   kernel32:KERNEL32.dll
+ 0001:00002484       lstrcatW                   0000000180003484 f   kernel32:KERNEL32.dll
+ 0001:0000248a       lstrcpyW                   000000018000348a f   kernel32:KERNEL32.dll
+ 0001:00002490       lstrlenW                   0000000180003490 f   kernel32:KERNEL32.dll
+ 0001:00002496       lstrcmpiW                  0000000180003496 f   kernel32:KERNEL32.dll
+ 0001:0000249c       lstrcmpW                   000000018000349c f   kernel32:KERNEL32.dll
+ 0001:000024a2       lstrcmpA                   00000001800034a2 f   kernel32:KERNEL32.dll
+ 0001:000024a8       MultiByteToWideChar        00000001800034a8 f   kernel32:KERNEL32.dll
+ 0001:000024ae       lstrcmpiA                  00000001800034ae f   kernel32:KERNEL32.dll
+ 0001:000024b4       lstrcpynW                  00000001800034b4 f   kernel32:KERNEL32.dll
+ 0001:000024ba       HeapAlloc                  00000001800034ba f   kernel32:KERNEL32.dll
+ 0001:000024c0       HeapCreate                 00000001800034c0 f   kernel32:KERNEL32.dll
+ 0001:000024c6       HeapDestroy                00000001800034c6 f   kernel32:KERNEL32.dll
+ 0001:000024cc       HeapReAlloc                00000001800034cc f   kernel32:KERNEL32.dll
+ 0001:000024d2       HeapValidate               00000001800034d2 f   kernel32:KERNEL32.dll
+ 0001:000024d8       lstrlenA                   00000001800034d8 f   kernel32:KERNEL32.dll
+ 0001:000024de       wsprintfW                  00000001800034de f   user32:USER32.dll
+ 0001:00002500       _alloca_probe              0000000180003500     chkstk.obj
+ 0001:00002500       __chkstk                   0000000180003500 f   chkstk.obj
+ 0001:00002800       __IMPORT_DESCRIPTOR_KERNEL32 0000000180003800     kernel32:KERNEL32.dll
+ 0001:00002814       __IMPORT_DESCRIPTOR_USER32 0000000180003814     user32:USER32.dll
+ 0001:00002828       __NULL_IMPORT_DESCRIPTOR   0000000180003828     kernel32:KERNEL32.dll
  0002:00000000       ?ghModule@@3PEAUHINSTANCE__@@EA 0000000180004000     pe.obj
  0002:00000008       ?ghHeap@@3PEAXEA           0000000180004008     Memory.obj
 

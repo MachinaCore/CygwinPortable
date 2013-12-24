@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
   Description.
-  This FAR TechInfo's replace key bar label for macroses from Thumbnails.reg.
-  CtrlShiftF1 - switches Thumbnails view, CtrlShiftF2 - Tiles view.
-  Use: "%FARHOME%\Far.exe" /import Thumbnails_KeyBar.xml
+  This FAR TechInfo's replace key bar label for macroses from ConEmu.Thumbnails.fml
+  CtrlShiftF1 - switches Thumbnails view, CtrlShiftF2 - Tiles view
+  Use: "%FARHOME%\Far.exe" /import Thumbnails_KeyBar.farconfig
 -->
 <farconfig version="3.0.2102">
     <generalconfig>

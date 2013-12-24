@@ -1,6 +1,6 @@
  ConEmuLn
 
- Timestamp is 51674c65 (Fri Apr 12 03:51:01 2013)
+ Timestamp is 52ae39d0 (Mon Dec 16 03:22:56 2013)
 
  Preferred load address is 10000000
 
@@ -20,8 +20,8 @@
 
   Address         Publics by Value              Rva+Base       Lib:Object
 
- 0000:00000000       ___safe_se_handler_count   00000000     <absolute>
  0000:00000000       ___safe_se_handler_table   00000000     <absolute>
+ 0000:00000000       ___safe_se_handler_count   00000000     <absolute>
  0001:00000000       __chkstk                   10001000 f   chkstk.obj
  0001:00000000       __alloca_probe             10001000     chkstk.obj
  0001:000001c8       _GetMinFarVersionW@0       100011c8 f   ConEmuLn.obj
@@ -55,8 +55,8 @@
  0001:00001295       ?SettingsSaveW995@@YIXXZ   10002295 f   ConEmuLn995.obj
  0001:000012a0       ?GetPluginInfoW1900@@YIXPAX@Z 100022a0 f   ConEmuLn1900.obj
  0001:000012f0       ?SetStartupInfoW1900@@YIXPAX@Z 100022f0 f   ConEmuLn1900.obj
- 0001:000013de       ?OpenW1900@@YGPAXPBX@Z     100023de f   ConEmuLn1900.obj
  0001:000013de       ?OpenW2800@@YGPAXPBX@Z     100023de f   ConEmuLn2800.obj
+ 0001:000013de       ?OpenW1900@@YGPAXPBX@Z     100023de f   ConEmuLn1900.obj
  0001:000013fd       ?ExitFARW1900@@YIXXZ       100023fd f   ConEmuLn1900.obj
  0001:0000142c       ?GetMsgW1900@@YIPB_WH@Z    1000242c f   ConEmuLn1900.obj
  0001:00001a51       ?ConfigureW1900@@YIHH@Z    10002a51 f   ConEmuLn1900.obj

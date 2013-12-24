@@ -1,6 +1,6 @@
  ConEmuLn.x64
 
- Timestamp is 51674fac (Fri Apr 12 04:05:00 2013)
+ Timestamp is 52ae3adc (Mon Dec 16 03:27:24 2013)
 
  Preferred load address is 0000000180000000
 
@@ -35,8 +35,8 @@
  0001:0000080c       ?SettingsSaveReg@@YAXPEB_W@Z 000000018000180c f   ConEmuLn.obj
  0001:000008d0       ?StartPlugin@@YAXH@Z       00000001800018d0 f   ConEmuLn.obj
  0001:000009f4       ?ExitPlugin@@YAXXZ         00000001800019f4 f   ConEmuLn.obj
- 0001:00000a48       ExitFARW                   0000000180001a48 f   ConEmuLn.obj
  0001:00000a48       ?ExitFARW3@@YAXPEAX@Z      0000000180001a48 f   ConEmuLn.obj
+ 0001:00000a48       ExitFARW                   0000000180001a48 f   ConEmuLn.obj
  0001:00000a84       ?GetMsgW@@YAPEB_WH@Z       0000000180001a84 f   ConEmuLn.obj
  0001:00000ad0       ConfigureW                 0000000180001ad0 f   ConEmuLn.obj
  0001:00000b18       ?ConfigureW3@@YAHPEAX@Z    0000000180001b18 f   ConEmuLn.obj
@@ -91,8 +91,8 @@
  0001:0000438c       VerQueryValueW             000000018000538c f   version:VERSION.dll
  0001:00004392       GetFileVersionInfoW        0000000180005392 f   version:VERSION.dll
  0001:00004398       GetFileVersionInfoSizeW    0000000180005398 f   version:VERSION.dll
- 0001:000043b0       __chkstk                   00000001800053b0 f   chkstk.obj
  0001:000043b0       _alloca_probe              00000001800053b0     chkstk.obj
+ 0001:000043b0       __chkstk                   00000001800053b0 f   chkstk.obj
  0002:00000000       __imp_RegQueryValueExW     0000000180006000     advapi32:ADVAPI32.dll
  0002:00000008       __imp_RegOpenKeyExW        0000000180006008     advapi32:ADVAPI32.dll
  0002:00000010       __imp_RegSetValueExW       0000000180006010     advapi32:ADVAPI32.dll

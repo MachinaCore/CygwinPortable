@@ -17,7 +17,7 @@ farmacro
 }}
 
 farmacro
-  Descr="ConEmu: Standard window list"
+  Descr="ConEmu: Standard Far windows list"
   Area="Shell QView Info Tree Search Dialog Editor Viewer"
   Key="CtrlShiftF12"
 {{

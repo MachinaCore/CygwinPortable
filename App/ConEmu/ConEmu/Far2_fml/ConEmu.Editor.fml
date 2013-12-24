@@ -24,9 +24,12 @@ macro Descr="ConEmu: Auto switch to Editor Tab"
       %r = env("ConEmuMacroResult");
       $if (substr(%r,0,5)=="Found")
         $Exit // Ok
+      $else $if (substr(%r,0,6)=="Active")
+        F12 eval(substr(%r,7))
+        $Exit // Ok
       $else $if (%r=="Blocked")
         // MsgBox("ConEmu macro","Tab can't be activated now\n"+%s);
-      $end $end
+      $end $end $end
     $end
   $end
 

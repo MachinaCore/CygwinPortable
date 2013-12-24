@@ -10,7 +10,7 @@
 const ConEmuTh = "bd454d48-448e-46cc-909d-b6cf789c2d65"
 
 farmacro
-  Descr="ConEmuTh: Switch Thumbnail view on active panel"
+  Descr="ConEmuTh: Switch Thumbnails view on active panel"
   Area="Shell"
   Key="CtrlShiftF1"
 {{

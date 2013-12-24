@@ -1,31 +1,31 @@
  gdi+
 
- Timestamp is 51674f5e (Fri Apr 12 04:03:42 2013)
+ Timestamp is 52ae3ac8 (Mon Dec 16 03:27:04 2013)
 
  Preferred load address is 0000000180000000
 
  Start         Length     Name                   Class
  0001:00000000 00000158H .idata$5                CODE
  0001:00000160 000008a0H .rdata                  CODE
- 0001:00000a00 0000006cH .rdata$debug            CODE
- 0001:00000a70 000022b8H .text                   CODE
- 0001:00002d30 0000005eH .text$00                CODE
- 0001:00002d90 0000023cH .xdata                  CODE
- 0001:00002fcc 00000050H .idata$2                CODE
- 0001:0000301c 00000014H .idata$3                CODE
- 0001:00003030 00000158H .idata$4                CODE
- 0001:00003188 00000294H .idata$6                CODE
- 0001:00003420 00000092H .edata                  CODE
+ 0001:00000a00 00000062H .rdata$debug            CODE
+ 0001:00000a70 000022f8H .text                   CODE
+ 0001:00002d70 0000005eH .text$00                CODE
+ 0001:00002dd0 00000248H .xdata                  CODE
+ 0001:00003018 00000050H .idata$2                CODE
+ 0001:00003068 00000014H .idata$3                CODE
+ 0001:00003080 00000158H .idata$4                CODE
+ 0001:000031d8 00000294H .idata$6                CODE
+ 0001:00003470 00000092H .edata                  CODE
  0002:00000000 00000000H .data                   DATA
  0002:00000000 00000080H .bss                    DATA
- 0003:00000000 000001d4H .pdata                  DATA
+ 0003:00000000 000001e0H .pdata                  DATA
  0004:00000000 00000058H .rsrc$01                DATA
  0004:00000060 00000270H .rsrc$02                DATA
 
   Address         Publics by Value              Rva+Base               Lib:Object
 
- 0000:00000000       ___safe_se_handler_count   0000000000000000     <absolute>
  0000:00000000       ___safe_se_handler_table   0000000000000000     <absolute>
+ 0000:00000000       ___safe_se_handler_count   0000000000000000     <absolute>
  0000:00000000       __ImageBase                0000000180000000     <linker-defined>
  0001:00000000       __imp_SelectObject         0000000180001000     gdi32:GDI32.dll
  0001:00000008       __imp_DeleteDC             0000000180001008     gdi32:GDI32.dll
@@ -245,55 +245,56 @@
  0001:00002970       ?lstrdup@@YAPEADPEBD@Z     0000000180003970 f   Memory.obj
  0001:00002a0c       ?lstrdup@@YAPEA_WPEB_W@Z   0000000180003a0c f   Memory.obj
  0001:00002a94       ?lstrmerge@@YAPEA_WPEB_W000@Z 0000000180003a94 f   Memory.obj
- 0001:00002b80       memmove                    0000000180003b80 f   libCRT64:memmove.obj
- 0001:00002be0       memset                     0000000180003be0 f   libCRT64:memset.obj
- 0001:00002c10       wcsrchr                    0000000180003c10 f   libCRT64:strrchr.obj
- 0001:00002c3e       HeapFree                   0000000180003c3e f   kernel32:KERNEL32.dll
- 0001:00002c44       GetProcessHeap             0000000180003c44 f   kernel32:KERNEL32.dll
- 0001:00002c4a       HeapAlloc                  0000000180003c4a f   kernel32:KERNEL32.dll
- 0001:00002c50       HeapReAlloc                0000000180003c50 f   kernel32:KERNEL32.dll
- 0001:00002c56       SystemTimeToFileTime       0000000180003c56 f   kernel32:KERNEL32.dll
- 0001:00002c5c       GetLocalTime               0000000180003c5c f   kernel32:KERNEL32.dll
- 0001:00002c62       FreeLibrary                0000000180003c62 f   kernel32:KERNEL32.dll
- 0001:00002c68       GetLastError               0000000180003c68 f   kernel32:KERNEL32.dll
- 0001:00002c6e       GetProcAddress             0000000180003c6e f   kernel32:KERNEL32.dll
- 0001:00002c74       LoadLibraryW               0000000180003c74 f   kernel32:KERNEL32.dll
- 0001:00002c7a       CloseHandle                0000000180003c7a f   kernel32:KERNEL32.dll
- 0001:00002c80       TerminateThread            0000000180003c80 f   kernel32:KERNEL32.dll
- 0001:00002c86       WaitForSingleObject        0000000180003c86 f   kernel32:KERNEL32.dll
- 0001:00002c8c       CreateThread               0000000180003c8c f   kernel32:KERNEL32.dll
- 0001:00002c92       DeleteFileW                0000000180003c92 f   kernel32:KERNEL32.dll
- 0001:00002c98       lstrcatW                   0000000180003c98 f   kernel32:KERNEL32.dll
- 0001:00002c9e       lstrlenW                   0000000180003c9e f   kernel32:KERNEL32.dll
- 0001:00002ca4       lstrcpyW                   0000000180003ca4 f   kernel32:KERNEL32.dll
- 0001:00002caa       WriteFile                  0000000180003caa f   kernel32:KERNEL32.dll
- 0001:00002cb0       CreateFileW                0000000180003cb0 f   kernel32:KERNEL32.dll
- 0001:00002cb6       GetTempFileNameW           0000000180003cb6 f   kernel32:KERNEL32.dll
- 0001:00002cbc       GetTempPathW               0000000180003cbc f   kernel32:KERNEL32.dll
- 0001:00002cc2       lstrcpynW                  0000000180003cc2 f   kernel32:KERNEL32.dll
- 0001:00002cc8       HeapCreate                 0000000180003cc8 f   kernel32:KERNEL32.dll
- 0001:00002cce       HeapDestroy                0000000180003cce f   kernel32:KERNEL32.dll
- 0001:00002cd4       HeapValidate               0000000180003cd4 f   kernel32:KERNEL32.dll
- 0001:00002cda       MultiByteToWideChar        0000000180003cda f   kernel32:KERNEL32.dll
- 0001:00002ce0       lstrlenA                   0000000180003ce0 f   kernel32:KERNEL32.dll
- 0001:00002ce6       FillRect                   0000000180003ce6 f   user32:USER32.dll
- 0001:00002cec       wsprintfW                  0000000180003cec f   user32:USER32.dll
- 0001:00002cf2       CharLowerBuffW             0000000180003cf2 f   user32:USER32.dll
- 0001:00002cf8       DeleteDC                   0000000180003cf8 f   gdi32:GDI32.dll
- 0001:00002cfe       DeleteObject               0000000180003cfe f   gdi32:GDI32.dll
- 0001:00002d04       SelectObject               0000000180003d04 f   gdi32:GDI32.dll
- 0001:00002d0a       CreateSolidBrush           0000000180003d0a f   gdi32:GDI32.dll
- 0001:00002d10       CreateDIBSection           0000000180003d10 f   gdi32:GDI32.dll
- 0001:00002d16       CreateCompatibleDC         0000000180003d16 f   gdi32:GDI32.dll
- 0001:00002d1c       CoInitialize               0000000180003d1c f   ole32:ole32.dll
- 0001:00002d22       CoUninitialize             0000000180003d22 f   ole32:ole32.dll
- 0001:00002d40       __chkstk                   0000000180003d40 f   chkstk.obj
- 0001:00002d40       _alloca_probe              0000000180003d40     chkstk.obj
- 0001:00002fcc       __IMPORT_DESCRIPTOR_KERNEL32 0000000180003fcc     kernel32:KERNEL32.dll
- 0001:00002fe0       __IMPORT_DESCRIPTOR_USER32 0000000180003fe0     user32:USER32.dll
- 0001:00002ff4       __IMPORT_DESCRIPTOR_GDI32  0000000180003ff4     gdi32:GDI32.dll
- 0001:00003008       __IMPORT_DESCRIPTOR_ole32  0000000180004008     ole32:ole32.dll
- 0001:0000301c       __NULL_IMPORT_DESCRIPTOR   000000018000401c     kernel32:KERNEL32.dll
+ 0001:00002b80       ?lstrmerge@@YA_NPEAPEA_WPEB_W11@Z 0000000180003b80 f   Memory.obj
+ 0001:00002bc0       memmove                    0000000180003bc0 f   libCRT64:memmove.obj
+ 0001:00002c20       memset                     0000000180003c20 f   libCRT64:memset.obj
+ 0001:00002c50       wcsrchr                    0000000180003c50 f   libCRT64:strrchr.obj
+ 0001:00002c7e       HeapFree                   0000000180003c7e f   kernel32:KERNEL32.dll
+ 0001:00002c84       GetProcessHeap             0000000180003c84 f   kernel32:KERNEL32.dll
+ 0001:00002c8a       HeapAlloc                  0000000180003c8a f   kernel32:KERNEL32.dll
+ 0001:00002c90       HeapReAlloc                0000000180003c90 f   kernel32:KERNEL32.dll
+ 0001:00002c96       SystemTimeToFileTime       0000000180003c96 f   kernel32:KERNEL32.dll
+ 0001:00002c9c       GetLocalTime               0000000180003c9c f   kernel32:KERNEL32.dll
+ 0001:00002ca2       FreeLibrary                0000000180003ca2 f   kernel32:KERNEL32.dll
+ 0001:00002ca8       GetLastError               0000000180003ca8 f   kernel32:KERNEL32.dll
+ 0001:00002cae       GetProcAddress             0000000180003cae f   kernel32:KERNEL32.dll
+ 0001:00002cb4       LoadLibraryW               0000000180003cb4 f   kernel32:KERNEL32.dll
+ 0001:00002cba       CloseHandle                0000000180003cba f   kernel32:KERNEL32.dll
+ 0001:00002cc0       TerminateThread            0000000180003cc0 f   kernel32:KERNEL32.dll
+ 0001:00002cc6       WaitForSingleObject        0000000180003cc6 f   kernel32:KERNEL32.dll
+ 0001:00002ccc       CreateThread               0000000180003ccc f   kernel32:KERNEL32.dll
+ 0001:00002cd2       DeleteFileW                0000000180003cd2 f   kernel32:KERNEL32.dll
+ 0001:00002cd8       lstrcatW                   0000000180003cd8 f   kernel32:KERNEL32.dll
+ 0001:00002cde       lstrlenW                   0000000180003cde f   kernel32:KERNEL32.dll
+ 0001:00002ce4       lstrcpyW                   0000000180003ce4 f   kernel32:KERNEL32.dll
+ 0001:00002cea       WriteFile                  0000000180003cea f   kernel32:KERNEL32.dll
+ 0001:00002cf0       CreateFileW                0000000180003cf0 f   kernel32:KERNEL32.dll
+ 0001:00002cf6       GetTempFileNameW           0000000180003cf6 f   kernel32:KERNEL32.dll
+ 0001:00002cfc       GetTempPathW               0000000180003cfc f   kernel32:KERNEL32.dll
+ 0001:00002d02       lstrcpynW                  0000000180003d02 f   kernel32:KERNEL32.dll
+ 0001:00002d08       HeapCreate                 0000000180003d08 f   kernel32:KERNEL32.dll
+ 0001:00002d0e       HeapDestroy                0000000180003d0e f   kernel32:KERNEL32.dll
+ 0001:00002d14       HeapValidate               0000000180003d14 f   kernel32:KERNEL32.dll
+ 0001:00002d1a       MultiByteToWideChar        0000000180003d1a f   kernel32:KERNEL32.dll
+ 0001:00002d20       lstrlenA                   0000000180003d20 f   kernel32:KERNEL32.dll
+ 0001:00002d26       FillRect                   0000000180003d26 f   user32:USER32.dll
+ 0001:00002d2c       wsprintfW                  0000000180003d2c f   user32:USER32.dll
+ 0001:00002d32       CharLowerBuffW             0000000180003d32 f   user32:USER32.dll
+ 0001:00002d38       DeleteDC                   0000000180003d38 f   gdi32:GDI32.dll
+ 0001:00002d3e       DeleteObject               0000000180003d3e f   gdi32:GDI32.dll
+ 0001:00002d44       SelectObject               0000000180003d44 f   gdi32:GDI32.dll
+ 0001:00002d4a       CreateSolidBrush           0000000180003d4a f   gdi32:GDI32.dll
+ 0001:00002d50       CreateDIBSection           0000000180003d50 f   gdi32:GDI32.dll
+ 0001:00002d56       CreateCompatibleDC         0000000180003d56 f   gdi32:GDI32.dll
+ 0001:00002d5c       CoInitialize               0000000180003d5c f   ole32:ole32.dll
+ 0001:00002d62       CoUninitialize             0000000180003d62 f   ole32:ole32.dll
+ 0001:00002d80       _alloca_probe              0000000180003d80     chkstk.obj
+ 0001:00002d80       __chkstk                   0000000180003d80 f   chkstk.obj
+ 0001:00003018       __IMPORT_DESCRIPTOR_KERNEL32 0000000180004018     kernel32:KERNEL32.dll
+ 0001:0000302c       __IMPORT_DESCRIPTOR_USER32 000000018000402c     user32:USER32.dll
+ 0001:00003040       __IMPORT_DESCRIPTOR_GDI32  0000000180004040     gdi32:GDI32.dll
+ 0001:00003054       __IMPORT_DESCRIPTOR_ole32  0000000180004054     ole32:ole32.dll
+ 0001:00003068       __NULL_IMPORT_DESCRIPTOR   0000000180004068     kernel32:KERNEL32.dll
  0002:00000000       ?ghModule@@3PEAUHINSTANCE__@@EA 0000000180005000     gdip.obj
  0002:00000070       ?gnLastWin32Error@@3KA     0000000180005070     gdip.obj
  0002:00000078       ?ghHeap@@3PEAXEA           0000000180005078     Memory.obj

@@ -1,19 +1,19 @@
  pe
 
- Timestamp is 51674c37 (Fri Apr 12 03:50:15 2013)
+ Timestamp is 52ae39c3 (Mon Dec 16 03:22:43 2013)
 
  Preferred load address is 10000000
 
  Start         Length     Name                   Class
  0001:00000000 00000050H .idata$5                CODE
  0001:00000050 000001c4H .rdata                  CODE
- 0001:00000214 00000068H .rdata$debug            CODE
- 0001:00000280 000019c8H .text                   CODE
- 0001:00001c48 00000028H .idata$2                CODE
- 0001:00001c70 00000014H .idata$3                CODE
- 0001:00001c84 00000050H .idata$4                CODE
- 0001:00001cd4 0000010cH .idata$6                CODE
- 0001:00001de0 00000090H .edata                  CODE
+ 0001:00000214 0000005eH .rdata$debug            CODE
+ 0001:00000280 000019f8H .text                   CODE
+ 0001:00001c78 00000028H .idata$2                CODE
+ 0001:00001ca0 00000014H .idata$3                CODE
+ 0001:00001cb4 00000050H .idata$4                CODE
+ 0001:00001d04 0000010cH .idata$6                CODE
+ 0001:00001e10 00000090H .edata                  CODE
  0002:00000000 00000000H .data                   DATA
  0002:00000000 00000008H .bss                    DATA
  0003:00000000 00000058H .rsrc$01                DATA
@@ -74,8 +74,8 @@
  0001:000001fc       ??_C@_17HIBPHNJA@?$AA3?$AA2?$AA?5?$AA?$AA@ 100011fc     pe.obj
  0001:00000204       ??_C@_17KBKLDIPL@?$AA1?$AA6?$AA?5?$AA?$AA@ 10001204     pe.obj
  0001:0000020c       ??_C@_17OGKGJAOJ@?$AA6?$AA4?$AA?5?$AA?$AA@ 1000120c     pe.obj
- 0001:00000280       __alloca_probe             10001280     chkstk.obj
  0001:00000280       __chkstk                   10001280 f   chkstk.obj
+ 0001:00000280       __alloca_probe             10001280     chkstk.obj
  0001:000002ab       ?wcschr@@YAPA_WPA_W_W@Z    100012ab f i pe.obj
  0001:000002b0       ?Close@PEData@@QAEXXZ      100012b0 f i pe.obj
  0001:000002c1       ?Max@@YIIII@Z              100012c1 f   pe.obj
@@ -132,29 +132,30 @@
  0001:00001a73       ?lstrdup@@YIPADPBD@Z       10002a73 f   Memory.obj
  0001:00001aae       ?lstrdup@@YIPA_WPB_W@Z     10002aae f   Memory.obj
  0001:00001aeb       ?lstrmerge@@YIPA_WPB_W000@Z 10002aeb f   Memory.obj
- 0001:00001b80       _wcschr                    10002b80 f   libCRT:strchr.obj
- 0001:00001bb0       _wcsrchr                   10002bb0 f   libCRT:strrchr.obj
- 0001:00001bdc       _HeapFree@12               10002bdc f   kernel32:KERNEL32.dll
- 0001:00001be2       _GetProcessHeap@0          10002be2 f   kernel32:KERNEL32.dll
- 0001:00001be8       _lstrcatW@8                10002be8 f   kernel32:KERNEL32.dll
- 0001:00001bee       _lstrcpyW@8                10002bee f   kernel32:KERNEL32.dll
- 0001:00001bf4       _lstrlenW@4                10002bf4 f   kernel32:KERNEL32.dll
- 0001:00001bfa       _lstrcmpiW@8               10002bfa f   kernel32:KERNEL32.dll
- 0001:00001c00       _lstrcmpW@8                10002c00 f   kernel32:KERNEL32.dll
- 0001:00001c06       _lstrcmpA@8                10002c06 f   kernel32:KERNEL32.dll
- 0001:00001c0c       _MultiByteToWideChar@24    10002c0c f   kernel32:KERNEL32.dll
- 0001:00001c12       _lstrcmpiA@8               10002c12 f   kernel32:KERNEL32.dll
- 0001:00001c18       _lstrcpynW@12              10002c18 f   kernel32:KERNEL32.dll
- 0001:00001c1e       _HeapAlloc@12              10002c1e f   kernel32:KERNEL32.dll
- 0001:00001c24       _HeapCreate@12             10002c24 f   kernel32:KERNEL32.dll
- 0001:00001c2a       _HeapDestroy@4             10002c2a f   kernel32:KERNEL32.dll
- 0001:00001c30       _HeapReAlloc@16            10002c30 f   kernel32:KERNEL32.dll
- 0001:00001c36       _HeapValidate@12           10002c36 f   kernel32:KERNEL32.dll
- 0001:00001c3c       _lstrlenA@4                10002c3c f   kernel32:KERNEL32.dll
- 0001:00001c42       _wsprintfW                 10002c42 f   user32:USER32.dll
- 0001:00001c48       __IMPORT_DESCRIPTOR_KERNEL32 10002c48     kernel32:KERNEL32.dll
- 0001:00001c5c       __IMPORT_DESCRIPTOR_USER32 10002c5c     user32:USER32.dll
- 0001:00001c70       __NULL_IMPORT_DESCRIPTOR   10002c70     kernel32:KERNEL32.dll
+ 0001:00001b7a       ?lstrmerge@@YI_NPAPA_WPB_W11@Z 10002b7a f   Memory.obj
+ 0001:00001bb0       _wcschr                    10002bb0 f   libCRT:strchr.obj
+ 0001:00001be0       _wcsrchr                   10002be0 f   libCRT:strrchr.obj
+ 0001:00001c0c       _HeapFree@12               10002c0c f   kernel32:KERNEL32.dll
+ 0001:00001c12       _GetProcessHeap@0          10002c12 f   kernel32:KERNEL32.dll
+ 0001:00001c18       _lstrcatW@8                10002c18 f   kernel32:KERNEL32.dll
+ 0001:00001c1e       _lstrcpyW@8                10002c1e f   kernel32:KERNEL32.dll
+ 0001:00001c24       _lstrlenW@4                10002c24 f   kernel32:KERNEL32.dll
+ 0001:00001c2a       _lstrcmpiW@8               10002c2a f   kernel32:KERNEL32.dll
+ 0001:00001c30       _lstrcmpW@8                10002c30 f   kernel32:KERNEL32.dll
+ 0001:00001c36       _lstrcmpA@8                10002c36 f   kernel32:KERNEL32.dll
+ 0001:00001c3c       _MultiByteToWideChar@24    10002c3c f   kernel32:KERNEL32.dll
+ 0001:00001c42       _lstrcmpiA@8               10002c42 f   kernel32:KERNEL32.dll
+ 0001:00001c48       _lstrcpynW@12              10002c48 f   kernel32:KERNEL32.dll
+ 0001:00001c4e       _HeapAlloc@12              10002c4e f   kernel32:KERNEL32.dll
+ 0001:00001c54       _HeapCreate@12             10002c54 f   kernel32:KERNEL32.dll
+ 0001:00001c5a       _HeapDestroy@4             10002c5a f   kernel32:KERNEL32.dll
+ 0001:00001c60       _HeapReAlloc@16            10002c60 f   kernel32:KERNEL32.dll
+ 0001:00001c66       _HeapValidate@12           10002c66 f   kernel32:KERNEL32.dll
+ 0001:00001c6c       _lstrlenA@4                10002c6c f   kernel32:KERNEL32.dll
+ 0001:00001c72       _wsprintfW                 10002c72 f   user32:USER32.dll
+ 0001:00001c78       __IMPORT_DESCRIPTOR_KERNEL32 10002c78     kernel32:KERNEL32.dll
+ 0001:00001c8c       __IMPORT_DESCRIPTOR_USER32 10002c8c     user32:USER32.dll
+ 0001:00001ca0       __NULL_IMPORT_DESCRIPTOR   10002ca0     kernel32:KERNEL32.dll
  0002:00000000       ?ghModule@@3PAUHINSTANCE__@@A 10003000     pe.obj
  0002:00000004       ?ghHeap@@3PAXA             10003004     Memory.obj
 

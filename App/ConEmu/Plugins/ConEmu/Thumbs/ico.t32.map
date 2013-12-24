@@ -1,19 +1,19 @@
  ico
 
- Timestamp is 51674c48 (Fri Apr 12 03:50:32 2013)
+ Timestamp is 52ae39c8 (Mon Dec 16 03:22:48 2013)
 
  Preferred load address is 10000000
 
  Start         Length     Name                   Class
  0001:00000000 00000078H .idata$5                CODE
  0001:00000080 000006acH .rdata                  CODE
- 0001:0000072c 0000006aH .rdata$debug            CODE
- 0001:000007a0 00001a54H .text                   CODE
- 0001:000021f4 00000050H .idata$2                CODE
- 0001:00002244 00000014H .idata$3                CODE
- 0001:00002258 00000078H .idata$4                CODE
- 0001:000022d0 00000200H .idata$6                CODE
- 0001:000024d0 00000091H .edata                  CODE
+ 0001:0000072c 00000060H .rdata$debug            CODE
+ 0001:00000790 00001a84H .text                   CODE
+ 0001:00002214 00000050H .idata$2                CODE
+ 0001:00002264 00000014H .idata$3                CODE
+ 0001:00002278 00000078H .idata$4                CODE
+ 0001:000022f0 00000200H .idata$6                CODE
+ 0001:000024f0 00000091H .edata                  CODE
  0002:00000000 00000000H .data                   DATA
  0002:00000000 00000040H .bss                    DATA
  0003:00000000 00000058H .rsrc$01                DATA
@@ -156,120 +156,121 @@
  0001:000006fc       _IID_IComThreadingInfo     100016fc     uuid:objidl_i.obj
  0001:0000070c       _IID_IProcessInitControl   1000170c     uuid:objidl_i.obj
  0001:0000071c       _IID_IInitializeSpy        1000171c     uuid:objidl_i.obj
- 0001:000007a0       __alloca_probe             100017a0     chkstk.obj
- 0001:000007a0       __chkstk                   100017a0 f   chkstk.obj
- 0001:000007cb       ??2GdiplusBase@Gdiplus@@SIPAXI@Z 100017cb f i ico.obj
- 0001:000007d2       ??0Rect@Gdiplus@@QAE@HHHH@Z 100017d2 f i ico.obj
- 0001:000007f2       ??0GdiplusStartupInput@Gdiplus@@QAE@P6GXW4DebugEventLevel@1@PAD@ZHH@Z 100017f2 f i ico.obj
- 0001:00000812       ??0Image@Gdiplus@@IAE@XZ   10001812 f i ico.obj
- 0001:0000081b       ??3GdiplusBase@Gdiplus@@SIXPAX@Z 1000181b f i ico.obj
- 0001:00000822       ?SetStatus@Image@Gdiplus@@IBE?AW4Status@2@W432@@Z 10001822 f i ico.obj
- 0001:00000834       ??1Image@Gdiplus@@UAE@XZ   10001834 f i ico.obj
- 0001:00000843       ?GetPixelFormat@Image@Gdiplus@@QAEHXZ 10001843 f i ico.obj
- 0001:00000863       ?SetNativeImage@Image@Gdiplus@@IAEXPAVGpImage@2@@Z 10001863 f i ico.obj
- 0001:0000086d       ??0Bitmap@Gdiplus@@QAE@PAUIStream@@H@Z 1000186d f i ico.obj
- 0001:000008a7       ??1Bitmap@Gdiplus@@UAE@XZ  100018a7 f i ico.obj
- 0001:000008b6       ?FromStream@Bitmap@Gdiplus@@SIPAV12@PAUIStream@@H@Z 100018b6 f i ico.obj
- 0001:000008d7       ?LockBits@Bitmap@Gdiplus@@QAE?AW4Status@2@PBVRect@2@IHPAVBitmapData@2@@Z 100018d7 f i ico.obj
- 0001:00000901       ?UnlockBits@Bitmap@Gdiplus@@QAE?AW4Status@2@PAVBitmapData@2@@Z 10001901 f i ico.obj
- 0001:0000091f       ??_H@YGXPAXIHP6EPAX0@Z@Z   1000191f f i ico.obj
- 0001:0000093d       ??1MStream@@QAE@XZ         1000193d f i ico.obj
- 0001:00000973       @IsEqualGUID@8             10001973 f i ico.obj
- 0001:00000986       @==@8                      10001986 f i ico.obj
- 0001:00000999       ?SetData@MStream@@QAEXPBXK@Z 10001999 f i ico.obj
- 0001:000009d6       ?QueryInterface@MStream@@UAGJABU_GUID@@PAPAX@Z 100019d6 f i ico.obj
- 0001:00000a2b       ?AddRef@MStream@@UAGKXZ    10001a2b f i ico.obj
- 0001:00000a3c       ?Read@MStream@@UAGJPAXKPAK@Z 10001a3c f i ico.obj
- 0001:00000a9e       ?Write@MStream@@UAGJPBXKPAK@Z 10001a9e f i ico.obj
- 0001:00000b31       ?Seek@MStream@@UAGJT_LARGE_INTEGER@@KPAT_ULARGE_INTEGER@@@Z 10001b31 f i ico.obj
- 0001:00000bb4       ?SetSize@MStream@@UAGJT_ULARGE_INTEGER@@@Z 10001bb4 f i ico.obj
- 0001:00000c33       ?CopyTo@MStream@@UAGJPAUIStream@@T_ULARGE_INTEGER@@PAT3@2@Z 10001c33 f i ico.obj
- 0001:00000c3b       ?Commit@MStream@@UAGJK@Z   10001c3b f i ico.obj
- 0001:00000c4a       ?Revert@MStream@@UAGJXZ    10001c4a f i ico.obj
- 0001:00000c52       ?LockRegion@MStream@@UAGJT_ULARGE_INTEGER@@0K@Z 10001c52 f i ico.obj
- 0001:00000c5a       ?UnlockRegion@MStream@@UAGJT_ULARGE_INTEGER@@0K@Z 10001c5a f i ico.obj
- 0001:00000c62       ?Stat@MStream@@UAGJPAUtagSTATSTG@@K@Z 10001c62 f i ico.obj
- 0001:00000cc6       ?Clone@MStream@@UAGJPAPAUIStream@@@Z 10001cc6 f i ico.obj
- 0001:00000cce       ??_GMStream@@QAEPAXI@Z     10001cce f i ico.obj
- 0001:00000cea       ??0IUnknown@@QAE@XZ        10001cea f i ico.obj
- 0001:00000ced       ?LoadPageInfo@@YIKPAUICONCONTEXT@@HAAI111PAPB_W@Z 10001ced f   ico.obj
- 0001:00000e3e       ?Decode1BPP@@YIPAEIIPAUtagRGBQUAD@@PAE1AAK@Z 10001e3e f   ico.obj
- 0001:00000f0c       ?Decode4BPP@@YIPAEIIPAUtagRGBQUAD@@PAE1AAK@Z 10001f0c f   ico.obj
- 0001:00000fe2       ?Decode8BPP@@YIPAEAAIIPAUtagRGBQUAD@@PAE2AAK@Z 10001fe2 f   ico.obj
- 0001:000010ae       ?Decode24BPP@@YIPAEAAIIPAE1AAK@Z 100020ae f   ico.obj
- 0001:00001250       ?Decode32BPP@@YIPAEAAIIPAE1AAK@Z 10002250 f   ico.obj
- 0001:00001316       ?DecodeDummy@@YIPAEIIAAK@Z 10002316 f   ico.obj
- 0001:00001352       ?Init@ICODecoder@@QAEHPAUCET_Init@@@Z 10002352 f i ico.obj
- 0001:000013b2       ?Close@ICODecoder@@QAEXXZ  100023b2 f i ico.obj
- 0001:000013e8       ?Open@ICOImage@@QAEH_NPB_WPBEKU_COORD@@@Z 100023e8 f i ico.obj
- 0001:0000159b       ?Close@ICOImage@@QAEXXZ    1000259b f i ico.obj
- 0001:000015e7       ?CET_Init@@YGHPAU0@@Z      100025e7 f   ico.obj
- 0001:00001655       ?CET_Done@@YGXPAUCET_Init@@@Z 10002655 f   ico.obj
- 0001:00001679       ?CET_Free@@YGXPAUCET_LoadInfo@@@Z 10002679 f   ico.obj
- 0001:000016af       ?CET_Cancel@@YGXPAX@Z      100026af f   ico.obj
- 0001:000016c9       ??_GImage@Gdiplus@@UAEPAXI@Z 100026c9 f i ico.obj
- 0001:000016c9       ??_EImage@Gdiplus@@UAEPAXI@Z 100026c9 f i ico.obj
- 0001:000016ed       ??0Image@Gdiplus@@IAE@PAVGpImage@1@W4Status@1@@Z 100026ed f i ico.obj
- 0001:00001706       ??_EBitmap@Gdiplus@@UAEPAXI@Z 10002706 f i ico.obj
- 0001:00001706       ??_GBitmap@Gdiplus@@UAEPAXI@Z 10002706 f i ico.obj
- 0001:0000172a       ?Release@MStream@@UAGKXZ   1000272a f i ico.obj
- 0001:00001757       ??0ISequentialStream@@QAE@XZ 10002757 f i ico.obj
- 0001:0000175a       ?Clone@Image@Gdiplus@@UAEPAV12@XZ 1000275a f i ico.obj
- 0001:0000179c       ??0IStream@@QAE@XZ         1000279c f i ico.obj
- 0001:0000179f       ??0MStream@@QAE@XZ         1000279f f i ico.obj
- 0001:000017bf       ?PageDecode@ICOImage@@QAEHPAUCET_LoadInfo@@@Z 100027bf f i ico.obj
- 0001:00001ac8       ?GetPageBits@ICOImage@@QAEHPAUCET_LoadInfo@@@Z 10002ac8 f i ico.obj
- 0001:00001be8       ?CET_Load@@YGHPAUCET_LoadInfo@@@Z 10002be8 f   ico.obj
- 0001:00001dcf       ?HeapInitialize@@YI_NXZ    10002dcf f   Memory.obj
- 0001:00001df5       ?HeapDeinitialize@@YIXXZ   10002df5 f   Memory.obj
- 0001:00001e0d       ?xf_malloc@@YAPAXI@Z       10002e0d f   Memory.obj
- 0001:00001e20       ?xf_calloc@@YAPAXII@Z      10002e20 f   Memory.obj
- 0001:00001e39       ?xf_realloc@@YAPAXPAXI@Z   10002e39 f   Memory.obj
- 0001:00001e50       ?xf_free@@YAXPAX@Z         10002e50 f   Memory.obj
- 0001:00001e6e       ?xf_validate@@YA_NPAX@Z    10002e6e f   Memory.obj
- 0001:00001e87       ??2@YAPAXI@Z               10002e87 f   Memory.obj
- 0001:00001e8c       ??_U@YAPAXI@Z              10002e8c f   Memory.obj
- 0001:00001e91       ??3@YAXPAX@Z               10002e91 f   Memory.obj
- 0001:00001e96       ??_V@YAXPAX@Z              10002e96 f   Memory.obj
- 0001:00001e9b       ?lstrdupW@@YIPA_WPBDI@Z    10002e9b f   Memory.obj
- 0001:00001ee3       ?StringCchCopyA@@YGJPADIPBD@Z 10002ee3 f i Memory.obj
- 0001:00001f43       ?StringCchCopyW@@YGJPA_WIPB_W@Z 10002f43 f i Memory.obj
- 0001:00001faa       ?lstrdup@@YIPADPBD@Z       10002faa f   Memory.obj
- 0001:00001fe5       ?lstrdup@@YIPA_WPB_W@Z     10002fe5 f   Memory.obj
- 0001:00002022       ?lstrmerge@@YIPA_WPB_W000@Z 10003022 f   Memory.obj
- 0001:000020c0       _memmove                   100030c0 f   libCRT:memmove.obj
- 0001:00002120       _memset                    10003120 f   libCRT:memset.obj
- 0001:00002158       _HeapFree@12               10003158 f   kernel32:KERNEL32.dll
- 0001:0000215e       _GetProcessHeap@0          1000315e f   kernel32:KERNEL32.dll
- 0001:00002164       _HeapAlloc@12              10003164 f   kernel32:KERNEL32.dll
- 0001:0000216a       _HeapReAlloc@16            1000316a f   kernel32:KERNEL32.dll
- 0001:00002170       _SystemTimeToFileTime@8    10003170 f   kernel32:KERNEL32.dll
- 0001:00002176       _GetLocalTime@4            10003176 f   kernel32:KERNEL32.dll
- 0001:0000217c       _HeapCreate@12             1000317c f   kernel32:KERNEL32.dll
- 0001:00002182       _HeapDestroy@4             10003182 f   kernel32:KERNEL32.dll
- 0001:00002188       _HeapValidate@12           10003188 f   kernel32:KERNEL32.dll
- 0001:0000218e       _MultiByteToWideChar@24    1000318e f   kernel32:KERNEL32.dll
- 0001:00002194       _lstrlenA@4                10003194 f   kernel32:KERNEL32.dll
- 0001:0000219a       _lstrlenW@4                1000319a f   kernel32:KERNEL32.dll
- 0001:000021a0       _wsprintfW                 100031a0 f   user32:USER32.dll
- 0001:000021a6       _CoInitialize@4            100031a6 f   ole32:ole32.dll
- 0001:000021ac       _CoUninitialize@0          100031ac f   ole32:ole32.dll
- 0001:000021b2       _GdipAlloc@4               100031b2 f   gdiplus:gdiplus.dll
- 0001:000021b8       _GdipFree@4                100031b8 f   gdiplus:gdiplus.dll
- 0001:000021be       _GdipDisposeImage@4        100031be f   gdiplus:gdiplus.dll
- 0001:000021c4       _GdipGetImagePixelFormat@8 100031c4 f   gdiplus:gdiplus.dll
- 0001:000021ca       _GdipCreateBitmapFromStream@8 100031ca f   gdiplus:gdiplus.dll
- 0001:000021d0       _GdipCreateBitmapFromStreamICM@8 100031d0 f   gdiplus:gdiplus.dll
- 0001:000021d6       _GdipBitmapLockBits@20     100031d6 f   gdiplus:gdiplus.dll
- 0001:000021dc       _GdipBitmapUnlockBits@8    100031dc f   gdiplus:gdiplus.dll
- 0001:000021e2       _GdiplusShutdown@4         100031e2 f   gdiplus:gdiplus.dll
- 0001:000021e8       _GdiplusStartup@12         100031e8 f   gdiplus:gdiplus.dll
- 0001:000021ee       _GdipCloneImage@8          100031ee f   gdiplus:gdiplus.dll
- 0001:000021f4       __IMPORT_DESCRIPTOR_KERNEL32 100031f4     kernel32:KERNEL32.dll
- 0001:00002208       __IMPORT_DESCRIPTOR_USER32 10003208     user32:USER32.dll
- 0001:0000221c       __IMPORT_DESCRIPTOR_ole32  1000321c     ole32:ole32.dll
- 0001:00002230       __IMPORT_DESCRIPTOR_gdiplus 10003230     gdiplus:gdiplus.dll
- 0001:00002244       __NULL_IMPORT_DESCRIPTOR   10003244     kernel32:KERNEL32.dll
+ 0001:00000790       __alloca_probe             10001790     chkstk.obj
+ 0001:00000790       __chkstk                   10001790 f   chkstk.obj
+ 0001:000007bb       ??2GdiplusBase@Gdiplus@@SIPAXI@Z 100017bb f i ico.obj
+ 0001:000007c2       ??0Rect@Gdiplus@@QAE@HHHH@Z 100017c2 f i ico.obj
+ 0001:000007e2       ??0GdiplusStartupInput@Gdiplus@@QAE@P6GXW4DebugEventLevel@1@PAD@ZHH@Z 100017e2 f i ico.obj
+ 0001:00000802       ??0Image@Gdiplus@@IAE@XZ   10001802 f i ico.obj
+ 0001:0000080b       ??3GdiplusBase@Gdiplus@@SIXPAX@Z 1000180b f i ico.obj
+ 0001:00000812       ?SetStatus@Image@Gdiplus@@IBE?AW4Status@2@W432@@Z 10001812 f i ico.obj
+ 0001:00000824       ??1Image@Gdiplus@@UAE@XZ   10001824 f i ico.obj
+ 0001:00000833       ?GetPixelFormat@Image@Gdiplus@@QAEHXZ 10001833 f i ico.obj
+ 0001:00000853       ?SetNativeImage@Image@Gdiplus@@IAEXPAVGpImage@2@@Z 10001853 f i ico.obj
+ 0001:0000085d       ??0Bitmap@Gdiplus@@QAE@PAUIStream@@H@Z 1000185d f i ico.obj
+ 0001:00000897       ??1Bitmap@Gdiplus@@UAE@XZ  10001897 f i ico.obj
+ 0001:000008a6       ?FromStream@Bitmap@Gdiplus@@SIPAV12@PAUIStream@@H@Z 100018a6 f i ico.obj
+ 0001:000008c7       ?LockBits@Bitmap@Gdiplus@@QAE?AW4Status@2@PBVRect@2@IHPAVBitmapData@2@@Z 100018c7 f i ico.obj
+ 0001:000008f1       ?UnlockBits@Bitmap@Gdiplus@@QAE?AW4Status@2@PAVBitmapData@2@@Z 100018f1 f i ico.obj
+ 0001:0000090f       ??_H@YGXPAXIHP6EPAX0@Z@Z   1000190f f i ico.obj
+ 0001:0000092d       ??1MStream@@QAE@XZ         1000192d f i ico.obj
+ 0001:00000963       @IsEqualGUID@8             10001963 f i ico.obj
+ 0001:00000976       @==@8                      10001976 f i ico.obj
+ 0001:00000989       ?SetData@MStream@@QAEXPBXK@Z 10001989 f i ico.obj
+ 0001:000009c6       ?QueryInterface@MStream@@UAGJABU_GUID@@PAPAX@Z 100019c6 f i ico.obj
+ 0001:00000a1b       ?AddRef@MStream@@UAGKXZ    10001a1b f i ico.obj
+ 0001:00000a2c       ?Read@MStream@@UAGJPAXKPAK@Z 10001a2c f i ico.obj
+ 0001:00000a8e       ?Write@MStream@@UAGJPBXKPAK@Z 10001a8e f i ico.obj
+ 0001:00000b21       ?Seek@MStream@@UAGJT_LARGE_INTEGER@@KPAT_ULARGE_INTEGER@@@Z 10001b21 f i ico.obj
+ 0001:00000ba4       ?SetSize@MStream@@UAGJT_ULARGE_INTEGER@@@Z 10001ba4 f i ico.obj
+ 0001:00000c23       ?CopyTo@MStream@@UAGJPAUIStream@@T_ULARGE_INTEGER@@PAT3@2@Z 10001c23 f i ico.obj
+ 0001:00000c2b       ?Commit@MStream@@UAGJK@Z   10001c2b f i ico.obj
+ 0001:00000c3a       ?Revert@MStream@@UAGJXZ    10001c3a f i ico.obj
+ 0001:00000c42       ?LockRegion@MStream@@UAGJT_ULARGE_INTEGER@@0K@Z 10001c42 f i ico.obj
+ 0001:00000c4a       ?UnlockRegion@MStream@@UAGJT_ULARGE_INTEGER@@0K@Z 10001c4a f i ico.obj
+ 0001:00000c52       ?Stat@MStream@@UAGJPAUtagSTATSTG@@K@Z 10001c52 f i ico.obj
+ 0001:00000cb6       ?Clone@MStream@@UAGJPAPAUIStream@@@Z 10001cb6 f i ico.obj
+ 0001:00000cbe       ??_GMStream@@QAEPAXI@Z     10001cbe f i ico.obj
+ 0001:00000cda       ??0IUnknown@@QAE@XZ        10001cda f i ico.obj
+ 0001:00000cdd       ?LoadPageInfo@@YIKPAUICONCONTEXT@@HAAI111PAPB_W@Z 10001cdd f   ico.obj
+ 0001:00000e2e       ?Decode1BPP@@YIPAEIIPAUtagRGBQUAD@@PAE1AAK@Z 10001e2e f   ico.obj
+ 0001:00000efc       ?Decode4BPP@@YIPAEIIPAUtagRGBQUAD@@PAE1AAK@Z 10001efc f   ico.obj
+ 0001:00000fd2       ?Decode8BPP@@YIPAEAAIIPAUtagRGBQUAD@@PAE2AAK@Z 10001fd2 f   ico.obj
+ 0001:0000109e       ?Decode24BPP@@YIPAEAAIIPAE1AAK@Z 1000209e f   ico.obj
+ 0001:00001240       ?Decode32BPP@@YIPAEAAIIPAE1AAK@Z 10002240 f   ico.obj
+ 0001:00001306       ?DecodeDummy@@YIPAEIIAAK@Z 10002306 f   ico.obj
+ 0001:00001342       ?Init@ICODecoder@@QAEHPAUCET_Init@@@Z 10002342 f i ico.obj
+ 0001:000013a2       ?Close@ICODecoder@@QAEXXZ  100023a2 f i ico.obj
+ 0001:000013d8       ?Open@ICOImage@@QAEH_NPB_WPBEKU_COORD@@@Z 100023d8 f i ico.obj
+ 0001:0000158b       ?Close@ICOImage@@QAEXXZ    1000258b f i ico.obj
+ 0001:000015d7       ?CET_Init@@YGHPAU0@@Z      100025d7 f   ico.obj
+ 0001:00001645       ?CET_Done@@YGXPAUCET_Init@@@Z 10002645 f   ico.obj
+ 0001:00001669       ?CET_Free@@YGXPAUCET_LoadInfo@@@Z 10002669 f   ico.obj
+ 0001:0000169f       ?CET_Cancel@@YGXPAX@Z      1000269f f   ico.obj
+ 0001:000016b9       ??_EImage@Gdiplus@@UAEPAXI@Z 100026b9 f i ico.obj
+ 0001:000016b9       ??_GImage@Gdiplus@@UAEPAXI@Z 100026b9 f i ico.obj
+ 0001:000016dd       ??0Image@Gdiplus@@IAE@PAVGpImage@1@W4Status@1@@Z 100026dd f i ico.obj
+ 0001:000016f6       ??_EBitmap@Gdiplus@@UAEPAXI@Z 100026f6 f i ico.obj
+ 0001:000016f6       ??_GBitmap@Gdiplus@@UAEPAXI@Z 100026f6 f i ico.obj
+ 0001:0000171a       ?Release@MStream@@UAGKXZ   1000271a f i ico.obj
+ 0001:00001747       ??0ISequentialStream@@QAE@XZ 10002747 f i ico.obj
+ 0001:0000174a       ?Clone@Image@Gdiplus@@UAEPAV12@XZ 1000274a f i ico.obj
+ 0001:0000178c       ??0IStream@@QAE@XZ         1000278c f i ico.obj
+ 0001:0000178f       ??0MStream@@QAE@XZ         1000278f f i ico.obj
+ 0001:000017af       ?PageDecode@ICOImage@@QAEHPAUCET_LoadInfo@@@Z 100027af f i ico.obj
+ 0001:00001ab8       ?GetPageBits@ICOImage@@QAEHPAUCET_LoadInfo@@@Z 10002ab8 f i ico.obj
+ 0001:00001bd8       ?CET_Load@@YGHPAUCET_LoadInfo@@@Z 10002bd8 f   ico.obj
+ 0001:00001dbf       ?HeapInitialize@@YI_NXZ    10002dbf f   Memory.obj
+ 0001:00001de5       ?HeapDeinitialize@@YIXXZ   10002de5 f   Memory.obj
+ 0001:00001dfd       ?xf_malloc@@YAPAXI@Z       10002dfd f   Memory.obj
+ 0001:00001e10       ?xf_calloc@@YAPAXII@Z      10002e10 f   Memory.obj
+ 0001:00001e29       ?xf_realloc@@YAPAXPAXI@Z   10002e29 f   Memory.obj
+ 0001:00001e40       ?xf_free@@YAXPAX@Z         10002e40 f   Memory.obj
+ 0001:00001e5e       ?xf_validate@@YA_NPAX@Z    10002e5e f   Memory.obj
+ 0001:00001e77       ??2@YAPAXI@Z               10002e77 f   Memory.obj
+ 0001:00001e7c       ??_U@YAPAXI@Z              10002e7c f   Memory.obj
+ 0001:00001e81       ??3@YAXPAX@Z               10002e81 f   Memory.obj
+ 0001:00001e86       ??_V@YAXPAX@Z              10002e86 f   Memory.obj
+ 0001:00001e8b       ?lstrdupW@@YIPA_WPBDI@Z    10002e8b f   Memory.obj
+ 0001:00001ed3       ?StringCchCopyA@@YGJPADIPBD@Z 10002ed3 f i Memory.obj
+ 0001:00001f33       ?StringCchCopyW@@YGJPA_WIPB_W@Z 10002f33 f i Memory.obj
+ 0001:00001f9a       ?lstrdup@@YIPADPBD@Z       10002f9a f   Memory.obj
+ 0001:00001fd5       ?lstrdup@@YIPA_WPB_W@Z     10002fd5 f   Memory.obj
+ 0001:00002012       ?lstrmerge@@YIPA_WPB_W000@Z 10003012 f   Memory.obj
+ 0001:000020a1       ?lstrmerge@@YI_NPAPA_WPB_W11@Z 100030a1 f   Memory.obj
+ 0001:000020e0       _memmove                   100030e0 f   libCRT:memmove.obj
+ 0001:00002140       _memset                    10003140 f   libCRT:memset.obj
+ 0001:00002178       _HeapFree@12               10003178 f   kernel32:KERNEL32.dll
+ 0001:0000217e       _GetProcessHeap@0          1000317e f   kernel32:KERNEL32.dll
+ 0001:00002184       _HeapAlloc@12              10003184 f   kernel32:KERNEL32.dll
+ 0001:0000218a       _HeapReAlloc@16            1000318a f   kernel32:KERNEL32.dll
+ 0001:00002190       _SystemTimeToFileTime@8    10003190 f   kernel32:KERNEL32.dll
+ 0001:00002196       _GetLocalTime@4            10003196 f   kernel32:KERNEL32.dll
+ 0001:0000219c       _HeapCreate@12             1000319c f   kernel32:KERNEL32.dll
+ 0001:000021a2       _HeapDestroy@4             100031a2 f   kernel32:KERNEL32.dll
+ 0001:000021a8       _HeapValidate@12           100031a8 f   kernel32:KERNEL32.dll
+ 0001:000021ae       _MultiByteToWideChar@24    100031ae f   kernel32:KERNEL32.dll
+ 0001:000021b4       _lstrlenA@4                100031b4 f   kernel32:KERNEL32.dll
+ 0001:000021ba       _lstrlenW@4                100031ba f   kernel32:KERNEL32.dll
+ 0001:000021c0       _wsprintfW                 100031c0 f   user32:USER32.dll
+ 0001:000021c6       _CoInitialize@4            100031c6 f   ole32:ole32.dll
+ 0001:000021cc       _CoUninitialize@0          100031cc f   ole32:ole32.dll
+ 0001:000021d2       _GdipAlloc@4               100031d2 f   gdiplus:gdiplus.dll
+ 0001:000021d8       _GdipFree@4                100031d8 f   gdiplus:gdiplus.dll
+ 0001:000021de       _GdipDisposeImage@4        100031de f   gdiplus:gdiplus.dll
+ 0001:000021e4       _GdipGetImagePixelFormat@8 100031e4 f   gdiplus:gdiplus.dll
+ 0001:000021ea       _GdipCreateBitmapFromStream@8 100031ea f   gdiplus:gdiplus.dll
+ 0001:000021f0       _GdipCreateBitmapFromStreamICM@8 100031f0 f   gdiplus:gdiplus.dll
+ 0001:000021f6       _GdipBitmapLockBits@20     100031f6 f   gdiplus:gdiplus.dll
+ 0001:000021fc       _GdipBitmapUnlockBits@8    100031fc f   gdiplus:gdiplus.dll
+ 0001:00002202       _GdiplusShutdown@4         10003202 f   gdiplus:gdiplus.dll
+ 0001:00002208       _GdiplusStartup@12         10003208 f   gdiplus:gdiplus.dll
+ 0001:0000220e       _GdipCloneImage@8          1000320e f   gdiplus:gdiplus.dll
+ 0001:00002214       __IMPORT_DESCRIPTOR_KERNEL32 10003214     kernel32:KERNEL32.dll
+ 0001:00002228       __IMPORT_DESCRIPTOR_USER32 10003228     user32:USER32.dll
+ 0001:0000223c       __IMPORT_DESCRIPTOR_ole32  1000323c     ole32:ole32.dll
+ 0001:00002250       __IMPORT_DESCRIPTOR_gdiplus 10003250     gdiplus:gdiplus.dll
+ 0001:00002264       __NULL_IMPORT_DESCRIPTOR   10003264     kernel32:KERNEL32.dll
  0002:00000034       ?gnLastWin32Error@@3KA     10004034     ico.obj
  0002:00000038       ?ghModule@@3PAUHINSTANCE__@@A 10004038     ico.obj
  0002:0000003c       ?ghHeap@@3PAXA             1000403c     Memory.obj
@@ -278,7 +279,7 @@
 
  Static symbols
 
- 0001:00001d11       ?StringValidateDestA@@YGJPBDII@Z 10002d11 f   Memory.obj
- 0001:00001d25       ?StringValidateDestW@@YGJPB_WII@Z 10002d25 f   Memory.obj
- 0001:00001d39       ?StringCopyWorkerA@@YGJPADIPAIPBDI@Z 10002d39 f   Memory.obj
- 0001:00001d80       ?StringCopyWorkerW@@YGJPA_WIPAIPB_WI@Z 10002d80 f   Memory.obj
+ 0001:00001d01       ?StringValidateDestA@@YGJPBDII@Z 10002d01 f   Memory.obj
+ 0001:00001d15       ?StringValidateDestW@@YGJPB_WII@Z 10002d15 f   Memory.obj
+ 0001:00001d29       ?StringCopyWorkerA@@YGJPADIPAIPBDI@Z 10002d29 f   Memory.obj
+ 0001:00001d70       ?StringCopyWorkerW@@YGJPA_WIPAIPB_WI@Z 10002d70 f   Memory.obj
