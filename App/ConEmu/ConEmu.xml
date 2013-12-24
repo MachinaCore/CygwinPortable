@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2013-12-24 04:56:35" build="131215">
-			<value name="SingleInstance" type="hex" data="00"/>
+		<key name=".Vanilla" modified="2013-12-24 05:08:13" build="131215">
+			<value name="SingleInstance" type="hex" data="01"/>
 			<value name="KeyboardHooks" type="hex" data="01"/>
 			<value name="UseInjects" type="hex" data="01"/>
 			<value name="Update.CheckOnStartup" type="hex" data="00"/>
@@ -92,7 +92,7 @@
 			<value name="Multi" type="hex" data="01"/>
 			<value name="Multi.ShowButtons" type="hex" data="01"/>
 			<value name="Multi.NumberInCaption" type="hex" data="00"/>
-			<value name="Multi.CloseConfirm" type="hex" data="01"/>
+			<value name="Multi.CloseConfirm" type="hex" data="00"/>
 			<value name="Multi.CloseEditViewConfirm" type="hex" data="00"/>
 			<value name="Multi.NewConfirm" type="hex" data="01"/>
 			<value name="Multi.UseArrows" type="hex" data="00"/>
@@ -221,9 +221,9 @@
 			<value name="DragPanel" type="hex" data="02"/>
 			<value name="DragPanelBothEdges" type="hex" data="00"/>
 			<value name="KeyBarRClick" type="hex" data="01"/>
-			<value name="StatusBar.Show" type="hex" data="01"/>
+			<value name="StatusBar.Show" type="hex" data="00"/>
 			<value name="StatusBar.Flags" type="dword" data="00000002"/>
-			<value name="StatusFontFace" type="string" data="Segoe UI"/>
+			<value name="StatusFontFace" type="string" data="Tahoma"/>
 			<value name="StatusFontCharSet" type="dword" data="00000000"/>
 			<value name="StatusFontHeight" type="dword" data="0000000e"/>
 			<value name="StatusBar.Color.Back" type="dword" data="00404040"/>
@@ -515,9 +515,9 @@
 			<value name="DndLKey" type="hex" data="00"/>
 			<value name="DndRKey" type="hex" data="a2"/>
 			<value name="WndDragKey" type="dword" data="00121101"/>
-				<key name="Tasks" modified="2013-12-24 04:56:35" build="131215">
-				<value name="Count" type="dword" data="00000008"/>
-						<key name="Task1" modified="2013-12-24 04:56:35" build="131215">
+				<key name="Tasks" modified="2013-12-24 05:08:14" build="131215">
+				<value name="Count" type="dword" data="00000009"/>
+						<key name="Task1" modified="2013-12-24 05:08:14" build="131215">
 					<value name="Name" type="string" data="{cmd}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -525,7 +525,7 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task2" modified="2013-12-24 04:56:35" build="131215">
+						<key name="Task2" modified="2013-12-24 05:08:14" build="131215">
 					<value name="Name" type="string" data="{cmd (Admin)}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -533,7 +533,15 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task3" modified="2013-12-24 04:56:35" build="131215">
+						<key name="Task3" modified="2013-12-24 05:08:14" build="131215">
+					<value name="Name" type="string" data="{Cygwin}"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Cmd1" type="string" data="echo off &amp; set PATH=%cd%\..\cygwin\bin\;%PATH% &amp; ..\cygwin\bin\bash.exe --login -i -c 'cd c:;exec /bin/bash.exe' -new_console:C:..\cygwin\Cygwin.ico"/>
+					<value name="Active" type="dword" data="00000000"/>
+					<value name="Count" type="dword" data="00000001"/>
+				</key>
+						<key name="Task4" modified="2013-12-24 05:08:14" build="131215">
 					<value name="Name" type="string" data="{PowerShell}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -541,7 +549,7 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task4" modified="2013-12-24 04:56:35" build="131215">
+						<key name="Task5" modified="2013-12-24 05:08:14" build="131215">
 					<value name="Name" type="string" data="{PowerShell (Admin)}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -549,24 +557,25 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task5" modified="2013-12-24 04:56:35" build="131215">
+						<key name="Task6" modified="2013-12-24 05:08:14" build="131215">
 					<value name="Name" type="string" data="{Git bash}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Cmd1" type="string" data="&quot;%ProgramFiles%\Git\bin\sh.exe&quot; --login -i"/>
+					<value name="Cmd2" type="string" data="&quot;%windir%\syswow64\cmd.exe&quot; /k ver &amp; echo This is 32 bit cmd.exe -new_console:s50V"/>
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task6" modified="2013-12-24 04:56:35" build="131215">
+						<key name="Task7" modified="2013-12-24 05:08:14" build="131215">
 					<value name="Name" type="string" data="{cmd 64/32}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Cmd1" type="string" data="&gt;&quot;%windir%\system32\cmd.exe&quot; /k ver &amp; echo This is Native cmd.exe"/>
-					<value name="Cmd2" type="string" data="&quot;%windir%\syswow64\cmd.exe&quot; /k ver &amp; echo This is 32 bit cmd.exe -new_console:s50V"/>
 					<value name="Active" type="dword" data="00000001"/>
 					<value name="Count" type="dword" data="00000002"/>
+					<value name="Cmd2" type="string" data="&quot;%windir%\syswow64\cmd.exe&quot; /k ver &amp; echo This is 32 bit cmd.exe -new_console:s50V"/>
 				</key>
-						<key name="Task7" modified="2013-12-24 04:56:35" build="131215">
+						<key name="Task8" modified="2013-12-24 05:08:14" build="131215">
 					<value name="Name" type="string" data="{Show ANSI colors}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -574,7 +583,7 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task8" modified="2013-12-24 04:56:36" build="131215">
+						<key name="Task9" modified="2013-12-24 05:08:14" build="131215">
 					<value name="Name" type="string" data="{Chocolatey (Admin)}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -583,10 +592,10 @@
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
 			</key>
-				<key name="Apps" modified="2013-12-24 04:56:36" build="131215">
+				<key name="Apps" modified="2013-12-24 05:08:14" build="131215">
 				<value name="Count" type="dword" data="00000000"/>
 			</key>
-				<key name="Colors" modified="2013-12-24 04:56:36" build="131215">
+				<key name="Colors" modified="2013-12-24 05:08:14" build="131215">
 				<value name="Count" type="dword" data="00000000"/>
 			</key>
 		</key>
