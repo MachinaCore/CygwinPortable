@@ -1,35 +1,41 @@
 #!/bin/bash
 
 # apt-cyg: install tool for cygwin similar to debian apt-get
+
+# The MIT License (MIT)
 #
-# Copyright (C) 2005-9, Stephen Jungels
-# Copyright (C) 2013, rcmdnk
+# Copyright (c) 2013 Trans-code Design
 #
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
 #
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
 #
-# (http://www.fsf.org/licensing/licenses/gpl.html)
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+#
 
 # this script requires some packages
 
-# ChangeLog
-# - 2013/08/12: Update for directory changes of Cygwin mirror sites
-
 WGET=`which wget 2> /dev/null`
 BZIP2=`which bzip2 2> /dev/null`
+XZ=`which xz 2> /dev/null`
 TAR=`which tar 2> /dev/null`
 GAWK=`which awk 2> /dev/null`
 if test "-$WGET-" = "--" || test "-$BZIP2-" = "--" || test "-$TAR-" = "--" \
-  || test "-$GAWK-" = "--"
+  || test "-$GAWK-" = "--" || test "-$XZ-" = "--"
 then
-  echo You must install wget, tar, gawk and bzip2 to use apt-cyg.
+  echo You must install wget, tar, gawk, xz and bzip2 to use apt-cyg.
   exit 1
 fi
 
@@ -37,29 +43,34 @@ fi
 function usage()
 {
   echo apt-cyg: Installs and removes Cygwin packages.
+  echo
   echo "  \"apt-cyg install <package names>\" to install packages"
   echo "  \"apt-cyg remove <package names>\" to remove packages"
+  echo "  \"apt-cyg reinstall <package names>\" to reinstall packages"
   echo "  \"apt-cyg update\" to update setup.ini"
   echo "  \"apt-cyg show\" to show installed packages"
   echo "  \"apt-cyg find <patterns>\" to find packages matching patterns"
   echo "  \"apt-cyg describe <patterns>\" to describe packages matching patterns"
   echo "  \"apt-cyg packageof <commands or files>\" to locate parent packages"
+  echo
   echo "Options:"
-  echo "  --mirror, -m <url> : set mirror (Put x86/x86_64 at the end"
-  echo "                       if you want to specify architecture)"
+  echo "  --mirror, -m <url> : set mirror"
   echo "  --cache, -c <dir>  : set cache"
   echo "  --file, -f <file>  : read package names from file"
   echo "  --noupdate, -u     : don't update setup.ini from mirror"
+  echo "  --x86_64, -64      : for 64-bit"
   echo "  --help"
   echo "  --version"
+  echo
+  echo "pls. visit me at  https://github.com/Simuc/apt-cyg"
 }
-
 
 
 function version()
 {
-  echo "apt-cyg version 0.57"
-  echo "Written by Stephen Jungels"
+  echo "apt-cyg version 0.60"
+  echo "Origin by Stephen Jungels"
+  echo "Amended by Tao Zhang, https://github.com/Simuc/apt-cyg"
   echo ""
   echo "Copyright (c) 2005-9 Stephen Jungels.  Released under the GPL."
 }
@@ -69,11 +80,9 @@ function findworkspace()
 {
   # default working directory and mirror
 
-  mirror=ftp://mirror.mcs.anl.gov/pub/cygwin
-  arch=x86_64
-  if [ "`uname -m`" = "i686" ];then
-    arch=x86
-  fi
+  mirror=http://mirrors.163.com/cygwin/
+  #mirror=http://mirrors.ustc.edu.cn/cygwin/
+  #mirror=ftp://mirror.mcs.anl.gov/pub/cygwin
   cache=/setup
 
   # work wherever setup worked last, if possible
@@ -84,24 +93,17 @@ function findworkspace()
     cache="`cygpath -au "$tmp"`"
   fi
 
-  if test -e /etc/setup/last-arch
-  then
-    archtmp="`head -1 /etc/setup/last-arch`"
-    if [ "$archtmp" != "" ];then
-      arch=$archtmp
-    fi
-  fi
-
   if test -e /etc/setup/last-mirror
   then
     mirror="`head -1 /etc/setup/last-mirror`"
   fi
+
   mirrordir="`echo "$mirror" | sed -e "s/:/%3a/g" -e "s:/:%2f:g"`"
 
   echo Working directory is $cache
-  echo Mirror is $mirror, Architecture is $arch
-  mkdir -p "$cache/$mirrordir"
-  cd "$cache/$mirrordir"
+  echo Mirror is $mirror
+  mkdir -p "$cache/$mirrordir/$arch"
+  cd "$cache/$mirrordir/$arch"
 }
 
 
@@ -141,6 +143,16 @@ function checkpackages()
 }
 
 
+function clearsetup()
+{
+  rm "/etc/setup/$1.lst.gz"
+  rm -f /etc/postinstall/$1.sh.done
+  cat /etc/setup/installed.db | awk > /tmp/awk.$$ -v pkg="$1" '{if (pkg != $1) print $0}'
+  mv /etc/setup/installed.db /etc/setup/installed.db-save
+  mv /tmp/awk.$$ /etc/setup/installed.db
+}
+
+
 # process options
 
 noscripts=0
@@ -150,21 +162,14 @@ dofile=0
 command=""
 filepackages=""
 packages=""
+arch=x86
 
 while test $# -gt 0
 do
   case "$1" in
 
     --mirror|-m)
-      arch=`basename $2`
-      if [[ ! "$arch" =~ x86 ]];then
-        echo "$2" > /etc/setup/last-mirror
-        echo "" > /etc/setup/last-arch
-      else
-        mirror=`dirname $2`
-        echo "$mirror" > /etc/setup/last-mirror
-        echo "$arch" > /etc/setup/last-arch
-      fi
+      echo "$2" > /etc/setup/last-mirror
       shift ; shift
     ;;
 
@@ -180,6 +185,11 @@ do
 
     --noupdate|-u)
       noupdate=1
+      shift
+    ;;
+
+    --x86_64|-64)
+      arch=x86_64
       shift
     ;;
 
@@ -205,7 +215,7 @@ do
       shift
     ;;
 
-    update|show|find|describe|packageof|install|remove)
+    update|show|find|describe|packageof|install|remove|reinstall)
       if test "-$command-" = "--"
       then
         command=$1
@@ -315,7 +325,7 @@ case "$command" in
   ;;
 
 
-  install)
+  install|reinstall)
 
     checkpackages
     findworkspace
@@ -327,8 +337,13 @@ case "$command" in
     already=`grep -c "^$pkg " /etc/setup/installed.db`
     if test $already -ge 1
     then
-      echo Package $pkg is already installed, skipping
-      continue
+      if test "-$command-" = "-reinstall-"
+      then
+        clearsetup $pkg
+      else
+        echo Package $pkg is already installed, skipping
+        continue
+      fi
     fi
     echo ""
     echo Installing $pkg
@@ -374,7 +389,8 @@ case "$command" in
     fi
 
     echo "Unpacking..."
-    cat $file | bunzip2 | tar > "/etc/setup/$pkg.lst" xvf - -C /
+    tar -xvf $file -C / > "/etc/setup/$pkg.lst"
+
     gzip -f "/etc/setup/$pkg.lst"
     cd ../..
 
@@ -403,8 +419,13 @@ case "$command" in
         already=`grep -c "^$package " /etc/setup/installed.db`
         if test $already -ge 1
         then
-          echo Package $package is already installed, skipping
-          continue
+          if test "-$command-" = "-reinstall-"
+          then
+            clearsetup $package
+          else
+            echo Package $package is already installed, skipping
+            continue
+          fi
         fi
         apt-cyg --noscripts install $package
         if ! test $? = 0 ; then warn=1; fi
@@ -448,7 +469,7 @@ case "$command" in
       continue
     fi
 
-    dontremove="cygwin coreutils gawk bzip2 tar wget bash"
+    dontremove="cygwin coreutils gawk bzip2 tar xz wget bash"
     for req in $dontremove
     do
       if test "-$pkg-" = "-$req-"
@@ -474,11 +495,7 @@ case "$command" in
     fi
 
     cat "/etc/setup/$pkg.lst.gz" | gzip -d | awk '/[^\/]$/ {print "rm -f \"/" $0 "\""}' | sh
-    rm "/etc/setup/$pkg.lst.gz"
-    rm -f /etc/postinstall/$pkg.sh.done
-    cat /etc/setup/installed.db | awk > /tmp/awk.$$ -v pkg="$pkg" '{if (pkg != $1) print $0}'
-    mv /etc/setup/installed.db /etc/setup/installed.db-save
-    mv /tmp/awk.$$ /etc/setup/installed.db
+    clearsetup $pkg
     echo Package $pkg removed
 
     done
