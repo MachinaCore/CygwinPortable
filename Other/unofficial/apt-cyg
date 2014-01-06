@@ -3,6 +3,7 @@
 # apt-cyg: install tool for cygwin similar to debian apt-get
 #
 # Copyright (C) 2005-9, Stephen Jungels
+# Copyright (C) 2013, rcmdnk
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -17,6 +18,9 @@
 # (http://www.fsf.org/licensing/licenses/gpl.html)
 
 # this script requires some packages
+
+# ChangeLog
+# - 2013/08/12: Update for directory changes of Cygwin mirror sites
 
 WGET=`which wget 2> /dev/null`
 BZIP2=`which bzip2 2> /dev/null`
@@ -38,15 +42,14 @@ function usage()
   echo "  \"apt-cyg update\" to update setup.ini"
   echo "  \"apt-cyg show\" to show installed packages"
   echo "  \"apt-cyg find <patterns>\" to find packages matching patterns"
-  echo "  \"apt-cyg search <patterns>\" to find packages matching patterns (alias of find)"
   echo "  \"apt-cyg describe <patterns>\" to describe packages matching patterns"
   echo "  \"apt-cyg packageof <commands or files>\" to locate parent packages"
   echo "Options:"
-  echo "  --mirror, -m <url> : set mirror"
+  echo "  --mirror, -m <url> : set mirror (Put x86/x86_64 at the end"
+  echo "                       if you want to specify architecture)"
   echo "  --cache, -c <dir>  : set cache"
   echo "  --file, -f <file>  : read package names from file"
   echo "  --noupdate, -u     : don't update setup.ini from mirror"
-  echo "  --ignore-case, -i  : Ignore case distinctions in <patterns> when finding packages"
   echo "  --help"
   echo "  --version"
 }
@@ -67,6 +70,10 @@ function findworkspace()
   # default working directory and mirror
 
   mirror=ftp://mirror.mcs.anl.gov/pub/cygwin
+  arch=x86_64
+  if [ "`uname -m`" = "i686" ];then
+    arch=x86
+  fi
   cache=/setup
 
   # work wherever setup worked last, if possible
@@ -77,6 +84,14 @@ function findworkspace()
     cache="`cygpath -au "$tmp"`"
   fi
 
+  if test -e /etc/setup/last-arch
+  then
+    archtmp="`head -1 /etc/setup/last-arch`"
+    if [ "$archtmp" != "" ];then
+      arch=$archtmp
+    fi
+  fi
+
   if test -e /etc/setup/last-mirror
   then
     mirror="`head -1 /etc/setup/last-mirror`"
@@ -84,7 +99,7 @@ function findworkspace()
   mirrordir="`echo "$mirror" | sed -e "s/:/%3a/g" -e "s:/:%2f:g"`"
 
   echo Working directory is $cache
-  echo Mirror is $mirror
+  echo Mirror is $mirror, Architecture is $arch
   mkdir -p "$cache/$mirrordir"
   cd "$cache/$mirrordir"
 }
@@ -96,14 +111,14 @@ function getsetup()
   then
     touch setup.ini
     mv setup.ini setup.ini-save
-    wget -N $mirror/setup.bz2
+    wget -N $mirror/$arch/setup.bz2
     if test -e setup.bz2 && test $? -eq 0
     then
       bunzip2 setup.bz2
       mv setup setup.ini
       echo Updated setup.ini
     else
-      wget -N $mirror/setup.ini
+      wget -N $mirror/$arch/setup.ini
       if test -e setup.ini && test $? -eq 0
       then
         echo Updated setup.ini
@@ -132,100 +147,84 @@ noscripts=0
 noupdate=0
 file=""
 dofile=0
-nocase=0
 command=""
 filepackages=""
 packages=""
 
-function process_args () {
-  while test $# -gt 0
-  do
-    case "$1" in
+while test $# -gt 0
+do
+  case "$1" in
 
-      --mirror|-m)
+    --mirror|-m)
+      arch=`basename $2`
+      if [[ ! "$arch" =~ x86 ]];then
         echo "$2" > /etc/setup/last-mirror
-        shift ; shift
-      ;;
+        echo "" > /etc/setup/last-arch
+      else
+        mirror=`dirname $2`
+        echo "$mirror" > /etc/setup/last-mirror
+        echo "$arch" > /etc/setup/last-arch
+      fi
+      shift ; shift
+    ;;
 
-      --cache|-c)
-        cygpath -aw "$2" > /etc/setup/last-cache
-        shift ; shift
-      ;;
+    --cache|-c)
+      cygpath -aw "$2" > /etc/setup/last-cache
+      shift ; shift
+    ;;
 
-      --noscripts)
-        noscripts=1
+    --noscripts)
+      noscripts=1
+      shift
+    ;;
+
+    --noupdate|-u)
+      noupdate=1
+      shift
+    ;;
+
+    --help)
+      usage
+      exit 0
+    ;;
+
+    --version)
+      version
+      exit 0
+    ;;
+
+    --file|-f)
+      if ! test "-$2-" = "--"
+      then
+        file="$2"
+        dofile=1
         shift
-      ;;
+      else
+        echo 1>&2 No file name provided, ignoring $1
+      fi
+      shift
+    ;;
 
-      --noupdate|-u)
-        noupdate=1
-        shift
-      ;;
-
-      --help)
-        usage
-        exit 0
-      ;;
-
-      --version)
-        version
-        exit 0
-      ;;
-
-      --file|-f)
-        if ! test "-$2-" = "--"
-        then
-          file="$2"
-          dofile=1
-          shift
-        else
-          echo 1>&2 No file name provided, ignoring $1
-        fi
-        shift
-      ;;
-
-      --ignore-case|-i)
-        nocase=1
-        shift
-      ;;
-
-     --no-ignore-case|-no-i)
-       nocase=0
-       shift
-     ;;
-
-      update|show|search|find|describe|packageof|install|remove)
-        if test "-$command-" = "--"
-        then
-          command=$1
-        else
-          packages="$packages $1"
-        fi
-        shift
-
-      ;;
-
-      *)
+    update|show|find|describe|packageof|install|remove)
+      if test "-$command-" = "--"
+      then
+        command=$1
+      else
         packages="$packages $1"
-        shift
+      fi
+      shift
 
-      ;;
+    ;;
 
-    esac
-  done
-}
+    *)
+      packages="$packages $1"
+      shift
 
-# Check to see if global options are defined
-if [[ ! -z "$APTCYG_OPTIONS" ]] ; then
-  # If we only have one element, assume it's a string to split
-  #  and parse as an array
-  if [[ "${#APTCYG_OPTIONS[*]}" -eq "1" ]] ; then
-    APTCYG_OPTIONS=($APTCYG_OPTIONS)
-  fi
-  process_args "${APTCYG_OPTIONS[@]}"
-fi
+    ;;
 
-process_args "$@"
+  esac
+done
+
 
 if test $dofile = 1
 then
@@ -257,7 +256,7 @@ case "$command" in
   ;;
 
 
-  find|search)
+  find)
 
     checkpackages
     findworkspace
@@ -267,16 +266,11 @@ case "$command" in
     do
       echo ""
       echo Searching for installed packages matching $pkg:
-      awk -v nocase="$nocase" '/[^ ]+ [^ ]+ 0/ { if (nocase == 1 ) { IGNORECASE=1 } if ($1 ~ query) { print $1 } }' query="$pkg" /etc/setup/installed.db
+      awk '/[^ ]+ [^ ]+ 0/ {if ($1 ~ query) print $1}' query="$pkg" /etc/setup/installed.db
       echo ""
       echo Searching for installable packages matching $pkg:
-      if [[ "$nocase" -eq "1" ]] ; then
-        cat setup.ini | awk -v query="$pkg" \
-          'BEGIN{RS="\n\n@ "; FS="\n"; ORS="\n"} {IGNORECASE=1; if ($1 ~ query) {print $1}}'
-      else
-        cat setup.ini | awk -v query="$pkg" \
-          'BEGIN{RS="\n\n@ "; FS="\n"; ORS="\n"} {if ($1 ~ query) {print $1}}'
-      fi
+      cat setup.ini | awk -v query="$pkg" \
+        'BEGIN{RS="\n\n@ "; FS="\n"; ORS="\n"} {if ($1 ~ query) {print $1}}'
     done
 
   ;;
@@ -290,8 +284,8 @@ case "$command" in
     for pkg in $packages
     do
       echo ""
-      cat setup.ini | awk -v nocase="$nocase" -v query="$pkg" \
-        'BEGIN{RS="\n\n@ "; FS="\n"; ORS="\n"} {if (nocase == 1 ) { IGNORECASE=1 } if ($1 ~ query) {print $0 "\n"}}'
+      cat setup.ini | awk -v query="$pkg" \
+        'BEGIN{RS="\n\n@ "; FS="\n"; ORS="\n"} {if ($1 ~ query) {print $0 "\n"}}'
     done
 
   ;;
@@ -327,63 +321,15 @@ case "$command" in
     findworkspace
     getsetup
 
-    declare -A pkg_lookup
-    declare -A pkg_already_installed
-
-    # sanity check - find our currently installed packages, and resolve all case-insensitive names to their correct ones
-    for pkg in $packages ; do
-      # check for previously installed packages
-      pkg_already_installed[$pkg]="0"
-      pkg_lookup[$pkg]="$pkg"
-
-      # case insensitive search
-      if [[ "$nocase" -eq "1" ]] ; then
-        already=`grep -ic "^$pkg " /etc/setup/installed.db`
-        if test $already -ge 1 ; then
-          # get the proper name for the package
-          proper_name=`grep -i "^$pkg " /etc/setup/installed.db | awk '{ print $1 }'`
-          # set our lookup value
-          pkg_lookup[$pkg]="$proper_name"
-          pkg_already_installed[$pkg]="1"
-        fi
-
-      # case sensitive search
-      else
-        already=`grep -c "^$pkg " /etc/setup/installed.db`
-      fi
-
-      if test $already -ge 1 ; then
-        pkg_already_installed[$pkg]="1"
-        continue
-      fi
-
-      # check for new packages and find their proper names
-      if [[ "$nocase" -eq "1" ]] ; then
-        proper_name=`cat setup.ini | awk -v package="$pkg" \
-          'BEGIN{IGNORECASE=1; RS="\n\n@ "; FS="\n"} { if ($1 == package) { propername = $1 ; desc = $0; px++ } } \
-           END {if (px == 1 && desc != "") { print propername ; exit 0 } else { print "Package not found" ; exit 1 } }'`
-        if [[ "$?" != "0" ]] ; then
-          echo "Could not find $pkg, aborting..."
-          exit
-        else
-          echo proper name of $pkg is: $proper_name
-          pkg_lookup[$pkg]="$proper_name"
-          continue
-        fi
-      fi
-    done
-
     for pkg in $packages
     do
-    if [[ ${pkg_already_installed[$pkg]} -eq 1 ]] ; then
-      echo "Package $pkg is already installed, skipping"
+
+    already=`grep -c "^$pkg " /etc/setup/installed.db`
+    if test $already -ge 1
+    then
+      echo Package $pkg is already installed, skipping
       continue
     fi
-
-    echo Installing $pkg as ${pkg_lookup[$pkg]}...
-    user_pkg_name="$pkg"
-    pkg="${pkg_lookup[$pkg]}"
-
     echo ""
     echo Installing $pkg
 
@@ -407,16 +353,10 @@ case "$command" in
 
     # pick the latest version, which comes first
     install=`cat "release/$pkg/desc" | awk '/^install: / { print $2; exit }'`
-    category=`cat "release/$pkg/desc" | awk '/^category: / { print $2; exit }'`
-    requires=`cat "release/$pkg/desc" | awk '/^requires: / { print $2; exit }'`
 
     if test "-$install-" = "--"
     then
-      if [[ "$category" == "_obsolete" && ! -z "$requires" ]] ; then
-        echo "$pkg is obsolete and replaced by: $requires"
-      else
-        echo "Could not find \"install\" in package description: obsolete package?"
-      fi
+      echo "Could not find \"install\" in package description: obsolete package?"
       exit 1
     fi
 
