@@ -1,0 +1,482 @@
+QProgressBar:horizontal {
+	background-color: rgba(57,55,54, 255);
+     border-style: solid;
+     border-width: 1px;
+     border-radius: 2px;
+     border-color: rgba(112,109, 105, 255);
+	padding-left:3px;padding-right:3px;
+	color: rgb(218, 218, 218);
+	text-align: center;
+}
+QProgressBar::chunk:horizontal {
+background: #4d6d8c;
+margin-right: 4px; /* space */
+margin-top:3px;
+margin-bottom:3px;
+width: 8px;
+}
+
+
+QListWidget::item:hover, QTreeWidget::item:hover {
+	background-color: none;
+  border:none;
+color:white;
+}
+QListWidget::item:selected, QTreeWidget::item:selected {
+  border:none;
+	background-color: rgb(49, 65, 89);
+color:white;
+}
+
+QHeaderView::section {
+     background-color: #4d4b48;
+     color: rgb(165,165,165);
+     padding:3px 0 3px 5px;
+     border-left:1px solid rgba(0,0,0, 40);border-right:none;border-top:none;border-bottom:none;
+text-transform:uppercase;
+	font: 10px "Arial";
+ }
+QHeaderView::section:hover {
+     color: rgb(255,255,255);
+ }
+
+ /* style the sort indicator */
+ QHeaderView::down-arrow {
+	image: url(:/icons/icons/steam/icon_down_default.tga);
+ }
+
+ QHeaderView::up-arrow {
+	image: url(:/icons/icons/steam/icon_up_default.tga);
+ }
+
+
+QScrollBar {
+background: rgba(215, 214, 213, 10)/*#5d5a58*/;
+border:none;
+border-style:none;
+}
+QScrollBar:horizontal {
+         
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(50, 50, 50, 255), stop:0.5 rgba(0, 0, 0, 0));
+         height: 15px;
+         margin: 0px 23px 1 23px;
+     }
+
+     QScrollBar::handle:horizontal {
+         background:  #615f5c;
+         min-width: 20px;
+         border: 1px solid #615f5c;
+    	 border-width: 1px;
+     	border-radius: 2px;
+         image: url(:/icons/icons/steam/icon_scroll_handle.tga);
+     }
+
+     QScrollBar::handle:horizontal:hover {
+         background: #64615e;
+         border: 1px solid #64615e;
+     }
+     QScrollBar::handle:vertical:hover {
+         background: #64615e;
+         border: 1px solid #64615e;
+     }
+
+     QScrollBar::add-line:horizontal {
+	image: url(:/icons/icons/steam/icon_right_default.tga);
+         background: #5d5a58;
+         width: 19px;
+	margin:0px 1px 1px 0; 
+         subcontrol-position: right;
+         subcontrol-origin: margin;
+         border: 1px solid #5e5b58;
+     border-width: 1px;
+     border-radius: 2px;
+     }
+
+     QScrollBar::sub-line:horizontal {
+	image: url(:/icons/icons/steam/icon_left_default.tga);
+         background: #5e5b58;
+         width: 19px;
+         subcontrol-position: top left;
+         subcontrol-origin: margin;
+       border: 1px solid #5d5a58;
+margin:0 0 1px 1px; 
+     border-width: 1px;
+     border-radius: 2px;
+     }
+
+     QScrollBar::add-line:horizontal:hover {
+         background: #64615e;
+         border: 1px solid #64615e;
+     }
+     QScrollBar::sub-line:horizontal:hover {
+         background: #64615e;
+         border: 1px solid #64615e;
+     }
+
+     QScrollBar:left-arrow:horizontal, QScrollBar::right-arrow:horizontal {
+     }
+
+     QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+         background: none;
+     }
+
+
+
+
+QScrollBar:vertical {
+	background: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0.5 rgba(10, 10, 10, 0), stop:1 rgba(50, 50, 50, 255));
+         width: 15px;
+         margin: 23px 1px 24px 0;
+     }
+
+     QScrollBar::handle:vertical {
+         background:  #615f5c;
+         min-height: 20px;
+         border: 1px solid #615f5c;
+    	 border-width: 1px;
+     border-radius: 2px;
+image: url(:/icons/icons/steam/icon_scroll_handle.tga);
+     }
+
+     QScrollBar::add-line:vertical {
+         background: #5d5a58;
+         height: 19px;
+	margin:1px 1px 1px 0; 
+         subcontrol-position: bottom;
+         subcontrol-origin: margin;
+         border: 1px solid #5d5a58;
+     border-width: 1px;
+     border-radius: 2px;
+	image: url(:/icons/icons/steam/icon_down_default.tga);
+     }
+
+     QScrollBar::add-line:vertical:hover {
+         background: #64615e;
+         border: 1px solid #64615e;
+     }
+
+
+     QScrollBar::sub-line:vertical {
+         background: #5d5a58;
+         height: 19px;
+         subcontrol-position: top left;
+         subcontrol-origin: margin;
+       border: 1px solid #5d5a58;
+margin:1px 1px 0 0 ; 
+     border-width: 1px;
+     border-radius: 2px;
+	image: url(:/icons/icons/steam/icon_up_default.tga);
+     }
+     QScrollBar::sub-line:vertical:hover {
+         background: #64615e;
+         border: 1px solid #64615e;
+     }
+     QScrollBar:up-arrow:vertical, QScrollBar::down-arrow:vertical {
+         width: 3px;
+         height: 3px;
+     }
+
+     QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+         background: none;
+
+     }
+
+
+
+
+
+
+
+
+
+
+ QPushButton {
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(92, 89, 86, 255), stop:1 rgba(64, 59, 60, 255));
+     border-style: solid;
+     border-width: 1px;
+     border-radius: 2px;
+     border-color: rgba(112,109, 105, 255);
+	color: rgb(218, 218, 218);
+	text-align:left;
+	padding-left:5px;
+padding-right:20px;
+	text-transform:uppercase;
+	font: 10px "Arial";
+height:23px;
+ }
+ QPushButton:hover {
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(103,100,97, 255), stop:1 rgba(64, 59, 60, 255));
+     border-color: rgba(153,147,141, 255);
+ }
+ QPushButton:disabled {
+	background-color:  qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(103,100,97, 255), stop:1 rgba(64, 59, 60, 255));
+     border-color:#666666;
+color:#666666;
+ }
+QLabel#bar{background-color:#6b6865;}
+ QPushButton#btn_close, QPushButton#btn_minimize {
+     border-width: 0px;
+	color: rgb(218, 218, 218);
+	text-align:left;
+	padding-left:0px;
+background:none;
+ }
+
+QMessageBox, QInputDialog {background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(92, 89, 86, 255), stop:1 rgba(64, 59, 60, 255));}
+ QPushButton:pressed {
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(56,54,53, 255), stop:1 rgba(73,71,69, 255));
+     border-color: rgba(112,109,105, 255);
+ }
+
+QWidget {color: rgba(209, 207, 205, 255);}
+QWidget:disabled {color: rgba(209, 207, 205, 100);}
+
+QGroupBox {border:none;}
+
+QLineEdit, QTextEdit {
+	background-color: rgba(57,55,54, 255);
+     border-style: solid;
+     border-width: 1px;
+     border-radius: 2px;
+     border-color: rgba(112,109, 105, 255);
+padding-left:5px;
+	color: rgb(218, 218, 218);
+ }
+
+QComboBox {
+     border: 1px solid #807c78;
+     border-radius: 2px;
+     padding: 1px 1px 1px 3px;
+     min-width: 6em;
+ }
+
+ QComboBox:hover {
+
+	background:  #4a4846;
+ }
+ QComboBox:editable {
+
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #5c5956, stop:1 #4a4846);
+ }
+
+ QComboBox:!editable, QComboBox::drop-down:editable {
+
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #5c5956, stop:1 #4a4846);
+ }
+
+ /* QComboBox gets the "on" state when the popup is open */
+ QComboBox:!editable:on, QComboBox::drop-down:editable:on {
+
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #5c5956, stop:1 #4a4846);
+ }
+
+ QComboBox:on { /* shift the text when the popup opens */
+ }
+
+ QComboBox::drop-down {
+     subcontrol-origin: padding;
+     subcontrol-position: top right;
+     width: 20px;
+	height:15px;
+	margin-top:3px;
+     border-left-width: 1px;
+     border-left-color: #807c78;
+     border-left-style: solid; /* just a single line */
+     border-top-right-radius: 2px; /* same radius as the QComboBox */
+     border-bottom-right-radius: 2px;
+ }
+
+ QComboBox::down-arrow {
+	right: 1px;
+     image: url(:/icons/dropdown.png);
+ }
+
+ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
+ }
+
+QComboBox QAbstractItemView {
+	margin-top:1px;
+     border: 1px solid #807c78;
+     border-radius: 2px;
+     background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #5c5956, stop:1 #4a4846);
+ }
+QComboBox QAbstractItem {
+margin:5px;
+ }
+
+
+
+
+
+
+
+
+ QListWidget,QPlainTextEdit, QTreeWidget {
+	background-image: url(:/icons/viewbg.jpg);
+background-repeat:repeat-x;
+/*	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(56,54,53, 255), stop:1 rgba(73,71,69, 255));*/
+     border-style: solid;
+     border-width: 1px;
+     border-radius: 2px;
+     border-color: rgba(112,109, 105, 255);
+	color: rgb(218, 218, 218);
+background-color:#242322;
+background-attachment:fixed;
+ }
+QTreeWidget { 
+
+}
+
+QTabWidget::pane { /* The tab widget frame */
+	border-color: #6b6865; /* same as the pane color */
+	border-top:0px solid;
+
+}
+
+QTabWidget::tab-bar {
+	left: 0px; /* move to the right by 5px */
+}
+
+/* Style the tab using the tab sub-control. Note that it reads QTabBar _not_ QTabWidget */
+QTabBar::tab {
+	background-color:#4a4846;
+	border-bottom-color: #6b6865; /* same as the pane color */
+	border-bottom:0px solid;
+	min-width: 5px;
+	padding: 3px 20px 3px 8px;
+	margin-right:2px;
+	margin-bottom:2px;
+	text-transform:uppercase;
+	font: 10px "Arial";
+}
+
+QTabBar::tab:hover {
+background-color:#666360;
+}
+
+QTabBar::tab:selected {
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(107, 104, 101, 255), stop:1 rgba(56, 54, 53, 255));
+	margin-bottom:0px;
+}
+
+QTabBar::tab:!selected {
+
+}
+
+
+
+
+
+
+
+
+
+QWidget
+{
+    color: #b1b1b1;
+    background-color: #4a4846;
+}
+
+
+
+/* Special Buttons */
+
+
+QWidget#centralwidget
+{
+border-width: 1px;
+border-style: solid;
+border-top-color: black;
+border-left-color: black;
+border-right-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0.6 black, stop: 1 orange);
+border-bottom-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop: 0.6 black, stop: 1 orange);
+}
+
+QPushButton#btn_close 
+{
+image:url(ressource/ui/images/close.png);
+	position: absolute;
+	top: 100px;
+	right: 1px;
+	bottom: 1px;
+	left: 1px;
+
+    color: transparent;
+    background-color: transparent;
+    border-width: 0px;
+    border-color: transparent;
+    border-style: solid;
+    border-radius: 0;
+    padding: 0px;
+    font-size: 12px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+QPushButton#btn_close:hover 
+{
+image:url(ressource/ui/images/close_hover.png);
+}
+
+QPushButton#btn_close:pressed 
+{
+image:url(ressource/ui/images/close_pressed.png);
+}
+
+
+QPushButton#btn_minimize
+{
+image:url(ressource/ui/images/min.png);
+    color: transparent;
+    background-color: transparent;
+    border-width: 0px;
+    border-color: transparent;
+    border-style: solid;
+    border-radius: 0;
+    padding: 0px;
+    font-size: 12px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+QPushButton#btn_minimize:hover 
+{
+image:url(ressource/ui/images/min_hover.png);
+}
+
+QPushButton#btn_minimize:pressed 
+{
+image:url(ressource/ui/images/min_pressed.png);
+}
+
+QPushButton#btn_restore
+{
+image:url(ressource/ui/images/restore.png);
+
+    color: transparent;
+    background-color: transparent;
+    border-width: 0px;
+    border-color: transparent;
+    border-style: solid;
+    border-radius: 0;
+    padding: 0px;
+    font-size: 12px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+QPushButton#btn_restore:hover 
+{
+image:url(ressource/ui/images/restore_hover.png);
+}
+
+QPushButton#btn_restore:pressed 
+{
+image:url(ressource/ui/images/restore_pressed.png);
+}
+
+/*QPushButton          { color: white; }
+QPushButton:disabled { color: grey;  }
+QPushButton:pressed  { color: black; }
+QPushButton:focus    { color: green; }
+QPushButton:hover    { color: red;   }*/

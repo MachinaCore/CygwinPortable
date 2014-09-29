@@ -1,2 +1,5 @@
 [aA]pp/[cC]yg[wW]in/
 [dD]ata/
+.pydevproject
+.project
+*.pyc
