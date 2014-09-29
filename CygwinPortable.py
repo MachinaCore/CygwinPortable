@@ -10,6 +10,8 @@ sys.path.insert(0, os.path.join(scriptpath, 'Lib'))
 import winshell
 import shutil
 import win32api
+import glob
+import functools
 
 #####################################################################################################
 # Initialising
@@ -26,27 +28,44 @@ if not os.path.isdir(scriptpath + '\\App\\Cygwin'):
 def Folder2CygFolder(fileOrFolder):
     winDrive,winPathAndFile = os.path.splitdrive(fileOrFolder)
     isFile = False
-    isShortcut = False
     
     if os.path.isfile(fileOrFolder):
         isFile = True
         filePath, fileNameComplete = os.path.split(fileOrFolder)
         fileName, fileExtension = os.path.splitext(fileNameComplete)        
         if fileExtension.lower() == ".lnk":
-            #return real shortcut path
             lnkFile = winshell.shortcut(fileOrFolder)
             lnkDrive, lnkPathAndFile = os.path.splitdrive(winshell.Shortcut._get_path(lnkFile))
             lnkFilepath, lnkFilenameExt = os.path.split(winshell.Shortcut._get_path(lnkFile))
-            cygDrive = "/cygdrive/" + lnkDrive.replace(":", "").lower() + "/" + lnkFilepath.replace(lnkDrive + "\\","") + "/" + lnkFilenameExt
-            return cygDrive
+            lnkFullPath = lnkDrive + lnkPathAndFile
+            if os.path.isfile(lnkDrive + lnkPathAndFile):         
+                filePath, fileNameComplete = os.path.split(lnkDrive + lnkPathAndFile)
+                fileName, fileExtension = os.path.splitext(fileNameComplete)              
+                cygPath = "/cygdrive/" + winDrive.replace(":", "").lower() + filePath.replace(winDrive + "\\", "/").replace("\\","/")
+                cygPath = cygPath.replace(" ","\ ")
+                cygFile = fileName + fileExtension
+                cygFile = cygFile.replace(" ","\ ")
+                cygDrive = "/cygdrive/" + winDrive.replace(":", "").lower() + winPathAndFile.replace("\\","/")
+                return cygDrive, isFile, cygPath, cygFile, fileExtension
+            else:
+                isFile = False
+                winDrive,winPathAndFile = os.path.splitdrive(lnkFullPath)
+                cygPath = "/cygdrive/" + winDrive.replace(":", "").lower() + winPathAndFile.replace("\\","/")
+                cygPath = cygPath.replace(" ","\ ")
+                cygDrive = cygPath                
+                return cygDrive, isFile, None, None
         else:
-            #return normal filename
+            cygPath = "/cygdrive/" + winDrive.replace(":", "").lower() + filePath.replace(winDrive + "\\", "/").replace("\\","/")
+            cygPath = cygPath.replace(" ","\ ")
+            cygFile = fileName + fileExtension
+            cygFile = cygFile.replace(" ","\ ")
             cygDrive = "/cygdrive/" + winDrive.replace(":", "").lower() + winPathAndFile.replace("\\","/")
-            return cygDrive    
+            return cygDrive, isFile, cygPath, cygFile, fileExtension
     else:
-        #return folder
-        cygDrive = "/cygdrive/" + winDrive.replace(":", "").lower() + winPathAndFile.replace("\\","/")
-        return cygDrive
+        cygPath = "/cygdrive/" + winDrive.replace(":", "").lower() + winPathAndFile.replace("\\","/")
+        cygPath = cygPath.replace(" ","\ ")
+        cygDrive = cygPath
+        return cygDrive, isFile, None, None
     
 # Get windows drives
 import string
@@ -182,9 +201,15 @@ if cybeSystemsMainSettings['Expert']['CygwinDeleteInstallation'] == True:
     elif result == 2:
         print ('Cancel delete of Cygwin Installation')
         os._exit(1)
-        
+
+cygwinSetupFound = True  
 if not os.path.isfile(scriptpath + '\\app\\cygwin\\CygwinConfig.exe'):
-    print("Cygwin setup not found -> Downloading")    
+    cygwinSetupFound = False
+    print("Cygwin setup not found -> Downloading on GUI start")    
+    
+if not os.path.isfile(scriptpath + '\\app\\cygwin\\CygwinPortableConfig.bat'):
+    for batchFile in glob.glob(os.path.join(scriptpath + '\\other\\batch\\*.bat')):
+        shutil.copy(batchFile, scriptpath + '\\app\\cygwin')
       
 #####################################################################################################
 # Config Dialog
@@ -321,7 +346,40 @@ class ShowMainConfigDialog(QtWidgets.QMainWindow):
             self.showMaximized()
         else:
             self.showNormal()
-  
+
+
+#####################################################################################################
+# Cygwin open
+#####################################################################################################   
+def cygwinOpen(cygwinPath=""):
+    cygFolder = Folder2CygFolder(cygwinPath)
+    if cygFolder[1] == True:
+        #Folder2CygFolder returns for files:
+        #Folder2CygFolder(cygwinPath)[0] -> Complete path (e.g. /cygdrive/c/windows/system32/cmd.exe)
+        #Folder2CygFolder(cygwinPath)[1] -> If request is a file (True) or a folder (False)
+        #Folder2CygFolder(cygwinPath)[2] -> Path only (e.g. /cygdrive/c/windows/system32)
+        #Folder2CygFolder(cygwinPath)[3] -> File only (e.g. cmd.exe)
+        #Folder2CygFolder(cygwinPath)[4] -> Extension only (e.g. .exe)
+        if cygFolder[4].replace(".","") in cybeSystemsMainSettings['Main']['ExecutableExtension']:
+            print ("Extension is valid -> Executing")
+            executeCommand = ";./" + cygFolder[3]
+            path = scriptpath + "\\App\\ConEmu\\ConEmu.exe"
+            parameter = " /cmd " + scriptpath + "\\app\\cygwin\\bin\\bash.exe --login -i -c 'cd " + cygFolder[2] + executeCommand + ";exec /bin/bash.exe'"
+            pathname = scriptpath
+            flag = 1
+            win32api.ShellExecute(0, "open", path, parameter, pathname, flag) 
+    else:
+        print ("isFolder")
+        print (Folder2CygFolder(cygwinPath))
+        path = scriptpath + "\\App\\ConEmu\\ConEmu.exe"
+        parameter = " /cmd " + scriptpath + "\\app\\cygwin\\bin\\bash.exe --login -i -c 'cd " + cygFolder[0] + ";exec /bin/bash.exe'"
+        pathname = scriptpath
+        flag = 1
+        win32api.ShellExecute(0, "open", path, parameter, pathname, flag)
+    
+#cygwinOpen("D:\\GameZ\\Diablo III\\Diablo III.exe")   
+#cygwinOpen("D:\\GameZ\\Diablo III")  
+
 #####################################################################################################
 # Download Dialog
 #####################################################################################################   
@@ -556,17 +614,42 @@ class HttpWindow(QtWidgets.QDialog):
 #####################################################################################################
 # Main Window (Tray and Config)
 #####################################################################################################
-import glob
+import subprocess
+
+def firstCygwinInstall():
+    cygwinFirstInstallAdditions2String =  ", ".join(cybeSystemsMainSettings['Main']['CygwinFirstInstallAdditions'])
+    cmd = scriptpath + "\\App\\Cygwin\\CygwinConfig.exe -R " + scriptpath + "\\App\\Cygwin\\" + " -l " + scriptpath + "\\App\\Cygwin\\packages -n -d -N -s " + cybeSystemsMainSettings['Main']['CygwinMirror'] + " -q -P " + cygwinFirstInstallAdditions2String
+    firstCygwinInstallProcess = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
+    firstCygwinInstallProcessOut = firstCygwinInstallProcess.communicate()
+    if cybeSystemsMainSettings['Main']['CygwinFirstInstallDeleteUnneeded'] == True:
+        try:
+            os.remove(scriptpath + '\\App\\Cygwin\\Cygwin.ico')
+            os.remove(scriptpath + '\\App\\Cygwin\\Cygwin.bat')
+            os.remove(scriptpath + '\\App\\Cygwin\\setup.log')
+            os.remove(scriptpath + '\\App\\Cygwin\\setup.log.full')
+        except:
+            pass
+    print ("Cygwin Download finished")
+
 class MainWindow(QtWidgets.QMainWindow):
 
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.startCybeSystemsApplication()
         
-        self.downloadFileWorker("http://cygwin.com/setup-x86.exe")
+        if cygwinSetupFound == False:
+            self.downloadFileWorker("http://cygwin.com/setup-x86.exe")
+            if os.path.isfile(scriptpath + '\\setup-x86.exe'):
+                shutil.copy(scriptpath + '\\setup-x86.exe', scriptpath + '\\app\\cygwin\\CygwinConfig.exe')
+                firstCygwinInstall()
+        if os.path.isfile(scriptpath + '\\setup-x86.exe'):
+            os.remove(scriptpath + '\\setup-x86.exe')
+            
+        
 
+        self.startCybeSystemsApplication()            
+            
+                
     def downloadFileWorker(self,url):
-        print("XXXXXXX")
         self.httpWin = HttpWindow(url)
         self.httpWin.show()
 
@@ -601,6 +684,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 icon.addPixmap(pixmap)
                 entry = QtWidgets.QAction(QtGui.QIcon(icon), script, self)
                 #entry.triggered.connect(functools.partial(cybesystems.appcontroller.appStopper, appname))
+                entry.triggered.connect(functools.partial(cygwinOpen, script))  
                 self.scripts.addAction(entry)       
             for shortcut in glob.glob(os.path.join(scriptpath + '\\Data\\Shortcuts\\*.*')):
                 print (script)
@@ -611,6 +695,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 icon.addPixmap(pixmap)
                 entry = QtWidgets.QAction(QtGui.QIcon(icon), shortcut, self)
                 #entry.triggered.connect(functools.partial(cybesystems.appcontroller.appStopper, appname))
+                entry.triggered.connect(functools.partial(cygwinOpen, shortcut))    
                 self.shortcuts.addAction(entry)                    
             for drive in get_drives():
                 img = QtGui.QImage()
@@ -619,7 +704,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 icon = QtGui.QIcon()
                 icon.addPixmap(pixmap)
                 entry = QtWidgets.QAction(QtGui.QIcon(icon), drive, self)
-                #entry.triggered.connect(functools.partial(cybesystems.appcontroller.appStopper, appname))      
+                #cygwinOpen(drive)
+                entry.triggered.connect(functools.partial(cygwinOpen, drive))      
                 self.drives.addAction(entry)            
                 print (drive)
 
@@ -734,4 +820,4 @@ if __name__ == '__main__':
 
     sys.exit(app.exec_())
 
-cygScriptDir = Folder2CygFolder(scriptpath)
+cygScriptDir = Folder2CygFolder(scriptpath)[0]
