@@ -205,22 +205,23 @@ setup(
 print ("########################################")
 print ("Copy Files")
 print ("########################################")
+shutil.copytree('App', 'build/' + buildPath + '/App')
+os.makedirs('build/' + buildPath + '/App/PythonLib')
 
-os.makedirs('build/' + buildPath + '/Lib')
 listOfFiles = os.listdir('build/' + buildPath)
 for f in listOfFiles:
     if os.path.isfile('build/' + buildPath + '/' + f):
-        shutil.copy('build/' + buildPath + '/' + f, 'build/' + buildPath + '/Lib/' + f)
+        shutil.copy('build/' + buildPath + '/' + f, 'build/' + buildPath + '/App/PythonLib/' + f)
         os.remove('build/' + buildPath + '/' + f)
-        
-shutil.copy('build/' + buildPath + '/Lib/CygwinPortable.exe', 'build/' + buildPath + '/CygwinPortable.exe')    
 
-shutil.copytree('App', 'build/' + buildPath + '/App')
+shutil.copy('build/' + buildPath + '/App/PythonLib/CygwinPortable.exe', 'build/' + buildPath + '/CygwinPortable.exe')
+shutil.copy('CygwinPortable.ini', 'build/' + buildPath + '/CygwinPortable.ini')
+
 shutil.copytree('Other', 'build/' + buildPath + '/Other')
-shutil.copytree('Lib/ui', 'build/' + buildPath + '/Lib/ui')
+shutil.copytree('Lib/ui', 'build/' + buildPath + '/App/PythonLib/ui')
 
 #Copy PyQt5 plugins
-shutil.copytree('build/' + buildPath + '/platforms', 'build/' + buildPath + '/Lib/plugins/platforms')
+shutil.copytree('build/' + buildPath + '/platforms', 'build/' + buildPath + '/App/PythonLib/plugins/platforms')
 
 print ("########################################")
 print ("Drop unneeded PyQt5 Libraries")
@@ -230,26 +231,26 @@ shutil.rmtree('build/' + buildPath + '/imageformats',ignore_errors=True)
 shutil.rmtree('build/' + buildPath + '/platforms',ignore_errors=True)
 shutil.rmtree('build/' + buildPath + '/PyQt5.uic.widget-plugins',ignore_errors=True)
 
-os.remove('build/' + buildPath + '/Lib/CygwinPortable.exe')
+os.remove('build/' + buildPath + '/App/PythonLib/CygwinPortable.exe')
 
-os.remove('build/' + buildPath + '/Lib/icudt49.dll')
-os.remove('build/' + buildPath + '/Lib/icuin49.dll')
-os.remove('build/' + buildPath + '/Lib/icuuc49.dll')
-os.remove('build/' + buildPath + '/Lib/LIBEAY32.dll')
-os.remove('build/' + buildPath + '/Lib/libEGL.dll')
-os.remove('build/' + buildPath + '/Lib/libGLESv2.dll')
-os.remove('build/' + buildPath + '/Lib/SSLEAY32.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/icudt49.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/icuin49.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/icuuc49.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/LIBEAY32.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/libEGL.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/libGLESv2.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/SSLEAY32.dll')
 
-os.remove('build/' + buildPath + '/Lib/Qt5Multimedia.dll')
-os.remove('build/' + buildPath + '/Lib/Qt5Qml.dll')
-os.remove('build/' + buildPath + '/Lib/Qt5Quick.dll')
-os.remove('build/' + buildPath + '/Lib/Qt5Sql.dll')
-os.remove('build/' + buildPath + '/Lib/Qt5Sensors.dll')
-os.remove('build/' + buildPath + '/Lib/Qt5Positioning.dll')
-os.remove('build/' + buildPath + '/Lib/Qt5WebKit.dll')
-os.remove('build/' + buildPath + '/Lib/Qt5Widgets.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/Qt5Multimedia.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/Qt5Qml.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/Qt5Quick.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/Qt5Sql.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/Qt5Sensors.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/Qt5Positioning.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/Qt5WebKit.dll')
+os.remove('build/' + buildPath + '/App/PythonLib/Qt5Widgets.dll')
 
-os.remove('build/' + buildPath + '/Lib/PyQt5.QtWebKit.pyd')
+os.remove('build/' + buildPath + '/App/PythonLib/PyQt5.QtWebKit.pyd')
 
 
 

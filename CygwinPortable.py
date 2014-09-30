@@ -6,7 +6,9 @@ scriptpath = os.path.realpath(os.path.dirname(sys.argv[0]))
 sys.path.insert(0, scriptpath)
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.insert(0, os.path.join(scriptpath, 'Lib'))
+sys.path.insert(0, os.path.join(scriptpath, 'App/PythonLib'))
 sys.path.insert(0, scriptpath + '/Lib/library.zip')
+sys.path.insert(0, scriptpath + '/App/PythonLib/library.zip')
 
 import winshell
 import shutil
@@ -221,6 +223,9 @@ def defaultMainSettingsIni():
 
 def replaceSetting():
     defaultMainSettingsIni()
+    mainConfigFile = scriptpath + '/CygwinPortable.ini'
+    iniMainSettings = dict4ini.DictIni(mainConfigFile)    
+    
     for section in list(iniMainSettings.keys()):
         #print (iniMainSettings[section].keys())
         for opt in list(iniMainSettings[section].keys()):
@@ -330,7 +335,7 @@ for cl in api2_classes:
 from PyQt5 import QtCore, QtGui, uic, QtWidgets, QtNetwork
 if hasattr(sys, 'frozen'):
     #QtCore.QCoreApplication.setLibraryPaths(['Lib/plugins','Lib/platforms','Lib/PyQt5.uic.widget-plugins'])
-    QtCore.QCoreApplication.setLibraryPaths([scriptpath + '/Lib/plugins'])
+    QtCore.QCoreApplication.setLibraryPaths([scriptpath + '/App/PythonLib/plugins'])
 
 QtCore.Signal = QtCore.pyqtSignal
 QtCore.Slot = QtCore.pyqtSlot
@@ -346,12 +351,19 @@ class ShowMainConfigDialog(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
 
         super(ShowMainConfigDialog, self).__init__(parent)
-        loadUi(scriptpath + "/lib/ui/mainConfigDialog.ui", self)
+        if os.path.isfile(scriptpath + "/lib/ui/mainConfigDialog.ui"):
+            loadUi(scriptpath + "/lib/ui/mainConfigDialog.ui", self)
+        else:
+            loadUi(scriptpath + "/App/PythonLib/ui/mainConfigDialog.ui", self)      
+        
 
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)  # Enable Frameless Mode
         #Load Stylesheet
         if cybeSystemsMainSettings['Main']['uiTemplate'].lower() != 'windows':
-            stylesheetFile = open(scriptpath + "/lib/ui/" + cybeSystemsMainSettings['Main']['uiTemplate'], "r")
+            if os.path.isfile(scriptpath + "/lib/ui/" + cybeSystemsMainSettings['Main']['uiTemplate']):
+                stylesheetFile = open(scriptpath + "/lib/ui/" + cybeSystemsMainSettings['Main']['uiTemplate'], "r")
+            else:
+                stylesheetFile = open(scriptpath + "/App/PythonLib/ui/" + cybeSystemsMainSettings['Main']['uiTemplate'], "r")
             stylesheet = stylesheetFile.read()
             self.setStyleSheet(stylesheet)
             stylesheetFile.close()
@@ -373,6 +385,10 @@ class ShowMainConfigDialog(QtWidgets.QMainWindow):
             self.checkBox_install_unofficial_cygwin_tools.setCheckState(QtCore.Qt.Checked)
         if cybeSystemsMainSettings['Expert']['CygwinDeleteInstallation']:
             self.checkBox_delete_complete_installation.setCheckState(QtCore.Qt.Checked)
+        
+        indexComboBox_shell = self.comboBox_shell.findText(cybeSystemsMainSettings['Main']['Shell'])
+        print (indexComboBox_shell)
+        self.comboBox_shell.setCurrentIndex(indexComboBox_shell)
 
         #self.lineEdit_executable_file_extensions.setText(cybeSystemsMainSettings['Main']['ExecutableExtension'])
         self.lineEdit_executable_file_extensions.setText(', '.join(cybeSystemsMainSettings['Main']['ExecutableExtension']))
@@ -429,6 +445,7 @@ class ShowMainConfigDialog(QtWidgets.QMainWindow):
         cybeSystemsMainSettings['Main']['CygwinMirror'] = self.lineEdit_cygwin_mirror.text()
         cybeSystemsMainSettings['Main']['CygwinPortsMirror'] = self.lineEdit_cygwin_ports_mirror.text()
         cybeSystemsMainSettings['Main']['CygwinFirstInstallAdditions'] = self.lineEdit_first_install_additions.text()
+        cybeSystemsMainSettings['Main']['Shell'] = self.comboBox_shell.currentText()
         cybeSystemsMainSettings['Expert']['CygwinDeleteInstallationFolders'] = self.lineEdit_drop_these_folders_on_reinstall.text()
         cybeSystemsMainSettings['Static']['Username'] = self.lineEdit_username.text()
 
@@ -872,7 +889,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
         #Load Stylesheet
         if cybeSystemsMainSettings['Main']['uiTemplate'].lower() != 'windows':
-            stylesheetFile = open(scriptpath + "/lib/ui/" + cybeSystemsMainSettings['Main']['uiTemplate'], "r")
+            if os.path.isfile(scriptpath + "/lib/ui/" + cybeSystemsMainSettings['Main']['uiTemplate']):
+                stylesheetFile = open(scriptpath + "/lib/ui/" + cybeSystemsMainSettings['Main']['uiTemplate'], "r")
+            else:
+                stylesheetFile = open(scriptpath + "/App/PythonLib/ui/" + cybeSystemsMainSettings['Main']['uiTemplate'], "r")            
             stylesheet = stylesheetFile.read()
             traymenu.setStyleSheet(stylesheet)
             stylesheetFile.close()
