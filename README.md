@@ -1,6 +1,8 @@
 CygwinPortable
 ==============
 
+**Attention: I'm currently rewrite this in Python - If you need a working version please use the AutoItV3 Branch - Python Version is working but have some bugs - I think it's ready in one or two weeks.. Thanks for reading**
+
 A portable Cygwin environment with much options. It's very useful for "static" installations too. It can create ShellExtensions in Windows Explorer ("Open Folder in Cygwin", "Open Drive in Cygwin", "Run in Cygwin").  "Open with -> CygwinPortable.exe" is also supported (you can register e.g. .sh extensions with CygwinPortable.exe). The default installation support XServer. ShellExtensions needs admin rights!
 
 First Start
