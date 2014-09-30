@@ -3,3 +3,5 @@
 .pydevproject
 .project
 *.pyc
+[Bb]uild/
+.settings
