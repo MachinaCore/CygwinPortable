@@ -1,3 +1,20 @@
+###################################################################
+# OdooPortable Freezer - Using cx_freeze
+###################################################################
+
+name = 'OdooPortable'
+version = '1.0'
+
+Win32ConsoleName = 'CygwinPortable-Console-X86.exe'
+Win32WindowName = 'CygwinPortable-X86.exe'
+
+copyRuntime = True
+killTasks = False
+
+###################################################################
+# Import Libs, detect x86/x64
+###################################################################
+
 import re
 import urllib.request, urllib.parse, urllib.error, configparser
 from distutils.core import setup
@@ -6,42 +23,43 @@ import sys, os, shutil, datetime, zipfile, subprocess, fnmatch,glob
 import platform
 sys.path.insert(0, os.path.join(os.path.realpath(os.path.dirname(sys.argv[0])), 'lib'))
 
+if platform.architecture()[0] == '64bit':
+    sys.path.insert(0, os.path.join(os.path.realpath(os.path.dirname(sys.argv[0])), 'libX64'))
+    x86x64 = 'X64'
+    x86x64BuildPath = "exe.win-amd64-3.4"
+else:
+    sys.path.insert(0, os.path.join(os.path.realpath(os.path.dirname(sys.argv[0])), 'libX86'))
+    x86x64 = 'X86'
+    x86x64BuildPath = "exe.win32-3.4"
+
 from cx_Freeze import setup, Executable
 import distutils.dir_util
 import win32api
 
-qtVersion = 'PyQt5'
-buildPath = "exe.win32-3.4"
+scriptpath = os.path.realpath(os.path.dirname(sys.argv[0])).replace('\\','/')
+scriptpathParentFolder = os.path.dirname(scriptpath)
 
-import os, fnmatch
-def find_files(directory, pattern):
-    for root, dirs, files in os.walk(directory):
-        for basename in files:
-            if fnmatch.fnmatch(basename, pattern):
-                filename = os.path.join(root, basename)
-                yield filename
-
-name = 'CybeSystem CygwinPortable'
-version = '0.1'
-
-Win32ConsoleName = 'CygwinPortable-Console.exe'
-Win32WindowName = 'CygwinPortable.exe'
-
-
-createPortableApp = False
-compressFiles = False
-
+###################################################################
+# Set Version
+###################################################################
 
 config = configparser.ConfigParser()
 config.optionxform=str
-config.read("App/AppInfo/appinfo.ini")
+config.read("AppInfo/appinfo.ini")
 config.set('Version', 'DisplayVersion', version)
+with open("AppInfo/appinfo.ini", 'w') as configfile:
+    config.write(configfile)
+
+###################################################################
+# Kill running Process before Build, delete old builds
+###################################################################
 
 sys.argv.append('build')
 
 #Kill process if running
-os.system("taskkill /im " + Win32ConsoleName + " /f")
-os.system("taskkill /im " + Win32WindowName + " /f")
+if killTasks == True:
+    os.system("taskkill /im " + Win32ConsoleName + " /f")
+    os.system("taskkill /im " + Win32WindowName + " /f")
 
 # clear the dist dir
 if os.path.isfile("dist/%s" % Win32WindowName):
@@ -54,110 +72,63 @@ if os.path.isfile("%s" % Win32ConsoleName):
     os.remove("%s" % Win32ConsoleName)
 if os.path.isfile("python27.dll"):
     os.remove("python27.dll")
+
 shutil.rmtree('dist',ignore_errors=True)
 shutil.rmtree('librarys',ignore_errors=True)
 shutil.rmtree('build',ignore_errors=True)
 
-def recursive_find_data_files(root_dir, allowed_extensions=('*')):
-    to_return = {}
-    for (dirpath, dirnames, filenames) in os.walk(root_dir):
-        if not filenames:
-            continue
-        for cur_filename in filenames:
-            matches_pattern = False
-            for cur_pattern in allowed_extensions:
-                if fnmatch.fnmatch(cur_filename, '*.'+cur_pattern):
-                    matches_pattern = True
-            if not matches_pattern:
-                continue
-            cur_filepath = os.path.join(dirpath, cur_filename)
-            to_return.setdefault(dirpath, []).append(cur_filepath)
-    return sorted(to_return.items())
-
-def find_all_libraries(root_dirs):
-    libs = []
-    for cur_root_dir in root_dirs:
-        for (dirpath, dirnames, filenames) in os.walk(cur_root_dir):
-            if '__init__.py' not in filenames:
-                continue
-            libs.append(dirpath.replace(os.sep, '.'))
-    return libs
-
-
-def allFiles(dir):
-    files = []
-    for file in os.listdir(dir):
-        fullFile = os.path.join(dir, file)
-        if os.path.isdir(fullFile):
-            files += allFiles(fullFile)
-        else:
-            files.append(fullFile)
-
-    return files
+###################################################################
+# cx_freeze
+###################################################################
 
 includefiles = []
 includes = []
+excludes = []
 packages = []
 
-excludes = ['Tkconstants', 'Tkinter','PyQt4','PySide']
-"""includes.append('sip')
-includes.append('atexit')
-includes.append('PyQt5')
-includes.append('PyQt5.QtCore')
-includes.append('PyQt5.QtGui')
-includes.append('PyQt5.QtWidgets')
-includes.append('PyQt5.QtPrintSupport')
-packages.append('sip')
-packages.append('atexit')
-packages.append('PyQt5')
-packages.append('PyQt5.QtCore')
-packages.append('PyQt5.QtGui')
-packages.append('PyQt5.QtWidgets')
-packages.append('PyQt5.QtPrintSupport')"""
-
-"""excludes = ['Tkconstants', 'Tkinter','PyQt4','PySide']
 includes.append('sip')
+includes.append('winshell')
 includes.append('atexit')
-includes.append('PyQt5')
+includes.append('psutil')
 includes.append('PyQt5.QtCore')
 includes.append('PyQt5.QtGui')
-includes.append('PyQt5.QtWebKit')
-includes.append('PyQt5.QtWebKitWidgets')
-includes.append('PyQt5.QtWidgets')
-includes.append('PyQt5.QtPrintSupport')
+includes.append('PyQt5.QtNetwork')
+
+excludes.append('Tkconstants')
+excludes.append('Tkinter')
+excludes.append('PyQt4')
+excludes.append('PySide')
+
 packages.append('sip')
+packages.append('winshell')
 packages.append('atexit')
-packages.append('PyQt5')
 packages.append('PyQt5.QtCore')
 packages.append('PyQt5.QtGui')
-packages.append('PyQt5.QtWebKit')
-packages.append('PyQt5.QtWebKitWidgets')
 packages.append('PyQt5.QtWidgets')
-packages.append('PyQt5.QtPrintSupport')"""
-
-
+packages.append('PyQt5.QtNetwork')
 
 path = []
 
 bin_path_includes=['libs']
 
+# Create GUI Version
 Win32Exe = Executable(
     script = "CygwinPortable.py",
     initScript = None,
     base = 'Win32GUI',
-    targetName = "CygwinPortable.exe",
+    targetName = "CygwinPortable-" + x86x64 + ".exe",
     compress = True,
     copyDependentFiles = True,
     appendScriptToExe = True,
     appendScriptToLibrary = False,
-    icon = "App/AppInfo/appicon1.ico"
+    icon = "ressource/icons/icon.ico"
 )
 
 setup(
     version = "0.1",
-    description = "CybeSystems Win32",
+    description = "OdooPortable Win32",
     author = "CybeSystems.com",
-    name = "CybeSystems",
+    name = "OdooPortable",
     options = {"build_exe": {"includes": includes,
                              "excludes": excludes,
                              "packages": packages,
@@ -165,95 +136,120 @@ setup(
                              'include_files':includefiles,
                              "bin_path_includes":    bin_path_includes,
                              "path": path
-                             }
+    }
     },
     executables = [Win32Exe]
 )
 
-
-"""ConsoleExe = Executable(
+#Create Console Version
+ConsoleExe = Executable(
     script = "CygwinPortable.py",
     initScript = None,
     base = 'Console',
-    targetName = "CybeSystems-Console.exe",
+    targetName = "CygwinPortable-Console-" + x86x64 + ".exe",
     compress = True,
     copyDependentFiles = True,
     appendScriptToExe = True,
     appendScriptToLibrary = False,
-    icon = "App/AppInfo/appicon1.ico"
+    icon = "ressource/icons/icon.ico"
 )
 
 setup(
     version = "0.1",
-    description = "CybeSystems Console",
+    description = "OdooPortable Console",
     author = "CybeSystems.com",
-    name = "CybeSystems",
+    name = "OdooPortable",
     options = {"build_exe": {"includes": includes,
                              "excludes": excludes,
                              "packages": packages,
-                             #Set next line to embedd libs into exe
-                             #"create_shared_zip": False,
                              "include_msvcr": True,   #skip error msvcr100.dll missing
                              'include_files':includefiles,
                              "bin_path_includes":    bin_path_includes,
                              "path": path
-                            }
+    }
     },
+
     executables = [ConsoleExe]
-)"""
+)
+
+###################################################################
+# Copy needed files for release
+###################################################################
 
 print ("########################################")
 print ("Copy Files")
 print ("########################################")
-shutil.copytree('App', 'build/' + buildPath + '/App')
-os.makedirs('build/' + buildPath + '/App/PythonLib')
 
-listOfFiles = os.listdir('build/' + buildPath)
+os.makedirs('build/' + x86x64BuildPath + '/lib' + x86x64)
+
+listOfFiles = os.listdir('build/' + x86x64BuildPath)
 for f in listOfFiles:
-    if os.path.isfile('build/' + buildPath + '/' + f):
-        shutil.copy('build/' + buildPath + '/' + f, 'build/' + buildPath + '/App/PythonLib/' + f)
-        os.remove('build/' + buildPath + '/' + f)
-
-shutil.copy('build/' + buildPath + '/App/PythonLib/CygwinPortable.exe', 'build/' + buildPath + '/CygwinPortable.exe')
-shutil.copy('CygwinPortable.ini', 'build/' + buildPath + '/CygwinPortable.ini')
-
-shutil.copytree('Other', 'build/' + buildPath + '/Other')
-shutil.copytree('Lib/ui', 'build/' + buildPath + '/App/PythonLib/ui')
-
-#Copy PyQt5 plugins
-shutil.copytree('build/' + buildPath + '/platforms', 'build/' + buildPath + '/App/PythonLib/plugins/platforms')
-
-print ("########################################")
-print ("Drop unneeded PyQt5 Libraries")
-print ("########################################")
-
-shutil.rmtree('build/' + buildPath + '/imageformats',ignore_errors=True)
-shutil.rmtree('build/' + buildPath + '/platforms',ignore_errors=True)
-shutil.rmtree('build/' + buildPath + '/PyQt5.uic.widget-plugins',ignore_errors=True)
-
-os.remove('build/' + buildPath + '/App/PythonLib/CygwinPortable.exe')
-
-os.remove('build/' + buildPath + '/App/PythonLib/icudt49.dll')
-os.remove('build/' + buildPath + '/App/PythonLib/icuin49.dll')
-os.remove('build/' + buildPath + '/App/PythonLib/icuuc49.dll')
-os.remove('build/' + buildPath + '/App/PythonLib/LIBEAY32.dll')
-os.remove('build/' + buildPath + '/App/PythonLib/libEGL.dll')
-os.remove('build/' + buildPath + '/App/PythonLib/libGLESv2.dll')
-os.remove('build/' + buildPath + '/App/PythonLib/SSLEAY32.dll')
-
-os.remove('build/' + buildPath + '/App/PythonLib/Qt5Multimedia.dll')
-os.remove('build/' + buildPath + '/App/PythonLib/Qt5Qml.dll')
-os.remove('build/' + buildPath + '/App/PythonLib/Qt5Quick.dll')
-os.remove('build/' + buildPath + '/App/PythonLib/Qt5Sql.dll')
-os.remove('build/' + buildPath + '/App/PythonLib/Qt5Sensors.dll')
-os.remove('build/' + buildPath + '/App/PythonLib/Qt5Positioning.dll')
-os.remove('build/' + buildPath + '/App/PythonLib/Qt5WebKit.dll')
-os.remove('build/' + buildPath + '/App/PythonLib/Qt5Widgets.dll')
-
-os.remove('build/' + buildPath + '/App/PythonLib/PyQt5.QtWebKit.pyd')
+    if os.path.isfile('build/' + x86x64BuildPath + '/' + f):
+        shutil.copy('build/' + x86x64BuildPath + '/' + f, 'build/' + x86x64BuildPath + '/lib' + x86x64 + '/' + f)
+        os.remove('build/' + x86x64BuildPath + '/' + f)
 
 
+shutil.copy('build/' + x86x64BuildPath + '/lib' + x86x64 + '/CygwinPortable-' + x86x64 + '.exe', 'build/' + x86x64BuildPath + '/CygwinPortable-' + x86x64 + '.exe')
+shutil.copy('build/' + x86x64BuildPath + '/lib' + x86x64 + '/CygwinPortable-Console-' + x86x64 + '.exe', 'build/' + x86x64BuildPath + '/CygwinPortable-Console-' + x86x64 + '.exe')
+shutil.copy('build/' + x86x64BuildPath + '/lib' + x86x64 + '/library.zip', 'build/' + x86x64BuildPath + '/library.zip')
 
+shutil.copyfile('lib' + x86x64 + '/python34.dll', 'build/' + x86x64BuildPath + '/python34.dll')
+shutil.copyfile('lib' + x86x64 + '/msvcr100.dll', 'build/' + x86x64BuildPath + '/msvcr100.dll')
+
+os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/python34.dll')
+os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/msvcr100.dll')
+
+#Drop unneeded files
+os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/library.zip')
+os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/CygwinPortable-' + x86x64 + '.exe')
+os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/CygwinPortable-Console-' + x86x64 + '.exe')
+
+shutil.copytree('ressource', 'build/' + x86x64BuildPath + '/ressource')
+shutil.copyfile('build/' + x86x64BuildPath + '/library.zip', 'build/' + x86x64BuildPath + '/lib' + x86x64 + '/libraries.zip')
+os.remove('build/' + x86x64BuildPath + '/library.zip')
+
+#Drop unneeded PyQt Files -> cx_freeze will not resolve correct
+#os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/LIBEAY32.dll')
+#os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/PyQt5.QtNetwork.pyd')
+os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/PyQt5.QtWebKit.pyd')
+os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/Qt5Multimedia.dll')
+#os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/Qt5Network.dll')
+os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/Qt5Positioning.dll')
+os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/Qt5Qml.dll')
+os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/Qt5Quick.dll')
+os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/Qt5Sensors.dll')
+os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/Qt5Sql.dll')
+os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/Qt5WebKit.dll')
+#os.remove('build/' + x86x64BuildPath + '/lib' + x86x64 + '/SSLEAY32.dll')
+
+#Workaround for PyQt error platform files not found -> No longer needed in PyQt 5.4
+#shutil.copyfile('build/' + x86x64BuildPath + '/lib' + x86x64 + '/libEGL.dll', 'build/' + x86x64BuildPath + '/libEGL.dll')
+
+shutil.copytree('build/' + x86x64BuildPath + '/platforms', 'build/' + x86x64BuildPath + '/lib' + x86x64 + '/plugins/platforms')
+shutil.copytree('build/' + x86x64BuildPath + '/PyQt5.uic.widget-plugins', 'build/' + x86x64BuildPath + '/lib' + x86x64 + '/plugins/PyQt5.uic.widget-plugins')
+#ImageFormats are not needed in this case
+#shutil.copytree('build/' + x86x64BuildPath + '/imageformats', 'build/' + x86x64BuildPath + '/lib' + x86x64 + '/plugins/imageformats')
+shutil.rmtree('build/' + x86x64BuildPath + '/platforms',ignore_errors=True)
+shutil.rmtree('build/' + x86x64BuildPath + '/PyQt5.uic.widget-plugins',ignore_errors=True)
+shutil.rmtree('build/' + x86x64BuildPath + '/imageformats',ignore_errors=True)
+
+#Prepare Portable Version
+shutil.rmtree('!RELEASE_' + x86x64 ,ignore_errors=True)
+distutils.dir_util.copy_tree('build/' + x86x64BuildPath, '!RELEASE_' + x86x64 + '/App')
+shutil.copytree('AppInfo', '!RELEASE_' + x86x64 + '/App/AppInfo')
+shutil.copytree('DefaultData', '!RELEASE_' + x86x64 + '/App/DefaultData')
+
+if copyRuntime == True:
+    if not os.path.isdir('RuntimeClean'):
+        print("RuntimeClean Folder not found - Fallback to Runtime")
+        shutil.copytree('Runtime/ConEmu', '!RELEASE_' + x86x64 + '/App/Runtime/ConEmu')
+    else:
+        shutil.copytree('RuntimeClean', '!RELEASE_' + x86x64 + '/App/Runtime')
+
+shutil.copytree(scriptpathParentFolder + '/Other', '!RELEASE_' + x86x64 + '/Other')
+shutil.copyfile(scriptpathParentFolder + '/Other/Source/CygwinPortable.exe', '!RELEASE_' + x86x64 + '/CygwinPortable.exe')
+os.remove('!RELEASE_' + x86x64 + '/Other/Source/CygwinPortable.exe')
+shutil.copyfile(scriptpathParentFolder + '/help.html', '!RELEASE_' + x86x64 + '/help.html')
 
 
 def fancyLogoWin():

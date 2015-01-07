@@ -1,34 +1,48 @@
 # -*- coding: utf-8 -*-
-import os
-import sys
+#########################################################################################################
+# Set Path
+#########################################################################################################
+import os, sys
 
-scriptpath = os.path.realpath(os.path.dirname(sys.argv[0]))
+scriptpath = os.path.realpath(os.path.dirname(sys.argv[0])).replace('\\','/')
+scriptpathWinSep = os.path.realpath(os.path.dirname(sys.argv[0]))
+
 sys.path.insert(0, scriptpath)
 sys.path.insert(0, os.path.abspath('..'))
-sys.path.insert(0, os.path.join(scriptpath, 'Lib'))
-sys.path.insert(0, os.path.join(scriptpath, 'App/PythonLib'))
-sys.path.insert(0, scriptpath + '/Lib/library.zip')
-sys.path.insert(0, scriptpath + '/App/PythonLib/library.zip')
+sys.path.insert(0, os.path.join(scriptpath, 'lib'))
 
+if sys.maxsize == 2147483647:
+    sys.path.insert(0, os.path.join(scriptpath, 'libX86'))
+    sys.path.insert(0, scriptpath + '/libX86/libraries.zip')
+    print ("Running x86")
+else:
+    sys.path.insert(0, os.path.join(scriptpath, 'libX64'))
+    sys.path.insert(0, scriptpath + '/libX64/libraries.zip')
+    print ("Running x64")
+
+import re, time, webbrowser
+
+#########################################################################################################
+# Import Libs
+#########################################################################################################
+import dict4ini
 import winshell
 import shutil
 import win32api
 import glob
 import functools
 
-import sip
-api2_classes = ['QData', 'QDateTime', 'QString', 'QTextStream', 'QTime', 'QUrl', 'QVariant']
-for cl in api2_classes:
-    sip.setapi(cl, 2)
 from PyQt5 import QtCore, QtGui, uic, QtWidgets, QtNetwork
-if hasattr(sys, 'frozen'):
-    #QtCore.QCoreApplication.setLibraryPaths(['Lib/plugins','Lib/platforms','Lib/PyQt5.uic.widget-plugins'])
-    QtCore.QCoreApplication.setLibraryPaths([scriptpath + '/App/PythonLib/plugins'])
-
-QtCore.Signal = QtCore.pyqtSignal
-QtCore.Slot = QtCore.pyqtSlot
+from PyQt5.QtWidgets import QApplication, QMessageBox, QDialog, QVBoxLayout, QTextEdit, QMainWindow, QSystemTrayIcon, QMenu, QAction, QDesktopWidget
 QtCore.QString = str
+
+
 os.environ['QT_API'] = 'pyqt'
+if hasattr(sys, 'frozen'):
+    if sys.maxsize == 2147483647:
+        QtCore.QCoreApplication.setLibraryPaths(['libX86/plugins'])
+    else:
+        QtCore.QCoreApplication.setLibraryPaths(['libX64/plugins'])
 
 #####################################################################################################
 # Initialising
@@ -203,8 +217,6 @@ def get_drives():
 #####################################################################################################
 # Load Settings
 #####################################################################################################
-import dict4ini
-
 
 scriptpathParentFolder = os.path.dirname(scriptpath)
 scriptpathParentFolderDirName = os.path.basename(scriptpathParentFolder)
@@ -438,7 +450,7 @@ class ShowMainConfigDialog(QtWidgets.QMainWindow):
         else:
                 return False
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_button_save_clicked(self):
         cybeSystemsMainSettings['Main']['SetContextMenu'] = self.checkCheckboxState(self.checkBox_set_windows_context_menu)
         cybeSystemsMainSettings['Main']['ExitAfterExec'] = self.checkCheckboxState(self.checkBox_exit_after_execution)
@@ -459,19 +471,19 @@ class ShowMainConfigDialog(QtWidgets.QMainWindow):
         writeMainSettings()
         self.close()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_button_cancel_clicked(self):
         self.close()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_btn_close_clicked(self):
         self.close()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_btn_minimize_clicked(self):
         self.showMinimized()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_btn_restore_clicked(self):
         print(self.windowState())
         if self.windowState() != QtCore.Qt.WindowMaximized:
