@@ -1,7 +1,12 @@
-[aA]pp/[cC]yg[wW]in/
-[dD]ata/
 .pydevproject
 .project
-*.pyc
-[Bb]uild/
 .settings
+*.pyc
+*.pyo
+__pycache__
+[Dd]ata/
+App/!RELEASE_X86
+App/!RELEASE_X64
+App/build/
+App/[rR]untime/[cC]yg[wW]in/
+RuntimeClean/
