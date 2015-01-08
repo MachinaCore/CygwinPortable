@@ -1,9 +1,11 @@
 CygwinPortable
 ==============
 
-**Attention: I'm currently rewrite this in Python - If you need a working version please use the AutoItV3 Branch - Python Version is working but have some bugs - I think it's ready in one or two weeks.. Thanks for reading**
-
 A portable Cygwin environment with much options. It's very useful for "static" installations too. It can create ShellExtensions in Windows Explorer ("Open Folder in Cygwin", "Open Drive in Cygwin", "Run in Cygwin").  "Open with -> CygwinPortable.exe" is also supported (you can register e.g. .sh extensions with CygwinPortable.exe). The default installation support XServer. ShellExtensions needs admin rights!
+
+Download ready to use files
+-----
+You can download prebuild version on http://www.cybesystems.com/index.php/downloads. I've compiled a PAF (PortableApps) and a 7z compressed version. Cygwin defaults are already installed.
 
 First Start
 -----
@@ -31,8 +33,8 @@ Special Folders
 -----
 There are 2 special Folders - Samples are included: 
 
-- CYGWINPORTABLE/Data/ShellScript: Quick access to ShellScripts (rightclick Trayicon -> ShellScripts)
-- CYGWINPORTABLE/Data/Shortcuts: Quick access to Windows Shortcuts (rightclick Trayicon -> Shortcuts)
+- Data/ShellScript: Quick access to ShellScripts (rightclick Trayicon -> ShellScripts)
+- Data/Shortcuts: Quick access to Windows Shortcuts (rightclick Trayicon -> Shortcuts)
 
 Settings
 -----
@@ -54,7 +56,7 @@ There are some interesting options - Rightclick on the CygwinPortable Trayicon -
 - Cygwin Ports Mirror: Cygwin Ports have much more packages than the official Cygwin mirrors. Use it if needed
 - First install additions: The packages that are additional installed to the default Cygwin packages
 - Delete unneeded files: Drop unneeded files  or files that are not working in portable mode (e.g. cygwin.bat)
-- Install unofficial Tools: Install files from CYGWINPORTABLE/other/unofficial folder. Default package is only apt-cyg (a tool that works like apt-get from debian based distros)
+- Install unofficial Tools: Install files from other/unofficial folder. Default package is only apt-cyg (a tool that works like apt-get from debian based distros)
 
 **Expert:**
 
@@ -65,9 +67,6 @@ There are some interesting options - Rightclick on the CygwinPortable Trayicon -
 Compile
 -----
 
-If you want to compile CygwinPortable by yourself download and install AutoItv3 (http://www.autoitscript.com/site/autoit/downloads/) and SciTE4AutoIt3 (http://www.autoitscript.com/site/autoit-script-editor/downloads/)
-open CygwinPortable.au3 with Scite and click Tools -> Compile. Ready :-)
-
-I've choose Autoit because it don't have any dependency's and create small exe files.
+If you want to compile CygwinPortable by yourself you need Python 3.4, PyQT 5.4, cx_freeze and pywin32 - Run CygwinPortableFreezer.py and it should work :-)
 
 *Thanks for reading*
