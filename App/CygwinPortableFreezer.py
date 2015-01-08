@@ -1,8 +1,8 @@
 ###################################################################
-# OdooPortable Freezer - Using cx_freeze
+# CygwinPortable Freezer - Using cx_freeze
 ###################################################################
 
-name = 'OdooPortable'
+name = 'CygwinPortable'
 version = '1.0'
 
 Win32ConsoleName = 'CygwinPortable-Console-X86.exe'
@@ -121,14 +121,14 @@ Win32Exe = Executable(
     copyDependentFiles = True,
     appendScriptToExe = True,
     appendScriptToLibrary = False,
-    icon = "ressource/icons/icon.ico"
+    icon = "AppInfo/appicon.ico"
 )
 
 setup(
     version = "0.1",
-    description = "OdooPortable Win32",
+    description = "CygwinPortable Win32",
     author = "CybeSystems.com",
-    name = "OdooPortable",
+    name = "CygwinPortable",
     options = {"build_exe": {"includes": includes,
                              "excludes": excludes,
                              "packages": packages,
@@ -151,14 +151,14 @@ ConsoleExe = Executable(
     copyDependentFiles = True,
     appendScriptToExe = True,
     appendScriptToLibrary = False,
-    icon = "ressource/icons/icon.ico"
+    icon = "AppInfo/appicon.ico"
 )
 
 setup(
     version = "0.1",
-    description = "OdooPortable Console",
+    description = "CygwinPortable Console",
     author = "CybeSystems.com",
-    name = "OdooPortable",
+    name = "CygwinPortable",
     options = {"build_exe": {"includes": includes,
                              "excludes": excludes,
                              "packages": packages,
