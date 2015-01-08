@@ -1,7 +1,9 @@
 CygwinPortable
 ==============
 
-A portable Cygwin environment with much options. It's very useful for "static" installations too. It can create ShellExtensions in Windows Explorer ("Open Folder in Cygwin", "Open Drive in Cygwin", "Run in Cygwin").  "Open with -> CygwinPortable.exe" is also supported (you can register e.g. .sh extensions with CygwinPortable.exe). The default installation support XServer. ShellExtensions needs admin rights!
+A portable Cygwin environment with much options. It's very useful for "static" installations too. It can create ShellExtensions in Windows Explorer ("Open Folder in Cygwin", "Open Drive in Cygwin", "Run in Cygwin").  "Open with -> CygwinPortable.exe" is also supported (you can register e.g. .sh extensions with CygwinPortable.exe). The default installation support XServer. 
+
+ShellExtensions needs admin rights (Only one time to register the ShellExtension - After successfully registration you can run Cygwin Portable with UAC enabled). CygwinPrtable run without ShellExtensions but they are pretty comfortable :-)
 
 Download ready to use files
 -----
@@ -17,7 +19,7 @@ First Start
 
 Commandline Parameters:
 -----
-These options overrides the options from settings.ini
+These options overrides the options from Data/config.ini
 
  - CygwinPortable.exe -help		-> Show help screen 
  - CygwinPortable.exe -config 		-> Open Config (setup.exe) 
@@ -45,7 +47,7 @@ There are some interesting options - Rightclick on the CygwinPortable Trayicon -
 
  - Shell: You can choose between mintty (default) and ConEmu. I've already included the last stable version of ConEmu (you can replace it with beta if you want - You should only preserve my ConEmu.xml file).
  - Executable File Extensions: Define what extensions are should by executed with Cygwin. This will NOT register the files directly ! This option will tell Cygwin Portable if a "open with" under windows is a extension that can be used from bash. If you open a file with a unknown extesion CygwinPortable will open the folder and not run the file.
- - Use TrayMenu: Enable/Disable the Traymenu (NOT RECOMMEND !) - if the Traymenu is disabled you can reactivate this option in CygwinPortable.ini -> TrayMenu=True
+ - Use TrayMenu: Enable/Disable the Traymenu (NOT RECOMMEND !) - if the Traymenu is disabled you can reactivate this option in Data/config.ini -> TrayMenu=True
  - Exit after execution: If you open a file in Cygwin (e.g. a Shellscript) the window is closed after successfully execution. If you want see the output leave it disabled.
  - Disable Message Boxes: If CygwinPortable failed it will show the error in a Message Box. Disable it if you are working in a non GUI environment.
  - Add Windows PATH variables to Cygwin: Disable if cygwin should not be able to access Windows programs from path (useful if you have e.g. Git installed but you want to use cygwin git)
@@ -68,5 +70,10 @@ Compile
 -----
 
 If you want to compile CygwinPortable by yourself you need Python 3.4, PyQT 5.4, cx_freeze and pywin32 - Run CygwinPortableFreezer.py and it should work :-)
+
+Feedback
+-----
+
+Let me know if you have any problems or suggestions
 
 *Thanks for reading*
