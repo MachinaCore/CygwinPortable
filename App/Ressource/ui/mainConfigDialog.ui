@@ -10,11 +10,11 @@
     <x>0</x>
     <y>0</y>
     <width>553</width>
-    <height>282</height>
+    <height>239</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>CygwinPortable Config</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -24,7 +24,7 @@
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>250</y>
+      <y>210</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -37,7 +37,7 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>250</y>
+      <y>210</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -46,49 +46,11 @@
      <string>Save</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_minimize">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>-5</y>
-      <width>42</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../../../CybeSystems/PortableApps/CybeSystems.com/App/ressource/ui/images/min.png</normaloff>../../../CybeSystems/PortableApps/CybeSystems.com/App/ressource/ui/images/min.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>30</width>
-      <height>22</height>
-     </size>
-    </property>
-    <property name="autoDefault">
-     <bool>false</bool>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>50</y>
+      <y>10</y>
       <width>541</width>
       <height>191</height>
      </rect>
@@ -305,139 +267,6 @@
       </property>
      </widget>
     </widget>
-   </widget>
-   <widget class="QPushButton" name="btn_close">
-    <property name="geometry">
-     <rect>
-      <x>488</x>
-      <y>-5</y>
-      <width>60</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../../../CybeSystems/PortableApps/CybeSystems.com/App/ressource/ui/images/close.png</normaloff>../../../CybeSystems/PortableApps/CybeSystems.com/App/ressource/ui/images/close.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>48</width>
-      <height>22</height>
-     </size>
-    </property>
-    <property name="autoDefault">
-     <bool>false</bool>
-    </property>
-    <property name="default">
-     <bool>false</bool>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_restore">
-    <property name="geometry">
-     <rect>
-      <x>460</x>
-      <y>-5</y>
-      <width>40</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../../../CybeSystems/PortableApps/CybeSystems.com/App/ressource/ui/images/restore.png</normaloff>../../../CybeSystems/PortableApps/CybeSystems.com/App/ressource/ui/images/restore.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>28</width>
-      <height>22</height>
-     </size>
-    </property>
-    <property name="autoDefault">
-     <bool>false</bool>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_cybesystems">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>30</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../../../CybeSystems/PortableApps/CybeSystems.com/App/ressource/ui/images/cybesystems_logo.png</normaloff>../../../CybeSystems/PortableApps/CybeSystems.com/App/ressource/ui/images/cybesystems_logo.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>21</width>
-      <height>69</height>
-     </size>
-    </property>
-    <property name="autoDefault">
-     <bool>false</bool>
-    </property>
-    <property name="default">
-     <bool>false</bool>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="windowLabel">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>10</y>
-      <width>251</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CybeSystems - Cygwin Config</string>
-    </property>
    </widget>
   </widget>
  </widget>

@@ -14,10 +14,12 @@ sys.path.insert(0, os.path.join(scriptpath, 'lib'))
 if sys.maxsize == 2147483647:
     sys.path.insert(0, os.path.join(scriptpath, 'libX86'))
     sys.path.insert(0, scriptpath + '/libX86/libraries.zip')
+    x86x64 = 'X86'
     print ("Running x86")
 else:
     sys.path.insert(0, os.path.join(scriptpath, 'libX64'))
     sys.path.insert(0, scriptpath + '/libX64/libraries.zip')
+    x86x64 = 'X64'
     print ("Running x64")
 
 import re, time, webbrowser
@@ -116,24 +118,24 @@ def setInvokeContextMenu(option=0):
         if option == 1:
             #Icon
             key = winreg.CreateKey(winreg.HKEY_CLASSES_ROOT, "*\shell\Run in Cygwin")
-            winreg.SetValueEx(key, "Icon", 0, winreg.REG_EXPAND_SZ, scriptpath + '\\Runtime\\AppInfo\\appicon1.ico')
+            winreg.SetValueEx(key, "Icon", 0, winreg.REG_EXPAND_SZ, scriptpathWinSep + '\\AppInfo\\appicon.ico')
             #Command
             key = winreg.CreateKey(winreg.HKEY_CLASSES_ROOT, "*\shell\Run in Cygwin\command")
-            winreg.SetValueEx(key, "", 0, winreg.REG_SZ, "\"" + scriptpath + "\CygwinPortable.exe" + "\" -path \"%1\"")
+            winreg.SetValueEx(key, "", 0, winreg.REG_SZ, "\"" + scriptpathWinSep + "\CygwinPortable-" + x86x64 + ".exe" + "\" -path \"%1\"")
             
             #Icon
             key = winreg.CreateKey(winreg.HKEY_CLASSES_ROOT, "Directory\shell\OpenDirectoryInCygwin")
-            winreg.SetValueEx(key, "Icon", 0, winreg.REG_EXPAND_SZ, scriptpath + '\\Runtime\\AppInfo\\appicon1.ico')
+            winreg.SetValueEx(key, "Icon", 0, winreg.REG_EXPAND_SZ, scriptpathWinSep + '\\AppInfo\\appicon.ico')
             #Command
             key = winreg.CreateKey(winreg.HKEY_CLASSES_ROOT, "Directory\shell\OpenDirectoryInCygwin\command")
-            winreg.SetValueEx(key, "", 0, winreg.REG_SZ, "\"" + scriptpath + "\CygwinPortable.exe" + "\" -path \"%L\"")
+            winreg.SetValueEx(key, "", 0, winreg.REG_SZ, "\"" + scriptpathWinSep + "\CygwinPortable-" + x86x64 + ".exe" + "\" -path \"%L\"")
             
             #Icon
             key = winreg.CreateKey(winreg.HKEY_CLASSES_ROOT, "Drive\shell\OpenDriveInCygwin")
-            winreg.SetValueEx(key, "Icon", 0, winreg.REG_EXPAND_SZ, scriptpath + '\\Runtime\\AppInfo\\appicon1.ico')
+            winreg.SetValueEx(key, "Icon", 0, winreg.REG_EXPAND_SZ, scriptpathWinSep + '\\AppInfo\\appicon.ico')
             #Command
             key = winreg.CreateKey(winreg.HKEY_CLASSES_ROOT, "Drive\shell\OpenDriveInCygwin\command")
-            winreg.SetValueEx(key, "", 0, winreg.REG_SZ, "\"" + scriptpath + "\CygwinPortable.exe" + "\" -path %1")                               
+            winreg.SetValueEx(key, "", 0, winreg.REG_SZ, "\"" + scriptpathWinSep + "\CygwinPortable-" + x86x64 + ".exe" + "\" -path %1")                               
             
         if option == 2:
             #Option 2 deletes registry keys
@@ -233,9 +235,15 @@ datapath = scriptpathParentFolder + "\\Data"
 
 if not os.path.isdir(scriptpathParentFolder + '\\Data'):
     os.makedirs(scriptpathParentFolder + '\\Data')
+if not os.path.isdir(scriptpathParentFolder + '\\Data\\ShellScript'):
+    os.makedirs(scriptpathParentFolder + '\\Data\\ShellScript')
+if not os.path.isdir(scriptpathParentFolder + '\\Data\\Shortcuts'):
+    os.makedirs(scriptpathParentFolder + '\\Data\\Shortcuts')        
 
 if not os.path.isfile(datapath + '\\config.ini'):
     QtCore.QFile.copy(scriptpathWinSep + '\\DefaultData\\config.ini', datapath + '\\config.ini')
+    QtCore.QFile.copy(scriptpathWinSep + '\\DefaultData\\ShellScript\\Testscript.sh', datapath + '\\ShellScript\\Testscript.sh')
+    QtCore.QFile.copy(scriptpathWinSep + '\\DefaultData\\Shortcuts\\C_Users.lnk', datapath + '\\Shortcuts\\C_Users.lnk')
 
 if scriptpathParentParentFolderDirName == 'PortableApps':
     os.environ["PORTABLEAPPS"] = "true"
@@ -267,7 +275,7 @@ def defaultMainSettingsIni():
     cybeSystemsMainSettings['Main']['WindowsPathToCygwin'] = True
     cybeSystemsMainSettings['Main']['WindowsAdditionalPath'] = "/cygdrive/c/python27;/cygdrive/c/windows;/cygdrive/c/windows/system32;/cygdrive/c/windows/SysWOW64"
     cybeSystemsMainSettings['Main']['WindowsPythonPath'] = "/cygdrive/c/python27"
-    cybeSystemsMainSettings['Main']['uiTemplate'] = "darkorange.stylesheet"
+    cybeSystemsMainSettings['Main']['uiTemplate'] = "default"
     cybeSystemsMainSettings['Static']['Username'] = "cygwin"
     cybeSystemsMainSettings['Expert']['CygwinDeleteInstallation'] = False
     cybeSystemsMainSettings['Expert']['CygwinDeleteInstallationFolders'] = "xbin,cygdrive,dev,etc,home,lib,packages,tmp,usr,var"
@@ -355,7 +363,7 @@ if not os.path.isfile(scriptpath + '\\Runtime\\cygwin\\CygwinConfig.exe'):
     print("Cygwin setup not found -> Downloading on GUI start")
 
 if not os.path.isfile(scriptpath + '\\Runtime\\cygwin\\CygwinPortableConfig.bat'):
-    for batchFile in glob.glob(os.path.join(scriptpath + '\\other\\batch\\*.bat')):
+    for batchFile in glob.glob(os.path.join(scriptpathParentFolder + '\\other\\batch\\*.bat')):
         shutil.copy(batchFile, scriptpath + '\\Runtime\\cygwin')
 
 #####################################################################################################
@@ -376,9 +384,9 @@ class ShowMainConfigDialog(QtWidgets.QMainWindow):
             loadUi(scriptpath + "/Ressource/ui/mainConfigDialog.ui", self)      
         
 
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)  # Enable Frameless Mode
+        #self.setWindowFlags(QtCore.Qt.FramelessWindowHint)  # Enable Frameless Mode
         #Load Stylesheet
-        if cybeSystemsMainSettings['Main']['uiTemplate'].lower() != 'windows':
+        if cybeSystemsMainSettings['Main']['uiTemplate'].lower() != 'default':
             if os.path.isfile(scriptpath + "/Ressource/ui/" + cybeSystemsMainSettings['Main']['uiTemplate']):
                 stylesheetFile = open(scriptpath + "/Ressource/ui/" + cybeSystemsMainSettings['Main']['uiTemplate'], "r")
             else:
@@ -419,13 +427,13 @@ class ShowMainConfigDialog(QtWidgets.QMainWindow):
         self.lineEdit_drop_these_folders_on_reinstall.setText(', '.join(cybeSystemsMainSettings['Expert']['CygwinDeleteInstallationFolders']))
         self.lineEdit_username.setText(cybeSystemsMainSettings['Static']['Username'])
 
-    def resizeEvent(self, event):
+    """def resizeEvent(self, event):
         #Top right buttons -> Fixed size
         self.btn_close.setGeometry((self.width() - 60), -3, 60, 30)
         self.btn_restore.setGeometry((self.width() - 88), -3, 40, 30)
         self.btn_minimize.setGeometry((self.width() - 118), -3, 42, 30)
 
-        self.btn_cybesystems.setGeometry(10, 3, 30, 32)
+        self.btn_cybesystems.setGeometry(10, 3, 30, 32)"""
 
     def mousePressEvent(self, event):
         self.last_pos = QtGui.QCursor.pos()
@@ -832,7 +840,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.scripts.clear()
             self.shortcuts.clear()
             self.drives.clear()
-            for script in glob.glob(os.path.join(scriptpath + '\\Data\\ShellScript\\*.*')):
+            for script in glob.glob(os.path.join(datapath + '\\ShellScript\\*.*')):
                 img = QtGui.QImage()
                 img.load(scriptpath + '/AppInfo/appicon_16.png')
                 pixmap = QtGui.QPixmap.fromImage(img)
@@ -841,7 +849,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 entry = QtWidgets.QAction(QtGui.QIcon(icon), script, self)
                 entry.triggered.connect(functools.partial(cygwinOpen, script))
                 self.scripts.addAction(entry)
-            for shortcut in glob.glob(os.path.join(scriptpath + '\\Data\\Shortcuts\\*.*')):
+            for shortcut in glob.glob(os.path.join(datapath + '\\Shortcuts\\*.*')):
                 img = QtGui.QImage()
                 img.load(scriptpath + '/AppInfo/appicon_16.png')
                 pixmap = QtGui.QPixmap.fromImage(img)
@@ -869,7 +877,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def showQuickConfig(self):
         self.ShowMainConfigDialog=ShowMainConfigDialog()
         self.center_widget(self.ShowMainConfigDialog)
-        self.ShowMainConfigDialog.setWindowIcon(QtGui.QIcon(scriptpath + '/AppInfo/icon.png'))
+        self.ShowMainConfigDialog.setWindowIcon(QtGui.QIcon(scriptpath + '/AppInfo/appicon.ico'))
         
     def showCygwinConfig(self):
         path = scriptpath + "\\Runtime\\Cygwin\\CygwinConfig.exe"
@@ -907,7 +915,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.tray.show()
 
         #Load Stylesheet
-        if cybeSystemsMainSettings['Main']['uiTemplate'].lower() != 'windows':
+        if cybeSystemsMainSettings['Main']['uiTemplate'].lower() != 'default':
             if os.path.isfile(scriptpath + "/Ressource/ui/" + cybeSystemsMainSettings['Main']['uiTemplate']):
                 stylesheetFile = open(scriptpath + "/Ressource/ui/" + cybeSystemsMainSettings['Main']['uiTemplate'], "r")
             else:
@@ -955,6 +963,8 @@ class MainWindow(QtWidgets.QMainWindow):
         trayoption_exit_entry.triggered.connect(lambda: self.trayOptionExit())
         traymenu.addAction(trayoption_exit_entry)
         trayoption_exit_entry.setIcon(QtGui.QIcon(scriptpath + '/AppInfo/cancel.png'))
+        
+        self.tray.showMessage('CygwinPortable is running','\nRight click to open Traymenu')
 
 
 #####################################################################################################
