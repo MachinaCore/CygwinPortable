@@ -7,7 +7,7 @@ ShellExtensions needs admin rights (Only one time to register the ShellExtension
 
 Download ready to use files
 -----
-You can download prebuild version on http://www.cybesystems.com/index.php/downloads. I've compiled a PAF (PortableApps) and a 7z compressed version. Cygwin defaults are already installed.
+You can download prebuild version on http://www.cybesystems.com/downloads.html. I've compiled a PAF (PortableApps) and a 7z compressed version. Cygwin defaults are already installed.
 
 First Start
 -----
