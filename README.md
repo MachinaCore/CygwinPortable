@@ -69,7 +69,7 @@ There are some interesting options - Rightclick on the CygwinPortable Trayicon -
 Compile
 -----
 
-If you want to compile CygwinPortable by yourself you need Python 3.4, PyQT 5.4, cx_freeze and pywin32 - Run CygwinPortableFreezer.py and it should work :-)
+You can compile CygwinPortable with any version of Visual Studio (I use 2015) or mono (see build_momo.sh -> This needs a Cygwin Installation)
 
 Feedback
 -----
