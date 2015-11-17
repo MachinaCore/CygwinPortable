@@ -216,7 +216,7 @@ namespace CygwinPortableCS
                     Process process = new Process();
                     var processInfo = new ProcessStartInfo();
                     process.StartInfo.UseShellExecute = false;
-                    process.StartInfo.Arguments = parameter;
+                    process.StartInfo.Arguments = parameter + " -new_console:C:\"" + Globals.scriptpath + "\\AppInfo\\appicon.ico\"";
                     process.StartInfo.FileName = path;
                     //process.StartInfo.WorkingDirectory = Environment.CurrentDirectory;
 
@@ -282,7 +282,7 @@ namespace CygwinPortableCS
                 Process process = new Process();
                 var processInfo = new ProcessStartInfo();
                 process.StartInfo.UseShellExecute = false;
-                process.StartInfo.Arguments = parameter;
+                process.StartInfo.Arguments = parameter + " -new_console:C:\""+ Globals.scriptpath + "\\AppInfo\\appicon.ico\"";
                 process.StartInfo.FileName = path;
                 //process.StartInfo.WorkingDirectory = Environment.CurrentDirectory;
                 System.Reflection.FieldInfo contentsField = typeof(System.Collections.Specialized.StringDictionary).GetField("contents", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
