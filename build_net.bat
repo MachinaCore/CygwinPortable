@@ -1,9 +1,36 @@
 @echo off
 
+
 SET ILMERGE=0
 SET NSISLAUNCHER=1
+SET SEVENZIP=1
+SET PORTABLEAPPSINSTALLER=1
 
 CALL "%VS140COMNTOOLS%vsvars32.bat"
+
+REM ---------------------------------------------------------------------
+echo Get Version
+REM ---------------------------------------------------------------------
+set APPINFOINI=App\AppInfo\appinfo.ini
+set APPINFOSECTION=Version
+set APPINFOKEY=DisplayVersion
+
+for /f "delims=:" %%a in ('findstr /binc:"[%APPINFOSECTION%]" "%APPINFOINI%"') do (
+  for /f "tokens=1* delims==" %%b in ('more +%%a^<"%APPINFOINI%"') do (
+    set "APPINFOKEY=%%b"
+    set "APPINFOVERSION=%%c"
+    setlocal enabledelayedexpansion
+    if "!APPINFOKEY:~,1!"=="[" (endlocal&goto notFound)
+    if /i "!APPINFOKEY!"=="%APPINFOKEY%" (endlocal&goto found)
+    endlocal
+  )
+) 
+
+:notFound
+set APPINFOVERSION=0.0.0.0
+
+:found
+echo %APPINFOVERSION%
 
 REM ---------------------------------------------------------------------
 echo Compiling
@@ -46,16 +73,26 @@ copy help.html Release\help.html
 REM ---------------------------------------------------------------------
 echo Create NSIS Launcher
 REM ---------------------------------------------------------------------
-if %ILMERGE%==1 (
+if %NSISLAUNCHER%==1 (
 del "%CD%\Other\source\CygwinPortable.exe"
 ..\NSISPortable\App\NSIS\makensis.exe Other\source\CygwinPortable.nsi
-copy Other\source\CygwinPortable.exe Release\CygwinPortable.exe
+copy Other\source\CygwinPortable.exe "%CD%\Release\CygwinPortable.exe"
 )
+
 REM ---------------------------------------------------------------------
-echo Create NSIS Launcher
+echo 7zip Archive
 REM ---------------------------------------------------------------------
-del "%CD%\Other\source\CygwinPortable.exe"
-..\NSISPortable\App\NSIS\makensis.exe Other\source\CygwinPortable.nsi
+if %SEVENZIP%==1 (
+del "%CD%\CygwinPortable_%APPINFOVERSION%.7z"
+..\7-ZipPortable\App\7-Zip\7z.exe a -r -t7z -mx=9 CygwinPortable_%APPINFOVERSION%.7z .\Release\*
+)
+
+REM ---------------------------------------------------------------------
+echo Create PortableApps Installer
+REM ---------------------------------------------------------------------
+if %PORTABLEAPPSINSTALLER%==1 (
+..\CybeSystems.comAppInstaller\PortableApps.comInstaller.exe "%CD%\Release"
+)
 
 REM ---------------------------------------------------------------------
 echo Ready
