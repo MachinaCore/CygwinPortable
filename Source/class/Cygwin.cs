@@ -73,7 +73,7 @@ namespace CygwinPortableCS
             FileInfo file = new FileInfo(fileOrFolder);
             string drive = Path.GetPathRoot(file.FullName);
             Console.WriteLine(drive);
-            string path = file.FullName.Replace(drive, "").Replace("\\", "/").Replace(" ", "\\ ");
+            string path = file.FullName.Replace(drive, "").Replace("\\", "/").Replace(" ", "\\ ").Replace("(", "\\(").Replace(")", "\\)");
             winDrive = drive.Replace(":", "").Replace("\\", "").ToLower();
             return ("/cygdrive/" + winDrive + "/" + path);
         }
