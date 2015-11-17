@@ -9,12 +9,13 @@ const ConEmu   = 0x43454D55
 
 macro Descr="ConEmu: Auto switch to Editor Tab"
   Key="F3 F4"
-  Area="Shell"
+  Area="Shell Search"
   Cond="PanelType:0"
 {{
   %k = Key(#AKey);
   $if (!APanel.Empty && (APanel.Current!=".."))
-    %s=APanel.Path+iif(substr(%s,len(%s)-1)=="\\","","\\")+APanel.Current;
+    %s=APanel.Path;
+    %s=%s+iif(substr(%s,len(%s)-1)=="\\","","\\")+APanel.Current;
     //MsgBox("Current item", %s)
     %c = substr(%k,len(%k)-1,1);
     %cmd = iif(%c=="4","FindEditor:","FindViewer:")+%s;
