@@ -7,7 +7,7 @@
 !define NAME "CygwinPortable"
 !define VER "1.5.5.0"
 !define WEBSITE "CybeSystems.com"
-!define DEFAULTEXE "CygwinPortable-X86.exe"
+!define DEFAULTEXE "CygwinPortable.exe"
 !define DEFAULTSETTINGSPATH "settings"
 !define DISABLEMULTIINSTANCE "False"
 
