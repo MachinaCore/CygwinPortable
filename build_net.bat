@@ -5,6 +5,7 @@ SET ILMERGE=0
 SET NSISLAUNCHER=1
 SET SEVENZIP=1
 SET PORTABLEAPPSINSTALLER=1
+SET CONEMU=1
 
 CALL "%VS140COMNTOOLS%vsvars32.bat"
 
@@ -68,6 +69,10 @@ robocopy App\ *.dll Release\App\
 robocopy App\AppInfo Release\App\AppInfo /s /e
 robocopy App\DefaultData Release\App\DefaultData /s /e
 robocopy Other Release\Other /s /e
+if %CONEMU%==1 (
+robocopy App\RuntimeClean\ConEmu Release\App\Runtime\ConEmu /s /e
+)
+
 copy help.html Release\help.html
 
 REM ---------------------------------------------------------------------
