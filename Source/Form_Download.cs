@@ -54,34 +54,7 @@ namespace CygwinPortableCS
             //MessageBox.Show("Download completed!");
             Close();
 
-            File.Move(Globals.Folders["configpath"] + "\\setup-x86.exe", Globals.scriptpath + "\\Runtime\\Cygwin\\CygwinConfig.exe");
 
-            Process sampleProcess = new Process();
-            String pArgs = "-R " + Globals.scriptpath + "\\Runtime\\Cygwin\\" + " -l " + Globals.scriptpath +
-                           "\\Runtime\\Cygwin\\packages -n -d -N -s " +
-                           Globals.Config["Main"]["CygwinMirror"].StringValue + " -q -P " +
-                           Globals.Config["Main"]["CygwinFirstInstallAdditions"].StringValue;
-
-            ProcessStartInfo processInfo = new ProcessStartInfo
-            {
-                UseShellExecute = true,
-                WorkingDirectory = Environment.CurrentDirectory,
-                Arguments = pArgs,
-                FileName = Globals.scriptpath + "\\Runtime\\Cygwin\\CygwinConfig.exe"
-            };
-            Process cygwinProcess = Process.Start(processInfo);
-            cygwinProcess.WaitForExit();
-
-            if (Globals.Config["Main"]["CygwinFirstInstallDeleteUnneeded"].BoolValue)
-            {
-                File.Delete(Globals.scriptpath + "\\Runtime\\Cygwin\\Cygwin.ico");
-                File.Delete(Globals.scriptpath + "\\Runtime\\Cygwin\\Cygwin.bat");
-                File.Delete(Globals.scriptpath + "\\Runtime\\Cygwin\\setup.log");
-                File.Delete(Globals.scriptpath + "\\Runtime\\Cygwin\\setup.log.full'");
-            }
-
-            Copy(Globals.scriptpath + "\\DefaultData\\cygwin\\home", Globals.scriptpath + "\\Runtime\\Cygwin\\home\\" + Globals.Config["Static"]["Username"].StringValue);
-            Copy(Globals.scriptpath + "\\DefaultData\\cygwin\\bin", Globals.scriptpath + "\\Runtime\\Cygwin\\bin");
             /*DirectoryInfo homeFolder = new DirectoryInfo(Globals.scriptpath + "\\DefaultData\\cygwin\\home");
             foreach (var fileName in homeFolder.GetFiles("*"))
             {
@@ -99,38 +72,22 @@ namespace CygwinPortableCS
 
         public Form_Download()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
-            progressBar1.Visible = false;
-            label1.Visible = false;
-            label2.Visible = false;
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            button1.Visible = false;
-            button2.Visible = false;
-            progressBar1.Visible = true;
-            label1.Visible = true;
-            label2.Visible = true;
             WebClient webClient = new WebClient();
             label1.Text = "Downloading " + Globals.Config["Main"]["CygwinX86URL"].StringValue;
             webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
             webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-            webClient.DownloadFileAsync(new Uri(Globals.Config["Main"]["CygwinX86URL"].StringValue), Globals.Folders["configpath"] + "\\setup-x86.exe");
-
+            if (Globals.RuntimeSettings["x86x64Download"].ToString() == "x64")
+            {
+                webClient.DownloadFileAsync(new Uri(Globals.Config["Main"]["CygwinX64URL"].StringValue), Globals.Folders["configpath"] + "\\setup-x64.exe");
+            }
+            else
+            {
+                webClient.DownloadFileAsync(new Uri(Globals.Config["Main"]["CygwinX86URL"].StringValue), Globals.Folders["configpath"] + "\\setup-x86.exe");
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            progressBar1.Visible = true;
-            button2.Visible = false;
-            label1.Visible = true;
-            label2.Visible = true;
-            WebClient webClient = new WebClient();
-            label1.Text = "Downloading " + Globals.Config["Main"]["CygwinX64URL"].StringValue;
-            webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
-            webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-            webClient.DownloadFileAsync(new Uri(Globals.Config["Main"]["CygwinX64URL"].StringValue), Globals.Folders["configpath"] + "\\setup-x64.exe");
-        }
     }
 }

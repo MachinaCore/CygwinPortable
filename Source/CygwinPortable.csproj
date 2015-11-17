@@ -108,6 +108,12 @@
     <Compile Include="Form_Download.Designer.cs">
       <DependentUpon>Form_Download.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_FirstInstall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_FirstInstall.Designer.cs">
+      <DependentUpon>Form_FirstInstall.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Traymenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Download.resx">
       <DependentUpon>Form_Download.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_FirstInstall.resx">
+      <DependentUpon>Form_FirstInstall.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Traymenu.resx">
       <DependentUpon>Form_Traymenu.cs</DependentUpon>

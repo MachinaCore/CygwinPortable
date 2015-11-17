@@ -20,7 +20,6 @@ namespace CygwinPortableCS
             checkBox_disable_message_boxes.Checked = Globals.Config["Main"]["NoMsgBox"].BoolValue;
             textBox_cygwin_mirror.Text = Globals.Config["Main"]["CygwinMirror"].StringValue;
             textBox_cygwin_ports_mirror.Text = Globals.Config["Main"]["CygwinPortsMirror"].StringValue;
-            textBox_first_install_additions.Text = Globals.Config["Main"]["CygwinFirstInstallAdditions"].StringValue;
             checkBox_delete_unneeded_files.Checked = Globals.Config["Main"]["CygwinFirstInstallDeleteUnneeded"].BoolValue;
             checkBox_install_unofficial_cygwin_tools.Checked = Globals.Config["Main"]["InstallUnofficial"].BoolValue;
             checkBox_add_windows_path_variables_to_cygwin.Checked = Globals.Config["Main"]["WindowsPathToCygwin"].BoolValue;
@@ -41,7 +40,6 @@ namespace CygwinPortableCS
             Globals.Config["Main"]["NoMsgBox"].StringValue = checkBox_disable_message_boxes.Checked.ToString();
             Globals.Config["Main"]["CygwinMirror"].StringValue = textBox_cygwin_mirror.Text;
             Globals.Config["Main"]["CygwinPortsMirror"].StringValue = textBox_cygwin_ports_mirror.Text;
-            Globals.Config["Main"]["CygwinFirstInstallAdditions"].StringValue = textBox_first_install_additions.Text;
             Globals.Config["Main"]["CygwinFirstInstallDeleteUnneeded"].StringValue = checkBox_delete_unneeded_files.Checked.ToString();
             Globals.Config["Main"]["InstallUnofficial"].StringValue = checkBox_install_unofficial_cygwin_tools.Checked.ToString();
             Globals.Config["Main"]["WindowsPathToCygwin"].StringValue = checkBox_add_windows_path_variables_to_cygwin.Checked.ToString();

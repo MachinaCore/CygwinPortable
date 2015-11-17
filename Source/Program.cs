@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Security.Principal;
@@ -27,6 +28,8 @@ namespace CygwinPortableCS
             WindowsPrincipal pricipal = new WindowsPrincipal(WindowsIdentity.GetCurrent());
             Globals.RuntimeSettings["isAdmin"] = pricipal.IsInRole(WindowsBuiltInRole.Administrator);
             Globals.RuntimeSettings["defaultFileIconType"] = 16384;
+            Globals.RuntimeSettings["x86x64Download"] = "x86";
+            Globals.RuntimeSettings["CygwinFirstInstallAdditions"] = "vim,X11,xinit,wget,tar,gawk,bzip2";
 
             Globals.RuntimeSettings["fileIconType"] = 0x4000;
             Type runtimeType = Type.GetType("Mono.Runtime");
@@ -86,12 +89,6 @@ namespace CygwinPortableCS
             if (Globals.Config["Main"]["CygwinPortsMirror"].StringValue == "")
             {
                 Globals.Config["Main"]["CygwinPortsMirror"].SetValue("ftp://ftp.cygwinports.org/pub/cygwinports");
-            }
-            if (Globals.Config["Main"]["CygwinFirstInstallAdditions"].StringValue == "")
-            {
-                //Globals.Config["Main"]["CygwinFirstInstallAdditions"].SetValue("vim,X11,xinit,wget,tar,gawk,bzip2");
-                //Mono Build
-                Globals.Config["Main"]["CygwinFirstInstallAdditions"].SetValue("vim,X11,xinit,wget,tar,gawk,bzip2,autoconf,automake,bison,gcc-core,gcc-g++,mingw-runtime,mingw-binutils,mingw-gcc-core,mingw-gcc-g++,mingw-pthreads,mingw-w32api,libtool,make,python,gettext-devel,gettext,intltool,libiconv,pkg-config,git,curl,libxslt,mingw-zlib1,mingw-zlib-devel");
             }
             if (Globals.Config["Main"]["CygwinFirstInstallDeleteUnneeded"].StringValue == "")
             {
@@ -176,8 +173,43 @@ namespace CygwinPortableCS
                 {
                     Directory.CreateDirectory(Globals.scriptpath + "\\Runtime\\Cygwin");
                 }
+                var firstInstallForm = new Form_FirstInstall();
+                firstInstallForm.ShowDialog();
+
                 var downloadForm = new Form_Download();
-                downloadForm.Show();
+                downloadForm.ShowDialog();
+
+                File.Move(Globals.Folders["configpath"] + "\\setup-x86.exe", Globals.scriptpath + "\\Runtime\\Cygwin\\CygwinConfig.exe");
+
+                Process sampleProcess = new Process();
+                String pArgs = "-R " + Globals.scriptpath + "\\Runtime\\Cygwin\\" + " -l " + Globals.scriptpath +
+                               "\\Runtime\\Cygwin\\packages -n -d -N -s " +
+                               Globals.Config["Main"]["CygwinMirror"].StringValue + " -q -P " +
+                               Globals.Config["Main"]["CygwinFirstInstallAdditions"].StringValue;
+
+                ProcessStartInfo processInfo = new ProcessStartInfo
+                {
+                    UseShellExecute = true,
+                    WorkingDirectory = Environment.CurrentDirectory,
+                    Arguments = pArgs,
+                    FileName = Globals.scriptpath + "\\Runtime\\Cygwin\\CygwinConfig.exe"
+                };
+                Process cygwinProcess = Process.Start(processInfo);
+                cygwinProcess.WaitForExit();
+
+                if (Globals.Config["Main"]["CygwinFirstInstallDeleteUnneeded"].BoolValue)
+                {
+                    File.Delete(Globals.scriptpath + "\\Runtime\\Cygwin\\Cygwin.ico");
+                    File.Delete(Globals.scriptpath + "\\Runtime\\Cygwin\\Cygwin.bat");
+                    File.Delete(Globals.scriptpath + "\\Runtime\\Cygwin\\setup.log");
+                    File.Delete(Globals.scriptpath + "\\Runtime\\Cygwin\\setup.log.full'");
+                }
+
+                Form_Download.Copy(Globals.scriptpath + "\\DefaultData\\cygwin\\home", Globals.scriptpath + "\\Runtime\\Cygwin\\home\\" + Globals.Config["Static"]["Username"].StringValue);
+                Form_Download.Copy(Globals.scriptpath + "\\DefaultData\\cygwin\\bin", Globals.scriptpath + "\\Runtime\\Cygwin\\bin");
+
+
+
             }
 
             //Check if ConEmu is installed

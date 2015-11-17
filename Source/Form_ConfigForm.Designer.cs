@@ -44,8 +44,6 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox_cygwin_ports_mirror = new System.Windows.Forms.TextBox();
             this.label_cygwin_ports_mirror = new System.Windows.Forms.Label();
-            this.label_first_install_additions = new System.Windows.Forms.Label();
-            this.textBox_first_install_additions = new System.Windows.Forms.TextBox();
             this.label_cygwin_mirror = new System.Windows.Forms.Label();
             this.checkBox_delete_unneeded_files = new System.Windows.Forms.CheckBox();
             this.checkBox_install_unofficial_cygwin_tools = new System.Windows.Forms.CheckBox();
@@ -120,6 +118,7 @@
             // 
             // comboBox_shell
             // 
+            this.comboBox_shell.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_shell.FormattingEnabled = true;
             this.comboBox_shell.Items.AddRange(new object[] {
             "ConEmu",
@@ -220,8 +219,6 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.textBox_cygwin_ports_mirror, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label_cygwin_ports_mirror, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label_first_install_additions, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBox_first_install_additions, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label_cygwin_mirror, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.checkBox_delete_unneeded_files, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.checkBox_install_unofficial_cygwin_tools, 0, 7);
@@ -258,24 +255,6 @@
             this.label_cygwin_ports_mirror.Text = "Cygwin Ports Mirror:";
             this.label_cygwin_ports_mirror.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label_first_install_additions
-            // 
-            this.label_first_install_additions.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_first_install_additions.AutoSize = true;
-            this.label_first_install_additions.Location = new System.Drawing.Point(3, 58);
-            this.label_first_install_additions.Name = "label_first_install_additions";
-            this.label_first_install_additions.Size = new System.Drawing.Size(104, 13);
-            this.label_first_install_additions.TabIndex = 2;
-            this.label_first_install_additions.Text = "First Install additions:";
-            this.label_first_install_additions.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // textBox_first_install_additions
-            // 
-            this.textBox_first_install_additions.Location = new System.Drawing.Point(211, 55);
-            this.textBox_first_install_additions.Name = "textBox_first_install_additions";
-            this.textBox_first_install_additions.Size = new System.Drawing.Size(202, 20);
-            this.textBox_first_install_additions.TabIndex = 3;
-            // 
             // label_cygwin_mirror
             // 
             this.label_cygwin_mirror.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -291,7 +270,7 @@
             // 
             this.checkBox_delete_unneeded_files.AutoSize = true;
             this.tableLayoutPanel2.SetColumnSpan(this.checkBox_delete_unneeded_files, 2);
-            this.checkBox_delete_unneeded_files.Location = new System.Drawing.Point(3, 81);
+            this.checkBox_delete_unneeded_files.Location = new System.Drawing.Point(3, 55);
             this.checkBox_delete_unneeded_files.Name = "checkBox_delete_unneeded_files";
             this.checkBox_delete_unneeded_files.Size = new System.Drawing.Size(129, 17);
             this.checkBox_delete_unneeded_files.TabIndex = 6;
@@ -302,7 +281,7 @@
             // 
             this.checkBox_install_unofficial_cygwin_tools.AutoSize = true;
             this.tableLayoutPanel2.SetColumnSpan(this.checkBox_install_unofficial_cygwin_tools, 2);
-            this.checkBox_install_unofficial_cygwin_tools.Location = new System.Drawing.Point(3, 104);
+            this.checkBox_install_unofficial_cygwin_tools.Location = new System.Drawing.Point(3, 78);
             this.checkBox_install_unofficial_cygwin_tools.Name = "checkBox_install_unofficial_cygwin_tools";
             this.checkBox_install_unofficial_cygwin_tools.Size = new System.Drawing.Size(164, 17);
             this.checkBox_install_unofficial_cygwin_tools.TabIndex = 7;
@@ -473,8 +452,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox textBox_cygwin_ports_mirror;
         private System.Windows.Forms.Label label_cygwin_ports_mirror;
-        private System.Windows.Forms.Label label_first_install_additions;
-        private System.Windows.Forms.TextBox textBox_first_install_additions;
         private System.Windows.Forms.Label label_cygwin_mirror;
         private System.Windows.Forms.CheckBox checkBox_delete_unneeded_files;
         private System.Windows.Forms.CheckBox checkBox_install_unofficial_cygwin_tools;
