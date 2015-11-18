@@ -20,10 +20,40 @@ namespace CygwinPortableCS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Globals.Folders["apppath"] = Globals.scriptpathParentParentParentFolder + "\\" + Globals.scriptpathParentParentFolderDirName;
-            Globals.Folders["datapath"] = Globals.scriptpathParentParentParentFolder + "\\" + Globals.scriptpathParentParentFolderDirName + "\\" + Globals.scriptpathParentFolderDirName + "\\Data";
-            Globals.Folders["configpath"] = Globals.scriptpathParentParentParentFolder + "\\" + Globals.scriptpathParentParentFolderDirName + "\\" + Globals.scriptpathParentFolderDirName + "\\Data";
+            //Set Path
+            //ExeFile -> C:\PortableApps\CygwinPortable\App\CygwinPortable.exe
+            Globals.ExeFile = Assembly.GetExecutingAssembly().Location;
+            //AppPath -> C:\PortableApps\CygwinPortable\App
+            Globals.AppPath = Path.GetDirectoryName(Globals.ExeFile);
+            //BasePath -> C:\PortableApps\CygwinPortable
+            Globals.BasePath = Directory.GetParent(Path.GetDirectoryName(Globals.ExeFile)).FullName;
+            //RootPath -> C:\
+            Globals.RootPath = Path.GetPathRoot(Globals.ExeFile);
+            //DataPath -> C:\PortableApps\CygwinPortable\Data
+            Globals.DataPath = Globals.BasePath + "\\Data";
+            //ConfigPath -> C:\PortableApps\CygwinPortable\Data
+            Globals.ConfigPath = Globals.BasePath + "\\Data";
+            //ParentBasePath -> Get Parent Folder of CygwinPortable -> C:\
+            DirectoryInfo parentBasePath = new DirectoryInfo(Globals.BasePath);
+            Globals.ParentBasePath = parentBasePath.Parent.FullName;
+            //ParentParentBasePath -> Check if PortableApps is installed in Subfolder e.g. C:\Programs\PortableApps
+            if (Globals.ParentBasePath != Globals.RootPath)
+            {
+                DirectoryInfo parentParentBasePath = new DirectoryInfo(Globals.ParentBasePath);
+                Globals.ParentParentBasePath = parentParentBasePath.Parent.FullName;
+            }
 
+            /*
+            Console.WriteLine(Globals.ExeFile);
+            Console.WriteLine(Globals.AppPath);
+            Console.WriteLine(Globals.BasePath);
+            Console.WriteLine(Globals.RootPath);
+            Console.WriteLine(Globals.DataPath);
+            Console.WriteLine(Globals.ConfigPath);
+            Console.WriteLine(Globals.PortableAppsPath);
+            Console.WriteLine(Globals.ParentBasePath);
+            Console.WriteLine(Globals.ParentParentBasePath);
+            */
 
             WindowsPrincipal pricipal = new WindowsPrincipal(WindowsIdentity.GetCurrent());
             Globals.RuntimeSettings["isAdmin"] = pricipal.IsInRole(WindowsBuiltInRole.Administrator);
@@ -44,14 +74,14 @@ namespace CygwinPortableCS
 
 
             bool iniFileExists = true;
-            if (!File.Exists(Globals.Folders["configpath"] + "\\Configuration.ini"))
+            if (!File.Exists(Globals.ConfigPath + "\\Configuration.ini"))
             {
                 Globals.Config = new Configuration();
                 iniFileExists = false;
             }
             else
             {
-                Globals.Config = Configuration.LoadFromFile(Globals.Folders["configpath"] + "\\Configuration.ini");
+                Globals.Config = Configuration.LoadFromFile(Globals.ConfigPath + "\\Configuration.ini");
             }
 
             if (Globals.Config["Main"]["ExecutableExtension"].StringValue == "")
@@ -134,9 +164,6 @@ namespace CygwinPortableCS
                 Globals.Config["Expert"]["CygwinDeleteInstallationFolders"].SetValue("xbin,cygdrive,dev,etc,home,lib,packages,tmp,usr,var");
             }
 
-
-
-
             //Check if Delete Installation Flag is set
             if (Globals.Config["Expert"]["CygwinDeleteInstallation"].BoolValue)
             {
@@ -145,7 +172,7 @@ namespace CygwinPortableCS
                 {
                     foreach (string folder in (Globals.Config["Expert"]["CygwinDeleteInstallationFolders"].StringValue).Split(','))
                     {
-                        Directory.Delete(Globals.scriptpath + "\\Runtime\\Cygwin\\" + folder, true);
+                        Directory.Delete(Globals.AppPath + "\\Runtime\\Cygwin\\" + folder, true);
                     }
                 }
                 else if (dialogResult == DialogResult.No)
@@ -154,24 +181,24 @@ namespace CygwinPortableCS
             }
 
             //Create Folders if not exist
-            if (!Directory.Exists(Globals.scriptpathParentFolder + "\\Data"))
+            if (!Directory.Exists(Globals.BasePath + "\\Data"))
             {
-                Directory.CreateDirectory(Globals.scriptpathParentFolder + "\\Data");
+                Directory.CreateDirectory(Globals.BasePath + "\\Data");
             }
 
             //Config.SaveConfig();
             if (!iniFileExists)
             {
-                Globals.Config.SaveToFile(Globals.Folders["configpath"] + "\\Configuration.ini");
+                Globals.Config.SaveToFile(Globals.ConfigPath + "\\Configuration.ini");
                 iniFileExists = true;
             }
 
             //Check if Cygwin exists
-            if (!File.Exists(Globals.scriptpath + "\\Runtime\\Cygwin\\CygwinConfig.exe"))
+            if (!File.Exists(Globals.AppPath + "\\Runtime\\Cygwin\\CygwinConfig.exe"))
             {
-                if (!Directory.Exists(Globals.scriptpath + "\\Runtime\\Cygwin"))
+                if (!Directory.Exists(Globals.AppPath + "\\Runtime\\Cygwin"))
                 {
-                    Directory.CreateDirectory(Globals.scriptpath + "\\Runtime\\Cygwin");
+                    Directory.CreateDirectory(Globals.AppPath + "\\Runtime\\Cygwin");
                 }
                 var firstInstallForm = new Form_FirstInstall();
                 firstInstallForm.ShowDialog();
@@ -179,36 +206,33 @@ namespace CygwinPortableCS
                 var downloadForm = new Form_Download();
                 downloadForm.ShowDialog();
 
-                File.Move(Globals.Folders["configpath"] + "\\setup-x86.exe", Globals.scriptpath + "\\Runtime\\Cygwin\\CygwinConfig.exe");
+                File.Move(Globals.ConfigPath + "\\setup-x86.exe", Globals.AppPath + "\\Runtime\\Cygwin\\CygwinConfig.exe");
 
-                String cygInstallerArgs = "-R " + Globals.scriptpath + "\\Runtime\\Cygwin\\" + " -l " + Globals.scriptpath +
+                String cygInstallerArgs = "-R " + Globals.AppPath + "\\Runtime\\Cygwin\\" + " -l " + Globals.AppPath +
                                "\\Runtime\\Cygwin\\packages -n -d -N -s " +
                                Globals.Config["Main"]["CygwinMirror"].StringValue + " -q -P " +
                                Globals.RuntimeSettings["CygwinFirstInstallAdditions"];
                 Process cygInstaller = new Process();
                 cygInstaller.StartInfo.UseShellExecute = false;
                 cygInstaller.StartInfo.Arguments = cygInstallerArgs;
-                cygInstaller.StartInfo.FileName = Globals.scriptpath + "\\Runtime\\Cygwin\\CygwinConfig.exe";
+                cygInstaller.StartInfo.FileName = Globals.AppPath + "\\Runtime\\Cygwin\\CygwinConfig.exe";
                 cygInstaller.Start();
                 cygInstaller.WaitForExit();
 
                 if (Globals.Config["Main"]["CygwinFirstInstallDeleteUnneeded"].BoolValue)
                 {
-                    File.Delete(Globals.scriptpath + "\\Runtime\\Cygwin\\Cygwin.ico");
-                    File.Delete(Globals.scriptpath + "\\Runtime\\Cygwin\\Cygwin.bat");
-                    File.Delete(Globals.scriptpath + "\\Runtime\\Cygwin\\setup.log");
-                    File.Delete(Globals.scriptpath + "\\Runtime\\Cygwin\\setup.log.full'");
+                    File.Delete(Globals.AppPath + "\\Runtime\\Cygwin\\Cygwin.ico");
+                    File.Delete(Globals.AppPath + "\\Runtime\\Cygwin\\Cygwin.bat");
+                    File.Delete(Globals.AppPath + "\\Runtime\\Cygwin\\setup.log");
+                    File.Delete(Globals.AppPath + "\\Runtime\\Cygwin\\setup.log.full'");
                 }
 
-                Form_Download.Copy(Globals.scriptpath + "\\DefaultData\\cygwin\\home", Globals.scriptpath + "\\Runtime\\Cygwin\\home\\" + Globals.Config["Static"]["Username"].StringValue);
-                Form_Download.Copy(Globals.scriptpath + "\\DefaultData\\cygwin\\bin", Globals.scriptpath + "\\Runtime\\Cygwin\\bin");
-
-
-
+                Form_Download.Copy(Globals.AppPath + "\\DefaultData\\cygwin\\home", Globals.AppPath + "\\Runtime\\Cygwin\\home\\" + Globals.Config["Static"]["Username"].StringValue);
+                Form_Download.Copy(Globals.AppPath + "\\DefaultData\\cygwin\\bin", Globals.AppPath + "\\Runtime\\Cygwin\\bin");
             }
 
             //Check if ConEmu is installed
-            if (!Directory.Exists(Globals.scriptpathParentFolder + "\\Data\\ShellScript") && Globals.Config["Main"]["Shell"].StringValue == "ConEmu")
+            if (!Directory.Exists(Globals.BasePath + "\\Data\\ShellScript") && Globals.Config["Main"]["Shell"].StringValue == "ConEmu")
             {
                 Globals.Config["Main"]["Shell"].StringValue = "mintty";
             }
@@ -220,54 +244,16 @@ namespace CygwinPortableCS
 
 
 
-            if (!Directory.Exists(Globals.scriptpathParentFolder + "\\Data\\ShellScript"))
+            if (!Directory.Exists(Globals.BasePath + "\\Data\\ShellScript"))
             {
-                Directory.CreateDirectory(Globals.scriptpathParentFolder + "\\Data\\ShellScript");
-                File.Copy(Globals.scriptpath + "\\DefaultData\\ShellScript\\Testscript.sh", Globals.Folders["datapath"] + "\\ShellScript\\Testscript.sh");
+                Directory.CreateDirectory(Globals.BasePath + "\\Data\\ShellScript");
+                File.Copy(Globals.AppPath + "\\DefaultData\\ShellScript\\Testscript.sh", Globals.DataPath + "\\ShellScript\\Testscript.sh");
             }
-            if (!Directory.Exists(Globals.scriptpathParentFolder + "\\Data\\Shortcuts"))
+            if (!Directory.Exists(Globals.BasePath + "\\Data\\Shortcuts"))
             {
-                Directory.CreateDirectory(Globals.scriptpathParentFolder + "\\Data\\Shortcuts");
-                File.Copy(Globals.scriptpath + "\\DefaultData\\Shortcuts\\C_Users.lnk", Globals.Folders["datapath"] + "\\Shortcuts\\C_Users.lnk");
+                Directory.CreateDirectory(Globals.BasePath + "\\Data\\Shortcuts");
+                File.Copy(Globals.AppPath + "\\DefaultData\\Shortcuts\\C_Users.lnk", Globals.DataPath + "\\Shortcuts\\C_Users.lnk");
             }
-
-            //Check if running in PortableApps
-            /*if (Directory.Exists(Globals.scriptpathParentParentFolder + "\\PortableApps"))
-            {
-                Console.WriteLine("Running in PortableApps Environment");
-                Environment.SetEnvironmentVariable("PORTABLEAPPS", "true");
-            }
-            else
-            {
-                Environment.SetEnvironmentVariable("PORTABLEAPPS", "false");
-            }
-
-            string pathvar = Environment.GetEnvironmentVariable("PATH");
-            if (Globals.Config["Main"]["WindowsPathToCygwin"].BoolValue)
-            {
-                Environment.SetEnvironmentVariable("PATH", pathvar + ";" + Globals.Config["Main"]["WindowsAdditionalPath"] + ";" + Globals.scriptpath + "\\Runtime\\cygwin\\bin");
-            }
-            else
-            {
-                Environment.SetEnvironmentVariable("PATH", pathvar + ";" + Globals.scriptpath + "\\Runtime\\cygwin\\bin");
-            }
-            Environment.SetEnvironmentVariable("ALLUSERSPROFILE", "C:\\ProgramData");
-            Environment.SetEnvironmentVariable("ProgramData", "C:\\ProgramData");
-            //Environment.SetEnvironmentVariable("CYGWIN", "C:\\ProgramData");
-            Environment.SetEnvironmentVariable("CYGWIN_HOME", Globals.scriptpath + "\\Runtime\\cygwin");
-            Environment.SetEnvironmentVariable("USER", Globals.Config["Static"]["Username"].StringValue, EnvironmentVariableTarget.User);
-            Environment.SetEnvironmentVariable("USERNAME", Globals.Config["Static"]["Username"].StringValue, EnvironmentVariableTarget.User);
-            Environment.SetEnvironmentVariable("HOME", "/home/" + Globals.Config["Static"]["Username"].StringValue, EnvironmentVariableTarget.User);
-            Environment.SetEnvironmentVariable("USBDRV", Path.GetPathRoot(Globals.scriptpath));
-            Environment.SetEnvironmentVariable("USBDRVPATH", Path.GetPathRoot(Globals.scriptpath));
-            if (Globals.Config["Main"]["WindowsPythonPath"].StringValue != "")
-            {
-                Environment.SetEnvironmentVariable("PYTHONPATH", Globals.Config["Main"]["WindowsPythonPath"].StringValue);
-            }*/
-
-
-            Form_Download.Copy(Globals.scriptpath + "\\DefaultData\\cygwin\\home", Globals.scriptpath + "\\Runtime\\Cygwin\\home\\" + Globals.Config["Static"]["Username"].StringValue);
-            Form_Download.Copy(Globals.scriptpath + "\\DefaultData\\cygwin\\bin", Globals.scriptpath + "\\Runtime\\Cygwin\\bin");
 
             Application.Run(new Form_TrayMenu());
         }
@@ -279,15 +265,16 @@ namespace CygwinPortableCS
     {
         public static Configuration Config = new Configuration();
         public static IDictionary<string, object> RuntimeSettings = new Dictionary<string, object>();
-        public static Dictionary<string, object> Folders = new Dictionary<string, object>();
-        public static string scriptexe = Assembly.GetExecutingAssembly().Location;
-        public static string scriptpath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        public static string scriptpathDirName = new DirectoryInfo(scriptpath).Name;
-        public static string scriptpathParentFolder = Directory.GetParent(scriptpath).FullName;
-        public static string scriptpathParentFolderDirName = new DirectoryInfo(scriptpathParentFolder).Name;
-        public static string scriptpathParentParentFolder = Directory.GetParent(scriptpathParentFolder).FullName;
-        public static string scriptpathParentParentFolderDirName = new DirectoryInfo(scriptpathParentParentFolder).Name;
-        public static string scriptpathParentParentParentFolder = Directory.GetParent(scriptpathParentParentFolder).FullName;
-        public static string scriptpathParentParentParentFolderDirName = new DirectoryInfo(scriptpathParentParentFolder).Name;
+
+        public static string ExeFile = "";
+        public static string AppPath = "";
+        public static string BasePath = "";
+        public static string RootPath = "";
+        public static string DataPath = "";
+        public static string ConfigPath = "";
+        public static string PortableAppsPath = "";
+        public static string ParentBasePath = "";
+        public static string ParentParentBasePath = "";
+        
     }
 }

@@ -115,9 +115,9 @@ namespace CygwinPortableCS
 
         private void CybeSystemsRunXServer_Click(object sender, EventArgs e)
         {
-            string path = Globals.scriptpath + "\\Runtime\\Cygwin\\bin\\run.exe";
+            string path = Globals.AppPath + "\\Runtime\\Cygwin\\bin\\run.exe";
             string parameter = "/bin/bash.exe -c '/bin/startxwin -- -nolock -unixkill";
-            string pathname = Globals.scriptpath;
+            string pathname = Globals.AppPath;
             int flag = 1;
             ShellExecute(0, "open", path, parameter, pathname, flag);
         }
@@ -125,18 +125,18 @@ namespace CygwinPortableCS
 
         private void CybeSystemsRunCygwinSetup(object sender, EventArgs e)
         {
-            string path = Globals.scriptpath + "\\Runtime\\Cygwin\\CygwinConfig.exe";
-            string parameter = "-R " + Globals.scriptpath + "\\Runtime\\cygwin\\ -l " + Globals.scriptpath + "\\Runtime\\cygwin\\packages -n -d -N -s " + Globals.Config["Main"]["CygwinMirror"].StringValue;
-            string pathname = Globals.scriptpath;
+            string path = Globals.AppPath + "\\Runtime\\Cygwin\\CygwinConfig.exe";
+            string parameter = "-R " + Globals.AppPath + "\\Runtime\\cygwin\\ -l " + Globals.AppPath + "\\Runtime\\cygwin\\packages -n -d -N -s " + Globals.Config["Main"]["CygwinMirror"].StringValue;
+            string pathname = Globals.AppPath;
             int flag = 1;
             ShellExecute(0, "open", path, parameter, pathname, flag);
         }
 
         private void CybeSystemsRunCygwinSetupWithPorts(object sender, EventArgs e)
         {
-            string path = Globals.scriptpath + "\\Runtime\\Cygwin\\CygwinConfig.exe";
-            string parameter = " -K http://cygwinports.org/ports.gpg -R " + Globals.scriptpath + "\\Runtime\\cygwin\\ -l " + Globals.scriptpath + "\\Runtime\\cygwin\\packages -n -d -N -s " + Globals.Config["Main"]["CygwinPortsMirror"].StringValue;
-            string pathname = Globals.scriptpath;
+            string path = Globals.AppPath + "\\Runtime\\Cygwin\\CygwinConfig.exe";
+            string parameter = " -K http://cygwinports.org/ports.gpg -R " + Globals.AppPath + "\\Runtime\\cygwin\\ -l " + Globals.AppPath + "\\Runtime\\cygwin\\packages -n -d -N -s " + Globals.Config["Main"]["CygwinPortsMirror"].StringValue;
+            string pathname = Globals.AppPath;
             int flag = 1;
             ShellExecute(0, "open", path, parameter, pathname, flag);
         }
@@ -148,7 +148,7 @@ namespace CygwinPortableCS
             var scriptsMenu = new ToolStripMenuItem("Scripts");
             contextMenuStrip1.Items.Add(scriptsMenu);
             scriptsMenu.Image = Resources.appicon_16; ;
-            string[] scriptsEntries = Directory.GetFiles(Globals.scriptpathParentFolder + "\\Data\\ShellScript");
+            string[] scriptsEntries = Directory.GetFiles(Globals.BasePath + "\\Data\\ShellScript");
             foreach (string fileName in scriptsEntries) {
                 Icon fileIcon = IconFromFile.GetFileIcon(fileName, IconFromFile.IconSizeEnum.SmallIcon16);
                 scriptsMenu.DropDownItems.Add(Path.GetFileName(fileName), fileIcon.ToBitmap(), (sender, e) => { CybeSystemsRunCygwin_Click(sender, e, fileName); });
@@ -158,7 +158,7 @@ namespace CygwinPortableCS
             var shortcutsMenu = new ToolStripMenuItem("Shortcuts");
             contextMenuStrip1.Items.Add(shortcutsMenu);
             shortcutsMenu.Image = Resources.shortcuts;
-            string[] shortcutsEntries = Directory.GetFiles(Globals.scriptpathParentFolder + "\\Data\\Shortcuts");
+            string[] shortcutsEntries = Directory.GetFiles(Globals.BasePath + "\\Data\\Shortcuts");
             foreach (string fileName in shortcutsEntries)
             {
                 Icon fileIcon = IconFromFile.GetFileIcon(fileName, IconFromFile.IconSizeEnum.SmallIcon16);
@@ -183,7 +183,7 @@ namespace CygwinPortableCS
             Icon fileIconU = IconFromFile.GetFileIcon(@"C:\", IconFromFile.IconSizeEnum.SmallIcon16);
             contextMenuStrip1.Items.Add("Open Homefolder", fileIconC.ToBitmap(), (sender, e) => { CybeSystemsRunCygwin_Click(sender, e, "~"); });
 
-            if (File.Exists(Globals.scriptpath + "\\Runtime\\Cygwin\\bin\\startxwin"))
+            if (File.Exists(Globals.AppPath + "\\Runtime\\Cygwin\\bin\\startxwin"))
             {
                 contextMenuStrip1.Items.Add("Open XServer", Resources.xserver, CybeSystemsRunXServer_Click);
             }

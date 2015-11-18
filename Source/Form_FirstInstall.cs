@@ -17,7 +17,7 @@ namespace CygwinPortableCS
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
 
-            DirectoryInfo diSource = new DirectoryInfo(Globals.scriptpath + "\\DefaultData\\Packages");
+            DirectoryInfo diSource = new DirectoryInfo(Globals.AppPath + "\\DefaultData\\Packages");
             foreach (FileInfo fi in diSource.GetFiles())
             {
                 comboBox_packages.Items.Add(fi.Name.Replace(".txt",""));
@@ -33,7 +33,7 @@ namespace CygwinPortableCS
             string line;
             string packagesList = "";
 
-            StreamReader file = new StreamReader(Globals.scriptpath + "\\DefaultData\\Packages\\" + comboBox_packages.Text + ".txt");
+            StreamReader file = new StreamReader(Globals.AppPath + "\\DefaultData\\Packages\\" + comboBox_packages.Text + ".txt");
             while ((line = file.ReadLine()) != null)
             {
                 Console.WriteLine(line);
@@ -53,7 +53,7 @@ namespace CygwinPortableCS
             string line;
             string packagesList = "";
 
-            StreamReader file = new StreamReader(Globals.scriptpath + "\\DefaultData\\Packages\\" + comboBox_packages.Text + ".txt");
+            StreamReader file = new StreamReader(Globals.AppPath + "\\DefaultData\\Packages\\" + comboBox_packages.Text + ".txt");
             while ((line = file.ReadLine()) != null)
             {
                 Console.WriteLine(line);
@@ -69,7 +69,7 @@ namespace CygwinPortableCS
 
         private void button_open_package_folder_Click(object sender, EventArgs e)
         {
-            Process.Start(Globals.scriptpath + "\\DefaultData\\Packages");
+            Process.Start(Globals.AppPath + "\\DefaultData\\Packages");
         }
     }
 }

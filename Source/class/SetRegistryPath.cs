@@ -79,7 +79,7 @@ namespace CygwinPortableCS
             if (key != null && Globals.Config["Main"]["SetContextMenu"].BoolValue)
             {
 
-                if (key.GetValue("Icon").ToString() != Globals.scriptpath + "\\AppInfo\\appicon.ico")
+                if (key.GetValue("Icon").ToString() != Globals.AppPath + "\\AppInfo\\appicon.ico")
                 {
                     return false;
                 }
@@ -103,29 +103,29 @@ namespace CygwinPortableCS
         {
             //Icon Files
             RegistryKey iconFileKey = Registry.ClassesRoot.CreateSubKey("*\\shell\\Run in Cygwin");
-            iconFileKey.SetValue("Icon", Globals.scriptpath + "\\AppInfo\\appicon.ico", RegistryValueKind.ExpandString);
+            iconFileKey.SetValue("Icon", Globals.AppPath + "\\AppInfo\\appicon.ico", RegistryValueKind.ExpandString);
             iconFileKey.Close();
 
             RegistryKey commandFileKey = Registry.ClassesRoot.CreateSubKey("*\\shell\\Run in Cygwin\\command");
-            commandFileKey.SetValue("", "\"" + Globals.scriptexe + "\" -path \"%1\"");
+            commandFileKey.SetValue("", "\"" + Globals.ExeFile + "\" -path \"%1\"");
             commandFileKey.Close();
 
             //Icon Directory
             RegistryKey iconDirectoryKey = Registry.ClassesRoot.CreateSubKey("Directory\\shell\\OpenDirectoryInCygwin");
-            iconDirectoryKey.SetValue("Icon", Globals.scriptpath + "\\AppInfo\\appicon.ico", RegistryValueKind.ExpandString);
+            iconDirectoryKey.SetValue("Icon", Globals.AppPath + "\\AppInfo\\appicon.ico", RegistryValueKind.ExpandString);
             iconDirectoryKey.Close();
 
             RegistryKey commandDirectoryKey = Registry.ClassesRoot.CreateSubKey("Directory\\shell\\OpenDirectoryInCygwin\\command");
-            commandDirectoryKey.SetValue("", "\"" + Globals.scriptexe + "\" -path \"%L\"");
+            commandDirectoryKey.SetValue("", "\"" + Globals.ExeFile + "\" -path \"%L\"");
             commandDirectoryKey.Close();
 
             //Icon Drive
             RegistryKey iconDriveKey = Registry.ClassesRoot.CreateSubKey("Drive\\shell\\OpenDriveInCygwin");
-            iconDriveKey.SetValue("Icon", Globals.scriptpath + "\\AppInfo\\appicon.ico", RegistryValueKind.ExpandString);
+            iconDriveKey.SetValue("Icon", Globals.AppPath + "\\AppInfo\\appicon.ico", RegistryValueKind.ExpandString);
             iconDriveKey.Close();
 
             RegistryKey commandDriveKey = Registry.ClassesRoot.CreateSubKey("Drive\\shell\\OpenDriveInCygwin\\command");
-            commandDriveKey.SetValue("", "\"" + Globals.scriptexe + "\" -path \"%1\"");
+            commandDriveKey.SetValue("", "\"" + Globals.ExeFile + "\" -path \"%1\"");
             commandDriveKey.Close();
 
         }

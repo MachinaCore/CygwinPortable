@@ -47,7 +47,7 @@ namespace CygwinPortableCS
             Globals.Config["Static"]["Username"].StringValue = textBox_username.Text;
             Globals.Config["Expert"]["CygwinDeleteInstallation"].StringValue = checkBox_delete_complete_installation.Checked.ToString();
             Globals.Config["Expert"]["CygwinDeleteInstallationFolders"].StringValue = textBox_drop_these_folders_on_reinstall.Text;
-            Globals.Config.SaveToFile(Globals.Folders["configpath"] + "\\Configuration.ini");
+            Globals.Config.SaveToFile(Globals.ConfigPath + "\\Configuration.ini");
             if (registryChange)
             {
                 ChangeRegistryPath.Change();

@@ -55,18 +55,18 @@ namespace CygwinPortableCS
             Close();
 
 
-            /*DirectoryInfo homeFolder = new DirectoryInfo(Globals.scriptpath + "\\DefaultData\\cygwin\\home");
+            /*DirectoryInfo homeFolder = new DirectoryInfo(Globals.AppPath + "\\DefaultData\\cygwin\\home");
             foreach (var fileName in homeFolder.GetFiles("*"))
             {
                 Console.WriteLine(fileName);
-                File.Copy(Globals.scriptpath + "\\DefaultData\\cygwin\\home\\" + fileName.Name, Globals.scriptpath + "\\Runtime\\Cygwin\\home\\" + Globals.Config["Static"]["Username"].StringValue + "\\" + fileName.Name);
+                File.Copy(Globals.AppPath + "\\DefaultData\\cygwin\\home\\" + fileName.Name, Globals.AppPath + "\\Runtime\\Cygwin\\home\\" + Globals.Config["Static"]["Username"].StringValue + "\\" + fileName.Name);
             }
 
-            DirectoryInfo binFolder = new DirectoryInfo(Globals.scriptpath + "\\DefaultData\\cygwin\\bin");
+            DirectoryInfo binFolder = new DirectoryInfo(Globals.AppPath + "\\DefaultData\\cygwin\\bin");
             foreach (var fileName in binFolder.GetFiles("*"))
             {
                 Console.WriteLine(fileName);
-                File.Copy(Globals.scriptpath + "\\DefaultData\\cygwin\\bin\\" + fileName.Name, Globals.scriptpath + "\\Runtime\\Cygwin\\bin\\" + fileName.Name);
+                File.Copy(Globals.AppPath + "\\DefaultData\\cygwin\\bin\\" + fileName.Name, Globals.AppPath + "\\Runtime\\Cygwin\\bin\\" + fileName.Name);
             }*/
         }
 
@@ -81,11 +81,11 @@ namespace CygwinPortableCS
             webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
             if (Globals.RuntimeSettings["x86x64Download"].ToString() == "x64")
             {
-                webClient.DownloadFileAsync(new Uri(Globals.Config["Main"]["CygwinX64URL"].StringValue), Globals.Folders["configpath"] + "\\setup-x64.exe");
+                webClient.DownloadFileAsync(new Uri(Globals.Config["Main"]["CygwinX64URL"].StringValue), Globals.ConfigPath + "\\setup-x64.exe");
             }
             else
             {
-                webClient.DownloadFileAsync(new Uri(Globals.Config["Main"]["CygwinX86URL"].StringValue), Globals.Folders["configpath"] + "\\setup-x86.exe");
+                webClient.DownloadFileAsync(new Uri(Globals.Config["Main"]["CygwinX86URL"].StringValue), Globals.ConfigPath + "\\setup-x86.exe");
             }
         }
 

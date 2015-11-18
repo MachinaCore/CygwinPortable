@@ -163,12 +163,12 @@ namespace CygwinPortableCS
 
 
 
-            if (!Directory.Exists(Globals.scriptpath + "\\Runtime\\cygwin\\home\\" + Globals.Config["Static"]["Username"].StringValue))
+            if (!Directory.Exists(Globals.AppPath + "\\Runtime\\cygwin\\home\\" + Globals.Config["Static"]["Username"].StringValue))
             {
                 Globals.Config["Main"]["Shell"].StringValue = "mintty";
-                if (File.Exists(Globals.scriptpath + "\\Runtime\\cygwin\\bin\\bash.exe"))
+                if (File.Exists(Globals.AppPath + "\\Runtime\\cygwin\\bin\\bash.exe"))
                 {
-                    Directory.CreateDirectory(Globals.scriptpath + "\\Runtime\\cygwin\\home\\" + Globals.Config["Static"]["Username"].StringValue);
+                    Directory.CreateDirectory(Globals.AppPath + "\\Runtime\\cygwin\\home\\" + Globals.Config["Static"]["Username"].StringValue);
                 }
             }
             Console.WriteLine(Environment.GetEnvironmentVariable("PATH"));
@@ -179,7 +179,7 @@ namespace CygwinPortableCS
             string shellStayOpen = "";
             string path = "";
             string parameter = "";
-            string pathname = Globals.scriptpath;
+            string pathname = Globals.AppPath;
 
             if (Convert.ToBoolean(Globals.Config["Main"]["ExitAfterExec"].StringValue) == false)
             {
@@ -202,21 +202,21 @@ namespace CygwinPortableCS
 
                     if (Globals.Config["Main"]["Shell"].StringValue == "ConEmu")
                     {
-                        path = Globals.scriptpath + "\\Runtime\\ConEmu\\ConEmu.exe";
-                        parameter = " /cmd " + Globals.scriptpath + "\\Runtime\\cygwin\\bin\\bash.exe --login -i -c 'cd " + cygFolder[2] + executeCommand + shellStayOpen;
+                        path = Globals.AppPath + "\\Runtime\\ConEmu\\ConEmu.exe";
+                        parameter = " /cmd " + Globals.AppPath + "\\Runtime\\cygwin\\bin\\bash.exe --login -i -c 'cd " + cygFolder[2] + executeCommand + shellStayOpen;
                     }
                     else
                     {
-                        path = Globals.scriptpath + "\\Runtime\\cygwin\\bin\\mintty.exe";
+                        path = Globals.AppPath + "\\Runtime\\cygwin\\bin\\mintty.exe";
                         parameter = " --config /home/" + Globals.Config["Static"]["Username"].StringValue + "/.minttyrc -e /bin/bash.exe -c 'cd " + cygFolder[2] + executeCommand + shellStayOpen;
                     }
 
-                    pathname = Globals.scriptpath;
+                    pathname = Globals.AppPath;
 
                     Process process = new Process();
                     var processInfo = new ProcessStartInfo();
                     process.StartInfo.UseShellExecute = false;
-                    process.StartInfo.Arguments = parameter + " -new_console:C:\"" + Globals.scriptpath + "\\AppInfo\\appicon.ico\"";
+                    process.StartInfo.Arguments = parameter + " -new_console:C:\"" + Globals.AppPath + "\\AppInfo\\appicon.ico\"";
                     process.StartInfo.FileName = path;
                     //process.StartInfo.WorkingDirectory = Environment.CurrentDirectory;
 
@@ -225,7 +225,7 @@ namespace CygwinPortableCS
                     System.Reflection.FieldInfo contentsField = typeof(System.Collections.Specialized.StringDictionary).GetField("contents", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
                     System.Collections.Hashtable environment = (System.Collections.Hashtable)contentsField.GetValue(process.StartInfo.EnvironmentVariables);
 
-                    if (Directory.Exists(Globals.scriptpathParentParentFolder + "\\PortableApps"))
+                    if (Directory.Exists(Globals.PortableAppsPath + "\\PortableApps"))
                     {
                         Console.WriteLine("Running in PortableApps Environment");
                         environment.Remove("PORTABLEAPPS");
@@ -241,19 +241,19 @@ namespace CygwinPortableCS
                     if (Globals.Config["Main"]["WindowsPathToCygwin"].BoolValue)
                     {
                         environment.Remove("PATH");
-                        environment.Add("PATH", pathvar + ";" + Globals.Config["Main"]["WindowsAdditionalPath"] + ";" + Globals.scriptpath + "\\Runtime\\cygwin\\bin");
+                        environment.Add("PATH", pathvar + ";" + Globals.Config["Main"]["WindowsAdditionalPath"] + ";" + Globals.AppPath + "\\Runtime\\cygwin\\bin");
                     }
                     else
                     {
                         environment.Remove("PATH");
-                        environment.Add("PATH", pathvar + ";" + Globals.scriptpath + "\\Runtime\\cygwin\\bin");
+                        environment.Add("PATH", pathvar + ";" + Globals.AppPath + "\\Runtime\\cygwin\\bin");
                     }
                     environment.Remove("ALLUSERSPROFILE");
                     environment.Add("ALLUSERSPROFILE", "C:\\ProgramData");
                     environment.Remove("ProgramData");
                     environment.Add("ProgramData", "C:\\ProgramData");
                     environment.Remove("CYGWIN_HOME");
-                    environment.Add("CYGWIN_HOME", Globals.scriptpath + "\\Runtime\\cygwin");
+                    environment.Add("CYGWIN_HOME", Globals.AppPath + "\\Runtime\\cygwin");
                     environment.Remove("USER");
                     environment.Add("USER", Globals.Config["Static"]["Username"].StringValue);
                     environment.Remove("USERNAME");
@@ -261,9 +261,9 @@ namespace CygwinPortableCS
                     environment.Remove("HOME");
                     environment.Add("HOME", "/home/" + Globals.Config["Static"]["Username"].StringValue);
                     environment.Remove("USBDRV");
-                    environment.Add("USBDRV", Path.GetPathRoot(Globals.scriptpath));
+                    environment.Add("USBDRV", Path.GetPathRoot(Globals.AppPath));
                     environment.Remove("USBDRVPATH");
-                    environment.Add("USBDRVPATH", Path.GetPathRoot(Globals.scriptpath));
+                    environment.Add("USBDRVPATH", Path.GetPathRoot(Globals.AppPath));
                     if (Globals.Config["Main"]["WindowsPythonPath"].StringValue != "")
                     {
                         environment.Remove("PYTHONPATH");
@@ -282,26 +282,26 @@ namespace CygwinPortableCS
             {
                 if (Globals.Config["Main"]["Shell"].StringValue == "ConEmu")
                 {
-                    path = Globals.scriptpath + "\\Runtime\\ConEmu\\ConEmu.exe";
-                    parameter = " /cmd " + Globals.scriptpath + "\\Runtime\\cygwin\\bin\\bash.exe --login -i -c 'cd " + cygFolder[0] + shellStayOpen;
+                    path = Globals.AppPath + "\\Runtime\\ConEmu\\ConEmu.exe";
+                    parameter = " /cmd " + Globals.AppPath + "\\Runtime\\cygwin\\bin\\bash.exe --login -i -c 'cd " + cygFolder[0] + shellStayOpen;
                 }
                 else
                 {
-                    path = Globals.scriptpath + "\\Runtime\\cygwin\\bin\\mintty.exe";
+                    path = Globals.AppPath + "\\Runtime\\cygwin\\bin\\mintty.exe";
                     parameter = " --config /home/" + Globals.Config["Static"]["Username"].StringValue + "/.minttyrc -e /bin/bash.exe -c 'cd " + cygFolder[0] + shellStayOpen;
                 }
 
-                pathname = Globals.scriptpath;
+                pathname = Globals.AppPath;
                 Process process = new Process();
                 var processInfo = new ProcessStartInfo();
                 process.StartInfo.UseShellExecute = false;
-                process.StartInfo.Arguments = parameter + " -new_console:C:\""+ Globals.scriptpath + "\\AppInfo\\appicon.ico\"";
+                process.StartInfo.Arguments = parameter + " -new_console:C:\""+ Globals.AppPath + "\\AppInfo\\appicon.ico\"";
                 process.StartInfo.FileName = path;
                 //process.StartInfo.WorkingDirectory = Environment.CurrentDirectory;
                 System.Reflection.FieldInfo contentsField = typeof(System.Collections.Specialized.StringDictionary).GetField("contents", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
                 System.Collections.Hashtable environment = (System.Collections.Hashtable)contentsField.GetValue(process.StartInfo.EnvironmentVariables);
 
-                if (Directory.Exists(Globals.scriptpathParentParentFolder + "\\PortableApps"))
+                if (Directory.Exists(Globals.PortableAppsPath + "\\PortableApps"))
                 {
                     Console.WriteLine("Running in PortableApps Environment");
                     environment.Remove("PORTABLEAPPS");
@@ -317,19 +317,19 @@ namespace CygwinPortableCS
                 if (Globals.Config["Main"]["WindowsPathToCygwin"].BoolValue)
                 {
                     environment.Remove("PATH");
-                    environment.Add("PATH", pathvar + ";" + Globals.Config["Main"]["WindowsAdditionalPath"] + ";" + Globals.scriptpath + "\\Runtime\\cygwin\\bin");
+                    environment.Add("PATH", pathvar + ";" + Globals.Config["Main"]["WindowsAdditionalPath"] + ";" + Globals.AppPath + "\\Runtime\\cygwin\\bin");
                 }
                 else
                 {
                     environment.Remove("PATH");
-                    environment.Add("PATH", pathvar + ";" + Globals.scriptpath + "\\Runtime\\cygwin\\bin");
+                    environment.Add("PATH", pathvar + ";" + Globals.AppPath + "\\Runtime\\cygwin\\bin");
                 }
                 environment.Remove("ALLUSERSPROFILE");
                 environment.Add("ALLUSERSPROFILE", "C:\\ProgramData");
                 environment.Remove("ProgramData");
                 environment.Add("ProgramData", "C:\\ProgramData");
                 environment.Remove("CYGWIN_HOME");
-                environment.Add("CYGWIN_HOME", Globals.scriptpath + "\\Runtime\\cygwin");
+                environment.Add("CYGWIN_HOME", Globals.AppPath + "\\Runtime\\cygwin");
                 environment.Remove("USER");
                 environment.Add("USER", Globals.Config["Static"]["Username"].StringValue);
                 environment.Remove("USERNAME");
@@ -337,9 +337,9 @@ namespace CygwinPortableCS
                 environment.Remove("HOME");
                 environment.Add("HOME", "/home/" + Globals.Config["Static"]["Username"].StringValue);
                 environment.Remove("USBDRV");
-                environment.Add("USBDRV", Path.GetPathRoot(Globals.scriptpath));
+                environment.Add("USBDRV", Path.GetPathRoot(Globals.AppPath));
                 environment.Remove("USBDRVPATH");
-                environment.Add("USBDRVPATH", Path.GetPathRoot(Globals.scriptpath));
+                environment.Add("USBDRVPATH", Path.GetPathRoot(Globals.AppPath));
                 if (Globals.Config["Main"]["WindowsPythonPath"].StringValue != "")
                 {
                     environment.Remove("PYTHONPATH");
