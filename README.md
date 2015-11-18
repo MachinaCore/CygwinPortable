@@ -1,30 +1,26 @@
 CygwinPortable
 ==============
 
-A portable Cygwin environment with much options. It's very useful for "static" installations too. It can create ShellExtensions in Windows Explorer ("Open Folder in Cygwin", "Open Drive in Cygwin", "Run in Cygwin").  "Open with -> CygwinPortable.exe" is also supported (you can register e.g. .sh extensions with CygwinPortable.exe). The default installation support XServer. 
+A portable Cygwin environment with much options. It's very useful for "static" installations too. It can create ShellExtensions in Windows Explorer ("Open Folder in Cygwin", "Open Drive in Cygwin", "Run in Cygwin").  "Open with -> CygwinPortable.exe" is also supported (you can register e.g. .sh extensions with CygwinPortable.exe). XServer is supported. 
 
-ShellExtensions needs admin rights (Only one time to register the ShellExtension - After successfully registration you can run Cygwin Portable with UAC enabled). CygwinPrtable run without ShellExtensions but they are pretty comfortable :-)
+ShellExtensions needs admin rights (Only one time to register the ShellExtension - After successfully registration you can run CygwinPortable with UAC enabled). CygwinPrtable run without ShellExtensions but they are pretty comfortable :-)
 
 Download ready to use files
 -----
-You can download prebuild version on http://www.cybesystems.com/index.php/downloads. I've compiled a PAF (PortableApps) and a 7z compressed version. Cygwin defaults are already installed.
+You can download prebuild (Cygwin x86) version on http://www.cybesystems.com -> Downloads. I've compiled a PAF (PortableApps) and a 7z compressed version. Cygwin defaults are already installed.
 
 First Start
 -----
  - Start CygwinPortable.exe - The setup.exe is download automatically
- - *Optional: Enter a new username if you want (cygwin is default username and home directory. Should be OK in most cases)*
- - *Optional: Change options if you want. The default settings are OK for most users.* 
- - Let the cygwin install (defaults are cygwin defaults + vim,X11,xinit,wget,tar,gawk,bzip2 packages)
+ - Choose x86/x64 Version
+ - Let the cygwin install (defaults are cygwin defaults + vim,wget,tar,gawk,bzip2 packages)
  - Enjoy Cygwin :-)
 
 Commandline Parameters:
 -----
 These options overrides the options from Data/config.ini
-
- - CygwinPortable.exe -help		-> Show help screen 
- - CygwinPortable.exe -config 		-> Open Config (setup.exe) 
- - CygwinPortable.exe -exit [0/1]	-> Exit the cygwin window after execution 
  - CygwinPortable.exe -path [PATH] -> Open the folder in path or execute the file (if the file is executable)  
+ - CygwinPortable.exe -exit [0/1]	-> Exit the cygwin window after execution
  - CygwinPortable.exe [PATH] 		-> Open the folder in path or execute the file (if the file is executable) All other parameters are ignored (needed for "open with" in Windows)
 
 PortableApps
