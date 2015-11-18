@@ -228,32 +228,45 @@ namespace CygwinPortableCS
                     if (Directory.Exists(Globals.scriptpathParentParentFolder + "\\PortableApps"))
                     {
                         Console.WriteLine("Running in PortableApps Environment");
+                        environment.Remove("PORTABLEAPPS");
                         environment.Add("PORTABLEAPPS", "true");
                     }
                     else
                     {
+                        environment.Remove("PORTABLEAPPS");
                         environment.Add("PORTABLEAPPS", "false");
                     }
 
                     string pathvar = Environment.GetEnvironmentVariable("PATH");
                     if (Globals.Config["Main"]["WindowsPathToCygwin"].BoolValue)
                     {
+                        environment.Remove("PATH");
                         environment.Add("PATH", pathvar + ";" + Globals.Config["Main"]["WindowsAdditionalPath"] + ";" + Globals.scriptpath + "\\Runtime\\cygwin\\bin");
                     }
                     else
                     {
+                        environment.Remove("PATH");
                         environment.Add("PATH", pathvar + ";" + Globals.scriptpath + "\\Runtime\\cygwin\\bin");
                     }
+                    environment.Remove("ALLUSERSPROFILE");
                     environment.Add("ALLUSERSPROFILE", "C:\\ProgramData");
+                    environment.Remove("ProgramData");
                     environment.Add("ProgramData", "C:\\ProgramData");
+                    environment.Remove("CYGWIN_HOME");
                     environment.Add("CYGWIN_HOME", Globals.scriptpath + "\\Runtime\\cygwin");
+                    environment.Remove("USER");
                     environment.Add("USER", Globals.Config["Static"]["Username"].StringValue);
+                    environment.Remove("USERNAME");
                     environment.Add("USERNAME", Globals.Config["Static"]["Username"].StringValue);
+                    environment.Remove("HOME");
                     environment.Add("HOME", "/home/" + Globals.Config["Static"]["Username"].StringValue);
+                    environment.Remove("USBDRV");
                     environment.Add("USBDRV", Path.GetPathRoot(Globals.scriptpath));
+                    environment.Remove("USBDRVPATH");
                     environment.Add("USBDRVPATH", Path.GetPathRoot(Globals.scriptpath));
                     if (Globals.Config["Main"]["WindowsPythonPath"].StringValue != "")
                     {
+                        environment.Remove("PYTHONPATH");
                         environment.Add("PYTHONPATH", Globals.Config["Main"]["WindowsPythonPath"].StringValue);
                     }
                     //This is the normal .NET way -> Dont works in 2.0 $HOME is $home in cygwin
@@ -291,32 +304,45 @@ namespace CygwinPortableCS
                 if (Directory.Exists(Globals.scriptpathParentParentFolder + "\\PortableApps"))
                 {
                     Console.WriteLine("Running in PortableApps Environment");
+                    environment.Remove("PORTABLEAPPS");
                     environment.Add("PORTABLEAPPS", "true");
                 }
                 else
                 {
+                    environment.Remove("PORTABLEAPPS");
                     environment.Add("PORTABLEAPPS", "false");
                 }
 
                 string pathvar = Environment.GetEnvironmentVariable("PATH");
                 if (Globals.Config["Main"]["WindowsPathToCygwin"].BoolValue)
                 {
+                    environment.Remove("PATH");
                     environment.Add("PATH", pathvar + ";" + Globals.Config["Main"]["WindowsAdditionalPath"] + ";" + Globals.scriptpath + "\\Runtime\\cygwin\\bin");
                 }
                 else
                 {
+                    environment.Remove("PATH");
                     environment.Add("PATH", pathvar + ";" + Globals.scriptpath + "\\Runtime\\cygwin\\bin");
                 }
+                environment.Remove("ALLUSERSPROFILE");
                 environment.Add("ALLUSERSPROFILE", "C:\\ProgramData");
+                environment.Remove("ProgramData");
                 environment.Add("ProgramData", "C:\\ProgramData");
+                environment.Remove("CYGWIN_HOME");
                 environment.Add("CYGWIN_HOME", Globals.scriptpath + "\\Runtime\\cygwin");
+                environment.Remove("USER");
                 environment.Add("USER", Globals.Config["Static"]["Username"].StringValue);
+                environment.Remove("USERNAME");
                 environment.Add("USERNAME", Globals.Config["Static"]["Username"].StringValue);
+                environment.Remove("HOME");
                 environment.Add("HOME", "/home/" + Globals.Config["Static"]["Username"].StringValue);
+                environment.Remove("USBDRV");
                 environment.Add("USBDRV", Path.GetPathRoot(Globals.scriptpath));
+                environment.Remove("USBDRVPATH");
                 environment.Add("USBDRVPATH", Path.GetPathRoot(Globals.scriptpath));
                 if (Globals.Config["Main"]["WindowsPythonPath"].StringValue != "")
                 {
+                    environment.Remove("PYTHONPATH");
                     environment.Add("PYTHONPATH", Globals.Config["Main"]["WindowsPythonPath"].StringValue);
                 }
                 process.Start();

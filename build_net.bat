@@ -1,11 +1,11 @@
 @echo off
 
-
 SET ILMERGE=0
 SET NSISLAUNCHER=1
 SET SEVENZIP=1
 SET PORTABLEAPPSINSTALLER=1
 SET CONEMU=1
+SET CYGWIN=1
 
 CALL "%VS140COMNTOOLS%vsvars32.bat"
 
@@ -71,6 +71,9 @@ robocopy App\DefaultData Release\App\DefaultData /s /e
 robocopy Other Release\Other /s /e
 if %CONEMU%==1 (
 robocopy App\RuntimeClean\ConEmu Release\App\Runtime\ConEmu /s /e
+)
+if %CYGWIN%==1 (
+robocopy App\RuntimeClean\Cygwin Release\App\Runtime\Cygwin /s /e
 )
 
 copy help.html Release\help.html
