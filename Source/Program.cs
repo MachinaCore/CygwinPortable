@@ -181,21 +181,16 @@ namespace CygwinPortableCS
 
                 File.Move(Globals.Folders["configpath"] + "\\setup-x86.exe", Globals.scriptpath + "\\Runtime\\Cygwin\\CygwinConfig.exe");
 
-                Process sampleProcess = new Process();
-                String pArgs = "-R " + Globals.scriptpath + "\\Runtime\\Cygwin\\" + " -l " + Globals.scriptpath +
+                String cygInstallerArgs = "-R " + Globals.scriptpath + "\\Runtime\\Cygwin\\" + " -l " + Globals.scriptpath +
                                "\\Runtime\\Cygwin\\packages -n -d -N -s " +
                                Globals.Config["Main"]["CygwinMirror"].StringValue + " -q -P " +
-                               Globals.Config["Main"]["CygwinFirstInstallAdditions"].StringValue;
-
-                ProcessStartInfo processInfo = new ProcessStartInfo
-                {
-                    UseShellExecute = true,
-                    WorkingDirectory = Environment.CurrentDirectory,
-                    Arguments = pArgs,
-                    FileName = Globals.scriptpath + "\\Runtime\\Cygwin\\CygwinConfig.exe"
-                };
-                Process cygwinProcess = Process.Start(processInfo);
-                cygwinProcess.WaitForExit();
+                               Globals.RuntimeSettings["CygwinFirstInstallAdditions"];
+                Process cygInstaller = new Process();
+                cygInstaller.StartInfo.UseShellExecute = false;
+                cygInstaller.StartInfo.Arguments = cygInstallerArgs;
+                cygInstaller.StartInfo.FileName = Globals.scriptpath + "\\Runtime\\Cygwin\\CygwinConfig.exe";
+                cygInstaller.Start();
+                cygInstaller.WaitForExit();
 
                 if (Globals.Config["Main"]["CygwinFirstInstallDeleteUnneeded"].BoolValue)
                 {

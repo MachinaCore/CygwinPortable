@@ -183,7 +183,10 @@ namespace CygwinPortableCS
             Icon fileIconU = IconFromFile.GetFileIcon(@"C:\", IconFromFile.IconSizeEnum.SmallIcon16);
             contextMenuStrip1.Items.Add("Open Homefolder", fileIconC.ToBitmap(), (sender, e) => { CybeSystemsRunCygwin_Click(sender, e, "~"); });
 
-            contextMenuStrip1.Items.Add("Open XServer", Resources.xserver, CybeSystemsRunXServer_Click);
+            if (File.Exists(Globals.scriptpath + "\\Runtime\\Cygwin\\bin\\startxwin"))
+            {
+                contextMenuStrip1.Items.Add("Open XServer", Resources.xserver, CybeSystemsRunXServer_Click);
+            }
 
             contextMenuStrip1.Items.Add("Open Cygwin Setup", Resources.wand, CybeSystemsRunCygwinSetup);
 
