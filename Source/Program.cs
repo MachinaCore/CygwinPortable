@@ -232,7 +232,7 @@ namespace CygwinPortableCS
             }
 
             //Check if ConEmu is installed
-            if (!Directory.Exists(Globals.BasePath + "\\Data\\ShellScript") && Globals.Config["Main"]["Shell"].StringValue == "ConEmu")
+            if (!Directory.Exists(Globals.AppPath + "\\Runtime\\ConEmu") && Globals.Config["Main"]["Shell"].StringValue == "ConEmu")
             {
                 Globals.Config["Main"]["Shell"].StringValue = "mintty";
             }
