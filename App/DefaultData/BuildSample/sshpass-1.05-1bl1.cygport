@@ -1,0 +1,8 @@
+HOMEPAGE="http://${PN}.sf.net/"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+
+CATEGORY="Security"
+SUMMARY="Tool for noninteractively performing password authentication with ssh"
+DESCRIPTION="Sshpass is a tool for non-interactivly performing password authentication with
+SSH's so called 'interactive keyboard password authentication'. Most user
+should use SSH's more secure public key authentiaction instead."
