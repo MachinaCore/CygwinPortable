@@ -1,0 +1,5 @@
+vim
+wget
+tar
+gawk
+bzip2
