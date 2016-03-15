@@ -27,8 +27,11 @@ These options overrides the options from Data/config.ini
 Recommend /etc/fstab
 -----
 You should change /etc/fstab from 
+
 none /cygdrive cygdrive binary,posix=0,user 0 0
+
 to:
+
 none /cygdrive cygdrive binary,noacl,posix=0,user 0 0
 
 The noacl flag ignores filesystem ACLs permissions - For portable (in most cases for static installations too) this is the best setting - With this option you dont write "gargabe" permissions to e.g. local rsync backups.
