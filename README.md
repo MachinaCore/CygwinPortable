@@ -23,6 +23,17 @@ These options overrides the options from Data/config.ini
  - CygwinPortable.exe -exit [0/1]	-> Exit the cygwin window after execution
  - CygwinPortable.exe [PATH] 		-> Open the folder in path or execute the file (if the file is executable) All other parameters are ignored (needed for "open with" in Windows)
 
+ 
+Recommend /etc/fstab
+-----
+You should change /etc/fstab from 
+none /cygdrive cygdrive binary,posix=0,user 0 0
+to:
+none /cygdrive cygdrive binary,noacl,posix=0,user 0 0
+
+The noacl flag ignores filesystem ACLs permissions - For portable (in most cases for static installations too) this is the best setting - With this option you dont write "gargabe" permissions to e.g. local rsync backups.
+
+ 
 PortableApps
 -----
 PortableApps (http://portableapps.com/) Tool is supported. Copy the Cygwin Portable folder to USBSTICK:\PortableApps
