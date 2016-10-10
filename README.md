@@ -1,9 +1,9 @@
 CygwinPortable
 ==============
 
-A portable Cygwin environment with much options. It's very useful for "static" installations too. It can create ShellExtensions in Windows Explorer ("Open Folder in Cygwin", "Open Drive in Cygwin", "Run in Cygwin").  "Open with -> CygwinPortable.exe" is also supported (you can register e.g. .sh extensions with CygwinPortable.exe). XServer is supported. 
+A portable Cygwin environment with many options. It's very useful for "static" installations too. It can create ShellExtensions in Windows Explorer ("Open Folder in Cygwin", "Open Drive in Cygwin", "Run in Cygwin").  "Open with -> CygwinPortable.exe" is also supported (you can register e.g. .sh extensions with CygwinPortable.exe). XServer is supported. 
 
-ShellExtensions needs admin rights (Only one time to register the ShellExtension - After successfully registration you can run CygwinPortable with UAC enabled). CygwinPrtable run without ShellExtensions but they are pretty comfortable :-)
+ShellExtensions needs admin rights (Only one time to register the ShellExtension - After successful registration you can run CygwinPortable with UAC enabled). CygwinPortable will run without ShellExtensions, but they are pretty comfortable :-)
 
 Download ready to use files
 -----
@@ -34,7 +34,7 @@ to:
 
 none /cygdrive cygdrive binary,noacl,posix=0,user 0 0
 
-The noacl flag ignores filesystem ACLs permissions - For portable (in most cases for static installations too) this is the best setting - With this option you dont write "gargabe" permissions to e.g. local rsync backups.
+The noacl flag ignores filesystem ACLs permissions - For portable (in most cases for static installations too) this is the best setting - With this option you dont write "garbage" permissions to e.g. local rsync backups.
 
  
 PortableApps
