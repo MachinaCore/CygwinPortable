@@ -8,6 +8,7 @@ bzip2
 autoconf
 automake
 bison
+cygport
 gcc-core
 gcc-g++
 mingw-runtime
