@@ -46,7 +46,7 @@ namespace CygwinPortableCS
                 }
                 else
                 {
-                    if (Globals.Config["Main"]["SetContextMenu"].BoolValue)
+                    if ((bool)Globals.MainConfig["Cygwin"]["SetContextMenu"])
                     {
                         SetRegistry();
                     }
@@ -64,7 +64,7 @@ namespace CygwinPortableCS
             RegistryKey key = Registry.ClassesRoot.OpenSubKey("*\\shell\\Run in Cygwin");
 
             //Key exists but path is wrong
-            if (key != null && Globals.Config["Main"]["SetContextMenu"].BoolValue)
+            if (key != null && (bool)Globals.MainConfig["Cygwin"]["SetContextMenu"])
             {
                 return true;
             }
@@ -76,7 +76,7 @@ namespace CygwinPortableCS
             RegistryKey key = Registry.ClassesRoot.OpenSubKey("*\\shell\\Run in Cygwin");
 
             //Key exists but path is wrong
-            if (key != null && Globals.Config["Main"]["SetContextMenu"].BoolValue)
+            if (key != null && (bool)Globals.MainConfig["Cygwin"]["SetContextMenu"])
             {
 
                 if (key.GetValue("Icon").ToString() != Globals.AppPath + "\\AppInfo\\appicon.ico")
@@ -86,13 +86,13 @@ namespace CygwinPortableCS
             }
 
             //Key dont exists and SetContextMenu is enabled
-            if (key == null && Globals.Config["Main"]["SetContextMenu"].BoolValue)
+            if (key == null && (bool)Globals.MainConfig["Cygwin"]["SetContextMenu"])
             {
                     return false;
             }
 
             //Key exists but SetContextMenu is disabled
-            if (key != null && !Globals.Config["Main"]["SetContextMenu"].BoolValue)
+            if (key != null && !(bool)Globals.MainConfig["Cygwin"]["SetContextMenu"])
             {
                 return false;
             }

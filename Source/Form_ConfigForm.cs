@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,41 +14,41 @@ namespace CygwinPortableCS
         public Form_ConfigForm()
         {
             InitializeComponent();
-            textBox_executable_files.Text = Globals.Config["Main"]["ExecutableExtension"].StringValue;
-            checkBox_exit_after_execution.Checked = Globals.Config["Main"]["ExitAfterExec"].BoolValue;
-            checkBox_set_windows_context_menu.Checked = Globals.Config["Main"]["SetContextMenu"].BoolValue;
-            comboBox_shell.Text = Globals.Config["Main"]["Shell"].StringValue;
-            checkBox_disable_message_boxes.Checked = Globals.Config["Main"]["NoMsgBox"].BoolValue;
-            textBox_cygwin_mirror.Text = Globals.Config["Main"]["CygwinMirror"].StringValue;
-            textBox_cygwin_ports_mirror.Text = Globals.Config["Main"]["CygwinPortsMirror"].StringValue;
-            checkBox_delete_unneeded_files.Checked = Globals.Config["Main"]["CygwinFirstInstallDeleteUnneeded"].BoolValue;
-            checkBox_install_unofficial_cygwin_tools.Checked = Globals.Config["Main"]["InstallUnofficial"].BoolValue;
-            checkBox_add_windows_path_variables_to_cygwin.Checked = Globals.Config["Main"]["WindowsPathToCygwin"].BoolValue;
+            textBox_executable_files.Text = (string)Globals.MainConfig["Cygwin"]["ExecutableExtension"];
+            checkBox_exit_after_execution.Checked = (bool)Globals.MainConfig["Cygwin"]["ExitAfterExec"];
+            checkBox_set_windows_context_menu.Checked = (bool)Globals.MainConfig["Cygwin"]["SetContextMenu"];
+            comboBox_shell.Text = (string)Globals.MainConfig["Cygwin"]["Shell"];
+            checkBox_disable_message_boxes.Checked = (bool)Globals.MainConfig["Cygwin"]["NoMsgBox"];
+            textBox_cygwin_mirror.Text = (string)Globals.MainConfig["Cygwin"]["CygwinMirror"];
+            textBox_cygwin_ports_mirror.Text = (string)Globals.MainConfig["Cygwin"]["CygwinPortsMirror"];
+            checkBox_delete_unneeded_files.Checked = (bool)Globals.MainConfig["Cygwin"]["CygwinFirstInstallDeleteUnneeded"];
+            checkBox_install_unofficial_cygwin_tools.Checked = (bool)Globals.MainConfig["Cygwin"]["InstallUnofficial"];
+            checkBox_add_windows_path_variables_to_cygwin.Checked = (bool)Globals.MainConfig["Cygwin"]["WindowsPathToCygwin"];
 
-            textBox_username.Text = Globals.Config["Static"]["Username"].StringValue;
-            checkBox_delete_complete_installation.Checked = Globals.Config["Expert"]["CygwinDeleteInstallation"].BoolValue;
-            textBox_drop_these_folders_on_reinstall.Text = Globals.Config["Expert"]["CygwinDeleteInstallationFolders"].StringValue;
+            textBox_username.Text = (string)Globals.MainConfig["Cygwin"]["Username"];
+            checkBox_delete_complete_installation.Checked = (bool)Globals.MainConfig["Cygwin"]["CygwinDeleteInstallation"];
+            textBox_drop_these_folders_on_reinstall.Text = (string)Globals.MainConfig["Cygwin"]["CygwinDeleteInstallationFolders"];
 
         }
 
         private void button_save_Click(object sender, EventArgs e)
         {
-            bool registryChange = Globals.Config["Main"]["SetContextMenu"].StringValue != checkBox_set_windows_context_menu.Checked.ToString();
-            Globals.Config["Main"]["ExecutableExtension"].StringValue = textBox_executable_files.Text;
-            Globals.Config["Main"]["ExitAfterExec"].StringValue = checkBox_exit_after_execution.Checked.ToString();
-            Globals.Config["Main"]["SetContextMenu"].StringValue = checkBox_set_windows_context_menu.Checked.ToString();
-            Globals.Config["Main"]["Shell"].StringValue = comboBox_shell.Text;
-            Globals.Config["Main"]["NoMsgBox"].StringValue = checkBox_disable_message_boxes.Checked.ToString();
-            Globals.Config["Main"]["CygwinMirror"].StringValue = textBox_cygwin_mirror.Text;
-            Globals.Config["Main"]["CygwinPortsMirror"].StringValue = textBox_cygwin_ports_mirror.Text;
-            Globals.Config["Main"]["CygwinFirstInstallDeleteUnneeded"].StringValue = checkBox_delete_unneeded_files.Checked.ToString();
-            Globals.Config["Main"]["InstallUnofficial"].StringValue = checkBox_install_unofficial_cygwin_tools.Checked.ToString();
-            Globals.Config["Main"]["WindowsPathToCygwin"].StringValue = checkBox_add_windows_path_variables_to_cygwin.Checked.ToString();
+            bool registryChange = (bool)Globals.MainConfig["Cygwin"]["SetContextMenu"] != checkBox_set_windows_context_menu.Checked;
+            Globals.MainConfig["Cygwin"]["ExecutableExtension"] = textBox_executable_files.Text;
+            Globals.MainConfig["Cygwin"]["ExitAfterExec"] = checkBox_exit_after_execution.Checked;
+            Globals.MainConfig["Cygwin"]["SetContextMenu"] = checkBox_set_windows_context_menu.Checked;
+            Globals.MainConfig["Cygwin"]["Shell"] = comboBox_shell.Text;
+            Globals.MainConfig["Cygwin"]["NoMsgBox"] = checkBox_disable_message_boxes.Checked;
+            Globals.MainConfig["Cygwin"]["CygwinMirror"] = textBox_cygwin_mirror.Text;
+            Globals.MainConfig["Cygwin"]["CygwinPortsMirror"] = textBox_cygwin_ports_mirror.Text;
+            Globals.MainConfig["Cygwin"]["CygwinFirstInstallDeleteUnneeded"] = checkBox_delete_unneeded_files.Checked;
+            Globals.MainConfig["Cygwin"]["InstallUnofficial"] = checkBox_install_unofficial_cygwin_tools.Checked;
+            Globals.MainConfig["Cygwin"]["WindowsPathToCygwin"] = checkBox_add_windows_path_variables_to_cygwin.Checked;
 
-            Globals.Config["Static"]["Username"].StringValue = textBox_username.Text;
-            Globals.Config["Expert"]["CygwinDeleteInstallation"].StringValue = checkBox_delete_complete_installation.Checked.ToString();
-            Globals.Config["Expert"]["CygwinDeleteInstallationFolders"].StringValue = textBox_drop_these_folders_on_reinstall.Text;
-            Globals.Config.SaveToFile(Globals.ConfigPath + "\\Configuration.ini");
+            Globals.MainConfig["Cygwin"]["Username"] = textBox_username.Text;
+            Globals.MainConfig["Cygwin"]["CygwinDeleteInstallation"] = checkBox_delete_complete_installation.Checked;
+            Globals.MainConfig["Cygwin"]["CygwinDeleteInstallationFolders"] = textBox_drop_these_folders_on_reinstall.Text;
+            System.IO.File.WriteAllText(Globals.ConfigPath + "\\Configuration.json", JsonConvert.SerializeObject(Globals.MainConfig["Cygwin"], Formatting.Indented));
             if (registryChange)
             {
                 ChangeRegistryPath.Change();
@@ -55,13 +56,13 @@ namespace CygwinPortableCS
             //Check if Key really is set or deleted
             /*if (ChangeRegistryPath.RegistryKeyExists())
             {
-                Globals.Config["Main"]["SetContextMenu"].BoolValue = true;
+                Globals.MainConfig["Cygwin"]["SetContextMenu"].BoolValue = true;
             }
             else
             {
-                Globals.Config["Main"]["SetContextMenu"].BoolValue = false;
+                Globals.MainConfig["Cygwin"]["SetContextMenu"].BoolValue = false;
             }*/
-            checkBox_set_windows_context_menu.Checked = Globals.Config["Main"]["SetContextMenu"].BoolValue;
+            checkBox_set_windows_context_menu.Checked = (bool)Globals.MainConfig["Cygwin"]["SetContextMenu"];
             this.Close();
         }
 

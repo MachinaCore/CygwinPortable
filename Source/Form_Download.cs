@@ -76,16 +76,17 @@ namespace CygwinPortableCS
             InitializeComponent();
 
             WebClient webClient = new WebClient();
-            label1.Text = "Downloading " + Globals.Config["Main"]["CygwinX86URL"].StringValue;
             webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
             webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
             if (Globals.RuntimeSettings["x86x64Download"].ToString() == "x64")
             {
-                webClient.DownloadFileAsync(new Uri(Globals.Config["Main"]["CygwinX64URL"].StringValue), Globals.ConfigPath + "\\setup-x64.exe");
+                label1.Text = "Downloading " + (string)Globals.MainConfig["Cygwin"]["CygwinX64URL"];
+                webClient.DownloadFileAsync(new Uri((string)Globals.MainConfig["Cygwin"]["CygwinX64URL"]), Globals.ConfigPath + "\\setup-x86_64.exe");
             }
             else
             {
-                webClient.DownloadFileAsync(new Uri(Globals.Config["Main"]["CygwinX86URL"].StringValue), Globals.ConfigPath + "\\setup-x86.exe");
+                label1.Text = "Downloading " + (string)Globals.MainConfig["Cygwin"]["CygwinX86URL"];
+                webClient.DownloadFileAsync(new Uri((string)Globals.MainConfig["Cygwin"]["CygwinX86URL"]), Globals.ConfigPath + "\\setup-x86.exe");
             }
         }
 

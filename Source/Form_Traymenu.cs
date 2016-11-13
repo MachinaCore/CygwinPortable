@@ -60,7 +60,7 @@ namespace CygwinPortableCS
                         
                         if (exitAfterExecute == "1")
                         {
-                            Globals.Config["Main"]["ExitAfterExec"].StringValue = "true";
+                            Globals.MainConfig["Cygwin"]["ExitAfterExec"] = true;
                         }
                         
 
@@ -116,7 +116,7 @@ namespace CygwinPortableCS
         private void CybeSystemsRunXServer_Click(object sender, EventArgs e)
         {
             string path = Globals.AppPath + "\\Runtime\\Cygwin\\bin\\run.exe";
-            string parameter = "/bin/bash.exe -c '/bin/startxwin -- -nolock -unixkill";
+            string parameter = "/bin/bash.exe --login -i -c '/bin/startxwin -- -nolock -unixkill'";
             string pathname = Globals.AppPath;
             int flag = 1;
             ShellExecute(0, "open", path, parameter, pathname, flag);
@@ -126,7 +126,7 @@ namespace CygwinPortableCS
         private void CybeSystemsRunCygwinSetup(object sender, EventArgs e)
         {
             string path = Globals.AppPath + "\\Runtime\\Cygwin\\CygwinConfig.exe";
-            string parameter = "-R " + Globals.AppPath + "\\Runtime\\cygwin\\ -l " + Globals.AppPath + "\\Runtime\\cygwin\\packages -n -d -N -s " + Globals.Config["Main"]["CygwinMirror"].StringValue;
+            string parameter = "-R " + Globals.AppPath + "\\Runtime\\cygwin\\ -l " + Globals.AppPath + "\\Runtime\\cygwin\\packages -n -d -N -s " + (string)Globals.MainConfig["Cygwin"]["CygwinMirror"];
             string pathname = Globals.AppPath;
             int flag = 1;
             ShellExecute(0, "open", path, parameter, pathname, flag);
@@ -135,7 +135,7 @@ namespace CygwinPortableCS
         private void CybeSystemsRunCygwinSetupWithPorts(object sender, EventArgs e)
         {
             string path = Globals.AppPath + "\\Runtime\\Cygwin\\CygwinConfig.exe";
-            string parameter = " -K http://cygwinports.org/ports.gpg -R " + Globals.AppPath + "\\Runtime\\cygwin\\ -l " + Globals.AppPath + "\\Runtime\\cygwin\\packages -n -d -N -s " + Globals.Config["Main"]["CygwinPortsMirror"].StringValue;
+            string parameter = " -K http://cygwinports.org/ports.gpg -R " + Globals.AppPath + "\\Runtime\\cygwin\\ -l " + Globals.AppPath + "\\Runtime\\cygwin\\packages -n -d -N -s " + (string)Globals.MainConfig["Cygwin"]["CygwinPortsMirror"];
             string pathname = Globals.AppPath;
             int flag = 1;
             ShellExecute(0, "open", path, parameter, pathname, flag);

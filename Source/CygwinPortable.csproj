@@ -77,8 +77,8 @@
     <ApplicationIcon>Resources\appicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SharpConfig, Version=1.4.4.0, Culture=neutral, PublicKeyToken=c1deedac91bd7724, processorArchitecture=MSIL">
-      <HintPath>..\packages\sharpconfig.1.4.4\lib\net20\SharpConfig.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net20\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="class\Cygwin.cs" />
+    <Compile Include="class\Helpers.cs" />
     <Compile Include="class\IconFromFile.cs" />
     <Compile Include="class\SetRegistryPath.cs" />
     <Compile Include="Form_ConfigForm.cs">

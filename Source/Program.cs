@@ -5,7 +5,8 @@ using System.IO;
 using System.Reflection;
 using System.Security.Principal;
 using System.Windows.Forms;
-using SharpConfig;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace CygwinPortableCS
 {
@@ -72,105 +73,40 @@ namespace CygwinPortableCS
                 Globals.RuntimeSettings["Mono"] = false;
             }
 
-
-            bool iniFileExists = true;
-            if (!File.Exists(Globals.ConfigPath + "\\Configuration.ini"))
+            bool configFileExists = true;
+            if (!File.Exists(Globals.ConfigPath + "\\Configuration.json"))
             {
-                Globals.Config = new Configuration();
-                iniFileExists = false;
-            }
-            else
-            {
-                Globals.Config = Configuration.LoadFromFile(Globals.ConfigPath + "\\Configuration.ini");
+                configFileExists = false;
             }
 
-            if (Globals.Config["Main"]["ExecutableExtension"].StringValue == "")
-            {
-                Globals.Config["Main"]["ExecutableExtension"].SetValue("exe,bat,sh,pl,bat,py");
-            }
-            if (Globals.Config["Main"]["ExecutableExtension"].StringValue == "")
-            {
-                Globals.Config["Main"]["ExecutableExtension"].SetValue("exe,bat,sh,pl,bat,py");
-            }
-            if (Globals.Config["Main"]["ExitAfterExec"].StringValue == "")
-            {
-                Globals.Config["Main"]["ExitAfterExec"].SetValue("false");
-            }
-            if (Globals.Config["Main"]["SetContextMenu"].StringValue == "")
-            {
-                Globals.Config["Main"]["SetContextMenu"].SetValue("true");
-            }
-            if (Globals.Config["Main"]["TrayMenu"].StringValue == "")
-            {
-                Globals.Config["Main"]["TrayMenu"].SetValue("true");
-            }
-            if (Globals.Config["Main"]["Shell"].StringValue == "")
-            {
-                Globals.Config["Main"]["Shell"].SetValue("ConEmu");
-            }
-            if (Globals.Config["Main"]["NoMsgBox"].StringValue == "")
-            {
-                Globals.Config["Main"]["NoMsgBox"].SetValue("false");
-            }
-            if (Globals.Config["Main"]["CygwinMirror"].StringValue == "")
-            {
-                Globals.Config["Main"]["CygwinMirror"].SetValue("http://lug.mtu.edu/cygwin");
-            }
-            if (Globals.Config["Main"]["CygwinPortsMirror"].StringValue == "")
-            {
-                Globals.Config["Main"]["CygwinPortsMirror"].SetValue("ftp://ftp.cygwinports.org/pub/cygwinports");
-            }
-            if (Globals.Config["Main"]["CygwinFirstInstallDeleteUnneeded"].StringValue == "")
-            {
-                Globals.Config["Main"]["CygwinFirstInstallDeleteUnneeded"].SetValue("true");
-            }
-            if (Globals.Config["Main"]["InstallUnofficial"].StringValue == "")
-            {
-                Globals.Config["Main"]["InstallUnofficial"].SetValue("true");
-            }
-            if (Globals.Config["Main"]["WindowsPathToCygwin"].StringValue == "")
-            {
-                Globals.Config["Main"]["WindowsPathToCygwin"].SetValue("true");
-            }
-            if (Globals.Config["Main"]["WindowsAdditionalPath"].StringValue == "")
-            {
-                Globals.Config["Main"]["WindowsAdditionalPath"].SetValue("/cygdrive/c/python27;/cygdrive/c/windows;/cygdrive/c/windows/system32;/cygdrive/c/windows/SysWOW64");
-            }
-            if (Globals.Config["Main"]["WindowsPythonPath"].StringValue == "")
-            {
-                Globals.Config["Main"]["WindowsPythonPath"].SetValue("/cygdrive/c/python27");
-            }
-            if (Globals.Config["Main"]["CygwinX86URL"].StringValue == "")
-            {
-                Globals.Config["Main"]["CygwinX86URL"].SetValue("https://www.cygwin.com/setup-x86.exe");
-            }
-            if (Globals.Config["Main"]["CygwinX64URL"].StringValue == "")
-            {
-                Globals.Config["Main"]["CygwinX64URL"].SetValue("https://www.cygwin.com/setup-x86_64.exe");
-            }
+            Globals.MainConfig["Cygwin"] = new JObject();
+            Globals.MainConfig["Cygwin"]["Username"] = "cygwin";
+            Globals.MainConfig["Cygwin"]["ExitAfterExec"] = false;
+            Globals.MainConfig["Cygwin"]["SetContextMenu"] = true;
+            Globals.MainConfig["Cygwin"]["TrayMenu"] = true;
+            Globals.MainConfig["Cygwin"]["Shell"] = "ConEmu";
+            Globals.MainConfig["Cygwin"]["ExecutableExtension"] = "exe,bat,sh,pl,bat,py";
+            Globals.MainConfig["Cygwin"]["NoMsgBox"] = false;
+            Globals.MainConfig["Cygwin"]["CygwinMirror"] = "http://mirrors.kernel.org/sourceware/cygwin/";
+            Globals.MainConfig["Cygwin"]["CygwinPortsMirror"] = "ftp://ftp.cygwinports.org/pub/cygwinports";
+            Globals.MainConfig["Cygwin"]["CygwinFirstInstallDeleteUnneeded"] = true;
+            Globals.MainConfig["Cygwin"]["InstallUnofficial"] = true;
+            Globals.MainConfig["Cygwin"]["WindowsPathToCygwin"] = true;
+            Globals.MainConfig["Cygwin"]["WindowsAdditionalPath"] = "/cygdrive/c/python27;/cygdrive/c/windows;/cygdrive/c/windows/system32;/cygdrive/c/windows/SysWOW64";
+            Globals.MainConfig["Cygwin"]["WindowsPythonPath"] = "/cygdrive/c/python27";
+            Globals.MainConfig["Cygwin"]["CygwinX86URL"] = "https://www.cygwin.com/setup-x86.exe";
+            Globals.MainConfig["Cygwin"]["CygwinX64URL"] = "https://www.cygwin.com/setup-x86_64.exe";
 
-
-            if (Globals.Config["Static"]["Username"].StringValue == "")
-            {
-                Globals.Config["Static"]["Username"].SetValue("cygwin");
-            }
-
-            if (Globals.Config["Expert"]["CygwinDeleteInstallation"].StringValue == "")
-            {
-                Globals.Config["Expert"]["CygwinDeleteInstallation"].SetValue("false");
-            }
-            if (Globals.Config["Expert"]["CygwinDeleteInstallationFolders"].StringValue == "")
-            {
-                Globals.Config["Expert"]["CygwinDeleteInstallationFolders"].SetValue("xbin,cygdrive,dev,etc,home,lib,packages,tmp,usr,var");
-            }
+            Globals.MainConfig["Cygwin"]["CygwinDeleteInstallation"] = false;
+            Globals.MainConfig["Cygwin"]["CygwinDeleteInstallationFolders"] = "xbin,cygdrive,dev,etc,home,lib,packages,tmp,usr,var";
 
             //Check if Delete Installation Flag is set
-            if (Globals.Config["Expert"]["CygwinDeleteInstallation"].BoolValue)
+            if ((bool)Globals.MainConfig["Cygwin"]["CygwinDeleteInstallation"])
             {
                 DialogResult dialogResult = MessageBox.Show("Do you REALLY want to delete and reinstall your Cygwin installation ?", "Delete/Reinstall Cygwin", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    foreach (string folder in (Globals.Config["Expert"]["CygwinDeleteInstallationFolders"].StringValue).Split(','))
+                    foreach (string folder in ((string)Globals.MainConfig["Cygwin"]["CygwinDeleteInstallationFolders"]).Split(','))
                     {
                         Directory.Delete(Globals.AppPath + "\\Runtime\\Cygwin\\" + folder, true);
                     }
@@ -187,10 +123,14 @@ namespace CygwinPortableCS
             }
 
             //Config.SaveConfig();
-            if (!iniFileExists)
+            if (!configFileExists)
             {
-                Globals.Config.SaveToFile(Globals.ConfigPath + "\\Configuration.ini");
-                iniFileExists = true;
+                System.IO.File.WriteAllText(Globals.ConfigPath + "\\Configuration.json", JsonConvert.SerializeObject(Globals.MainConfig["Cygwin"], Formatting.Indented));
+                
+                configFileExists = true;
+            } else
+            {
+                Helpers.MergeCsDictionaryAndSave((JObject)Globals.MainConfig["Cygwin"], Globals.ConfigPath + "\\Configuration.json");
             }
 
             //Check if Cygwin exists
@@ -206,12 +146,19 @@ namespace CygwinPortableCS
                 var downloadForm = new Form_Download();
                 downloadForm.ShowDialog();
 
-                File.Move(Globals.ConfigPath + "\\setup-x86.exe", Globals.AppPath + "\\Runtime\\Cygwin\\CygwinConfig.exe");
+                if (Globals.RuntimeSettings["x86x64Download"].ToString() == "x64")
+                {
+                    File.Move(Globals.ConfigPath + "\\setup-x86_64.exe", Globals.AppPath + "\\Runtime\\Cygwin\\CygwinConfig.exe");
+                }
+                else
+                {
+                    File.Move(Globals.ConfigPath + "\\setup-x86.exe", Globals.AppPath + "\\Runtime\\Cygwin\\CygwinConfig.exe");
+                }
 
                 String cygInstallerArgs = "-R " + Globals.AppPath + "\\Runtime\\Cygwin\\" + " -l " + Globals.AppPath +
                                "\\Runtime\\Cygwin\\packages -n -d -N -s " +
-                               Globals.Config["Main"]["CygwinMirror"].StringValue + " -q -P " +
-                               Globals.RuntimeSettings["CygwinFirstInstallAdditions"];
+                               (string)Globals.MainConfig["Cygwin"]["CygwinMirror"] + " -q -P " +
+                               (string)Globals.RuntimeSettings["CygwinFirstInstallAdditions"];
                 Process cygInstaller = new Process();
                 cygInstaller.StartInfo.UseShellExecute = false;
                 cygInstaller.StartInfo.Arguments = cygInstallerArgs;
@@ -219,7 +166,7 @@ namespace CygwinPortableCS
                 cygInstaller.Start();
                 cygInstaller.WaitForExit();
 
-                if (Globals.Config["Main"]["CygwinFirstInstallDeleteUnneeded"].BoolValue)
+                if ((bool)Globals.MainConfig["Cygwin"]["CygwinFirstInstallDeleteUnneeded"])
                 {
                     File.Delete(Globals.AppPath + "\\Runtime\\Cygwin\\Cygwin.ico");
                     File.Delete(Globals.AppPath + "\\Runtime\\Cygwin\\Cygwin.bat");
@@ -227,19 +174,28 @@ namespace CygwinPortableCS
                     File.Delete(Globals.AppPath + "\\Runtime\\Cygwin\\setup.log.full'");
                 }
 
-                Form_Download.Copy(Globals.AppPath + "\\DefaultData\\cygwin\\home", Globals.AppPath + "\\Runtime\\Cygwin\\home\\" + Globals.Config["Static"]["Username"].StringValue);
+                Form_Download.Copy(Globals.AppPath + "\\DefaultData\\cygwin\\home", Globals.AppPath + "\\Runtime\\Cygwin\\home\\" + (string)Globals.MainConfig["Cygwin"]["Username"]);
                 Form_Download.Copy(Globals.AppPath + "\\DefaultData\\cygwin\\bin", Globals.AppPath + "\\Runtime\\Cygwin\\bin");
+
+                if (Globals.RuntimeSettings["x86x64Download"].ToString() == "x64")
+                {
+                    Form_Download.Copy(Globals.AppPath + "\\DefaultData\\cygwin_x86_x64\\bin", Globals.AppPath + "\\Runtime\\Cygwin\\bin");
+                }
+                else
+                {
+                    Form_Download.Copy(Globals.AppPath + "\\DefaultData\\cygwin_x86\\bin", Globals.AppPath + "\\Runtime\\Cygwin\\bin");
+                }
             }
 
             //Check if ConEmu is installed
-            if (!Directory.Exists(Globals.AppPath + "\\Runtime\\ConEmu") && Globals.Config["Main"]["Shell"].StringValue == "ConEmu")
+            if (!Directory.Exists(Globals.AppPath + "\\Runtime\\ConEmu") && (string)Globals.MainConfig["Cygwin"]["Shell"] == "ConEmu")
             {
-                Globals.Config["Main"]["Shell"].StringValue = "mintty";
+                Globals.MainConfig["Cygwin"]["Shell"] = "mintty";
             }
 
-            if (Globals.Config["Static"]["Username"].StringValue == "")
+            if ((string)Globals.MainConfig["Cygwin"]["Username"] == "")
             {
-                Globals.Config["Static"]["Username"].StringValue = "cygwin";
+                Globals.MainConfig["Cygwin"]["Username"] = "cygwin";
             }
 
 
@@ -263,8 +219,8 @@ namespace CygwinPortableCS
     //Define Global Variables 
     public class Globals
     {
-        public static Configuration Config = new Configuration();
-        public static IDictionary<string, object> RuntimeSettings = new Dictionary<string, object>();
+        public static JObject MainConfig = new JObject();
+        public static JObject RuntimeSettings = new JObject();
 
         public static string ExeFile = "";
         public static string AppPath = "";
