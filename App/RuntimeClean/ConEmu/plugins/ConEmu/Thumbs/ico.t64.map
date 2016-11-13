@@ -1,312 +1,468 @@
  ico
 
- Timestamp is 564923de (Mon Nov 16 03:31:26 2015)
+ Timestamp is 580beec9 (Sun Oct 23 01:57:13 2016)
 
  Preferred load address is 0000000180000000
 
  Start         Length     Name                   Class
- 0001:00000000 00000148H .idata$5                CODE
- 0001:00000150 00000708H .rdata                  CODE
- 0001:00000858 00000060H .rdata$debug            CODE
- 0001:000008c0 000026eaH .text                   CODE
- 0001:00002fac 00000318H .xdata                  CODE
- 0001:000032c4 00000050H .idata$2                CODE
- 0001:00003314 00000014H .idata$3                CODE
- 0001:00003328 00000148H .idata$4                CODE
- 0001:00003470 000002a8H .idata$6                CODE
- 0001:00003720 00000091H .edata                  CODE
- 0002:00000000 00000004H .data                   DATA
- 0002:00000010 00008894H .bss                    DATA
- 0003:00000000 00000270H .pdata                  DATA
- 0004:00000000 00000058H .rsrc$01                DATA
- 0004:00000060 000002a0H .rsrc$02                DATA
+ 0001:00000000 000007b4H .rdata                  CODE
+ 0001:000007b4 000001acH .rdata$zzzdbg           CODE
+ 0001:00000960 000000fcH .text                   CODE
+ 0001:00000a5c 00002318H .text$mn                CODE
+ 0001:00002d74 000002ccH .xdata                  CODE
+ 0001:00003040 00000091H .edata                  CODE
+ 0002:00000000 00000010H .data                   DATA
+ 0002:00000010 000088b0H .bss                    DATA
+ 0003:00000000 00000228H .pdata                  DATA
+ 0004:00000000 00000118H .idata$5                DATA
+ 0004:00000118 00000050H .idata$2                DATA
+ 0004:00000168 00000018H .idata$3                DATA
+ 0004:00000180 00000118H .idata$4                DATA
+ 0004:00000298 00000252H .idata$6                DATA
+ 0005:00000000 00000060H .rsrc$01                DATA
+ 0005:00000060 00000308H .rsrc$02                DATA
 
   Address         Publics by Value              Rva+Base               Lib:Object
 
+ 0000:00000000       __guard_flags              0000000000000000     <absolute>
+ 0000:00000000       __guard_fids_count         0000000000000000     <absolute>
+ 0000:00000000       __dynamic_value_reloc_table 0000000000000000     <absolute>
  0000:00000000       ___safe_se_handler_table   0000000000000000     <absolute>
+ 0000:00000000       __guard_longjmp_count      0000000000000000     <absolute>
+ 0000:00000000       __guard_fids_table         0000000000000000     <absolute>
+ 0000:00000000       __guard_longjmp_table      0000000000000000     <absolute>
  0000:00000000       ___safe_se_handler_count   0000000000000000     <absolute>
- 0000:00000000       __ImageBase                0000000180000000     <linker-defined>
- 0001:00000000       __imp_HeapFree             0000000180001000     kernel32:KERNEL32.dll
- 0001:00000008       __imp_GetProcessHeap       0000000180001008     kernel32:KERNEL32.dll
- 0001:00000010       __imp_HeapAlloc            0000000180001010     kernel32:KERNEL32.dll
- 0001:00000018       __imp_HeapReAlloc          0000000180001018     kernel32:KERNEL32.dll
- 0001:00000020       __imp_SystemTimeToFileTime 0000000180001020     kernel32:KERNEL32.dll
- 0001:00000028       __imp_GetLocalTime         0000000180001028     kernel32:KERNEL32.dll
- 0001:00000030       __imp_HeapCreate           0000000180001030     kernel32:KERNEL32.dll
- 0001:00000038       __imp_HeapDestroy          0000000180001038     kernel32:KERNEL32.dll
- 0001:00000040       __imp_HeapValidate         0000000180001040     kernel32:KERNEL32.dll
- 0001:00000048       __imp_lstrcpyA             0000000180001048     kernel32:KERNEL32.dll
- 0001:00000050       __imp_lstrlenA             0000000180001050     kernel32:KERNEL32.dll
- 0001:00000058       __imp_lstrcpyW             0000000180001058     kernel32:KERNEL32.dll
- 0001:00000060       __imp_lstrlenW             0000000180001060     kernel32:KERNEL32.dll
- 0001:00000068       __imp_MultiByteToWideChar  0000000180001068     kernel32:KERNEL32.dll
- 0001:00000070       __imp_lstrcpynA            0000000180001070     kernel32:KERNEL32.dll
- 0001:00000078       __imp_GetTickCount         0000000180001078     kernel32:KERNEL32.dll
- 0001:00000080       __imp_GetCurrentThreadId   0000000180001080     kernel32:KERNEL32.dll
- 0001:00000088       __imp_SetLastError         0000000180001088     kernel32:KERNEL32.dll
- 0001:00000090       __imp_ResumeThread         0000000180001090     kernel32:KERNEL32.dll
- 0001:00000098       __imp_GetLastError         0000000180001098     kernel32:KERNEL32.dll
- 0001:000000a0       __imp_CreateThread         00000001800010a0     kernel32:KERNEL32.dll
- 0001:000000a8       __imp_TerminateThread      00000001800010a8     kernel32:KERNEL32.dll
- 0001:000000b0       \177KERNEL32_NULL_THUNK_DATA 00000001800010b0     kernel32:KERNEL32.dll
- 0001:000000b8       __imp_wsprintfA            00000001800010b8     user32:USER32.dll
- 0001:000000c0       __imp_wsprintfW            00000001800010c0     user32:USER32.dll
- 0001:000000c8       \177USER32_NULL_THUNK_DATA 00000001800010c8     user32:USER32.dll
- 0001:000000d0       __imp_GdipCloneImage       00000001800010d0     gdiplus:gdiplus.dll
- 0001:000000d8       __imp_GdiplusStartup       00000001800010d8     gdiplus:gdiplus.dll
- 0001:000000e0       __imp_GdiplusShutdown      00000001800010e0     gdiplus:gdiplus.dll
- 0001:000000e8       __imp_GdipAlloc            00000001800010e8     gdiplus:gdiplus.dll
- 0001:000000f0       __imp_GdipFree             00000001800010f0     gdiplus:gdiplus.dll
- 0001:000000f8       __imp_GdipDisposeImage     00000001800010f8     gdiplus:gdiplus.dll
- 0001:00000100       __imp_GdipGetImagePixelFormat 0000000180001100     gdiplus:gdiplus.dll
- 0001:00000108       __imp_GdipCreateBitmapFromStream 0000000180001108     gdiplus:gdiplus.dll
- 0001:00000110       __imp_GdipCreateBitmapFromStreamICM 0000000180001110     gdiplus:gdiplus.dll
- 0001:00000118       __imp_GdipBitmapLockBits   0000000180001118     gdiplus:gdiplus.dll
- 0001:00000120       __imp_GdipBitmapUnlockBits 0000000180001120     gdiplus:gdiplus.dll
- 0001:00000128       \177gdiplus_NULL_THUNK_DATA 0000000180001128     gdiplus:gdiplus.dll
- 0001:00000130       __imp_CoInitialize         0000000180001130     ole32:ole32.dll
- 0001:00000138       __imp_CoUninitialize       0000000180001138     ole32:ole32.dll
- 0001:00000140       \177ole32_NULL_THUNK_DATA  0000000180001140     ole32:ole32.dll
- 0001:00000170       ??_7Image@Gdiplus@@6B@     0000000180001170     ico.obj
- 0001:00000180       ??_7Bitmap@Gdiplus@@6B@    0000000180001180     ico.obj
- 0001:00000190       ??_7MStream@@6B@           0000000180001190     ico.obj
- 0001:00000200       ??_C@_1BA@HKGHICED@?$AAI?$AAC?$AAO?$AA?4?$AAD?$AAI?$AAB?$AA?$AA@ 0000000180001200     ico.obj
- 0001:00000210       ??_C@_1BA@KIENHNBI@?$AAI?$AAC?$AAO?$AA?4?$AAP?$AAN?$AAG?$AA?$AA@ 0000000180001210     ico.obj
- 0001:00000220       ??_C@_1DE@JEFKLGFF@?$AA?$CF?$AAi?$AA?5?$AAx?$AA?5?$AA?$CF?$AAi?$AA?5?$AAx?$AA?5?$AA?$CF?$AAi?$AAb?$AAp?$AAp?$AA?5?$AA?$FL?$AA?$CF?$AAi?$AA?$FN?$AA?5?$AA?$CF?$AAs?$AA?$CF?$AAs?$AA?$AA@ 0000000180001220     ico.obj
- 0001:00000258       ??_C@_1O@PALLNO@?$AA?5?$AA?$FL?$AAP?$AAN?$AAG?$AA?$FN?$AA?$AA@ 0000000180001258     ico.obj
- 0001:00000268       ??_C@_17IILLPF@?$AAC?$AAU?$AAR?$AA?$AA@ 0000000180001268     ico.obj
- 0001:00000270       ??_C@_11LOCGONAA@?$AA?$AA@ 0000000180001270     ico.obj
- 0001:00000278       ??_C@_17OGLEMJPJ@?$AAI?$AAC?$AAO?$AA?$AA@ 0000000180001278     ico.obj
- 0001:00000280       ??_C@_05LCABBMOG@?$CFs?3?$CFi?$AA@ 0000000180001280     WThreads.obj
- 0001:00000288       IID_IUnknown               0000000180001288     uuid:unknwn_i.obj
- 0001:00000298       IID_AsyncIUnknown          0000000180001298     uuid:unknwn_i.obj
- 0001:000002a8       IID_IClassFactory          00000001800012a8     uuid:unknwn_i.obj
- 0001:000002b8       IID_IMarshal               00000001800012b8     uuid:objidl_i.obj
- 0001:000002c8       IID_IMarshal2              00000001800012c8     uuid:objidl_i.obj
- 0001:000002d8       IID_IMalloc                00000001800012d8     uuid:objidl_i.obj
- 0001:000002e8       IID_IMallocSpy             00000001800012e8     uuid:objidl_i.obj
- 0001:000002f8       IID_IStdMarshalInfo        00000001800012f8     uuid:objidl_i.obj
- 0001:00000308       IID_IExternalConnection    0000000180001308     uuid:objidl_i.obj
- 0001:00000318       IID_IMultiQI               0000000180001318     uuid:objidl_i.obj
- 0001:00000328       IID_AsyncIMultiQI          0000000180001328     uuid:objidl_i.obj
- 0001:00000338       IID_IInternalUnknown       0000000180001338     uuid:objidl_i.obj
- 0001:00000348       IID_IEnumUnknown           0000000180001348     uuid:objidl_i.obj
- 0001:00000358       IID_IBindCtx               0000000180001358     uuid:objidl_i.obj
- 0001:00000368       IID_IEnumMoniker           0000000180001368     uuid:objidl_i.obj
- 0001:00000378       IID_IRunnableObject        0000000180001378     uuid:objidl_i.obj
- 0001:00000388       IID_IRunningObjectTable    0000000180001388     uuid:objidl_i.obj
- 0001:00000398       IID_IPersist               0000000180001398     uuid:objidl_i.obj
- 0001:000003a8       IID_IPersistStream         00000001800013a8     uuid:objidl_i.obj
- 0001:000003b8       IID_IMoniker               00000001800013b8     uuid:objidl_i.obj
- 0001:000003c8       IID_IROTData               00000001800013c8     uuid:objidl_i.obj
- 0001:000003d8       IID_IEnumString            00000001800013d8     uuid:objidl_i.obj
- 0001:000003e8       IID_ISequentialStream      00000001800013e8     uuid:objidl_i.obj
- 0001:000003f8       IID_IStream                00000001800013f8     uuid:objidl_i.obj
- 0001:00000408       IID_IEnumSTATSTG           0000000180001408     uuid:objidl_i.obj
- 0001:00000418       IID_IStorage               0000000180001418     uuid:objidl_i.obj
- 0001:00000428       IID_IPersistFile           0000000180001428     uuid:objidl_i.obj
- 0001:00000438       IID_IPersistStorage        0000000180001438     uuid:objidl_i.obj
- 0001:00000448       IID_ILockBytes             0000000180001448     uuid:objidl_i.obj
- 0001:00000458       IID_IEnumFORMATETC         0000000180001458     uuid:objidl_i.obj
- 0001:00000468       IID_IEnumSTATDATA          0000000180001468     uuid:objidl_i.obj
- 0001:00000478       IID_IRootStorage           0000000180001478     uuid:objidl_i.obj
- 0001:00000488       IID_IAdviseSink            0000000180001488     uuid:objidl_i.obj
- 0001:00000498       IID_AsyncIAdviseSink       0000000180001498     uuid:objidl_i.obj
- 0001:000004a8       IID_IAdviseSink2           00000001800014a8     uuid:objidl_i.obj
- 0001:000004b8       IID_AsyncIAdviseSink2      00000001800014b8     uuid:objidl_i.obj
- 0001:000004c8       IID_IDataObject            00000001800014c8     uuid:objidl_i.obj
- 0001:000004d8       IID_IDataAdviseHolder      00000001800014d8     uuid:objidl_i.obj
- 0001:000004e8       IID_IMessageFilter         00000001800014e8     uuid:objidl_i.obj
- 0001:000004f8       IID_IRpcChannelBuffer      00000001800014f8     uuid:objidl_i.obj
- 0001:00000508       IID_IRpcChannelBuffer2     0000000180001508     uuid:objidl_i.obj
- 0001:00000518       IID_IAsyncRpcChannelBuffer 0000000180001518     uuid:objidl_i.obj
- 0001:00000528       IID_IRpcChannelBuffer3     0000000180001528     uuid:objidl_i.obj
- 0001:00000538       IID_IRpcSyntaxNegotiate    0000000180001538     uuid:objidl_i.obj
- 0001:00000548       IID_IRpcProxyBuffer        0000000180001548     uuid:objidl_i.obj
- 0001:00000558       IID_IRpcStubBuffer         0000000180001558     uuid:objidl_i.obj
- 0001:00000568       IID_IPSFactoryBuffer       0000000180001568     uuid:objidl_i.obj
- 0001:00000578       IID_IChannelHook           0000000180001578     uuid:objidl_i.obj
- 0001:00000588       IID_IClientSecurity        0000000180001588     uuid:objidl_i.obj
- 0001:00000598       IID_IServerSecurity        0000000180001598     uuid:objidl_i.obj
- 0001:000005a8       IID_IClassActivator        00000001800015a8     uuid:objidl_i.obj
- 0001:000005b8       IID_IRpcOptions            00000001800015b8     uuid:objidl_i.obj
- 0001:000005c8       IID_IGlobalOptions         00000001800015c8     uuid:objidl_i.obj
- 0001:000005d8       IID_IFillLockBytes         00000001800015d8     uuid:objidl_i.obj
- 0001:000005e8       IID_IProgressNotify        00000001800015e8     uuid:objidl_i.obj
- 0001:000005f8       IID_ILayoutStorage         00000001800015f8     uuid:objidl_i.obj
- 0001:00000608       IID_IBlockingLock          0000000180001608     uuid:objidl_i.obj
- 0001:00000618       IID_ITimeAndNoticeControl  0000000180001618     uuid:objidl_i.obj
- 0001:00000628       IID_IOplockStorage         0000000180001628     uuid:objidl_i.obj
- 0001:00000638       IID_ISurrogate             0000000180001638     uuid:objidl_i.obj
- 0001:00000648       IID_IGlobalInterfaceTable  0000000180001648     uuid:objidl_i.obj
- 0001:00000658       IID_IDirectWriterLock      0000000180001658     uuid:objidl_i.obj
- 0001:00000668       IID_ISynchronize           0000000180001668     uuid:objidl_i.obj
- 0001:00000678       IID_ISynchronizeHandle     0000000180001678     uuid:objidl_i.obj
- 0001:00000688       IID_ISynchronizeEvent      0000000180001688     uuid:objidl_i.obj
- 0001:00000698       IID_ISynchronizeContainer  0000000180001698     uuid:objidl_i.obj
- 0001:000006a8       IID_ISynchronizeMutex      00000001800016a8     uuid:objidl_i.obj
- 0001:000006b8       IID_ICancelMethodCalls     00000001800016b8     uuid:objidl_i.obj
- 0001:000006c8       IID_IAsyncManager          00000001800016c8     uuid:objidl_i.obj
- 0001:000006d8       IID_ICallFactory           00000001800016d8     uuid:objidl_i.obj
- 0001:000006e8       IID_IRpcHelper             00000001800016e8     uuid:objidl_i.obj
- 0001:000006f8       IID_IReleaseMarshalBuffers 00000001800016f8     uuid:objidl_i.obj
- 0001:00000708       IID_IWaitMultiple          0000000180001708     uuid:objidl_i.obj
- 0001:00000718       IID_IUrlMon                0000000180001718     uuid:objidl_i.obj
- 0001:00000728       IID_IForegroundTransfer    0000000180001728     uuid:objidl_i.obj
- 0001:00000738       IID_IAddrTrackingControl   0000000180001738     uuid:objidl_i.obj
- 0001:00000748       IID_IAddrExclusionControl  0000000180001748     uuid:objidl_i.obj
- 0001:00000758       IID_IPipeByte              0000000180001758     uuid:objidl_i.obj
- 0001:00000768       IID_AsyncIPipeByte         0000000180001768     uuid:objidl_i.obj
- 0001:00000778       IID_IPipeLong              0000000180001778     uuid:objidl_i.obj
- 0001:00000788       IID_AsyncIPipeLong         0000000180001788     uuid:objidl_i.obj
- 0001:00000798       IID_IPipeDouble            0000000180001798     uuid:objidl_i.obj
- 0001:000007a8       IID_AsyncIPipeDouble       00000001800017a8     uuid:objidl_i.obj
- 0001:000007b8       IID_IThumbnailExtractor    00000001800017b8     uuid:objidl_i.obj
- 0001:000007c8       IID_IDummyHICONIncluder    00000001800017c8     uuid:objidl_i.obj
- 0001:000007d8       IID_IEnumContextProps      00000001800017d8     uuid:objidl_i.obj
- 0001:000007e8       IID_IContext               00000001800017e8     uuid:objidl_i.obj
- 0001:000007f8       IID_IObjContext            00000001800017f8     uuid:objidl_i.obj
- 0001:00000808       IID_IProcessLock           0000000180001808     uuid:objidl_i.obj
- 0001:00000818       IID_ISurrogateService      0000000180001818     uuid:objidl_i.obj
- 0001:00000828       IID_IComThreadingInfo      0000000180001828     uuid:objidl_i.obj
- 0001:00000838       IID_IProcessInitControl    0000000180001838     uuid:objidl_i.obj
- 0001:00000848       IID_IInitializeSpy         0000000180001848     uuid:objidl_i.obj
- 0001:000008c0       ??2GdiplusBase@Gdiplus@@SAPEAX_K@Z 00000001800018c0 f i ico.obj
- 0001:000008c8       ??0Rect@Gdiplus@@QEAA@HHHH@Z 00000001800018c8 f i ico.obj
- 0001:000008e0       ??0GdiplusStartupInput@Gdiplus@@QEAA@P6AXW4DebugEventLevel@1@PEAD@ZHH@Z 00000001800018e0 f i ico.obj
- 0001:000008f8       ??0Image@Gdiplus@@IEAA@XZ  00000001800018f8 f i ico.obj
- 0001:00000908       ??3GdiplusBase@Gdiplus@@SAXPEAX@Z 0000000180001908 f i ico.obj
- 0001:00000910       ?SetStatus@Image@Gdiplus@@IEBA?AW4Status@2@W432@@Z 0000000180001910 f i ico.obj
- 0001:00000920       ??1Image@Gdiplus@@UEAA@XZ  0000000180001920 f i ico.obj
- 0001:00000934       ?GetPixelFormat@Image@Gdiplus@@QEAAHXZ 0000000180001934 f i ico.obj
- 0001:0000095c       ?SetNativeImage@Image@Gdiplus@@IEAAXPEAVGpImage@2@@Z 000000018000195c f i ico.obj
- 0001:00000964       ??0Bitmap@Gdiplus@@QEAA@PEAUIStream@@H@Z 0000000180001964 f i ico.obj
- 0001:000009b0       ??1Bitmap@Gdiplus@@UEAA@XZ 00000001800019b0 f i ico.obj
- 0001:000009c4       ?FromStream@Bitmap@Gdiplus@@SAPEAV12@PEAUIStream@@H@Z 00000001800019c4 f i ico.obj
- 0001:00000a38       ?LockBits@Bitmap@Gdiplus@@QEAA?AW4Status@2@PEBVRect@2@IHPEAVBitmapData@2@@Z 0000000180001a38 f i ico.obj
- 0001:00000a68       ?UnlockBits@Bitmap@Gdiplus@@QEAA?AW4Status@2@PEAVBitmapData@2@@Z 0000000180001a68 f i ico.obj
- 0001:00000a8c       ??_H@YAXPEAX_KHP6APEAX0@Z@Z 0000000180001a8c f i ico.obj
- 0001:00000ad0       ??1MStream@@QEAA@XZ        0000000180001ad0 f i ico.obj
- 0001:00000b28       IsEqualGUID                0000000180001b28 f i ico.obj
- 0001:00000b54       ==                         0000000180001b54 f i ico.obj
- 0001:00000b80       ?SetData@MStream@@QEAAXPEBXK@Z 0000000180001b80 f i ico.obj
- 0001:00000be8       ?QueryInterface@MStream@@UEAAJAEBU_GUID@@PEAPEAX@Z 0000000180001be8 f i ico.obj
- 0001:00000c88       ?AddRef@MStream@@UEAAKXZ   0000000180001c88 f i ico.obj
- 0001:00000c98       ?Read@MStream@@UEAAJPEAXKPEAK@Z 0000000180001c98 f i ico.obj
- 0001:00000d20       ?Write@MStream@@UEAAJPEBXKPEAK@Z 0000000180001d20 f i ico.obj
- 0001:00000de8       ?Seek@MStream@@UEAAJT_LARGE_INTEGER@@KPEAT_ULARGE_INTEGER@@@Z 0000000180001de8 f i ico.obj
- 0001:00000e58       ?SetSize@MStream@@UEAAJT_ULARGE_INTEGER@@@Z 0000000180001e58 f i ico.obj
- 0001:00000f0c       ?CopyTo@MStream@@UEAAJPEAUIStream@@T_ULARGE_INTEGER@@PEAT3@2@Z 0000000180001f0c f i ico.obj
- 0001:00000f14       ?Commit@MStream@@UEAAJK@Z  0000000180001f14 f i ico.obj
- 0001:00000f20       ?Revert@MStream@@UEAAJXZ   0000000180001f20 f i ico.obj
- 0001:00000f28       ?LockRegion@MStream@@UEAAJT_ULARGE_INTEGER@@0K@Z 0000000180001f28 f i ico.obj
- 0001:00000f30       ?UnlockRegion@MStream@@UEAAJT_ULARGE_INTEGER@@0K@Z 0000000180001f30 f i ico.obj
- 0001:00000f38       ?Stat@MStream@@UEAAJPEAUtagSTATSTG@@K@Z 0000000180001f38 f i ico.obj
- 0001:00000f98       ?Clone@MStream@@UEAAJPEAPEAUIStream@@@Z 0000000180001f98 f i ico.obj
- 0001:00000fa0       ??_GMStream@@QEAAPEAXI@Z   0000000180001fa0 f i ico.obj
- 0001:00001014       ??0IUnknown@@QEAA@XZ       0000000180002014 f i ico.obj
- 0001:00001018       ?LoadPageInfo@@YAKPEAUICONCONTEXT@@HAEAI111PEAPEB_W@Z 0000000180002018 f   ico.obj
- 0001:0000119c       ?Decode1BPP@@YAPEAEIIPEAUtagRGBQUAD@@PEAE1AEAK@Z 000000018000219c f   ico.obj
- 0001:000012b0       ?Decode4BPP@@YAPEAEIIPEAUtagRGBQUAD@@PEAE1AEAK@Z 00000001800022b0 f   ico.obj
- 0001:000013ec       ?Decode8BPP@@YAPEAEAEAIIPEAUtagRGBQUAD@@PEAE2AEAK@Z 00000001800023ec f   ico.obj
- 0001:00001514       ?Decode24BPP@@YAPEAEAEAIIPEAE1AEAK@Z 0000000180002514 f   ico.obj
- 0001:00001710       ?Decode32BPP@@YAPEAEAEAIIPEAE1AEAK@Z 0000000180002710 f   ico.obj
- 0001:0000181c       ?DecodeDummy@@YAPEAEIIAEAK@Z 000000018000281c f   ico.obj
- 0001:0000187c       ?Init@ICODecoder@@QEAAHPEAUCET_Init@@@Z 000000018000287c f i ico.obj
- 0001:000018f0       ?Close@ICODecoder@@QEAAXXZ 00000001800028f0 f i ico.obj
- 0001:00001938       ?Open@ICOImage@@QEAAH_NPEB_WPEBEKU_COORD@@@Z 0000000180002938 f i ico.obj
- 0001:00001b58       ?Close@ICOImage@@QEAAXXZ   0000000180002b58 f i ico.obj
- 0001:00001bd8       ?CET_Init@@YAHPEAU0@@Z     0000000180002bd8 f   ico.obj
- 0001:00001c9c       ?CET_Done@@YAXPEAUCET_Init@@@Z 0000000180002c9c f   ico.obj
- 0001:00001cfc       ?CET_Free@@YAXPEAUCET_LoadInfo@@@Z 0000000180002cfc f   ico.obj
- 0001:00001d3c       ?CET_Cancel@@YAXPEAX@Z     0000000180002d3c f   ico.obj
- 0001:00001d54       ??_EImage@Gdiplus@@UEAAPEAXI@Z 0000000180002d54 f i ico.obj
- 0001:00001d54       ??_GImage@Gdiplus@@UEAAPEAXI@Z 0000000180002d54 f i ico.obj
- 0001:00001d94       ??0Image@Gdiplus@@IEAA@PEAVGpImage@1@W4Status@1@@Z 0000000180002d94 f i ico.obj
- 0001:00001dac       ??_EBitmap@Gdiplus@@UEAAPEAXI@Z 0000000180002dac f i ico.obj
- 0001:00001dac       ??_GBitmap@Gdiplus@@UEAAPEAXI@Z 0000000180002dac f i ico.obj
- 0001:00001dec       ?Release@MStream@@UEAAKXZ  0000000180002dec f i ico.obj
- 0001:00001e18       ??0ISequentialStream@@QEAA@XZ 0000000180002e18 f i ico.obj
- 0001:00001e1c       ?Clone@Image@Gdiplus@@UEAAPEAV12@XZ 0000000180002e1c f i ico.obj
- 0001:00001e74       ??0IStream@@QEAA@XZ        0000000180002e74 f i ico.obj
- 0001:00001e78       ??0MStream@@QEAA@XZ        0000000180002e78 f i ico.obj
- 0001:00001ea0       ?PageDecode@ICOImage@@QEAAHPEAUCET_LoadInfo@@@Z 0000000180002ea0 f i ico.obj
- 0001:000022d4       ?GetPageBits@ICOImage@@QEAAHPEAUCET_LoadInfo@@@Z 00000001800032d4 f i ico.obj
- 0001:0000244c       ?CET_Load@@YAHPEAUCET_LoadInfo@@@Z 000000018000344c f   ico.obj
- 0001:000025b8       ?HeapInitialize@@YA_NXZ    00000001800035b8 f   Memory.obj
- 0001:000025f0       ?HeapDeinitialize@@YAXXZ   00000001800035f0 f   Memory.obj
- 0001:00002614       ?xf_malloc@@YAPEAX_K@Z     0000000180003614 f   Memory.obj
- 0001:00002628       ?xf_calloc@@YAPEAX_K0@Z    0000000180003628 f   Memory.obj
- 0001:00002644       ?xf_realloc@@YAPEAXPEAX_K@Z 0000000180003644 f   Memory.obj
- 0001:00002680       ?xf_free@@YAXPEAX@Z        0000000180003680 f   Memory.obj
- 0001:000026a8       ?xf_validate@@YA_NPEAX@Z   00000001800036a8 f   Memory.obj
- 0001:000026cc       ??2@YAPEAX_K@Z             00000001800036cc f   Memory.obj
- 0001:000026e0       ??_U@YAPEAX_K@Z            00000001800036e0 f   Memory.obj
- 0001:000026f4       ??3@YAXPEAX@Z              00000001800036f4 f   Memory.obj
- 0001:000026fc       ??_V@YAXPEAX@Z             00000001800036fc f   Memory.obj
- 0001:00002704       ?lstrdup@@YAPEADPEBD@Z     0000000180003704 f   Memory.obj
- 0001:00002768       ?lstrdup@@YAPEA_WPEB_W_K@Z 0000000180003768 f   Memory.obj
- 0001:000027e0       ?lstrdupW@@YAPEA_WPEBDI@Z  00000001800037e0 f   Memory.obj
- 0001:00002870       ?lstrmerge@@YAPEA_WPEB_W0000@Z 0000000180003870 f   Memory.obj
- 0001:00002964       ?lstrmerge@@YA_NPEAPEA_WPEB_W111@Z 0000000180003964 f   Memory.obj
- 0001:000029a8       ??0ConEmuThreadStartArg@@QEAA@P6AKPEAX@Z0K@Z 00000001800039a8 f i WThreads.obj
- 0001:000029c0       ?apiThreadHelper@@YAKPEAX@Z 00000001800039c0 f   WThreads.obj
- 0001:00002b94       ?apiCreateThread@@YAPEAXP6AKPEAX@Z0PEAKPEBDH@Z 0000000180003b94 f   WThreads.obj
- 0001:00002ce0       ?apiTerminateThreadEx@@YAHPEAXKPEBDH@Z 0000000180003ce0 f   WThreads.obj
- 0001:00002df0       memmove                    0000000180003df0 f   libCRT64:memmove.obj
- 0001:00002e50       memset                     0000000180003e50 f   libCRT64:memset.obj
- 0001:00002e80       strchr                     0000000180003e80 f   libCRT64:strchr.obj
- 0001:00002ea0       strrchr                    0000000180003ea0 f   libCRT64:strrchr.obj
- 0001:00002ecc       HeapFree                   0000000180003ecc f   kernel32:KERNEL32.dll
- 0001:00002ed2       GetProcessHeap             0000000180003ed2 f   kernel32:KERNEL32.dll
- 0001:00002ed8       HeapAlloc                  0000000180003ed8 f   kernel32:KERNEL32.dll
- 0001:00002ede       HeapReAlloc                0000000180003ede f   kernel32:KERNEL32.dll
- 0001:00002ee4       SystemTimeToFileTime       0000000180003ee4 f   kernel32:KERNEL32.dll
- 0001:00002eea       GetLocalTime               0000000180003eea f   kernel32:KERNEL32.dll
- 0001:00002ef0       HeapCreate                 0000000180003ef0 f   kernel32:KERNEL32.dll
- 0001:00002ef6       HeapDestroy                0000000180003ef6 f   kernel32:KERNEL32.dll
- 0001:00002efc       HeapValidate               0000000180003efc f   kernel32:KERNEL32.dll
- 0001:00002f02       lstrcpyA                   0000000180003f02 f   kernel32:KERNEL32.dll
- 0001:00002f08       lstrlenA                   0000000180003f08 f   kernel32:KERNEL32.dll
- 0001:00002f0e       lstrcpyW                   0000000180003f0e f   kernel32:KERNEL32.dll
- 0001:00002f14       lstrlenW                   0000000180003f14 f   kernel32:KERNEL32.dll
- 0001:00002f1a       MultiByteToWideChar        0000000180003f1a f   kernel32:KERNEL32.dll
- 0001:00002f20       lstrcpynA                  0000000180003f20 f   kernel32:KERNEL32.dll
- 0001:00002f26       GetTickCount               0000000180003f26 f   kernel32:KERNEL32.dll
- 0001:00002f2c       GetCurrentThreadId         0000000180003f2c f   kernel32:KERNEL32.dll
- 0001:00002f32       SetLastError               0000000180003f32 f   kernel32:KERNEL32.dll
- 0001:00002f38       ResumeThread               0000000180003f38 f   kernel32:KERNEL32.dll
- 0001:00002f3e       GetLastError               0000000180003f3e f   kernel32:KERNEL32.dll
- 0001:00002f44       CreateThread               0000000180003f44 f   kernel32:KERNEL32.dll
- 0001:00002f4a       TerminateThread            0000000180003f4a f   kernel32:KERNEL32.dll
- 0001:00002f50       wsprintfW                  0000000180003f50 f   user32:USER32.dll
- 0001:00002f56       wsprintfA                  0000000180003f56 f   user32:USER32.dll
- 0001:00002f5c       CoInitialize               0000000180003f5c f   ole32:ole32.dll
- 0001:00002f62       CoUninitialize             0000000180003f62 f   ole32:ole32.dll
- 0001:00002f68       GdipAlloc                  0000000180003f68 f   gdiplus:gdiplus.dll
- 0001:00002f6e       GdipFree                   0000000180003f6e f   gdiplus:gdiplus.dll
- 0001:00002f74       GdipDisposeImage           0000000180003f74 f   gdiplus:gdiplus.dll
- 0001:00002f7a       GdipGetImagePixelFormat    0000000180003f7a f   gdiplus:gdiplus.dll
- 0001:00002f80       GdipCreateBitmapFromStream 0000000180003f80 f   gdiplus:gdiplus.dll
- 0001:00002f86       GdipCreateBitmapFromStreamICM 0000000180003f86 f   gdiplus:gdiplus.dll
- 0001:00002f8c       GdipBitmapLockBits         0000000180003f8c f   gdiplus:gdiplus.dll
- 0001:00002f92       GdipBitmapUnlockBits       0000000180003f92 f   gdiplus:gdiplus.dll
- 0001:00002f98       GdiplusShutdown            0000000180003f98 f   gdiplus:gdiplus.dll
- 0001:00002f9e       GdiplusStartup             0000000180003f9e f   gdiplus:gdiplus.dll
- 0001:00002fa4       GdipCloneImage             0000000180003fa4 f   gdiplus:gdiplus.dll
- 0001:000032c4       __IMPORT_DESCRIPTOR_KERNEL32 00000001800042c4     kernel32:KERNEL32.dll
- 0001:000032d8       __IMPORT_DESCRIPTOR_USER32 00000001800042d8     user32:USER32.dll
- 0001:000032ec       __IMPORT_DESCRIPTOR_ole32  00000001800042ec     ole32:ole32.dll
- 0001:00003300       __IMPORT_DESCRIPTOR_gdiplus 0000000180004300     gdiplus:gdiplus.dll
- 0001:00003314       __NULL_IMPORT_DESCRIPTOR   0000000180004314     kernel32:KERNEL32.dll
+ 0000:00000000       __guard_iat_table          0000000000000000     <absolute>
+ 0000:00000000       __guard_iat_count          0000000000000000     <absolute>
+ 0001:00000000       ??_7Image@Gdiplus@@6B@     0000000180001000     ico.obj
+ 0001:00000010       ??_7Bitmap@Gdiplus@@6B@    0000000180001010     ico.obj
+ 0001:00000020       ??_7MStream@@6B@           0000000180001020     ico.obj
+ 0001:00000090       ??_C@_1BA@KIENHNBI@?$AAI?$AAC?$AAO?$AA?4?$AAP?$AAN?$AAG?$AA?$AA@ 0000000180001090     ico.obj
+ 0001:000000a0       ??_C@_1BA@HKGHICED@?$AAI?$AAC?$AAO?$AA?4?$AAD?$AAI?$AAB?$AA?$AA@ 00000001800010a0     ico.obj
+ 0001:000000b0       ??_C@_1O@PALLNO@?$AA?5?$AA?$FL?$AAP?$AAN?$AAG?$AA?$FN?$AA?$AA@ 00000001800010b0     ico.obj
+ 0001:000000c0       ??_C@_11LOCGONAA@?$AA?$AA@ 00000001800010c0     ico.obj
+ 0001:000000c8       ??_C@_17OGLEMJPJ@?$AAI?$AAC?$AAO?$AA?$AA@ 00000001800010c8     ico.obj
+ 0001:000000d0       ??_C@_17IILLPF@?$AAC?$AAU?$AAR?$AA?$AA@ 00000001800010d0     ico.obj
+ 0001:000000d8       ??_C@_1DE@JEFKLGFF@?$AA?$CF?$AAi?$AA?5?$AAx?$AA?5?$AA?$CF?$AAi?$AA?5?$AAx?$AA?5?$AA?$CF?$AAi?$AAb?$AAp?$AAp?$AA?5?$AA?$FL?$AA?$CF?$AAi?$AA?$FN?$AA?5?$AA?$CF?$AAs?$AA?$CF?$AAs?$AA?$AA@ 00000001800010d8     ico.obj
+ 0001:0000010c       ??_C@_05LCABBMOG@?$CFs?3?$CFi?$AA@ 000000018000110c     WThreads.obj
+ 0001:00000118       IID_IUnknown               0000000180001118     uuid:unknwn_i.obj
+ 0001:00000128       IID_AsyncIUnknown          0000000180001128     uuid:unknwn_i.obj
+ 0001:00000138       IID_IClassFactory          0000000180001138     uuid:unknwn_i.obj
+ 0001:00000148       IID_IMarshal               0000000180001148     uuid:objidl_i.obj
+ 0001:00000158       IID_INoMarshal             0000000180001158     uuid:objidl_i.obj
+ 0001:00000168       IID_IAgileObject           0000000180001168     uuid:objidl_i.obj
+ 0001:00000178       IID_IActivationFilter      0000000180001178     uuid:objidl_i.obj
+ 0001:00000188       IID_IMarshal2              0000000180001188     uuid:objidl_i.obj
+ 0001:00000198       IID_IMalloc                0000000180001198     uuid:objidl_i.obj
+ 0001:000001a8       IID_IStdMarshalInfo        00000001800011a8     uuid:objidl_i.obj
+ 0001:000001b8       IID_IExternalConnection    00000001800011b8     uuid:objidl_i.obj
+ 0001:000001c8       IID_IMultiQI               00000001800011c8     uuid:objidl_i.obj
+ 0001:000001d8       IID_AsyncIMultiQI          00000001800011d8     uuid:objidl_i.obj
+ 0001:000001e8       IID_IInternalUnknown       00000001800011e8     uuid:objidl_i.obj
+ 0001:000001f8       IID_IEnumUnknown           00000001800011f8     uuid:objidl_i.obj
+ 0001:00000208       IID_IEnumString            0000000180001208     uuid:objidl_i.obj
+ 0001:00000218       IID_ISequentialStream      0000000180001218     uuid:objidl_i.obj
+ 0001:00000228       IID_IStream                0000000180001228     uuid:objidl_i.obj
+ 0001:00000238       IID_IRpcChannelBuffer      0000000180001238     uuid:objidl_i.obj
+ 0001:00000248       IID_IRpcChannelBuffer2     0000000180001248     uuid:objidl_i.obj
+ 0001:00000258       IID_IAsyncRpcChannelBuffer 0000000180001258     uuid:objidl_i.obj
+ 0001:00000268       IID_IRpcChannelBuffer3     0000000180001268     uuid:objidl_i.obj
+ 0001:00000278       IID_IRpcSyntaxNegotiate    0000000180001278     uuid:objidl_i.obj
+ 0001:00000288       IID_IRpcProxyBuffer        0000000180001288     uuid:objidl_i.obj
+ 0001:00000298       IID_IRpcStubBuffer         0000000180001298     uuid:objidl_i.obj
+ 0001:000002a8       IID_IPSFactoryBuffer       00000001800012a8     uuid:objidl_i.obj
+ 0001:000002b8       IID_IChannelHook           00000001800012b8     uuid:objidl_i.obj
+ 0001:000002c8       IID_IClientSecurity        00000001800012c8     uuid:objidl_i.obj
+ 0001:000002d8       IID_IServerSecurity        00000001800012d8     uuid:objidl_i.obj
+ 0001:000002e8       IID_IRpcOptions            00000001800012e8     uuid:objidl_i.obj
+ 0001:000002f8       IID_IGlobalOptions         00000001800012f8     uuid:objidl_i.obj
+ 0001:00000308       IID_ISurrogate             0000000180001308     uuid:objidl_i.obj
+ 0001:00000318       IID_IGlobalInterfaceTable  0000000180001318     uuid:objidl_i.obj
+ 0001:00000328       IID_ISynchronize           0000000180001328     uuid:objidl_i.obj
+ 0001:00000338       IID_ISynchronizeHandle     0000000180001338     uuid:objidl_i.obj
+ 0001:00000348       IID_ISynchronizeEvent      0000000180001348     uuid:objidl_i.obj
+ 0001:00000358       IID_ISynchronizeContainer  0000000180001358     uuid:objidl_i.obj
+ 0001:00000368       IID_ISynchronizeMutex      0000000180001368     uuid:objidl_i.obj
+ 0001:00000378       IID_ICancelMethodCalls     0000000180001378     uuid:objidl_i.obj
+ 0001:00000388       IID_IAsyncManager          0000000180001388     uuid:objidl_i.obj
+ 0001:00000398       IID_ICallFactory           0000000180001398     uuid:objidl_i.obj
+ 0001:000003a8       IID_IRpcHelper             00000001800013a8     uuid:objidl_i.obj
+ 0001:000003b8       IID_IReleaseMarshalBuffers 00000001800013b8     uuid:objidl_i.obj
+ 0001:000003c8       IID_IWaitMultiple          00000001800013c8     uuid:objidl_i.obj
+ 0001:000003d8       IID_IAddrTrackingControl   00000001800013d8     uuid:objidl_i.obj
+ 0001:000003e8       IID_IAddrExclusionControl  00000001800013e8     uuid:objidl_i.obj
+ 0001:000003f8       IID_IPipeByte              00000001800013f8     uuid:objidl_i.obj
+ 0001:00000408       IID_AsyncIPipeByte         0000000180001408     uuid:objidl_i.obj
+ 0001:00000418       IID_IPipeLong              0000000180001418     uuid:objidl_i.obj
+ 0001:00000428       IID_AsyncIPipeLong         0000000180001428     uuid:objidl_i.obj
+ 0001:00000438       IID_IPipeDouble            0000000180001438     uuid:objidl_i.obj
+ 0001:00000448       IID_AsyncIPipeDouble       0000000180001448     uuid:objidl_i.obj
+ 0001:00000458       IID_IEnumContextProps      0000000180001458     uuid:objidl_i.obj
+ 0001:00000468       IID_IContext               0000000180001468     uuid:objidl_i.obj
+ 0001:00000478       IID_IObjContext            0000000180001478     uuid:objidl_i.obj
+ 0001:00000488       IID_IComThreadingInfo      0000000180001488     uuid:objidl_i.obj
+ 0001:00000498       IID_IProcessInitControl    0000000180001498     uuid:objidl_i.obj
+ 0001:000004a8       IID_IFastRundown           00000001800014a8     uuid:objidl_i.obj
+ 0001:000004b8       IID_IMarshalingStream      00000001800014b8     uuid:objidl_i.obj
+ 0001:000004c8       IID_IAgileReference        00000001800014c8     uuid:objidl_i.obj
+ 0001:000004d8       IID_IMallocSpy             00000001800014d8     uuid:objidl_i.obj
+ 0001:000004e8       IID_IBindCtx               00000001800014e8     uuid:objidl_i.obj
+ 0001:000004f8       IID_IEnumMoniker           00000001800014f8     uuid:objidl_i.obj
+ 0001:00000508       IID_IRunnableObject        0000000180001508     uuid:objidl_i.obj
+ 0001:00000518       IID_IRunningObjectTable    0000000180001518     uuid:objidl_i.obj
+ 0001:00000528       IID_IPersist               0000000180001528     uuid:objidl_i.obj
+ 0001:00000538       IID_IPersistStream         0000000180001538     uuid:objidl_i.obj
+ 0001:00000548       IID_IMoniker               0000000180001548     uuid:objidl_i.obj
+ 0001:00000558       IID_IROTData               0000000180001558     uuid:objidl_i.obj
+ 0001:00000568       IID_IEnumSTATSTG           0000000180001568     uuid:objidl_i.obj
+ 0001:00000578       IID_IStorage               0000000180001578     uuid:objidl_i.obj
+ 0001:00000588       IID_IPersistFile           0000000180001588     uuid:objidl_i.obj
+ 0001:00000598       IID_IPersistStorage        0000000180001598     uuid:objidl_i.obj
+ 0001:000005a8       IID_ILockBytes             00000001800015a8     uuid:objidl_i.obj
+ 0001:000005b8       IID_IEnumFORMATETC         00000001800015b8     uuid:objidl_i.obj
+ 0001:000005c8       IID_IEnumSTATDATA          00000001800015c8     uuid:objidl_i.obj
+ 0001:000005d8       IID_IRootStorage           00000001800015d8     uuid:objidl_i.obj
+ 0001:000005e8       IID_IAdviseSink            00000001800015e8     uuid:objidl_i.obj
+ 0001:000005f8       IID_AsyncIAdviseSink       00000001800015f8     uuid:objidl_i.obj
+ 0001:00000608       IID_IAdviseSink2           0000000180001608     uuid:objidl_i.obj
+ 0001:00000618       IID_AsyncIAdviseSink2      0000000180001618     uuid:objidl_i.obj
+ 0001:00000628       IID_IDataObject            0000000180001628     uuid:objidl_i.obj
+ 0001:00000638       IID_IDataAdviseHolder      0000000180001638     uuid:objidl_i.obj
+ 0001:00000648       IID_IMessageFilter         0000000180001648     uuid:objidl_i.obj
+ 0001:00000658       IID_IClassActivator        0000000180001658     uuid:objidl_i.obj
+ 0001:00000668       IID_IFillLockBytes         0000000180001668     uuid:objidl_i.obj
+ 0001:00000678       IID_IProgressNotify        0000000180001678     uuid:objidl_i.obj
+ 0001:00000688       IID_ILayoutStorage         0000000180001688     uuid:objidl_i.obj
+ 0001:00000698       IID_IBlockingLock          0000000180001698     uuid:objidl_i.obj
+ 0001:000006a8       IID_ITimeAndNoticeControl  00000001800016a8     uuid:objidl_i.obj
+ 0001:000006b8       IID_IOplockStorage         00000001800016b8     uuid:objidl_i.obj
+ 0001:000006c8       IID_IDirectWriterLock      00000001800016c8     uuid:objidl_i.obj
+ 0001:000006d8       IID_IUrlMon                00000001800016d8     uuid:objidl_i.obj
+ 0001:000006e8       IID_IForegroundTransfer    00000001800016e8     uuid:objidl_i.obj
+ 0001:000006f8       IID_IThumbnailExtractor    00000001800016f8     uuid:objidl_i.obj
+ 0001:00000708       IID_IDummyHICONIncluder    0000000180001708     uuid:objidl_i.obj
+ 0001:00000718       IID_IProcessLock           0000000180001718     uuid:objidl_i.obj
+ 0001:00000728       IID_ISurrogateService      0000000180001728     uuid:objidl_i.obj
+ 0001:00000738       IID_IInitializeSpy         0000000180001738     uuid:objidl_i.obj
+ 0001:00000748       IID_IApartmentShutdown     0000000180001748     uuid:objidl_i.obj
+ 0001:00000960       memmove                    0000000180001960 f   libCRT64:memmove.obj
+ 0001:000009c0       memset                     00000001800019c0 f   libCRT64:memset.obj
+ 0001:000009f0       wcschr                     00000001800019f0 f   libCRT64:strchr.obj
+ 0001:00000a10       strchr                     0000000180001a10 f   libCRT64:strchr.obj
+ 0001:00000a30       strrchr                    0000000180001a30 f   libCRT64:strrchr.obj
+ 0001:00000a5c       ==                         0000000180001a5c f i ico.obj
+ 0001:00000a74       ??0Bitmap@Gdiplus@@QEAA@PEAUIStream@@H@Z 0000000180001a74 f i ico.obj
+ 0001:00000ac0       ??0GdiplusStartupInput@Gdiplus@@QEAA@P6AXW4DebugEventLevel@1@PEAD@ZHH@Z 0000000180001ac0 f i ico.obj
+ 0001:00000ad8       ??0ISequentialStream@@QEAA@XZ 0000000180001ad8 f i ico.obj
+ 0001:00000adc       ??0IStream@@QEAA@XZ        0000000180001adc f i ico.obj
+ 0001:00000ae0       ??0IUnknown@@QEAA@XZ       0000000180001ae0 f i ico.obj
+ 0001:00000ae4       ??0Image@Gdiplus@@IEAA@PEAVGpImage@1@W4Status@1@@Z 0000000180001ae4 f i ico.obj
+ 0001:00000afc       ??0Image@Gdiplus@@IEAA@XZ  0000000180001afc f i ico.obj
+ 0001:00000b0c       ??0MStream@@QEAA@XZ        0000000180001b0c f i ico.obj
+ 0001:00000b34       ??0Rect@Gdiplus@@QEAA@HHHH@Z 0000000180001b34 f i ico.obj
+ 0001:00000b4c       ??1Bitmap@Gdiplus@@UEAA@XZ 0000000180001b4c f i ico.obj
+ 0001:00000b60       ??1Image@Gdiplus@@UEAA@XZ  0000000180001b60 f i ico.obj
+ 0001:00000b74       ??1MStream@@QEAA@XZ        0000000180001b74 f i ico.obj
+ 0001:00000bcc       ??2GdiplusBase@Gdiplus@@SAPEAX_K@Z 0000000180001bcc f i ico.obj
+ 0001:00000bd4       ??3GdiplusBase@Gdiplus@@SAXPEAX@Z 0000000180001bd4 f i ico.obj
+ 0001:00000bdc       ??_GBitmap@Gdiplus@@UEAAPEAXI@Z 0000000180001bdc f i ico.obj
+ 0001:00000bdc       ??_EBitmap@Gdiplus@@UEAAPEAXI@Z 0000000180001bdc f i ico.obj
+ 0001:00000c2c       ??_GImage@Gdiplus@@UEAAPEAXI@Z 0000000180001c2c f i ico.obj
+ 0001:00000c2c       ??_EImage@Gdiplus@@UEAAPEAXI@Z 0000000180001c2c f i ico.obj
+ 0001:00000c7c       ??_GMStream@@QEAAPEAXI@Z   0000000180001c7c f i ico.obj
+ 0001:00000cf4       ??_H@YAXPEAX_K1P6APEAX0@Z@Z 0000000180001cf4 f i ico.obj
+ 0001:00000d3c       ?AddRef@MStream@@UEAAKXZ   0000000180001d3c f i ico.obj
+ 0001:00000d50       ?CET_Cancel@@YAXPEAX@Z     0000000180001d50 f   ico.obj
+ 0001:00000d68       ?CET_Done@@YAXPEAUCET_Init@@@Z 0000000180001d68 f   ico.obj
+ 0001:00000dc8       ?CET_Free@@YAXPEAUCET_LoadInfo@@@Z 0000000180001dc8 f   ico.obj
+ 0001:00000dfc       ?CET_Init@@YAHPEAU0@@Z     0000000180001dfc f   ico.obj
+ 0001:00000ec0       ?CET_Load@@YAHPEAUCET_LoadInfo@@@Z 0000000180001ec0 f   ico.obj
+ 0001:0000102c       ?Clone@Image@Gdiplus@@UEAAPEAV12@XZ 000000018000202c f i ico.obj
+ 0001:00001080       ?Clone@MStream@@UEAAJPEAPEAUIStream@@@Z 0000000180002080 f i ico.obj
+ 0001:00001088       ?Close@ICODecoder@@QEAAXXZ 0000000180002088 f i ico.obj
+ 0001:000010d0       ?Close@ICOImage@@QEAAXXZ   00000001800020d0 f i ico.obj
+ 0001:00001150       ?Commit@MStream@@UEAAJK@Z  0000000180002150 f i ico.obj
+ 0001:0000115c       ?CopyTo@MStream@@UEAAJPEAUIStream@@T_ULARGE_INTEGER@@PEAT3@2@Z 000000018000215c f i ico.obj
+ 0001:00001164       ?Decode1BPP@@YAPEAEIIPEAUtagRGBQUAD@@PEAE1AEAK@Z 0000000180002164 f   ico.obj
+ 0001:0000126c       ?Decode24BPP@@YAPEAEAEAIIPEAE1AEAK@Z 000000018000226c f   ico.obj
+ 0001:00001464       ?Decode32BPP@@YAPEAEAEAIIPEAE1AEAK@Z 0000000180002464 f   ico.obj
+ 0001:0000156c       ?Decode4BPP@@YAPEAEIIPEAUtagRGBQUAD@@PEAE1AEAK@Z 000000018000256c f   ico.obj
+ 0001:00001698       ?Decode8BPP@@YAPEAEAEAIIPEAUtagRGBQUAD@@PEAE2AEAK@Z 0000000180002698 f   ico.obj
+ 0001:000017ac       ?DecodeDummy@@YAPEAEIIAEAK@Z 00000001800027ac f   ico.obj
+ 0001:0000180c       ?FromStream@Bitmap@Gdiplus@@SAPEAV12@PEAUIStream@@H@Z 000000018000280c f i ico.obj
+ 0001:00001880       ?GetPageBits@ICOImage@@QEAAHPEAUCET_LoadInfo@@@Z 0000000180002880 f i ico.obj
+ 0001:000019d0       ?GetPixelFormat@Image@Gdiplus@@QEAAHXZ 00000001800029d0 f i ico.obj
+ 0001:000019f8       ?Init@ICODecoder@@QEAAHPEAUCET_Init@@@Z 00000001800029f8 f i ico.obj
+ 0001:00001a6c       ?LoadPageInfo@@YAKPEAUICONCONTEXT@@HAEAI111PEAPEB_W@Z 0000000180002a6c f   ico.obj
+ 0001:00001bf4       ?LockBits@Bitmap@Gdiplus@@QEAA?AW4Status@2@PEBVRect@2@IHPEAVBitmapData@2@@Z 0000000180002bf4 f i ico.obj
+ 0001:00001c24       ?LockRegion@MStream@@UEAAJT_ULARGE_INTEGER@@0K@Z 0000000180002c24 f i ico.obj
+ 0001:00001c2c       ?Open@ICOImage@@QEAAH_NPEB_WPEBEKU_COORD@@@Z 0000000180002c2c f i ico.obj
+ 0001:00001e4c       ?PageDecode@ICOImage@@QEAAHPEAUCET_LoadInfo@@@Z 0000000180002e4c f i ico.obj
+ 0001:00002278       ?QueryInterface@MStream@@UEAAJAEBU_GUID@@PEAPEAX@Z 0000000180003278 f i ico.obj
+ 0001:000022e0       ?Read@MStream@@UEAAJPEAXKPEAK@Z 00000001800032e0 f i ico.obj
+ 0001:00002368       ?Release@MStream@@UEAAKXZ  0000000180003368 f i ico.obj
+ 0001:00002394       ?Revert@MStream@@UEAAJXZ   0000000180003394 f i ico.obj
+ 0001:0000239c       ?Seek@MStream@@UEAAJT_LARGE_INTEGER@@KPEAT_ULARGE_INTEGER@@@Z 000000018000339c f i ico.obj
+ 0001:00002400       ?SetData@MStream@@QEAAXPEBXK@Z 0000000180003400 f i ico.obj
+ 0001:00002468       ?SetNativeImage@Image@Gdiplus@@IEAAXPEAVGpImage@2@@Z 0000000180003468 f i ico.obj
+ 0001:00002470       ?SetSize@MStream@@UEAAJT_ULARGE_INTEGER@@@Z 0000000180003470 f i ico.obj
+ 0001:00002524       ?SetStatus@Image@Gdiplus@@IEBA?AW4Status@2@W432@@Z 0000000180003524 f i ico.obj
+ 0001:00002534       ?Stat@MStream@@UEAAJPEAUtagSTATSTG@@K@Z 0000000180003534 f i ico.obj
+ 0001:00002594       ?UnlockBits@Bitmap@Gdiplus@@QEAA?AW4Status@2@PEAVBitmapData@2@@Z 0000000180003594 f i ico.obj
+ 0001:000025b8       ?UnlockRegion@MStream@@UEAAJT_ULARGE_INTEGER@@0K@Z 00000001800035b8 f i ico.obj
+ 0001:000025c0       ?Write@MStream@@UEAAJPEBXKPEAK@Z 00000001800035c0 f i ico.obj
+ 0001:00002688       ?__empty_global_delete@@YAXPEAX@Z 0000000180003688 f i ico.obj
+ 0001:0000268c       ?__global_delete@@YAXPEAX_K@Z 000000018000368c f i ico.obj
+ 0001:0000268c       ?__empty_global_delete@@YAXPEAX_K@Z 000000018000368c f i ico.obj
+ 0001:00002690       IsEqualGUID                0000000180003690 f i ico.obj
+ 0001:000026ac       ?StripSourceRoot@@YAPEB_WPEB_W@Z 00000001800036ac f   MAssert.obj
+ 0001:00002724       ??2@YAPEAX_K@Z             0000000180003724 f   Memory.obj
+ 0001:00002758       ??3@YAXPEAX@Z              0000000180003758 f   Memory.obj
+ 0001:00002760       ??_U@YAPEAX_K@Z            0000000180003760 f   Memory.obj
+ 0001:00002774       ??_V@YAXPEAX@Z             0000000180003774 f   Memory.obj
+ 0001:0000277c       ?HeapDeinitialize@@YAXXZ   000000018000377c f   Memory.obj
+ 0001:000027a0       ?HeapInitialize@@YA_NXZ    00000001800037a0 f   Memory.obj
+ 0001:000027d8       ?xf_calloc@@YAPEAX_K0@Z    00000001800037d8 f   Memory.obj
+ 0001:000027f4       ?xf_free@@YAXPEAX@Z        00000001800037f4 f   Memory.obj
+ 0001:0000281c       ?xf_malloc@@YAPEAX_K@Z     000000018000381c f   Memory.obj
+ 0001:00002830       ?xf_realloc@@YAPEAXPEAX_K@Z 0000000180003830 f   Memory.obj
+ 0001:00002864       ?xf_validate@@YA_NPEAX@Z   0000000180003864 f   Memory.obj
+ 0001:00002868       ??0ConEmuThreadStartArg@@QEAA@P6AKPEAX@Z0K@Z 0000000180003868 f i WThreads.obj
+ 0001:00002880       ?apiCreateThread@@YAPEAXP6AKPEAX@Z0PEAKPEBDH@Z 0000000180003880 f   WThreads.obj
+ 0001:000029d0       ?apiTerminateThreadEx@@YAHPEAXKPEBDH@Z 00000001800039d0 f   WThreads.obj
+ 0001:00002adc       ?apiThreadHelper@@YAKPEAX@Z 0000000180003adc f   WThreads.obj
+ 0001:00002ca4       ?wasTerminateThreadCalled@@YA_NXZ 0000000180003ca4 f   WThreads.obj
+ 0001:00002cb0       HeapAlloc                  0000000180003cb0 f   kernel32:KERNEL32.dll
+ 0001:00002cb6       HeapReAlloc                0000000180003cb6 f   kernel32:KERNEL32.dll
+ 0001:00002cbc       HeapFree                   0000000180003cbc f   kernel32:KERNEL32.dll
+ 0001:00002cc2       GetProcessHeap             0000000180003cc2 f   kernel32:KERNEL32.dll
+ 0001:00002cc8       GetLocalTime               0000000180003cc8 f   kernel32:KERNEL32.dll
+ 0001:00002cce       SystemTimeToFileTime       0000000180003cce f   kernel32:KERNEL32.dll
+ 0001:00002cd4       HeapCreate                 0000000180003cd4 f   kernel32:KERNEL32.dll
+ 0001:00002cda       HeapDestroy                0000000180003cda f   kernel32:KERNEL32.dll
+ 0001:00002ce0       GetLastError               0000000180003ce0 f   kernel32:KERNEL32.dll
+ 0001:00002ce6       SetLastError               0000000180003ce6 f   kernel32:KERNEL32.dll
+ 0001:00002cec       CreateThread               0000000180003cec f   kernel32:KERNEL32.dll
+ 0001:00002cf2       GetCurrentThreadId         0000000180003cf2 f   kernel32:KERNEL32.dll
+ 0001:00002cf8       TerminateThread            0000000180003cf8 f   kernel32:KERNEL32.dll
+ 0001:00002cfe       ResumeThread               0000000180003cfe f   kernel32:KERNEL32.dll
+ 0001:00002d04       GetTickCount               0000000180003d04 f   kernel32:KERNEL32.dll
+ 0001:00002d0a       lstrcpynA                  0000000180003d0a f   kernel32:KERNEL32.dll
+ 0001:00002d10       wsprintfW                  0000000180003d10 f   user32:USER32.dll
+ 0001:00002d16       wsprintfA                  0000000180003d16 f   user32:USER32.dll
+ 0001:00002d1c       GdipAlloc                  0000000180003d1c f   gdiplus:gdiplus.dll
+ 0001:00002d22       GdipFree                   0000000180003d22 f   gdiplus:gdiplus.dll
+ 0001:00002d28       GdiplusStartup             0000000180003d28 f   gdiplus:gdiplus.dll
+ 0001:00002d2e       GdiplusShutdown            0000000180003d2e f   gdiplus:gdiplus.dll
+ 0001:00002d34       GdipCloneImage             0000000180003d34 f   gdiplus:gdiplus.dll
+ 0001:00002d3a       GdipDisposeImage           0000000180003d3a f   gdiplus:gdiplus.dll
+ 0001:00002d40       GdipGetImagePixelFormat    0000000180003d40 f   gdiplus:gdiplus.dll
+ 0001:00002d46       GdipCreateBitmapFromStream 0000000180003d46 f   gdiplus:gdiplus.dll
+ 0001:00002d4c       GdipCreateBitmapFromStreamICM 0000000180003d4c f   gdiplus:gdiplus.dll
+ 0001:00002d52       GdipBitmapLockBits         0000000180003d52 f   gdiplus:gdiplus.dll
+ 0001:00002d58       GdipBitmapUnlockBits       0000000180003d58 f   gdiplus:gdiplus.dll
+ 0001:00002d5e       CoUninitialize             0000000180003d5e f   ole32:ole32.dll
+ 0001:00002d64       CoInitialize               0000000180003d64 f   ole32:ole32.dll
+ 0001:00002d6c       ??3@YAXPEAX_K@Z            0000000180003d6c f   LIBCMT:delete_scalar_size.obj
  0002:00000000       ?g_TerminatedThreadIdx@@3JA 0000000180005000     WThreads.obj
- 0002:00000078       ?gnLastWin32Error@@3KA     0000000180005078     ico.obj
- 0002:00000080       ?ghModule@@3PEAUHINSTANCE__@@EA 0000000180005080     ico.obj
+ 0002:00000030       ?gnLastWin32Error@@3KA     0000000180005030     ico.obj
+ 0002:00000038       ?ghModule@@3PEAUHINSTANCE__@@EA 0000000180005038     ico.obj
  0002:00000088       ?AssertMsgBox@@3P6AHPEB_WI0PEAUHWND__@@_N@ZEA 0000000180005088     MAssert.obj
- 0002:00000090       ?ghHeap@@3PEAXEA           0000000180005090     Memory.obj
- 0002:000088a0       ?g_ThreadsIdx@@3JA         000000018000d8a0     WThreads.obj
+ 0002:00000090       ?gfnHooksUnlockerProc@@3P6A_N_N@ZEA 0000000180005090     MAssert.obj
+ 0002:00000098       ?ghHeap@@3PEAXEA           0000000180005098     Memory.obj
+ 0002:000000a0       ?g_LastDeletePtr@@3PEAXEA  00000001800050a0     Memory.obj
+ 0002:000000b0       ?g_ThreadsIdx@@3JA         00000001800050b0     WThreads.obj
+ 0004:00000000       __imp_HeapAlloc            000000018000f000     kernel32:KERNEL32.dll
+ 0004:00000008       __imp_HeapReAlloc          000000018000f008     kernel32:KERNEL32.dll
+ 0004:00000010       __imp_HeapFree             000000018000f010     kernel32:KERNEL32.dll
+ 0004:00000018       __imp_GetProcessHeap       000000018000f018     kernel32:KERNEL32.dll
+ 0004:00000020       __imp_GetLocalTime         000000018000f020     kernel32:KERNEL32.dll
+ 0004:00000028       __imp_SystemTimeToFileTime 000000018000f028     kernel32:KERNEL32.dll
+ 0004:00000030       __imp_HeapCreate           000000018000f030     kernel32:KERNEL32.dll
+ 0004:00000038       __imp_HeapDestroy          000000018000f038     kernel32:KERNEL32.dll
+ 0004:00000040       __imp_GetLastError         000000018000f040     kernel32:KERNEL32.dll
+ 0004:00000048       __imp_SetLastError         000000018000f048     kernel32:KERNEL32.dll
+ 0004:00000050       __imp_CreateThread         000000018000f050     kernel32:KERNEL32.dll
+ 0004:00000058       __imp_GetCurrentThreadId   000000018000f058     kernel32:KERNEL32.dll
+ 0004:00000060       __imp_TerminateThread      000000018000f060     kernel32:KERNEL32.dll
+ 0004:00000068       __imp_ResumeThread         000000018000f068     kernel32:KERNEL32.dll
+ 0004:00000070       __imp_GetTickCount         000000018000f070     kernel32:KERNEL32.dll
+ 0004:00000078       __imp_lstrcpynA            000000018000f078     kernel32:KERNEL32.dll
+ 0004:00000080       \177KERNEL32_NULL_THUNK_DATA 000000018000f080     kernel32:KERNEL32.dll
+ 0004:00000088       __imp_wsprintfW            000000018000f088     user32:USER32.dll
+ 0004:00000090       __imp_wsprintfA            000000018000f090     user32:USER32.dll
+ 0004:00000098       \177USER32_NULL_THUNK_DATA 000000018000f098     user32:USER32.dll
+ 0004:000000a0       __imp_GdipAlloc            000000018000f0a0     gdiplus:gdiplus.dll
+ 0004:000000a8       __imp_GdipFree             000000018000f0a8     gdiplus:gdiplus.dll
+ 0004:000000b0       __imp_GdiplusStartup       000000018000f0b0     gdiplus:gdiplus.dll
+ 0004:000000b8       __imp_GdiplusShutdown      000000018000f0b8     gdiplus:gdiplus.dll
+ 0004:000000c0       __imp_GdipCloneImage       000000018000f0c0     gdiplus:gdiplus.dll
+ 0004:000000c8       __imp_GdipDisposeImage     000000018000f0c8     gdiplus:gdiplus.dll
+ 0004:000000d0       __imp_GdipGetImagePixelFormat 000000018000f0d0     gdiplus:gdiplus.dll
+ 0004:000000d8       __imp_GdipCreateBitmapFromStream 000000018000f0d8     gdiplus:gdiplus.dll
+ 0004:000000e0       __imp_GdipCreateBitmapFromStreamICM 000000018000f0e0     gdiplus:gdiplus.dll
+ 0004:000000e8       __imp_GdipBitmapLockBits   000000018000f0e8     gdiplus:gdiplus.dll
+ 0004:000000f0       __imp_GdipBitmapUnlockBits 000000018000f0f0     gdiplus:gdiplus.dll
+ 0004:000000f8       \177gdiplus_NULL_THUNK_DATA 000000018000f0f8     gdiplus:gdiplus.dll
+ 0004:00000100       __imp_CoInitialize         000000018000f100     ole32:ole32.dll
+ 0004:00000108       __imp_CoUninitialize       000000018000f108     ole32:ole32.dll
+ 0004:00000110       \177ole32_NULL_THUNK_DATA  000000018000f110     ole32:ole32.dll
+ 0004:00000118       __IMPORT_DESCRIPTOR_KERNEL32 000000018000f118     kernel32:KERNEL32.dll
+ 0004:0000012c       __IMPORT_DESCRIPTOR_USER32 000000018000f12c     user32:USER32.dll
+ 0004:00000140       __IMPORT_DESCRIPTOR_gdiplus 000000018000f140     gdiplus:gdiplus.dll
+ 0004:00000154       __IMPORT_DESCRIPTOR_ole32  000000018000f154     ole32:ole32.dll
+ 0004:00000168       __NULL_IMPORT_DESCRIPTOR   000000018000f168     kernel32:KERNEL32.dll
 
  entry point at        0000:00000000
 
  Static symbols
 
+ 0000:fffee000       .debug$S                   0000000180000000     ole32:ole32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     ole32:ole32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     ico.exp
+ 0000:fffee000       .debug$S                   0000000180000000     gdiplus:gdiplus.dll
+ 0000:fffee000       .debug$S                   0000000180000000     gdiplus:gdiplus.dll
+ 0000:fffee000       .debug$S                   0000000180000000     gdiplus:gdiplus.dll
+ 0000:fffee000       .debug$S                   0000000180000000     gdiplus:gdiplus.dll
+ 0000:fffee000       .debug$S                   0000000180000000     gdiplus:gdiplus.dll
+ 0000:fffee000       .debug$S                   0000000180000000     gdiplus:gdiplus.dll
+ 0000:fffee000       .debug$S                   0000000180000000     gdiplus:gdiplus.dll
+ 0000:fffee000       .debug$S                   0000000180000000     gdiplus:gdiplus.dll
+ 0000:fffee000       .debug$S                   0000000180000000     gdiplus:gdiplus.dll
+ 0000:fffee000       .debug$S                   0000000180000000     gdiplus:gdiplus.dll
+ 0000:fffee000       .debug$S                   0000000180000000     gdiplus:gdiplus.dll
+ 0000:fffee000       .debug$S                   0000000180000000     user32:USER32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     user32:USER32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffee000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0001:00002d74       $unwind$??_H@YAXPEAX_K1P6APEAX0@Z@Z 0000000180003d74     ico.obj
+ 0001:00002d88       $unwind$?Clone@Image@Gdiplus@@UEAAPEAV12@XZ 0000000180003d88     ico.obj
+ 0001:00002d90       $unwind$?GetPixelFormat@Image@Gdiplus@@QEAAHXZ 0000000180003d90     ico.obj
+ 0001:00002d98       $unwind$??_GImage@Gdiplus@@UEAAPEAXI@Z 0000000180003d98     ico.obj
+ 0001:00002da4       $unwind$??0Bitmap@Gdiplus@@QEAA@PEAUIStream@@H@Z 0000000180003da4     ico.obj
+ 0001:00002dac       $unwind$?FromStream@Bitmap@Gdiplus@@SAPEAV12@PEAUIStream@@H@Z 0000000180003dac     ico.obj
+ 0001:00002dbc       $unwind$?LockBits@Bitmap@Gdiplus@@QEAA?AW4Status@2@PEBVRect@2@IHPEAVBitmapData@2@@Z 0000000180003dbc     ico.obj
+ 0001:00002dc4       $unwind$?UnlockBits@Bitmap@Gdiplus@@QEAA?AW4Status@2@PEAVBitmapData@2@@Z 0000000180003dc4     ico.obj
+ 0001:00002dcc       $unwind$??_GBitmap@Gdiplus@@UEAAPEAXI@Z 0000000180003dcc     ico.obj
+ 0001:00002dd8       $unwind$??1MStream@@QEAA@XZ 0000000180003dd8     ico.obj
+ 0001:00002de4       $unwind$?SetData@MStream@@QEAAXPEBXK@Z 0000000180003de4     ico.obj
+ 0001:00002df8       $unwind$?QueryInterface@MStream@@UEAAJAEBU_GUID@@PEAPEAX@Z 0000000180003df8     ico.obj
+ 0001:00002e00       $unwind$?Release@MStream@@UEAAKXZ 0000000180003e00     ico.obj
+ 0001:00002e08       $unwind$?Read@MStream@@UEAAJPEAXKPEAK@Z 0000000180003e08     ico.obj
+ 0001:00002e18       $unwind$?Write@MStream@@UEAAJPEBXKPEAK@Z 0000000180003e18     ico.obj
+ 0001:00002e30       $unwind$?Seek@MStream@@UEAAJT_LARGE_INTEGER@@KPEAT_ULARGE_INTEGER@@@Z 0000000180003e30     ico.obj
+ 0001:00002e38       $unwind$?SetSize@MStream@@UEAAJT_ULARGE_INTEGER@@@Z 0000000180003e38     ico.obj
+ 0001:00002e48       $unwind$?Stat@MStream@@UEAAJPEAUtagSTATSTG@@K@Z 0000000180003e48     ico.obj
+ 0001:00002e50       $unwind$??_GMStream@@QEAAPEAXI@Z 0000000180003e50     ico.obj
+ 0001:00002e60       $unwind$?LoadPageInfo@@YAKPEAUICONCONTEXT@@HAEAI111PEAPEB_W@Z 0000000180003e60     ico.obj
+ 0001:00002e70       $unwind$?Decode1BPP@@YAPEAEIIPEAUtagRGBQUAD@@PEAE1AEAK@Z 0000000180003e70     ico.obj
+ 0001:00002e8c       $unwind$?Decode4BPP@@YAPEAEIIPEAUtagRGBQUAD@@PEAE1AEAK@Z 0000000180003e8c     ico.obj
+ 0001:00002ea8       $unwind$?Decode8BPP@@YAPEAEAEAIIPEAUtagRGBQUAD@@PEAE2AEAK@Z 0000000180003ea8     ico.obj
+ 0001:00002ec4       $unwind$?Decode24BPP@@YAPEAEAEAIIPEAE1AEAK@Z 0000000180003ec4     ico.obj
+ 0001:00002ee0       $unwind$?Decode32BPP@@YAPEAEAEAIIPEAE1AEAK@Z 0000000180003ee0     ico.obj
+ 0001:00002efc       $unwind$?DecodeDummy@@YAPEAEIIAEAK@Z 0000000180003efc     ico.obj
+ 0001:00002f0c       $unwind$?Init@ICODecoder@@QEAAHPEAUCET_Init@@@Z 0000000180003f0c     ico.obj
+ 0001:00002f18       $unwind$?Close@ICODecoder@@QEAAXXZ 0000000180003f18     ico.obj
+ 0001:00002f20       $unwind$?Open@ICOImage@@QEAAH_NPEB_WPEBEKU_COORD@@@Z 0000000180003f20     ico.obj
+ 0001:00002f3c       $unwind$?PageDecode@ICOImage@@QEAAHPEAUCET_LoadInfo@@@Z 0000000180003f3c     ico.obj
+ 0001:00002f54       $unwind$?GetPageBits@ICOImage@@QEAAHPEAUCET_LoadInfo@@@Z 0000000180003f54     ico.obj
+ 0001:00002f6c       $unwind$?Close@ICOImage@@QEAAXXZ 0000000180003f6c     ico.obj
+ 0001:00002f78       $unwind$?CET_Init@@YAHPEAU0@@Z 0000000180003f78     ico.obj
+ 0001:00002f84       $unwind$?CET_Done@@YAXPEAUCET_Init@@@Z 0000000180003f84     ico.obj
+ 0001:00002f8c       $unwind$?CET_Load@@YAHPEAUCET_LoadInfo@@@Z 0000000180003f8c     ico.obj
+ 0001:00002fa0       $unwind$?StripSourceRoot@@YAPEB_WPEB_W@Z 0000000180003fa0     MAssert.obj
+ 0001:00002fb0       $unwind$??2@YAPEAX_K@Z     0000000180003fb0     Memory.obj
+ 0001:00002fb8       $unwind$?HeapInitialize@@YA_NXZ 0000000180003fb8     Memory.obj
+ 0001:00002fc0       $unwind$?HeapDeinitialize@@YAXXZ 0000000180003fc0     Memory.obj
+ 0001:00002fc8       $unwind$?xf_free@@YAXPEAX@Z 0000000180003fc8     Memory.obj
+ 0001:00002fd0       $unwind$?apiCreateThread@@YAPEAXP6AKPEAX@Z0PEAKPEBDH@Z 0000000180003fd0     WThreads.obj
+ 0001:00002fe8       $unwind$?apiTerminateThreadEx@@YAHPEAXKPEBDH@Z 0000000180003fe8     WThreads.obj
+ 0001:00003004       $unwind$?apiThreadHelper@@YAKPEAX@Z 0000000180004004     WThreads.obj
+ 0001:00003010       $chain$1$memset            0000000180004010     libCRT64:memset.obj
+ 0001:00003020       $chain$0$memset            0000000180004020     libCRT64:memset.obj
+ 0001:00003034       $unwind$memset             0000000180004034     libCRT64:memset.obj
+ 0001:00003040       .edata                     0000000180004040     ico.exp
+ 0001:00003068       rgpv                       0000000180004068     ico.exp
+ 0001:0000307c       rgszName                   000000018000407c     ico.exp
+ 0001:00003090       rgwOrd                     0000000180004090     ico.exp
+ 0001:0000309a       szName                     000000018000409a     ico.exp
+ 0001:000030a2       $N00001                    00000001800040a2     ico.exp
+ 0001:000030ad       $N00002                    00000001800040ad     ico.exp
+ 0001:000030b6       $N00003                    00000001800040b6     ico.exp
+ 0001:000030bf       $N00004                    00000001800040bf     ico.exp
+ 0001:000030c8       $N00005                    00000001800040c8     ico.exp
+ 0002:00000010       ?GenericTypographicStringFormatBuffer@Gdiplus@@3PAEA 0000000180005010     ico.obj
+ 0002:00000020       ?GenericDefaultStringFormatBuffer@Gdiplus@@3PAEA 0000000180005020     ico.obj
+ 0002:00000040       ?GenericSansSerifFontFamily@Gdiplus@@3PEAVFontFamily@1@EA 0000000180005040     ico.obj
+ 0002:00000048       ?GenericSerifFontFamily@Gdiplus@@3PEAVFontFamily@1@EA 0000000180005048     ico.obj
+ 0002:00000050       ?GenericMonospaceFontFamily@Gdiplus@@3PEAVFontFamily@1@EA 0000000180005050     ico.obj
+ 0002:00000058       ?GenericSansSerifFontFamilyBuffer@Gdiplus@@3PAEA 0000000180005058     ico.obj
+ 0002:00000068       ?GenericSerifFontFamilyBuffer@Gdiplus@@3PAEA 0000000180005068     ico.obj
+ 0002:00000078       ?GenericMonospaceFontFamilyBuffer@Gdiplus@@3PAEA 0000000180005078     ico.obj
+ 0002:000000b8       ?gh_UnknownTerminatedThread@@3PEAXEA 00000001800050b8     WThreads.obj
+ 0002:000000c0       ?g_Threads@@3PAUConEmuThreadInfo@@A 00000001800050c0     WThreads.obj
+ 0003:00000000       $pdata$memset              000000018000e000     libCRT64:memset.obj
+ 0003:0000000c       $pdata$0$memset            000000018000e00c     libCRT64:memset.obj
+ 0003:00000018       $pdata$1$memset            000000018000e018     libCRT64:memset.obj
+ 0003:00000024       $pdata$??0Bitmap@Gdiplus@@QEAA@PEAUIStream@@H@Z 000000018000e024     ico.obj
+ 0003:00000030       $pdata$??1MStream@@QEAA@XZ 000000018000e030     ico.obj
+ 0003:0000003c       $pdata$??_GBitmap@Gdiplus@@UEAAPEAXI@Z 000000018000e03c     ico.obj
+ 0003:00000048       $pdata$??_GImage@Gdiplus@@UEAAPEAXI@Z 000000018000e048     ico.obj
+ 0003:00000054       $pdata$??_GMStream@@QEAAPEAXI@Z 000000018000e054     ico.obj
+ 0003:00000060       $pdata$??_H@YAXPEAX_K1P6APEAX0@Z@Z 000000018000e060     ico.obj
+ 0003:0000006c       $pdata$?CET_Done@@YAXPEAUCET_Init@@@Z 000000018000e06c     ico.obj
+ 0003:00000078       $pdata$?CET_Init@@YAHPEAU0@@Z 000000018000e078     ico.obj
+ 0003:00000084       $pdata$?CET_Load@@YAHPEAUCET_LoadInfo@@@Z 000000018000e084     ico.obj
+ 0003:00000090       $pdata$?Clone@Image@Gdiplus@@UEAAPEAV12@XZ 000000018000e090     ico.obj
+ 0003:0000009c       $pdata$?Close@ICODecoder@@QEAAXXZ 000000018000e09c     ico.obj
+ 0003:000000a8       $pdata$?Close@ICOImage@@QEAAXXZ 000000018000e0a8     ico.obj
+ 0003:000000b4       $pdata$?Decode1BPP@@YAPEAEIIPEAUtagRGBQUAD@@PEAE1AEAK@Z 000000018000e0b4     ico.obj
+ 0003:000000c0       $pdata$?Decode24BPP@@YAPEAEAEAIIPEAE1AEAK@Z 000000018000e0c0     ico.obj
+ 0003:000000cc       $pdata$?Decode32BPP@@YAPEAEAEAIIPEAE1AEAK@Z 000000018000e0cc     ico.obj
+ 0003:000000d8       $pdata$?Decode4BPP@@YAPEAEIIPEAUtagRGBQUAD@@PEAE1AEAK@Z 000000018000e0d8     ico.obj
+ 0003:000000e4       $pdata$?Decode8BPP@@YAPEAEAEAIIPEAUtagRGBQUAD@@PEAE2AEAK@Z 000000018000e0e4     ico.obj
+ 0003:000000f0       $pdata$?DecodeDummy@@YAPEAEIIAEAK@Z 000000018000e0f0     ico.obj
+ 0003:000000fc       $pdata$?FromStream@Bitmap@Gdiplus@@SAPEAV12@PEAUIStream@@H@Z 000000018000e0fc     ico.obj
+ 0003:00000108       $pdata$?GetPageBits@ICOImage@@QEAAHPEAUCET_LoadInfo@@@Z 000000018000e108     ico.obj
+ 0003:00000114       $pdata$?GetPixelFormat@Image@Gdiplus@@QEAAHXZ 000000018000e114     ico.obj
+ 0003:00000120       $pdata$?Init@ICODecoder@@QEAAHPEAUCET_Init@@@Z 000000018000e120     ico.obj
+ 0003:0000012c       $pdata$?LoadPageInfo@@YAKPEAUICONCONTEXT@@HAEAI111PEAPEB_W@Z 000000018000e12c     ico.obj
+ 0003:00000138       $pdata$?LockBits@Bitmap@Gdiplus@@QEAA?AW4Status@2@PEBVRect@2@IHPEAVBitmapData@2@@Z 000000018000e138     ico.obj
+ 0003:00000144       $pdata$?Open@ICOImage@@QEAAH_NPEB_WPEBEKU_COORD@@@Z 000000018000e144     ico.obj
+ 0003:00000150       $pdata$?PageDecode@ICOImage@@QEAAHPEAUCET_LoadInfo@@@Z 000000018000e150     ico.obj
+ 0003:0000015c       $pdata$?QueryInterface@MStream@@UEAAJAEBU_GUID@@PEAPEAX@Z 000000018000e15c     ico.obj
+ 0003:00000168       $pdata$?Read@MStream@@UEAAJPEAXKPEAK@Z 000000018000e168     ico.obj
+ 0003:00000174       $pdata$?Release@MStream@@UEAAKXZ 000000018000e174     ico.obj
+ 0003:00000180       $pdata$?Seek@MStream@@UEAAJT_LARGE_INTEGER@@KPEAT_ULARGE_INTEGER@@@Z 000000018000e180     ico.obj
+ 0003:0000018c       $pdata$?SetData@MStream@@QEAAXPEBXK@Z 000000018000e18c     ico.obj
+ 0003:00000198       $pdata$?SetSize@MStream@@UEAAJT_ULARGE_INTEGER@@@Z 000000018000e198     ico.obj
+ 0003:000001a4       $pdata$?Stat@MStream@@UEAAJPEAUtagSTATSTG@@K@Z 000000018000e1a4     ico.obj
+ 0003:000001b0       $pdata$?UnlockBits@Bitmap@Gdiplus@@QEAA?AW4Status@2@PEAVBitmapData@2@@Z 000000018000e1b0     ico.obj
+ 0003:000001bc       $pdata$?Write@MStream@@UEAAJPEBXKPEAK@Z 000000018000e1bc     ico.obj
+ 0003:000001c8       $pdata$?StripSourceRoot@@YAPEB_WPEB_W@Z 000000018000e1c8     MAssert.obj
+ 0003:000001d4       $pdata$??2@YAPEAX_K@Z      000000018000e1d4     Memory.obj
+ 0003:000001e0       $pdata$?HeapDeinitialize@@YAXXZ 000000018000e1e0     Memory.obj
+ 0003:000001ec       $pdata$?HeapInitialize@@YA_NXZ 000000018000e1ec     Memory.obj
+ 0003:000001f8       $pdata$?xf_free@@YAXPEAX@Z 000000018000e1f8     Memory.obj
+ 0003:00000204       $pdata$?apiCreateThread@@YAPEAXP6AKPEAX@Z0PEAKPEBDH@Z 000000018000e204     WThreads.obj
+ 0003:00000210       $pdata$?apiTerminateThreadEx@@YAHPEAXKPEBDH@Z 000000018000e210     WThreads.obj
+ 0003:0000021c       $pdata$?apiThreadHelper@@YAKPEAX@Z 000000018000e21c     WThreads.obj
+ 0004:00000398       .idata$6                   000000018000f398     kernel32:KERNEL32.dll
+ 0004:000003be       .idata$6                   000000018000f3be     user32:USER32.dll
+ 0004:000004b2       .idata$6                   000000018000f4b2     gdiplus:gdiplus.dll
+ 0004:000004e0       .idata$6                   000000018000f4e0     ole32:ole32.dll
+ 0005:00000060       $R000000                   0000000180010060     ico.res

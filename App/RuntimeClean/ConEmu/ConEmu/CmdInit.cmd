@@ -5,12 +5,12 @@
 
 rem Simple "ver" prints empty line before Windows version
 rem Use this construction to print just a version info
-FOR /F "delims=#" %%v IN ('ver') DO @echo %%v
+cmd /d /c ver | "%windir%\system32\find.exe" "Windows"
 
 rem Now we form the command prompt
 
 rem This will start prompt with `User@PC `
-set ConEmuPrompt0=$E[32m$E]9;8;"USERNAME"$E\@$E]9;8;"COMPUTERNAME"$E\$S
+set ConEmuPrompt0=$E[m$E[32m$E]9;8;"USERNAME"$E\@$E]9;8;"COMPUTERNAME"$E\$S
 
 rem Followed by colored `Path`
 set ConEmuPrompt1=%ConEmuPrompt0%$E[92m$P$E[90m
@@ -30,7 +30,7 @@ if "%ConEmuIsAdmin%" == "ADMIN" (
 )
 
 rem Finally reset color and add space
-set ConEmuPrompt3=$E[m$S
+set ConEmuPrompt3=$E[m$S$E]9;12$E\
 
 if /I "%~1" == "/git" goto git
 if /I "%~1" == "-git" goto git

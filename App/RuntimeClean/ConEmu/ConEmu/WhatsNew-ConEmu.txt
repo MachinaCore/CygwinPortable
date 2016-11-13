@@ -6,17 +6,1069 @@ Automatic Update to get Preview or Alpha builds as soon as they are released.
 Any contributions are appreciated
 ---------------------------------
 You can show your appreciation and support future development by:
-+ bugreporting: http://conemu.github.io/en/Issues.html
-+ funding: http://conemu.github.io/donate.html
++ localization: https://conemu.github.io/en/Localization.html
++ bugreporting: https://conemu.github.io/en/Issues.html
++ funding: https://conemu.github.io/donate.html
 + helping with documentation: https://github.com/ConEmu/ConEmu.github.io
 + coding: https://github.com/Maximus5/ConEmu
-+ voting: http://conemu.github.io/en/Awards.html#Voting
++ voting: https://conemu.github.io/en/Awards.html#Voting
 or anything else, spreading the word for example.
 
 ConEmu changelog is always available online
 -------------------------------------------
-http://conemu.github.io/en/Whats_New.html
+https://conemu.github.io/en/Whats_New.html
 -------------------------------------------
+
+
+2016.10.22
+* gh-910: Fix regression: slower startup.
+* File `wsl-con.cmd` was created by msi in wrong folder.
+* Far Macro. Some improvements in ConEmu.CtrlNumber.lua
+* Console test (ConEmuC -checkunicode) improved.
+* gh-919: Fix misprint.
+* Some internal changes in hooking: support KernelBase for installing injects.
+
+
+2016.10.9a
+* gh-896: Fix regression: cygwin/msys process creation was broken.
+
+
+2016.10.9
+* GuiMacro: Allow {Task} arguments in `Shell` function.
+* Reuse previous palette on Unfasten/Re-Attach.
+* gh-888: Allow to use ConEmu as default console in third-party applications.
+* DefTerm. Reinit some functions in SetAllHook
+* gh-830: Fix: Significant dwm.exe CPU time when renamed ConEmu tab is active.
+* gh-886: Settings / Integration: When ‘Shift’ is pressed during ‘Register’ button click,
+  ConEmu's ‘Here’ and ‘Inside’ items are registered as ‘extended’ menu items,
+  and they are shown by Explorer only when ‘Shift’ is pressed.
+* Show process startup time in SysInfo and LogFiles.
+* Far macro emulating `Ctrl+Number` on `LCtrl+Shift+Number` keypress.
+
+
+2016.10.2
+* gh-879: Fix doubled CJK glyphs on Windows 10 build 14931.
+  Windows 10 (since 14931) has changed behavior for double-cell glyphs. Now they are
+  doubled (COMMON_LVB_LEADING_BYTE/COMMON_LVB_TRAILING_BYTE) even for UTF-8 codepage.
+* gh-871: Selection was not working in Alternative mode.
+* Turn on certain StatusBar columns on `-basic` switch.
+* Switch `/OMITHOOKSWARN` was passed improperly to server when `/log` was defined.
+* Sample file demonstrates ability to use 256 colors in Windows Subsystem for Linux
+  started in ConEmu tab.
+
+
+2016.9.14
+* gh-863: Unchecking option ‘Kill ssh-agent with ConEmu’ had no effect.
+* Suggest `%UserProfile%\ConEmu\Logs` as default location for ANSI logs.
+
+
+2016.9.13
+* Add option to kill `ssh-agent.exe` processes started from ConEmu's consoles
+  on ConEmu termination. Read more at: https://conemu.github.io/en/SshAgent.html
+* Installer was signed without timestamp.
+
+
+2016.9.4
+* GuiMacro: Detach(1) didn't disable confirmation.
+* gh-841: Support COMMON_LVB_REVERSE_VIDEO console attribute.
+* gitextensions/gitextensions#3263: Inside mode: Don't run console ‘As Admin’ if Shift is pressed.
+
+  Remove ambiguous option to run started elevated console (Run As Admin).
+  If ConEmu was started by some shortcut with `Shift` key,
+  user faced the unexpected UAC confirmation.
+
+  If user want to run elevated console, they may use special Task
+  with `-cur_console:a` switch. Example: {cmd (Admin)}.
+
+  If developer want to run ConEmu console in elevated mode,
+  they may add `-cur_console:a` switch *after* `-run` switch.
+  Example: `ConEmu.exe -run cmd.exe -cur_console:a /k <some command>`.
+
+
+2016.8.28
+* gi-821: Fixed crash on startup if Explorer is not started.
+* Support sha256 checksum in chocolatey package.
+* gh-832: Fix crash on erasing ‘Settings->Keys & Macro->Mark/Copy->Exceptions’.
+* gh-766: Prefer 'TEMP' env.var over GetTempPath function.
+* GuiMacro: Let Detach(1) do the work without confirmation.
+
+
+2016.7.24
+* gh-780: Fix crash on drawing certain text data.
+
+
+2016.7.10
+* gh-766: ConEmuSetup improvements and error handling.
+  * Don't show MessageBox in auto mode (chocolatey, autoupdate);
+  * Log error messages to log-file in the exe's folder;
+  * In case TEMP directory is inaccessible, just use exe's folder.
+* gh-740: Try to convert paths to cygwin style if clipboard doesn't contain `\n` while pasting to cygwin/msys shells.
+* In some cases ‘Alternative font’ was not used for first cell in a row (1536b94 regression).
+
+
+2016.7.7
+* gh-752: Fn keys were not processed by Keys GuiMacro.
+* gh-742: Improve installer error reporting, don't show error code twice.
+* gh-739: New option ‘Compress long strings to fit space’ is turned on by default.
+  By unchecking that option you'll get ‘old’ behavior, when ConEmu just trims text,
+  which overruns dedicated space. Read comments in the issue for details:
+  https://github.com/Maximus5/ConEmu/issues/739
+* In some cases old text was not cleared properly with a consequent garbage on the screen.
+* gh-741: Text compression/expansion logic changed, using ‘elasticity’ now.
+* In some cases Font changes were not applied properly.
+* gh-741, gh-722: Glyphs widths evaluation and alignment were changed.
+  So, symbols are expected to be painted properly, uncropped.
+  Examples: U+276F (❯), U+2794 (➔), U+27F6 (⟶).
+* gh-761: Support ‘Terminate all but shell’ for git-cmd.exe.
+
+
+2016.6.19
+* Command ‘ConEmuC -ConInfo’ prints current console tech info.
+* Let intercept GetWindowLong(GWL_STYLE) for console window handle (ref gh-727, gh-719).
+  Far 3.0 since build 4698 tries to query GWL_STYLE for console window?
+* l10n. New language resources.
+* gh-735: Add all marked tasks to Jump List, use TaskBar history limit value only for History items.
+* gh-740: Conversion to linux path on paste was not working for ‘Single line’ mode.
+* Option ‘Autoupdate’ on Settings/TaskBar/Windows 7 Taskbar.
+  If checked, Jump Lists will be updated automatically when user check
+  the ‘Taskbar jump lists’ checkbox in Task properties.
+* Do not add new Tasks to Jump List by default, let user explicitly check ‘Taskbar jump lists’.
+* Installer (MSI): Don't suggest Far Manager's folder by default.
+
+
+2016.6.12
+* Terminal modes were not displayed on Settings/Info page.
+* gh-716: Cygwin/msys connector output was broken after starting nano.
+* gh-722: Treat Unicode range U+2700..U+27BF as double width glyphs.
+* gh-718: Minimal cursor size option was ignored for invalid console cursor size (zero size).
+* gh-719: Write cursor information and console window rect to log file.
+* Print more console information in `ConEmuC -checkunicode`.
+* gh-723: Let ‘Minimize/Restore’ hotkey act in spite of ‘Always on top’ mode.
+* Don't process (append) environment variable twice (ref gh-724).
+  Example: `PATH=%ConEmuBaseDir%\Scripts;%PATH%;C:\Tools\Arc`
+  So, do not add `%ConEmuBaseDir%\Scripts;` and `;C:\Tools\Arc`
+  if they already exist in PATH. Only explicit comparison is done,
+  so, if `C:\Tools\Arc` is in the middle of current `%PATH%`,
+  it would be processed (appended).
+* Fix: Console progress `0%` was detected during tab startup (regression 69439a3).
+* Default task {Far}: don't double plugin folders to avoid doubled lines in F11 (Far 1.x and Far 2.x `/p` switch problem).
+* gh-700: Show tab icon for Far editors and viewers if ‘Far windows’ option is off.
+
+
+
+2016.6.9
+* gh-712: Total consoles count was not displayed in the title properly (regression 7ed745b).
+* gh-678: Selection vanished from screen after multiple page selection.
+* System menu item ‘Debug’ -> ‘Dump screen’ saved empty png file.
+* Fix Shift-Home selection in cmd.exe prompt after Tab-completion.
+  First Shift-Home is expected to select the typed command without prompt.
+  Sequential Shift-Home keypresses select and unselect prompt part.
+* Let Shift-Home select multiline commands in cmd.exe prompt.
+* gh-687: Settings page ‘Integration’ -> ‘ANSI execution’ to control allowed code and macro.
+  This allows [ConEmu specific OSC](https://conemu.github.io/en/AnsiEscapeCodes.html#ConEmu_specific_OSC)
+  to be executed: `^]]9;6;"*macro*"^]\` and `^]]9;7;"*cmd*"^]\`.
+  Since now, they allowed by default in `cmd.exe` only (were implemented for `GitShowBranch.cmd`).
+  User may also disable or enable they for any process.
+  Also, there is a list of allowed commands. Commands are case-sensitive, one line - one command.
+  User may use `*` to allow bunch of commands by ‘mask’.
+
+
+
+2016.6.7
+* Settings simplification: radio buttons were removed from ‘Settings/Mouse/Mouse button actions’.
+  In Far Manager RBtn and MBtn clicks are bypassed to console if `<No-Mod>` is selected.
+* Non-unique hotkey modifier check was improved.
+* Warning fixes (from Michael Lukashov).
+
+
+2016.6.5
+* User was enable to enter list of executables on AppDistinct settings page (regression).
+* Option ‘New window’ in the create new console dialog started ConEmu with wrong arguments (no xml, etc.)
+* DefTerm. Option ‘Register on OS startup’ did not use specified xml file.
+* gh-698: Fix crash on copy selected text in HTML format if raster font is used.
+* Fix conditon for `<BS>` key posting (ref: gh-641).
+* gh-667: Alt+GrayPlus+HexNumbers changes.
+  * Alt+GrayPlus is bypassed to Far Manager by default. User still may
+    set up explicit hotkey for ‘Start Alt+Number mode’ action.
+  * Option ‘Alt+NumpadAdd - unicode hex codebase’ on the ‘Keyboard’ page
+    (has no effect in Far Manager).
+* gh-629: Try to enable xterm keyboard emulation automatically (BashOnWindows).
+
+
+2016.5.29
+* gh-457: Support DefTerm feature for Idle (Pythonw.exe) and VisualStudio Code (code.exe).
+* DefTerm: ConEmu crashed if it's closed during DefTerm initialization.
+* DefTerm: Don't warn user if requested process is already closed.
+
+
+2016.5.22
+* gh-682: Multi-line paste Enter confirmation setting was not being saved.
+* gh-681: Allow NodeJSPortable.exe to run node in the same ConEmu tab.
+* gh-654: Feature ‘Drag ConEmu window by client area’ may be disabled on ‘Mouse’ Settings page.
+* gh-370: Option ‘Auto save/restore opened tabs’ saved wrong split config in some cases.
+* Maximus5/conemu-inside#23: Don't show Min/Max/Close buttons in the ‘Inside’ mode
+* StatusBar was painted using wrong ‘fade’ status in some cases (ConEmuInside).
+* ConEmu ‘Here’ and ‘Inside’ improvements (Integration Settings page).
+  Now the command will be registered and displayed properly if ConEmu was
+  started with special switches like `-LoadCfgFile`, `-LngFile` and others.
+* Recommended: `-reuse` over `-single`. `-reuse` does not enforce ‘single’ mode in the started instance.
+* gh-573: Support ANSI sequence to set cursor style (DECSCUSR, VT520).
+
+  CSI Ps SP q - Set cursor style (DECSCUSR, VT520).
+		Ps = 0  -> ConEmu's default.
+		Ps = 1  -> blinking block.
+		Ps = 2  -> steady block.
+		Ps = 3  -> blinking underline.
+		Ps = 4  -> steady underline.
+		Ps = 5  -> blinking bar (xterm).
+		Ps = 6  -> steady bar (xterm).
+
+* If ‘Multiple consoles ...’ were unchecked and ConEmu window is empty
+  (either `-detached` or not closed with last closed tab)
+  than it was impossible to reuse empty window to create new console.
+* Use proper parameters for new window (e.g. started from ‘Create new console’ dialog).
+
+
+2016.5.15
+* ConEmuInside: In some cases (VisualStudio pane) ConEmu failed to detect ‘focused’ state.
+* Split settings page ‘Controls’ into ‘Keyboard’ and ‘Mouse’ (alignment pending).
+* Settings page ‘Quake style’ for pull-down related options.
+* Settings for ChildGui moved to separate page (Integration / Children GUI).
+* cmderdev/cmder#929: Fullscreen was not activated properly in some cases (part of ConEmu was obscured by TaskBar).
+* gh-673: GuiMacro SetWindowPosSize: fix changing size w/o changing pos (by @jcsullins).
+* Was not able to use xml file from drive root.
+  Now it's possible to run, for example: "ConEmu -loadcfgfile Z:\ConEmu.exe".
+* Show version stage in the Settings and About dialog titles.
+  E.g.: ‘About ConEmu 160506 [64] {Preview}’.
+* More Settings/Debug/Exec improvements.
+  CD was not captured in some cases, as a consequence
+  contents of `@file` was not captured too.
+  Also, `@file` processing is doing synchronously now.
+* Avoid using of deprecated googlecode location for version information.
+  If user had old build of ConEmu installed, and old version location info
+  was stored in the xml, they would fail to receive new versions.
+  Now, old deprecated locations are ignored and ConEmu uses the default
+  place instead.
+
+
+2016.5.4
+* gh-660: Fix crash on ConEmu.exe exit (32-bit).
+* Separate process creation from module/inject activities.
+  On Settings/Info/Debug page new ‘Exec’ option shows only
+  ShellExecute and CreateProcess activities.
+  The ‘Shell’ options is unchanged: ‘Exec’ + injects + modules.
+* l10n: Update resources (Debug activities).
+
+
+2016.5.3
+* gh-661: If ConEmu started with `-detached` switch, option ‘Close with last tab’ couldn't be changed.
+* Improve debug shell logging (source of `@file` without paths).
+  Settings/Info/Debug has ‘Shell’ option which shows processes creation information.
+  E.g. if you run project make, and make executes `lnk @arguments`, the `arguments`
+  is usually temporary file, which contains actual agruments for linking.
+  ConEmu tries to locate the file (passed to `lnk` without path) and shows its
+  contents in Settings/Info/Debug.
+
+
+2016.4.28
+* gh-472: One more fix for custom frame width (Quake) and ‘gaps’.
+* Revert gh-621 patch. Just post KeyUp(Alt) before pasting.
+* New feature ‘Adjust lightness of indistinguishable text’ on the ‘Colors’ settings page.
+  The idea is to make text readable if certain foreground and background colors
+  are indistinguishable for current palette. ConEmu will try to change the lightness
+  of the foreground text.
+* Draw triangles (‘’ and ‘’) internally if ‘Enhance progressbars and scrollbars’ is checked.
+  This solves two problems: cleartype artifacts in statusbars (vim airline for example);
+  and triangle color for adjusted lightness of indistinguishable text.
+* New ConEmu.exe switch `-Frame <value>` changes desired ‘Frame width’.
+* Many internal changes in font descriptors creation.
+
+
+2016.4.16
+* gh-629: Once more ‘Bash on Ubuntu on Windows’.
+  It's recommended now to run bash with `-cur_console:p` switch.
+  **Delete trailing `1`** if you have {bash} task already.
+
+    -cur_console:p[N] - pty modes, N - bitmask, default is 1+4
+       1 - XTermKeys, 2 - BrPaste, 4 - AppCursorKeys
+
+* Support underlined text attributes (fish autocompletion).
+* ConEmu.exe switches `-run` and `-runlist` are introduced to take the place of `-cmd` and `-cmdlist`.
+  * Actually, `-cmd` and `-cmdlist` are supported for compatibility reasons,
+    but `-run...` switches are more convenient to avoid confusion with `cmd.exe`.
+  * As before, both `/switch` and `-switch` notations are supported.
+  * Also, ConEmu internals were changed to `-switch` notation.
+* gh-641: Correct posting `0x7F` (which is `<BS>` on xterm) to console.
+  It was posted with LEFT_CTRL_PRESSED in dwControlKeyState. We are posting `<BS>`, but not a `<Ctrl>-<BS>`.
+
+
+2016.4.13
+* Task for ‘Bash on Ubuntu on Windows’ was not created properly in 32-bit ConEmu on 64-bit Win10.
+  Also, it's named now just a {Bash::bash}.
+* New StatusBar columns: ‘Terminal modes’ and ‘RealConsole modes’ (generally for troubleshooting).
+  * ‘Terminal modes’ shows keyboard modes and some flags:
+    Windows, Xterm, App cursor keys, Bracketed paste, Cygwin, msys1, msys2 or clinK.
+    E.g. `XC` means `X`term keyboard mode and `C`ygwin active console application.
+  * ‘RealConsole modes’ shows current values of GetConsoleMode for ConIn and ConOut.
+* GuiMacro: `TermMode(<Mode>[,<Action>])`.
+  Ref gh-629: To ‘fix’ arrow keys in vim in bash on Ubuntu on Windows
+  one may set hotkey for macro `TermMode(2)` and switch keyboard mode
+  manually when vim (linux process) is started and exited.
+
+~~~
+TermMode(<Mode>[,<Action>])
+  - changes active terminal modes
+    Mode==0: Keyboard emulation (Xterm/Windows)
+    Mode==1: Bracketed paste
+    Mode==2: Application cursor keys (DECCKM)
+    Action==0: Disable mode
+    Action==1: Enable mode
+    Action==2: Switch mode (default)
+~~~
+
+* Suppress error message ‘Can't open console data file mapping. ErrCode=0x00000002’
+  when started smth from Far and close ConEmu.
+* Terminal modes and performance counters were not shown properly on first open of ‘Info’ settings page.
+
+
+2016.4.11
+* gh-629: Support xterm keyboard emulation for ‘Bash on Ubuntu on Windows’.
+  conhost does not do keypressed translation, if they were posted directly to console input.
+  That's why switch `-cur_console:p1` must be used to turn on internal xterm emulation in ConEmu.
+  So, the task {Bash-on-Ubuntu} would be:
+
+      %windir%\system32\bash.exe -cur_console:p1
+
+* New default task {Bash::Bash on Ubuntu} for Windows 10 (if the feature is turned on in Windows).
+* gh-637, gh-626: Access vialation on entering plugin ‘ConEmu Background’.
+* Environment variables: `ConEmuArgs` and `ConEmuArgs2`.
+  * `ConEmuArgs` now contains only ConEmu.exe's ‘switches’ (before `-cmd` or `-cmdlist`).
+  * New variable `ConEmuArgs2` contains the command only: `-cmd ...` or `-cmdlist ...`.
+* Reuse `ConEmuArgs` when starting new ConEmu instance from cmd autorun.
+* gh-614, gh-616: Handle commas as decimal separators in the in-console progress detection.
+  This fixes `curl -# -O` looping between 0 and 9%.
+* Do not apply the icon from {Task} if option ‘Show overlay icon’ is on, to avoid two similar icons, one over another.
+
+
+2016.4.3a
+* gh-620: ConEmu shows assertion when terminating SSH session in stermc.
+* gh-624: Defaults on Settings\Integration were lost after reactivating page.
+
+
+2016.4.3
+* ComSpec setting page moved under DefTerm.
+* Avoid attempt to hook DefTerm from multiple processes in Aggressive mode.
+* Improve logging of DefTerm internals.
+* gh-604: Some improvements on cmd automatic attach.
+  The method may be registered on the ‘ComSpec’ settings page.
+  However, it's not a recommended option, because ConEmu has very slight
+  control over it, and even the logic ‘when we need to attach or not’
+  is fuzzy.
+* gh-604: Registration buttons were not processed properly on ConSpec settings page.
+* Corrections in `-new_console` switch trimming procedure.
+  * The space was not trimmed in `/C "C:\Temp\run.cmd -cur_console:o"`.
+  * Unexpected assertion removed in `/C "C:\Temp\run_pause.cmd "-cur_console:o""`
+* Don't run the command started by Shift-Enter from Far Manager via ConEmuC.exe.
+  If one needs the command to be started in new ConEmu tab,
+  than install the Macro: `ConEmu/Far3_lua/ConEmu.ShiftEnter.lua`.
+* Don't bypass MouseMove events to Far Menus when selection modifiers are pressed.
+* gh-621: Try to mimic standard Windows Alt+Numbers behavior.
+
+
+2016.3.29
+* Redesign ‘Keys & Macro’ settings page. Let `Alt+F` put focus into the ‘Filter’ field.
+* Hotkey `Ctrl+Alt+Break` was not processed properly.
+* LogFile was not created when ‘Internal LogFiles’ checkbox was on.
+* Simplify switching between Tasks on the ‘Tasks’ settings page (Up/Down keys if checkbox/button has focus).
+* gh-404, gh-322: Fix crash in the integrated applications after ConEmu update (DefTerm).
+  The effect will be noticed on the **next** update.
+
+
+2016.3.28
+* New default hotkeys for process termination:
+  * `Win+Alt+Break` - Terminate all but shell processes in the current console;
+  * `Ctrl+Alt+Break` - Terminate active process in the current console.
+* gh-605: Fix regressions on ‘App distinct’ settings page (EOL).
+* gh-294: Add ‘Filter’ field to ‘Keys and Macro’ settings page.
+* gh-318: With ES_NUMBER user can't enter negative value (X/Y).
+* gh-318: Get rid of gap in Quake mode when frame width is less than 3 pix.
+* gh-165: Allow to drag Quake consoles between monitors.
+* Show `Ctrl+Break` but `Pause` in the hotkeys list.
+* l10n. Update resources
+* gh-304: Use full monitor working area for maximized/fullscreen Quake mode.
+
+
+2016.3.27
+* Add palette change logging. Ref: gh-599, searching for bottle neck
+* gh-593: Background color index was cropped to 8-color palette after `\e[9999;1H`.
+* gh-587: Fix text selection when cursor passes the selection anchor (downright).
+* Update chinese translation.
+* Improve double-click (word) selection.
+  For example, select `daily` by double-click inside brackets of `ConEmu [daily]>`.
+* ANSI: Sequence `ESC [ 1 4 t` reports terminal window size in pixels as `ESC [ 4 ; height ; width t`.
+* gh-605: Fix regressions on ‘App distinct’ settings page.
+* Log extended information during console shutdown.
+  Ref: gh-604: Last conemu versions often can't attach to started console
+
+
+2016.3.24
+* Unify LogFile names: `ConEmu-gui-...`, `ConEmu-con-...`, `ConEmu-srv-...`.
+* To start console as ‘System’ use `-new_console:aA` switch.
+* Update {Show ANSI colors} and fit in 76 chars.
+* Show compiler version and colorize output of `-Args`.
+* Try to show and re-apply `-new_console:XXX` switches in ‘Recreate’ dialog.
+* gh-581: Restart ConEmu after automatic update in the same directory it was started before.
+* Update chinese translation.
+* Update Russian translation.
+* If ConEmu started with `-detached` switch, don't close it automatically when last tab is terminated.
+* ConEmuC: Don't fall into `Press Enter or Esc to close console...` if invalid arguments were specified.
+  This is critical, especially if our process was started under non-interactive account,
+  than ExitWaitForKey causes the infinitely running process, which user can't kill easily
+* ConEmuC: Don't fall into `Press Enter or Esc to close console...` if server was not connected to GUI.
+  Avoid situation when `ConEmuC /ROOT` was started from running console (bare `cmd.exe`)
+  and ConEmuC (our started server) was not connected to GUI, then we get infinite loop
+  when ConEmuC waits for cmd termination and vice versa.
+* Avoid ‘Unknown state’ appeared in the StatusBar during console startup.
+* LogFiles may be enabled permanently via Settings -> Features -> ‘Internal LogFiles location’.
+* CmdInit.cmd: Reset colors on each prompt (`$E[m`).
+* gh-587: Fix text selection when cursor passes the selection anchor (changing selection direction).
+* gh-598: Improve pasting options for `Shift+Ins` and `Ctrl+V` (multi-line text).
+  Now, `Ctrl+V` will insert all lines, space-separated, and `Shift+Ins` insert
+  multi-line text as before. User may change actions on the ‘Paste’ settings page.
+* gh-101: Switch `-UseExport` may be specified before `-GuiMacro` to export result as env.var.
+  Without `-UseExport` specified before `-GuiMacro`, ConEmuC.exe will not try
+  to export GuiMacro result as environment variable `ConEmuMacroResult`
+  to the parent process.
+* Variable `ConEmuMacroResult` was skipped during environment exporting.
+* Settings pages names localization.
+
+
+2016.3.13
+* On WinXP/Vista the icon in the TitleBar was unexpectedly changed to active tab icon.
+* Intelligent selection: RClick over selected region will Paste selected text,
+  bypassing Windows' clipboard, and Reset selection region.
+* Fix garbage displayed in VCon during console startup on WinXP.
+* gh-571: `ConEmu -demote ...` starts process for the wrong user.
+* Log current SessionID, improve Desktop and Title representation.
+
+
+2016.3.10
+* TaskBar icon fixes (Overlay icon on any OS, update icon on Restart console).
+  * Option ‘Show overlay icon (Win7 and higher)’ now works on any system,
+    and need to be renamed. So, if TaskBar uses small icons, ConEmu shows
+    icon from active console via WM_GETICON.
+  * Icon was not updated on restart console with another icon.
+* Updates on Intelligent selection.
+  * Double and Triple clicks selection do not require modifiers.
+  * Click outside selection region - would reset active selection.
+  * Do `Internal Copy & Paste` if LBtn is still down and RBtn is clicked.
+  * Avoid blinking on double/triple clicks.
+  * Selection: In some cases Shift+DblClick slipped to console.
+* gh-328: Improve double-click word selection logic.
+  * Don't select space after word.
+  * Don't select pseudographics before/after alphabeticals.
+  * Trim trailing punctuations.
+  * Trim leading punctuations except dots (e.g. `.bashrc`).
+* Fix wrong quotation rules on Settings/Environment. Was not working properly:
+    echo ""
+    echo """C:\Program Files\Git\bin\git.exe"" fetch --progress ""--all"" "
+
+
+2016.3.8
+* Option ‘Retard inactive panes’ was ignored in some cases.
+* Trailing dot was not trimmed after md-style hyperlink.
+* gh-420: Do not enable by default option ‘Process start’.
+* Debugging purposes: `ConEmuC.exe -struct %ConEmuPID%`.
+* In prompt, Shift+Home/End selects command text first, second press expands selection to line start/end.
+* If selection was started from keyboard, than Del/Shift-Del/Backspace removes selected text.
+  ConEmu tries to ‘map’ single Del/BS to series of keypresses to remove whole selected block.
+  Only one-line selections are processed.
+  Shift-Del do copying to clipboard before erasion.
+* Allow persistent mouse selection. Selection will reset on Paste or Typing.
+* When selection crosses anchor, behave same way if selection was started in that direction.
+* ANSI: Implement `ESC ] 9 ; 12 ST` to store end of prompt message.
+* l10n: Update chinese translation.
+
+
+2016.3.1
+* gh-562: Environment was not applied to elevated consoles.
+* Window icon was changed by mistake when starting task with defined icon.
+  This must happen only for startup task.
+* StatusBar was not updated after root process termination.
+  Especially for consoles started with `-new_console:c0` or `-new_console:c1`.
+* gh-561: Tab macro `%d` was not trimmed to ‘Max tab width’.
+* For TaskBar with small icons show current console icon instead of ConEmu default (option ‘Admin shield’).
+* GuiMacro: `GetInfo("Root")` XML-result changes.
+
+  Ref: Maximus5/conemu-inside#8
+
+  State: Empty, NotStarted, Running, Exited.
+  PID and ExitCode: unsigned integers.
+  UpTime: milliseconds.
+  Examples below.
+
+  * If there are not consoles in ConEmu.
+
+    <Root State="Empty" />
+
+  * If console initialization is in progress (`ping localhost -t` for example).
+
+    <Root State="NotStarted" Name="ping.exe" />
+
+  * If root process was started and is running. Note, `259` in `ExitCode` is `STILL_ACTIVE` constant.
+
+    <Root State="Running" Name="ping.exe" PID="7136" ExitCode="259" UpTime="3183" />
+
+  * If root process was finished (terminated by `Ctrl+C` as example).
+
+    <Root State="Exited" Name="ping.exe" PID="7136" ExitCode="3221225786" UpTime="10195" />
+
+  * Another example for `cmd.exe` normal exit.
+
+    <Root State="Exited" Name="cmd.exe" PID="6688" ExitCode="0" UpTime="1825" />
+
+
+2016.2.28
+* Fix crash when mouse wheel was scrolled over search edit box.
+* Warning fixes (from Michael Lukashov).
+* Intelligent selection mode was not working in Far userscreen (Panels turned off).
+* gh-560: Fix true-color scrolling issues in Far 3.0.4525.
+* Alt+Numbers mode improvements.
+  * Hotkey (unassigned): Start Alt+Number mode to enter unicode symbol by its hex codebase.
+  * Allow mode start by GuiMacro: `AltNumber([Base])`.
+    * Base==0: Start Alt+Numbers in ANSI decimal mode (‘ANSI’ actually means UNICODE code points 32..255)
+    * Base==10: Start Alt+Numbers in OEM decimal mode
+    * Base==16: Start Alt+Numbers in hexadecimal mode
+  * Alt+Numbers: If mode was started by Alt+Key (user-defined), do paste on Alt release.
+  * Alt+Numbers: Show collected codebase and hints about mode in the StatusBar.
+* KeyEvents v4.3: Unicode characters were not printed correctly.
+
+
+2016.2.22
+* gh-555: Aliases support was broken (771ab79 regression).
+* Maximus5/conemu-inside#13: ConEmu-Inside position was not updated in some cases.
+* Understandable error message if bad `-loadcfgfile` was specified.
+* Don't erase default MSZ setting value, if one not found in xml.
+* Let `-new_console:c1` consoles stay open silently even on Esc/Enter.
+  When all processes in console are finished:
+  * ConEmu does not close the console automatically;
+  * Confirmation message is not written to console;
+  * All keypresses are ignored.
+  So, user may either close console via ConEmu interface
+  (kill hotkeys or close menu items), or parent process
+  (when ConEmu is working in the ‘Inside’ mode) may close
+  the console via GuiMacro `Close(0,1)`.
+
+
+2016.2.19
+* Task may be executed in the running console with `ConEmuC -c {TaskName}`.
+
+  Actually, first command of the named task is executed,
+  and rest of command line is appended as arguments.
+  For example, you may start Far editor in the **current**
+  console by executing in the prompt:
+
+    ConEmuC -c {Far} /e text.txt
+
+* Support tasks nesting.
+
+  Simple nesting is allowed, so one may create their own task,
+  which starts {cmd}, {powershell} and {VS 14.0 x86 tools prompt},
+  even in splits or with extra arguments. For example:
+
+    {cmd} & echo Extra args
+    {powershell} -new_console:sV
+
+* New predefined environment variables: `ConEmuTask` and `ConEmuPalette`.
+* TaskBar JumpList icons fix.
+* Far Macro: ConEmu.Editor.lua was broken (Far3 latest builds).
+* Far Tabs were not updated in ConEmu after plugin call `Plugin.SyncCall(ConEmu,100)`.
+
+
+2016.2.18
+* GuiMacro. New function `Write("Text")` writes "Text" to console output (dangerous).
+
+  Use it at you own risk! Calling this function may cause unexpected behavior
+  of running console application! That is because function changes console
+  contents and cursor position directly, bypassing detouring standard
+  ConIn/ConOut processing queue.
+
+  In most cases **safe** functions `Paste`, `Print` and `Keys` are preferable!
+
+  However, with `Write` you may implement some interesting features,
+  like printing sort of ‘hints’ in shell prompt:
+
+    Write "\e7\e[90mEcho \"Hello world!\"\e[m\e8"
+
+  Ref: Maximus5/conemu-inside#3
+
+* gh-550, gh-372, gh-234: Unassigned by default hotkey ‘Reset terminal’ (dangerous).
+
+  I'm still sure that this operation is harmful and dangerous:
+  <https://conemu.github.io/en/ClearScreen.html>.
+  But since GuiMacro `Write` exists, anyone may create a macro
+  for `Write("\ec")`, which the hotkey actualy executes.
+
+  TabMenu item ‘Edit -> Reset terminal’ is available too.
+
+  BTW, with `Write` macro anyone may push to console several colored lines,
+  using ANSI sequences, to ‘mark’ some point in real-time logs (tail -f).
+
+    Write "\n\n\e[91m========== '\e]9;8;\"time\"\e\\' ==========\e[m\n\n"
+
+* Bring here: Just move window to the upper-left corner of active monitor.
+* ANSI: Let `ESC ] 9 ; 8 ; "*env*" ST` supports `date` and `time`.
+
+
+2016.2.17
+* gh-541: Chinese translation (from @ulin).
+* Maximus5/conemu-inside#4: Don't warn `ConEmu's parent window was terminated abnormally` if we have no VCon.
+* Maximus5/conemu-inside#4: Don't show ‘Can't create new virtual console’ error if parent was killed during initialization.
+* Maximus5/conemu-inside#12: Query GuiMacro result via callback function.
+  ConEmuCD.dll and ConEmuCD64.dll now export `GuiMacro` function.
+  https://github.com/Maximus5/ConEmu/commit/ffd3774eb037fb73828ff969464ef57a97dda1a4
+* Don't install hooks in `ConEmuC.exe`.
+* ConEmuC internal `-echo` able to expand environment variables by `-x` subswitch.
+  Example: ConEmuC -echo -x "Version: %ConEmuBuild%"
+* Maximus5/conemu-inside#3: Write user-defined text to console on startup.
+
+  Commands `echo` and `type` are processed internally by ConEmuC now.
+  For example, it's possible to add into the Settings/Environment.
+
+    echo -x "Welcome to ConEmu %ConEmuBuild% terminal^nPress Win-Alt-P to show Settings dialog"
+
+  Alternatively, you may add `echo` or `type` before the command itself,
+  when you create new console, or in the Task definition. Example.
+
+    type -utf8 "%ConEmuDir%\Hello.txt" & cmd /k "%ConEmuBaseDir%\CmdInit.cmd"
+
+* Implement `-Args` to show how ConEmu's command line parser works.
+  Example: ConEmuC -args "Test1 & ^ "" Test2" "Test "" 3"
+
+* Two double-quotes are replaced with one double-quotes in NextArg.
+
+  So, the command:
+
+    ConEmuC -args "Test1 & ^ "" Test2" "Test "" 3"
+
+  must produce following output:
+
+    1: `Test1 & ^ " Test2`
+    2: `Test " 3`
+
+* Changes in `ConEmuC -echo` feature.
+
+  * Arguments are processed one-by-one, strings with special characters
+    must be framed with double-quotes, two sequential double-quotes are
+    replaces with one double quotes, multiple spaces between arguments
+    are treated as single space.
+
+  * If `-r` subswitch is **not** specified, than following replacements are done.
+
+    * `^^` -> `^`
+    * `^n` or `^N` -> (char)10 {\n : LF}
+    * `^r` or `^R` -> (char)13 {\r : CR}
+    * `^t` or `^T` -> (char)9  {\t : TAB}
+    * `^a` or `^A` -> (char)7  {BELL}
+    * `^b` or `^B` -> (char)8  {\b : BACK}
+    * `^e` or `^E` or `^[` -> (char)27  {ESC}
+
+  * If `-x` subswitch **is specified**, than `%EnvVars%` are expanded.
+
+~~~
+$ ConEmuC -echo "A1 "" A2"   "A3" A4"
+A1 " A2 A3 A4
+
+$ ConEmuC -echo "Line1^nLine2"
+Line1
+Line2
+
+$ ConEmuC -echo -r "Line1^nLine2"
+Line1^nLine2
+~~~
+
+* Settings/Environment has priority over console command line.
+
+  Commands `echo`, `type`, `set` and others, defined in on the ‘Environment’
+  settings page, are executed before commands, defined in the Task or console
+  command line.
+
+  So, if ‘Environment’ has following line
+
+    echo -x "Welcome to the ConEmu %ConEmuBuild% terminal"
+
+  And {cmd} Task is defined like following
+
+    echo "Initializing {cmd} Task..." & cmd /k "%ConEmuBaseDir%\CmdInit.cmd"
+
+  Than you'll see in the terminal
+
+    Welcome to the ConEmu 160217 terminal
+    Initializing {cmd} Task...
+
+* Log system date on `-log` start and date change.
+* Show (StatusBar) and log PID of started console server.
+* GuiMacro: `WindowMode("HERE")` moves ConEmu to monitor with mouse cursor.
+* Add hotkey for ‘Move ConEmu window to the monitor with mouse cursor (Bring here)’.
+* gh-240: Create a workaround for ‘Maximum real console size was reached’.
+
+  Looks like MS-Bug in conhost leads to abnormally large font set in real console,
+  if tab was started As Admin in Windows 10 and Win-L pressed.
+
+  > C:\ConEmu\ConEmu64.exe -basic -max -size 12 -visible -log -cmd {cmd (Admin)}
+  > rundll32 user32.dll,LockWorkStation
+
+
+2016.2.11
+* Initial steps for localization.
+  More information in docs: https://conemu.github.io/en/l10n.html
+* gh-539, gh-535: Option ‘Default task for new console’ was ignored (d93b5d9 regression).
+* gh-540: In some cases ‘Enhance preudographics’ was skipped.
+* Avoid spare RealConsole resize on HideCaption changes.
+* Fix broken Far's Editor/Viewer close from TabMenu (7631ffd regression).
+
+
+2016.2.7
+* Alt+HexNumbers: Dump collected codebase to console on ‘invalid’ input or GrayPlus.
+* gh-534: Fix wrong background drawing in Far (TrueColor).
+* gh-532: ‘Apply’ button failed to return ‘Normal’ mode in ‘Quake’ style.
+* gh-78: Rename <Always> to <No-Mod> (modifier for ‘Highlight and goto’ and some others).
+  Purpose of this option - process when no modifier (Ctrl, Alt, Shift, ...) is pressed.
+* gh-489: Fix TaskBar jump-list problems.
+  * Default Tasks for `SDK::VS *` were not created by ConEmu64.exe.
+  * Wrong icon was set for tasks `SDK::VS *` in jump-list.
+* Default extension (`xml` for example) was not appended if user fails to print it in the ‘Export settings’ dialog.
+* Warning fixes (from Michael Lukashov).
+
+
+2016.2.4
+* Support `Alt`-`+`-`HexNumber` input internally, including surrogate pair generation.
+  ConEmu is able to convert entered codepoints to surrogate pairs,
+  so you may enter uncommon symbols outside from BMP. Examples below.
+  * Double-struck ‘𝔸’: press `Alt`-`+`-`1D538`.
+  * Sushi emoticon ‘🍣’: press `Alt`-`+`-`1F363`
+  More information: https://conemu.github.io/en/AltNumpad.html
+* Screen was not updated if shell (cmd for example) was activated back
+  from closed Far Manager, if close has been done by cross-click
+  and ‘Safe Far Close’ macro.
+* gh-524: Deal with entangled window list returned by Far API.
+
+
+2016.2.2
+* New TabMenu items hints (shown in StatusBar when hovering menu with mouse).
+* Show confirmation if Shift is pressed when selecting menu items:
+  * Kill active process
+  * Kill all bat shell
+* gh-241: Close consoles refactoring (close Far tabs with single click).
+  If Far Manager was started from other shell (from `cmd.exe`, for example)
+  than using ‘Safe Far Close’ macro leads to return to the shell prompt,
+  instead of termination of this console.
+  Also, unchecked option ‘Safe Far Close’ was ignored for `far.exe`.
+  In progress actually. We have to simplify close/terminate calls.
+* Warn user if automatic action was called without initialized settings.
+  The example of command: `ConEmu.exe -SetDefTerm -Detached -MinTSA -Exit`.
+  If there is no settings file, user will see FastConfiguration dialog,
+  which is unexpected for automatic action (`-SetDefTerm` and `-Exit`).
+  If one needs to run ConEmu without settings, they may use `-basic` switch.
+* Double-width glyph in the col 1 was cropped in Far editor/viewer.
+  For example, if the following text
+  中英文Block mode复制初步修复。
+  was started from the leftmost console cell,
+  than glyph `中` was cropped to one cell.
+* GitShowBranch.cmd: Support git branches with dots in branch name.
+* gh-515: Internal changes of OnShutdownConsole.
+* Add default task {Tools::Docker}.
+  Docker is detected by environment variable `%DOCKER_TOOLBOX_INSTALL_PATH%`.
+  Also, `bash.exe` (Git, Cygwin or MSys) have to be installed to run `start.sh`.
+* Add default task for NYAGOS (if found in %PATH%).
+* gh-517: In Quake mode Maximized/Fullscreen was dropped after ConEmu restart.
+* conemu-inside/gh-1: Mouse text selection does not work in the Inside mode.
+* conemu-inside/gh-4: Avoid crashes when parent process is terminated during startup.
+* conemu-inside/gh-4: Correct warning messages and don't show them if parent was terminated during startup.
+* Allow to start new tab in current detached instance in one-console mode.
+  If option ‘Multiple consoles in one ConEmu window’ is disabled,
+  than new console is started in new ConEmu window, but this is impractical
+  if there is no consoles in current instance.
+  For example: "ConEmu -detached" or existing console was closed.
+* Protect from possible ‘locks’ during startup.
+* StatusBar column ‘Create new console’ was not updated in some cases.
+
+
+2016.1.24
+* gh#509: Fix crash when checking ‘Explicit executable’.
+* Use bare {Far} task name for first `Far.exe` found in our folder.
+  To simplify portable and testing installations, if Far Manager
+  is copied into our program folder, don't change its task name
+  (don't add version/bitness suffixes).
+* gh#507: Get rid of MsgBox on attach errors, print info to Console instead.
+* gh#514: Fix broken pseudographics representation if ‘Alternative font’ was off.
+* Prefer `bash.exe` over `sh.exe` when creating default tasks.
+* gd#516: Support ‘Application Cursor Keys (DECCKM)’.
+* Update `terminals` module to v0.7.4
+* Let characters 0x1F300..0x1F5FF be double-width.
+* gh#517: Radio-buttons Maximized and Fullscreen were not working (Apply is required though).
+
+
+2016.1.11
+* Fix bad XML format for GuiMacro GetInfo Root.
+* gh#491: Example Far Macro `ConEmu.CtrlShiftT.lua` had wrong hotkey.
+* Add ‘Anti-aliasing’ option for alternative font.
+* Far Manager was not resized after splitting with Ctrl-Shift-O/E.
+  Implement helper ForceFarResize and utilize it in both sync and async modes.
+* gh#502, gh#446, gh#447: The algorithm of text drawing has changed significantly.
+* Prevent double execution of script specified in "AutoRun" cmd's registry key.
+  For example, when "cmd /k CmdInit.cmd" was started (default for {cmd} task)
+  triggering `ver` command caused execution of `test.cmd` again.
+
+  [HKEY_CURRENT_USER\Software\Microsoft\Command Processor]
+  "AutoRun"="test.cmd"
+
+* gh#494: Fix clink double initialization.
+* connector#3: Let Left/Right/Up/Down/Home/End post sequences `ESC[X`.
+* connector#8: Fix `top` output lines.
+* Update `terminals` module to v0.7.3.
+* Updating progress was not changed during downloading (10% till 99%).
+* gh#297: Fix keyboard delay (Windows 7).
+* gh#471: Far plugin ‘ConEmu Panel Views’ was broken (da926ba regression).
+
+
+2015.12.24
+* All 64-bit binaries are built with VS14.
+  32-bit binaries are still built with VS9 (WinSDK7) to be compatible with old systems.
+* gh#486: Use https for github links.
+* gh#488: Full paths were shown in Far's editor/viewer tabs (6ce49af regression).
+* GuiMacro: Return xml instead of json for `GetInfo Root`.
+* API GuiMacro: In-process GuiMacro execution improvements.
+  Prototype: int __stdcall ConsoleMain3(int anWorkMode, LPCWSTR asCmdLine)
+  Example: ConsoleMain3(3, L" -GuiMacro:1234 Print \"exit\\n\"");
+  Note: anWorkMode==3, asCmdLine must begin with space.
+
+
+2015.12.22
+* gh#465: Treat Ctrl-Z as ‘EndOfStream’ in ReadConsole (Go input streams).
+  To use, on new line press Ctrl-Z and Enter. Option (Features page) disabled by default.
+* gh#469: TabBar/ToolBar is too large.
+* gh#473: Support Ctrl+LClick on paths surrounded by brackets.
+* connector/gh#4: AltGr+Char was not working with cygwin/msys connector.
+* gh#470: Double click word selection was broken.
+* conemu-inside/gh#3: New switch `-new_console:c0`.
+  It suppress writing to console confirmation messages
+  like "Press Enter or Esc to close console...", but let server
+  to wait for `Enter` or `Esc` nonetheless.
+* ConEmu.Core - Nuget package for Nuget.org, for referencing the stuff from Visual Studio projects.
+  Unlike Choco's, this one has to carry all of the payload files inside and not on an URL.
+  The nuget with conemu WinForms control references this nuget, so just adding a nuget to your project
+  sets it up for using the conemu control out of the box.
+* Internal. Fix package name
+* API: ConEmuCD exports function ConsoleMain3 to enable ‘in-process’ GuiMacro calls.
+  Prototype: int __stdcall ConsoleMain3(int anWorkMode, LPCWSTR asCmdLine)
+  Example: ConsoleMain3(0, L"-GuiMacro:1234 Print \"exit\\n\"");
+
+
+2015.12.17
+* AnsiLog was not written properly in some cases.
+* Reuse HandleKeeper to determine console handle properties properly
+  * ANSI coloring is supported while redirecting text to `CON` from batches.
+    Example for cmd prompt: `call cecho "Redirected output" > CON`.
+  * Output of msvcrt linked applications, like `PING` or `TRACERT`,
+    may be logged (Settings\Features\Log console output).
+* gh#461: Fix AeroPeek VCon offset when frame is non-resizable.
+* gh#210: Minimizing other windows causes ConEmu to be restored (Quake).
+* First try to draw non-spacings/combinings/surrogates/double-width in ‘proper’ size.
+  For example, combining accents/umlauts must be shown over preceding letter,
+  CJK double-width characters must use two cells to avoid overlapping.
+  But that raise some other problems if console application don't care about this.
+  For example: Far Manager frames may look corrupted after CJK file names.
+* Don't try to pop up console menu by Shift+RClick while LBtn selection is present.
+* Make IDM_CLOSE (Tab/Console menu item) behavior more conistent.
+  * If menu's opened by RClick on console or by hotkey:
+    do ‘Close console’.
+  * If menu's opened by TabBar's RClick and it's a group with several tabs:
+    do ‘Close tab group’.
+  * Otherwise: do ‘Close tab’.
+* ConEmu Inside: Terminate our process (ConEmu.exe) if parent window was killed.
+* Don't try to hide to TSA in Inside mode.
+* gh#467: Startup crash if startup task was renamed.
+* Arbitrary shells (not a Task) were not accepted in FastConfiguration dialog.
+* Let's save integers as user-friendly 10-based numbers (new xml configs).
+* Allow AutoUpdates to ‘Stable’ builds.
+* GuiMacro: GetInfo("Root") returns information of current console root process (JSON).
+  * If there's no console at all - macro returns either empty string,
+    or somthing like "FAILED:Specified ConEmu instance is not found".
+  * On errors you may receive `{"Status":"Unknown"}`.
+  * Normally, JSON object is expected. Example below, `//` for comments.
+
+~~~
+{
+"Running": false,  // true or false
+"Name": "cmd.exe", // name of root process executable
+"PID": 1234,       // PID of root process
+"ExitCode": 1,     // 259 if still running, or its exitcode
+"UpTime": 12418    // milliseconds
+}
+~~~
+
+* GuiMacro: Avoid `VConRequired` error macro was received before RCon created.
+* GuiMacro: If `ConEmuC -GuiMacro` was started before ConEmu GUI finishes initialization,
+  wait for ConEmu window appears or ConEmu.exe process terminates.
+* Option ‘Skip click on activation’ was not working on ‘touch’.
+* gh#310: Chars entered by Alt+Numpad were not working.
+* Warning fixes (from Michael Lukashov).
+
+
+2015.12.10
+* Add batch to build all binaries
+* Trim too long console titles in ‘Close confirmation’ dialog.
+* Backscroll buffer was not restored after exiting man, vim (608fe12 regression).
+* Show internal AppID in the About dialog, log AppID source.
+  This ID is used for Win7+ TaskBar (pinned apps).
+* In some cases Win7+ pinned TaskBar icon was not reused.
+* gh#461: Fix AeroPeek VCon offset when using captionless mode.
+
+
+2015.12.8
+* gh#459: Characters disappear after readline `Ctrl+R`, ..., `Enter`.
+* ConEmu Inside: Fix detection of ‘ConEmu has focus’.
+* ConEmu Inside: Don't resize VCon or RCon if parent is minimized.
+* ConEmu Inside: Show TaskBar progress on parent window.
+* ConEmu Inside: Show flashing on parent window.
+* Updater. Fight against wininet cache before downloading.
+* In some cases ConEmu tried to set abnormally large console size.
+* GuiMacro: `GetInfo("ActivePID")` returns PID of active console process or 0.
+
+
+2015.12.7
+* gh#438: No newlines in log files after prompts (cygwin/msys).
+  Cygwin/msys shells do not write LF to screen unless they
+  were started from ConEmu's cygwin/msys connector.
+  Therefore we have to do some magic to ‘detect’ line feeds...
+* Update terminals module to v0.7
+* In some cases PID of terminal-connector was not shown in the StatusBar.
+* Xterm's alternative screen was not cleared on activating.
+* gh#351: Allow changing URL for retrieving version location on Settings/Update.
+* gh#351: Use `https://conemu.github.io/version.ini` by default.
+* Changes in processing of default hotkey `Win+X`.
+  * It runs whole task contents, but not only first ‘tab’ from task;
+  * If no one task was marked as ‘Default shell’, run default `COMSPEC`
+    with arguments ` /k "%ConEmuBaseDir%\CmdInit.cmd"`.
+
+
+2015.12.5
+* Show cygwin/msys/clink flags on Settings/Info.
+* Post Fxx keys ncurses-friendly in the xterm mode emulation.
+* gh#442: In text selection pressing `Ctrl+Shift+Arrow` increases selection faster.
+  `Ctrl+Shift+Left/Right` jumps by words if possible, or by 10 chars.
+  `Ctrl+Shift+Up/Down` jumps by screen halfs.
+* gh#455: Redirected output from batch files to `CON` device was not working.
+* gh#438: No newlines in log files after prompts.
+* Do logging of Far prompt (only screen copy) if ‘Log console output’ is ON.
+* Update cygwin/msys connector to v0.6: https://conemu.github.io/en/CygwinMsysConnector.html
+
+
+2015.12.2
+* When ConEmu was started as a child window (InsideParent) it behaves as it has no focus.
+* Ensure that all child windows are closed properly on termination (InsideParent).
+* Option ‘Activate split/pane on mouse hover’ was not working in InsideParent mode.
+* Execution of ‘-GuiMacro:PID’ was failed if ConEmu.exe was in InsideParent.
+* Don't allow to execute ‘-GuiMacro:...’ on wrong instance.
+* Increase debugger backscroll even if it was started in ConEmu tab.
+* XTerm keys fixup (F1..F4, BackSpace, Alt+Char).
+* Disable ‘Ctrl+Backspace - delete word leftward to the text cursor’ in cygwin/msys connector.
+  Ctrl+BS is posted as "\x1F" and it may be configured in the `.inputrc` as following:
+    # Ctrl-BS - kill word on the left
+    "\x1F": "\C-w"
+* ANSI: Implement `ESC c` - Full reset (clear screen, backscroll, move cursor to the upper-left corner).
+* ANSI: Fix errors in `ESC [ *n* @` and `ESC [ *n* P` sequences (insert/delete characters).
+* ANSI: Support byobu status line.
+* ANSI: Fix extended attributes errors on automatic line scrolling.
+* ANSI: Implement `ESC E`, `ESC D`, `ESC M` sequences.
+  | ESC E | Same as `\r\n` |
+  | ESC D | Same as `\n` but preserves X coord |
+  | ESC M | Reverse `\n` |
+
+
+2015.11.29
+* ANSI: Implement (xterm) codes to save `ESC 7` and restore `ESC 8` cursor position.
+* ANSI: Sequences `ESC ] ... ESC \` were not processed properly in some cases.
+* cygwin/msys connector v0.4
+* Warning fixes (from Michael Lukashov)
+
+
+2015.11.26
+* First try to create cygwin/msys terminal connector:
+  https://github.com/Maximus5/cygwin-connector/releases/tag/v0.3
+* JumpList icon was not created properly for Task in some cases.
+  If `/icon` switch was not specified for Task parameters,
+  and first line of Task commands started with specials `*` or `>`,
+  JumpList icon was not created properly.
+* gh#431: Fix crash in EmergencyShow (Win10, closing ConEmu).
+* Show in the StatusBar cygwin/msys connector's PID as AltServer.
+* Pass UTF-8 encoded strings to debugger (ANSI debug logging).
+* ANSI: Implement `ESC [ 3 J`: dispose all backscroll lines (from xterm).
+* ANSI: Implement `ESC ] 9 ; 10 ST` - Request xterm keyboard emulation.
+* Testing purposes: Options `-a` and `-s` in `ConEmuC -type`.
+  `-a` writes text to console using MBCS functions.
+  `-s` writes text to console byte-by-byte (streaming).
+  Example: `ConEmuC -t -a -s UTF-8-broken.txt`.
+* Improve UTF-8 support. In some cases, console output was broken.
+* Internal. Reset m_Term on tab restart
+* ANSI: Support xterm bracketed paste mode.
+  Console application should write `\e[?2004h` to enable and `\e[?2004l`
+  to disable bracketed paste mode.
+  When mode is enabled, ConEmu sends pasted text to console input buffer
+  framed into `\s[200~` ... `\e[201~`.
+* ANSI: Long OSC sequences written splitted by writes were processed improperly.
+* Don't treat cygwin/msys connector as ‘Incomplete operation’.
+* Warnings fixes (from Michael Lukashov).
+
+
+2015.11.22
+* Minhook related: Try to change our imports to ease use of trampolines.
+* Append optional switches to single-command tasks.
+  For example, there is default task `{cmd}` which has single command:
+  `cmd /k "%ConEmuBaseDir%\CmdInit.cmd"`.
+  Now you may to run `{cmd} /git` from NewConsole dialog or via `-cmd`
+  switch of ConEmu.exe. So, the result will be:
+  `cmd /k "%ConEmuBaseDir%\CmdInit.cmd" /git`.
+* ConEmu here: Suggest to start `{cmd}` task instead of bare `cmd` by default.
+  * So the default command for ‘ConEmu Here’ will be `{cmd} -cur_console:n`.
+    * **Note**. Prepend `/reuse /cmd ` before task name, if you want to reuse
+      running ConEmu window: `/reuse /cmd {cmd} -cur_console:n`.
+  * Default command for ‘ConEmu Inside will be `{powershell} -cur_console:n`.
+* DefTerm. Workaround for some weird command lines (CodeBlocks).
+  For example, in CodeBlocks:
+  `C:\Program Files\CodeBlocks/cb_console_runner.exe "C:\sources\app.exe"`
+  MSDN recommends to quotate paths containing spaces and specials,
+  but CB ignores this guideline.
+* Try to bypass `start` if `-new_console:z` specified (in `cmd.exe` prompt).
+
+
+2015.11.19
+* gh#412: Failed to restore window position on secondary monitor (d3da351 regression).
+* Far Manager plugins ‘ConEmu Background’ and ‘ConEmu Underlines’ were not working on Windows 7.
+* First user palette was multiplied on sequental TabMenu calls ‘View (palettes)’.
+* On ‘Debug active process...’ always show ‘New console’ dialog.
+  So user may run debugger in a split or even change debugger comand line.
+* Allow to set hotkeys for debugging menu items.
+  * Debug active process (default is `Win+Shift+D`);
+  * Active process memory dump;
+  * Active process tree memory dump.
+* For debugger NewConsole dialog suggest '30%' for split and don't autoselect command.
+* Debugger. Switch `/AUTOMINI` will create sequential mini-dumps.
+  * So, it may be useful for creating ‘mini snapshots’ of running
+  application with specified time intervals.
+  After `/AUTOMINI` switch user may specify interval.
+  Milliseconds: `/AUTOMINI 500` or `/AUTOMINI 500ms`;
+  seconds: `/AUTOMINI 5s`; and minutes: `/AUTOMINI 1m`.
+  * Create sequental dumps of 64bit PID=1234 with 500ms interval:
+  `ConEmuC64.exe /DEBUGPID=1234 /AUTOMINI 500`
+  * Note. Press `Win+Shift+D` (default hotkey) to open NewConsole
+  dialog with prefilled command to start debugger on the active
+  process in the active console.
+* GuiMacro: `Debug(<Action>)` allows to create debugger console or memory dumps.
+    Action=0: Debug active process (confirmation dialog with options)
+    Action=1: Active process memory dump...
+    Action=2: Active process tree memory dump...
 
 
 2015.11.15
