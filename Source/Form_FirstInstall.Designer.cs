@@ -120,7 +120,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(196, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Please choose start packes and version";
+            this.label3.Text = "Please choose start packages and version";
             // 
             // button_open_package_folder
             // 
