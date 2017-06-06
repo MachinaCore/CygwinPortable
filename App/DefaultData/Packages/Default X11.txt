@@ -5,3 +5,4 @@ wget
 tar
 gawk
 bzip2
+dos2unix
