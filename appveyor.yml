@@ -1,0 +1,10 @@
+version: 1.0.{build}
+before_build:
+- cmd: nuget restore
+build:
+  verbosity: minimal
+after_build:
+- cmd: C:\Python36-x64\python.exe BuildScript.py
+artifacts:
+- path: CygwinPortable*.7z
+- path: CygwinPortable*.exe
