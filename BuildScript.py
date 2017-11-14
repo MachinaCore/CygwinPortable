@@ -23,7 +23,7 @@ GlobalReleasePath = GlobalScriptPath + "/Release"
 print (GlobalScriptPath)
 print (GlobalReleasePath)
 
-if not os.path.isdir(GlobalScriptPath):
+if not os.path.isdir(GlobalReleasePath):
     os.makedirs(GlobalReleasePath, exist_ok=True)
 
 config = configparser.ConfigParser()
@@ -49,5 +49,5 @@ if not os.path.isdir(GlobalScriptPath + "/BuildHelpers"):
     os.system('git clone https://github.com/LORDofDOOM/GathSystems.comAppInstaller.git ' + GlobalScriptPath + "/BuildHelpers/AppInstaller")
 
 #Create Launcher
-os.system(GlobalScriptPath + "/BuildHelpers/AppInstaller/App/nsis/makensis.exe " + GlobalScriptPath + "/Other/source/CygwinPortable.nsi")
+os.system('%CD%/BuildHelpers/AppInstaller/App/nsis/makensis.exe Other/source/CygwinPortable.nsi')
 shutil.copy2(GlobalScriptPath + '/Other/source/CygwinPortable.exe', GlobalReleasePath + '/CygwinPortable.exe')
