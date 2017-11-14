@@ -46,7 +46,7 @@ distutils.dir_util.copy_tree(GlobalScriptPath + '/App/RuntimeClean/ConEmu', Glob
 
 if not os.path.isdir(GlobalScriptPath + "/BuildHelpers"):
     os.makedirs(GlobalScriptPath + "/BuildHelpers", exist_ok=True)
-    os.system('git clone https://github.com/LORDofDOOM/GathSystems.comAppInstaller.git ' + GlobalScriptPath + "/BuildHelpers/AppInstaller")
+    os.system('git clone https://github.com/GathSystems/GathSystems.comAppInstaller.git ' + GlobalScriptPath + "/BuildHelpers/AppInstaller")
 
 #Create Launcher
 os.system('%CD%/BuildHelpers/AppInstaller/App/nsis/makensis.exe Other/source/CygwinPortable.nsi')
