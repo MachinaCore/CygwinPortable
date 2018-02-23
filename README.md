@@ -84,7 +84,7 @@ There are some interesting options - Rightclick on the CygwinPortable Trayicon -
 Compile
 -----
 
-You can compile CygwinPortable with any version of Visual Studio (I use 2015) or mono (see build_momo.sh -> This needs a Cygwin Installation)
+You can compile CygwinPortable with any version of Visual Studio (I use 2015) or mono (see build_mono.sh -> This needs a Cygwin Installation)
 
 Feedback
 -----
