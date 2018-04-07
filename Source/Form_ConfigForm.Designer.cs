@@ -101,7 +101,7 @@
             this.tabPage_settings.TabIndex = 0;
             this.tabPage_settings.Text = "Settings";
             this.tabPage_settings.UseVisualStyleBackColor = true;
-            this.tabPage_settings.Click += new System.EventHandler(this.tabPage_settings_Click);
+
             // 
             // comboBox_shell
             // 
