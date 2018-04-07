@@ -1,9 +1,9 @@
 CygwinPortable
 ==============
 
-[![Build status](https://ci.appveyor.com/api/projects/status/nsye5j8qpf8dg45g/branch/master?svg=true)](https://ci.appveyor.com/project/GathSystems/cygwinportable/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/nsye5j8qpf8dg45g/branch/master?svg=true)](https://ci.appveyor.com/project/MachinaCore/cygwinportable/branch/master)
 
-[Download current working branches as .paf.exe and .7z from appveyor](https://ci.appveyor.com/project/GathSystems/cygwinportable/build/artifacts)
+[Download current working branches as .paf.exe and .7z from appveyor](https://ci.appveyor.com/project/MachinaCore/cygwinportable/build/artifacts)
 
 
 A portable Cygwin environment with many options. It's very useful for "static" installations too. It can create ShellExtensions in Windows Explorer ("Open Folder in Cygwin", "Open Drive in Cygwin", "Run in Cygwin").  "Open with -> CygwinPortable.exe" is also supported (you can register e.g. .sh extensions with CygwinPortable.exe). XServer is supported. 
@@ -12,7 +12,7 @@ ShellExtensions needs admin rights (Only one time to register the ShellExtension
 
 Download ready to use files
 -----
-You can download prebuild (Cygwin x86) version on from [AppVeyer](https://ci.appveyor.com/project/GathSystems/cygwinportable/build/artifacts). I've compiled a PAF (PortableApps) and a 7z compressed version. Cygwin defaults are already installed.
+You can download prebuild (Cygwin x86) version on from [AppVeyer](https://ci.appveyor.com/project/MachinaCore/cygwinportable/build/artifacts). I've compiled a PAF (PortableApps) and a 7z compressed version. Cygwin defaults are already installed.
 
 First Start
 -----
