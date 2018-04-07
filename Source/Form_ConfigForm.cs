@@ -44,6 +44,7 @@ namespace CygwinPortableCS
             Globals.MainConfig["Cygwin"]["CygwinFirstInstallDeleteUnneeded"] = checkBox_delete_unneeded_files.Checked;
             Globals.MainConfig["Cygwin"]["InstallUnofficial"] = checkBox_install_unofficial_cygwin_tools.Checked;
             Globals.MainConfig["Cygwin"]["WindowsPathToCygwin"] = checkBox_add_windows_path_variables_to_cygwin.Checked;
+            Globals.MainConfig["Cygwin"]["SupportWSL"] = checkBox_support_wsl.Checked;
 
             Globals.MainConfig["Cygwin"]["Username"] = textBox_username.Text;
             Globals.MainConfig["Cygwin"]["CygwinDeleteInstallation"] = checkBox_delete_complete_installation.Checked;

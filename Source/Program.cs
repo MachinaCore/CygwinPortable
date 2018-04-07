@@ -92,6 +92,7 @@ namespace CygwinPortableCS
             Globals.MainConfig["Cygwin"]["CygwinFirstInstallDeleteUnneeded"] = true;
             Globals.MainConfig["Cygwin"]["InstallUnofficial"] = true;
             Globals.MainConfig["Cygwin"]["WindowsPathToCygwin"] = true;
+            Globals.MainConfig["Cygwin"]["SupportWSL"] = true;
             Globals.MainConfig["Cygwin"]["WindowsAdditionalPath"] = "/cygdrive/c/python27;/cygdrive/c/windows;/cygdrive/c/windows/system32;/cygdrive/c/windows/SysWOW64";
             Globals.MainConfig["Cygwin"]["WindowsPythonPath"] = "/cygdrive/c/python27";
             Globals.MainConfig["Cygwin"]["CygwinX86URL"] = "https://www.cygwin.com/setup-x86.exe";

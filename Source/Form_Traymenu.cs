@@ -40,11 +40,18 @@ namespace CygwinPortableCS
                         string path = "";
                         string exitAfterExecute = "0";
                         int idx = 0;
+                        bool useCygwin = true;
+
                         foreach (string arg in args)
                         {
                             if (args[idx] == "-path")
                             {
                                 path = args[idx + 1];
+                            }
+
+                            if (args[idx] == "-wsl")
+                            {
+                                useCygwin = false;
                             }
 
                             if (args[idx] == "-exit")
@@ -65,7 +72,14 @@ namespace CygwinPortableCS
                         
 
                         //MessageBox.Show("Test" + path, "Test", MessageBoxButtons.YesNo);
-                        Cygwin.CygwinOpen(path);
+                        if (useCygwin)
+                        {
+                            Cygwin.CygwinOpen(path, "cygwin");
+                        } else
+                        {
+                            Cygwin.CygwinOpen(path, "wsl");
+                        }
+                        
                         Environment.Exit(-1);
                     }
 
