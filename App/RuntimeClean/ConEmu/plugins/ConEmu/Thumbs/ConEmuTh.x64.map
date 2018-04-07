@@ -1,13 +1,13 @@
  ConEmuTh.x64
 
- Timestamp is 580beeb8 (Sun Oct 23 01:56:56 2016)
+ Timestamp is 5847d8ac (Wed Dec  7 12:38:52 2016)
 
  Preferred load address is 0000000180000000
 
  Start         Length     Name                   Class
- 0001:00000000 0001c800H .text$mn                CODE
- 0001:0001c800 00000020H .text$mn$00             CODE
- 0001:0001c820 00000270H .text$x                 CODE
+ 0001:00000000 0001c810H .text$mn                CODE
+ 0001:0001c810 00000020H .text$mn$00             CODE
+ 0001:0001c830 00000270H .text$x                 CODE
  0002:00000000 00000650H .idata$5                DATA
  0002:00000650 00000010H .00cfg                  DATA
  0002:00000660 00000008H .CRT$XCA                DATA
@@ -352,309 +352,309 @@
  0001:0000ec1c       ??1CRgnDetect@@QEAA@XZ     000000018000fc1c f   RgnDetect.obj
  0001:0000ec78       ?DetectDialog@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHHHPEAH2@Z 000000018000fc78 f   RgnDetect.obj
  0001:0000f020       ?ExpandDialogFrame@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH2HH22@Z 0000000180010020 f   RgnDetect.obj
- 0001:0000f2ec       ?FindByBackground@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH222AEA_N@Z 00000001800102ec f   RgnDetect.obj
- 0001:0000f3f0       ?FindDialog_Any@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH222AEA_N@Z 00000001800103f0 f   RgnDetect.obj
- 0001:0000f6a0       ?FindDialog_Inner@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH2@Z 00000001800106a0 f   RgnDetect.obj
- 0001:0000f7ec       ?FindDialog_Left@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH222AEA_N@Z 00000001800107ec f   RgnDetect.obj
- 0001:0000f9dc       ?FindDialog_Right@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH222AEA_N@Z 00000001800109dc f   RgnDetect.obj
- 0001:0000fb44       ?FindDialog_TopLeft@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH222AEA_N@Z 0000000180010b44 f   RgnDetect.obj
- 0001:0000fc50       ?FindDialog_TopRight@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH222AEA_N@Z 0000000180010c50 f   RgnDetect.obj
- 0001:0000fd68       ?FindFrameBottom_ByLeft@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 0000000180010d68 f   RgnDetect.obj
- 0001:0000fdfc       ?FindFrameBottom_ByRight@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 0000000180010dfc f   RgnDetect.obj
- 0001:0000feb0       ?FindFrameLeft_ByBottom@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 0000000180010eb0 f   RgnDetect.obj
- 0001:0000ff7c       ?FindFrameLeft_ByTop@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 0000000180010f7c f   RgnDetect.obj
- 0001:000100e8       ?FindFrameRight_ByBottom@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 00000001800110e8 f   RgnDetect.obj
- 0001:000101c8       ?FindFrameRight_ByTop@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 00000001800111c8 f   RgnDetect.obj
- 0001:000102f0       ?FindFrameTop_ByLeft@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 00000001800112f0 f   RgnDetect.obj
- 0001:00010378       ?FindFrameTop_ByRight@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 0000000180011378 f   RgnDetect.obj
- 0001:00010428       ?FindFrame_TopLeft@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH222@Z 0000000180011428 f   RgnDetect.obj
- 0001:0001052c       ?GetCharAttr@CRgnDetect@@QEAAHHHAEA_WAEAUtag_CharAttr@@@Z 000000018001152c f   RgnDetect.obj
- 0001:000105a8       ?GetDetectedDialogsPtr@CRgnDetect@@QEBAPEBUtag_DetectedDialog@@XZ 00000001800115a8 f   RgnDetect.obj
- 0001:000105b0       ?GetFlags@CRgnDetect@@QEBAKXZ 00000001800115b0 f   RgnDetect.obj
- 0001:000105b8       ?InitializeSBI@CRgnDetect@@QEAAHPEBK@Z 00000001800115b8 f   RgnDetect.obj
- 0001:0001099c       ?MarkDialog@CRgnDetect@@IEAAHPEA_WPEAUtag_CharAttr@@HHHHHHI_NK@Z 000000018001199c f   RgnDetect.obj
- 0001:000112a8       ?OnWindowSizeChanged@CRgnDetect@@QEAAXXZ 00000001800122a8 f   RgnDetect.obj
- 0001:000112b0       ?OnWriteConsoleOutput@CRgnDetect@@QEAAXPEBU_CHAR_INFO@@U_COORD@@1PEAU_SMALL_RECT@@PEBK@Z 00000001800122b0 f   RgnDetect.obj
- 0001:00011520       ?PrepareTransparent@CRgnDetect@@QEAAXPEBUCEFAR_INFO_MAPPING@@PEBK@Z 0000000180012520 f   RgnDetect.obj
- 0001:000115f4       ?PrepareTransparent@CRgnDetect@@QEAAXPEBUCEFAR_INFO_MAPPING@@PEBKPEBU_CONSOLE_SCREEN_BUFFER_INFO@@PEA_WPEAUtag_CharAttr@@HH@Z 00000001800125f4 f   RgnDetect.obj
- 0001:00011de8       ?SetFarRect@CRgnDetect@@QEAAXPEAU_SMALL_RECT@@@Z 0000000180012de8 f   RgnDetect.obj
- 0001:00011e68       ?TextHeight@CRgnDetect@@QEAAHXZ 0000000180012e68 f   RgnDetect.obj
- 0001:00011e94       ?TextWidth@CRgnDetect@@QEAAHXZ 0000000180012e94 f   RgnDetect.obj
- 0001:00011ec0       ?SearchAppPaths@@YA_NPEB_WAEAUCEStr@@_NPEAU1@@Z 0000000180012ec0 f   WFiles.obj
- 0001:00012294       ?ExpandEnvStr@@YAPEA_WPEB_W@Z 0000000180013294 f   WObjects.obj
- 0001:0001233c       ?FileExists@@YA_NPEB_WPEAK@Z 000000018001333c f   WObjects.obj
- 0001:000124b0       ?GetEnvVar@@YAPEA_WPEB_W@Z 00000001800134b0 f   WObjects.obj
- 0001:00012554       ?IsWindows64@@YA_NXZ       0000000180013554 f   WObjects.obj
- 0001:00012578       ?SetThreadName@@YAXKPEAD@Z 0000000180013578 f   WThreads.obj
- 0001:000125b0       ?apiCreateThread@@YAPEAXP6AKPEAX@Z0PEAKPEBDH@Z 00000001800135b0 f   WThreads.obj
- 0001:00012700       ?apiTerminateThreadEx@@YAHPEAXKPEBDH@Z 0000000180013700 f   WThreads.obj
- 0001:0001280c       ?apiThreadHelper@@YAKPEAX@Z 000000018001380c f   WThreads.obj
- 0001:000129f4       ?apiShowWindow@@YA_NPEAUHWND__@@H@Z 00000001800139f4 f   WUser.obj
- 0001:00012a08       CreateToolhelp32Snapshot   0000000180013a08 f   kernel32:KERNEL32.dll
- 0001:00012a0e       Thread32First              0000000180013a0e f   kernel32:KERNEL32.dll
- 0001:00012a14       Thread32Next               0000000180013a14 f   kernel32:KERNEL32.dll
- 0001:00012a1a       Process32FirstW            0000000180013a1a f   kernel32:KERNEL32.dll
- 0001:00012a20       Process32NextW             0000000180013a20 f   kernel32:KERNEL32.dll
- 0001:00012a26       GetFileVersionInfoSizeW    0000000180013a26 f   version:VERSION.dll
- 0001:00012a2c       GetFileVersionInfoW        0000000180013a2c f   version:VERSION.dll
- 0001:00012a32       VerQueryValueW             0000000180013a32 f   version:VERSION.dll
- 0001:00012a38       ??3@YAXPEAX_K@Z            0000000180013a38 f   LIBCMT:delete_scalar_size.obj
- 0001:00012d8c       _DllMainCRTStartup         0000000180013d8c f   LIBCMT:dll_dllmain.obj
- 0001:00012dcc       __scrt_acquire_startup_lock 0000000180013dcc f   LIBCMT:utility.obj
- 0001:00012e08       __scrt_dllmain_after_initialize_c 0000000180013e08 f   LIBCMT:utility.obj
- 0001:00012e3c       __scrt_dllmain_before_initialize_c 0000000180013e3c f   LIBCMT:utility.obj
- 0001:00012e54       __scrt_dllmain_crt_thread_attach 0000000180013e54 f   LIBCMT:utility.obj
- 0001:00012e7c       __scrt_dllmain_crt_thread_detach 0000000180013e7c f   LIBCMT:utility.obj
- 0001:00012e94       __scrt_dllmain_exception_filter 0000000180013e94 f   LIBCMT:utility.obj
- 0001:00012ef8       __scrt_dllmain_uninitialize_c 0000000180013ef8 f   LIBCMT:utility.obj
- 0001:00012f28       __scrt_dllmain_uninitialize_critical 0000000180013f28 f   LIBCMT:utility.obj
- 0001:00012f3c       __scrt_initialize_crt      0000000180013f3c f   LIBCMT:utility.obj
- 0001:00012f88       __scrt_initialize_onexit_tables 0000000180013f88 f   LIBCMT:utility.obj
- 0001:00013054       __scrt_is_nonwritable_in_current_image 0000000180014054 f   LIBCMT:utility.obj
- 0001:000130f0       __scrt_release_startup_lock 00000001800140f0 f   LIBCMT:utility.obj
- 0001:00013114       __scrt_uninitialize_crt    0000000180014114 f   LIBCMT:utility.obj
- 0001:00013140       _onexit                    0000000180014140 f   LIBCMT:utility.obj
- 0001:00013190       atexit                     0000000180014190 f   LIBCMT:utility.obj
- 0001:000131a8       __security_init_cookie     00000001800141a8 f   LIBCMT:gs_support.obj
- 0001:00013254       ?__scrt_initialize_type_info@@YAXXZ 0000000180014254 f   LIBCMT:tncleanup.obj
- 0001:00013264       ?__scrt_uninitialize_type_info@@YAXXZ 0000000180014264 f   LIBCMT:tncleanup.obj
- 0001:00013270       __local_stdio_printf_options 0000000180014270 f i LIBCMT:default_local_stdio_options.obj
- 0001:00013278       __local_stdio_scanf_options 0000000180014278 f i LIBCMT:default_local_stdio_options.obj
- 0001:00013280       __scrt_initialize_default_local_stdio_options 0000000180014280 f   LIBCMT:default_local_stdio_options.obj
- 0001:0001329c       __scrt_get_dyn_tls_init_callback 000000018001429c f   LIBCMT:dyn_tls_init.obj
- 0001:000132a4       __crt_debugger_hook        00000001800142a4 f   LIBCMT:utility_desktop.obj
- 0001:000132ac       __scrt_fastfail            00000001800142ac f   LIBCMT:utility_desktop.obj
- 0001:000133f4       _RTC_Initialize            00000001800143f4 f   LIBCMT:_initsect_.obj
- 0001:00013440       _RTC_Terminate             0000000180014440 f   LIBCMT:_initsect_.obj
- 0001:0001348c       _guard_check_icall         000000018001448c f i LIBCMT:checkcfg.obj
- 0001:00013494       __isa_available_init       0000000180014494 f   LIBCMT:_cpu_disp_.obj
- 0001:0001365c       _get_startup_argv_mode     000000018001465c f   LIBCMT:argv_mode.obj
- 0001:00013664       __scrt_is_ucrt_dll_in_use  0000000180014664 f   LIBCMT:ucrt_detection.obj
- 0001:00013680       memcpy                     0000000180014680 f   libvcruntime:memcpy.obj
- 0001:00013680       memmove                    0000000180014680 f   libvcruntime:memcpy.obj
- 0001:00013ab8       strrchr                    0000000180014ab8 f   libvcruntime:strrchr.obj
- 0001:00013bf8       wcschr                     0000000180014bf8 f   libvcruntime:wcschr.obj
- 0001:00013c8c       wcsrchr                    0000000180014c8c f   libvcruntime:wcsrchr.obj
- 0001:00013d50       memset                     0000000180014d50 f   libvcruntime:memset.obj
- 0001:00013f00       memcmp                     0000000180014f00 f   libvcruntime:memcmp.obj
- 0001:00013fc8       __C_specific_handler       0000000180014fc8 f   libvcruntime:_chandler_.obj
- 0001:000141c4       strchr                     00000001800151c4 f   libvcruntime:strchr.obj
- 0001:00014250       __vcrt_initialize          0000000180015250 f   libvcruntime:initialization.obj
- 0001:00014284       __vcrt_thread_attach       0000000180015284 f   libvcruntime:initialization.obj
- 0001:00014298       __vcrt_thread_detach       0000000180015298 f   libvcruntime:initialization.obj
- 0001:000142ac       __vcrt_uninitialize        00000001800152ac f   libvcruntime:initialization.obj
- 0001:000142cc       __vcrt_uninitialize_critical 00000001800152cc f   libvcruntime:initialization.obj
- 0001:000142dc       __std_type_info_destroy_list 00000001800152dc f   libvcruntime:std_type_info.obj
- 0001:00014320       _local_unwind              0000000180015320 f   libvcruntime:_jmpuwind_.obj
- 0001:00014350       _NLG_Notify                0000000180015350 f   libvcruntime:_jmpuwind_.obj
- 0001:00014370       __NLG_Dispatch2            0000000180015370 f   libvcruntime:_jmpuwind_.obj
- 0001:00014380       __NLG_Return2              0000000180015380 f   libvcruntime:_jmpuwind_.obj
- 0001:00014384       __vcrt_freefls             0000000180015384 f   libvcruntime:per_thread_data.obj
- 0001:000143a4       __vcrt_freeptd             00000001800153a4 f   libvcruntime:per_thread_data.obj
- 0001:000143f4       __vcrt_getptd_noexit       00000001800153f4 f   libvcruntime:per_thread_data.obj
- 0001:000144ac       __vcrt_initialize_ptd      00000001800154ac f   libvcruntime:per_thread_data.obj
- 0001:000144ec       __vcrt_uninitialize_ptd    00000001800154ec f   libvcruntime:per_thread_data.obj
- 0001:00014510       __vcrt_initialize_locks    0000000180015510 f   libvcruntime:locks.obj
- 0001:00014558       __vcrt_uninitialize_locks  0000000180015558 f   libvcruntime:locks.obj
- 0001:00014758       __vcrt_FlsAlloc            0000000180015758 f   libvcruntime:winapi_downlevel.obj
- 0001:000147ac       __vcrt_FlsFree             00000001800157ac f   libvcruntime:winapi_downlevel.obj
- 0001:00014800       __vcrt_FlsGetValue         0000000180015800 f   libvcruntime:winapi_downlevel.obj
- 0001:00014854       __vcrt_FlsSetValue         0000000180015854 f   libvcruntime:winapi_downlevel.obj
- 0001:000148bc       __vcrt_InitializeCriticalSectionEx 00000001800158bc f   libvcruntime:winapi_downlevel.obj
- 0001:00014934       __vcrt_initialize_winapi_thunks 0000000180015934 f   libvcruntime:winapi_downlevel.obj
- 0001:00014980       __vcrt_uninitialize_winapi_thunks 0000000180015980 f   libvcruntime:winapi_downlevel.obj
- 0001:000149c0       __vcrt_initialize_pure_virtual_call_handler 00000001800159c0 f   libvcruntime:purevirt_data.obj
- 0001:000149e4       wcspbrk                    00000001800159e4 f   libucrt:wcspbrk.obj
- 0001:00014a1c       ??0_LocaleUpdate@@QEAA@QEAU__crt_locale_pointers@@@Z 0000000180015a1c f i libucrt:strtox.obj
- 0001:00014aac       _initterm                  0000000180015aac f   libucrt:initterm.obj
- 0001:00014b24       _initterm_e                0000000180015b24 f   libucrt:initterm.obj
- 0001:00014b70       _seh_filter_dll            0000000180015b70 f   libucrt:exception_filter.obj
- 0001:00014b84       _seh_filter_exe            0000000180015b84 f   libucrt:exception_filter.obj
- 0001:00014f44       __acrt_initialize_thread_local_exit_callback 0000000180015f44 f   libucrt:exit.obj
- 0001:00014f4c       _cexit                     0000000180015f4c f   libucrt:exit.obj
- 0001:00014f5c       _exit                      0000000180015f5c f   libucrt:exit.obj
- 0001:00014f68       _is_c_termination_complete 0000000180015f68 f   libucrt:exit.obj
- 0001:0001512c       __acrt_allocate_buffer_for_argv 000000018001612c f   libucrt:argv_parsing.obj
- 0001:00015190       _configure_narrow_argv     0000000180016190 f   libucrt:argv_parsing.obj
- 0001:000154ec       __dcrt_uninitialize_environments_nolock 00000001800164ec f   libucrt:environment_initialization.obj
- 0001:00015524       _initialize_narrow_environment 0000000180016524 f   libucrt:environment_initialization.obj
- 0001:0001552c       ??$?RV<lambda_b8c45f8f788dd370798f47cfe8ac3a86>@@AEAV<lambda_4e60a939b0d047cfe11ddc22648dfba9>@@V<lambda_332c3edc96d0294ec56c57d38c1cdfd5>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_b8c45f8f788dd370798f47cfe8ac3a86>@@AEAV<lambda_4e60a939b0d047cfe11ddc22648dfba9>@@$$QEAV<lambda_332c3edc96d0294ec56c57d38c1cdfd5>@@@Z 000000018001652c f i libucrt:onexit.obj
- 0001:00015568       ??$?RV<lambda_e24bbb7b643b32fcea6fa61b31d4c984>@@AEAV<lambda_275893d493268fdec8709772e3fcec0e>@@V<lambda_9d71df4d7cf3f480f8d633942495c3b0>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_e24bbb7b643b32fcea6fa61b31d4c984>@@AEAV<lambda_275893d493268fdec8709772e3fcec0e>@@$$QEAV<lambda_9d71df4d7cf3f480f8d633942495c3b0>@@@Z 0000000180016568 f i libucrt:onexit.obj
- 0001:000158e4       _crt_atexit                00000001800168e4 f   libucrt:onexit.obj
- 0001:000158f4       _execute_onexit_table      00000001800168f4 f   libucrt:onexit.obj
- 0001:00015930       _initialize_onexit_table   0000000180016930 f   libucrt:onexit.obj
- 0001:00015970       _register_onexit_function  0000000180016970 f   libucrt:onexit.obj
- 0001:00015ac8       ??$uninitialize@V<lambda_30a498feb8538b5c3153c22026e33470>@@@?$dual_state_global@PEAU__crt_multibyte_data@@@__crt_state_management@@QEAAX$$QEAV<lambda_30a498feb8538b5c3153c22026e33470>@@@Z 0000000180016ac8 f i libucrt:initialization.obj
- 0001:00015b48       __acrt_initialize          0000000180016b48 f   libucrt:initialization.obj
- 0001:00015b5c       __acrt_thread_attach       0000000180016b5c f   libucrt:initialization.obj
- 0001:00015b70       __acrt_thread_detach       0000000180016b70 f   libucrt:initialization.obj
- 0001:00015b80       __acrt_uninitialize        0000000180016b80 f   libucrt:initialization.obj
- 0001:00015b94       __acrt_uninitialize_critical 0000000180016b94 f   libucrt:initialization.obj
- 0001:00015ba4       terminate                  0000000180016ba4 f   libucrt:terminate.obj
- 0001:00015bcc       _free_base                 0000000180016bcc f   libucrt:free_base.obj
- 0001:00015c0c       _malloc_base               0000000180016c0c f   libucrt:malloc_base.obj
- 0001:00015c6c       strcpy_s                   0000000180016c6c f   libucrt:strcpy_s.obj
- 0001:00015ccc       abort                      0000000180016ccc f   libucrt:abort.obj
- 0001:00015d24       _calloc_base               0000000180016d24 f   libucrt:calloc_base.obj
- 0001:00015d9c       __acrt_call_reportfault    0000000180016d9c f   libucrt:invalid_parameter.obj
- 0001:00015ef8       __acrt_initialize_invalid_parameter_handler 0000000180016ef8 f   libucrt:invalid_parameter.obj
- 0001:00015f00       _invalid_parameter         0000000180016f00 f   libucrt:invalid_parameter.obj
- 0001:00015fa8       _invalid_parameter_noinfo  0000000180016fa8 f   libucrt:invalid_parameter.obj
- 0001:00015fc8       _invoke_watson             0000000180016fc8 f   libucrt:invalid_parameter.obj
- 0001:00016010       __acrt_errno_from_os_error 0000000180017010 f   libucrt:errno.obj
- 0001:00016058       __acrt_errno_map_os_error  0000000180017058 f   libucrt:errno.obj
- 0001:000160a8       __doserrno                 00000001800170a8 f   libucrt:errno.obj
- 0001:000160c8       _errno                     00000001800170c8 f   libucrt:errno.obj
- 0001:000160e8       __pctype_func              00000001800170e8 f   libucrt:ctype.obj
- 0001:00016118       ??$?RV<lambda_46352004c1216016012b18bd6f87e700>@@AEAV<lambda_3bd07e1a1191394380780325891bf33f>@@V<lambda_334532d3f185bcaa59b5be82d7d22bff>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_46352004c1216016012b18bd6f87e700>@@AEAV<lambda_3bd07e1a1191394380780325891bf33f>@@$$QEAV<lambda_334532d3f185bcaa59b5be82d7d22bff>@@@Z 0000000180017118 f i libucrt:per_thread_data.obj
- 0001:00016178       ??$?RV<lambda_5e887d1dcbef67a5eb4283622ba103bf>@@AEAV<lambda_4466841279450cc726390878d4a41900>@@V<lambda_341c25c0346d94847f1f3c463c57e077>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_5e887d1dcbef67a5eb4283622ba103bf>@@AEAV<lambda_4466841279450cc726390878d4a41900>@@$$QEAV<lambda_341c25c0346d94847f1f3c463c57e077>@@@Z 0000000180017178 f i libucrt:per_thread_data.obj
- 0001:000161c0       ??$?RV<lambda_72d1df2b273a38828b1ce30cbf4cdab5>@@AEAV<lambda_876a65b173b8412d3a47c70a915b0cf4>@@V<lambda_41932305e351933ebe8f8be3ed8bb5dc>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_72d1df2b273a38828b1ce30cbf4cdab5>@@AEAV<lambda_876a65b173b8412d3a47c70a915b0cf4>@@$$QEAV<lambda_41932305e351933ebe8f8be3ed8bb5dc>@@@Z 00000001800171c0 f i libucrt:per_thread_data.obj
- 0001:00016200       ??$?RV<lambda_fb3a7dec4e47f37f22dae91bb15c9095>@@AEAV<lambda_698284760c8add0bfb0756c19673e34b>@@V<lambda_dfb8eca1e75fef3034a8fb18dd509707>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_fb3a7dec4e47f37f22dae91bb15c9095>@@AEAV<lambda_698284760c8add0bfb0756c19673e34b>@@$$QEAV<lambda_dfb8eca1e75fef3034a8fb18dd509707>@@@Z 0000000180017200 f i libucrt:per_thread_data.obj
- 0001:00016490       __acrt_freeptd             0000000180017490 f   libucrt:per_thread_data.obj
- 0001:000164d4       __acrt_getptd              00000001800174d4 f   libucrt:per_thread_data.obj
- 0001:00016568       __acrt_getptd_head         0000000180017568 f   libucrt:per_thread_data.obj
- 0001:000165dc       __acrt_getptd_noexit       00000001800175dc f   libucrt:per_thread_data.obj
- 0001:0001667c       __acrt_initialize_ptd      000000018001767c f   libucrt:per_thread_data.obj
- 0001:000166b8       __acrt_uninitialize_ptd    00000001800176b8 f   libucrt:per_thread_data.obj
- 0001:000166dc       __acrt_update_locale_info  00000001800176dc f   libucrt:locale_update.obj
- 0001:00016710       __acrt_update_multibyte_info 0000000180017710 f   libucrt:locale_update.obj
- 0001:00016744       ??$?RV<lambda_9431c60049192bb82166e0947f95a2e9>@@AEAV<lambda_85fa512c59a4d94d4a89f575eefd92a6>@@V<lambda_487febba6ca58d9ce348204d67e1dba3>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_9431c60049192bb82166e0947f95a2e9>@@AEAV<lambda_85fa512c59a4d94d4a89f575eefd92a6>@@$$QEAV<lambda_487febba6ca58d9ce348204d67e1dba3>@@@Z 0000000180017744 f i libucrt:wsetlocale.obj
- 0001:000167b4       __acrt_set_locale_changed  00000001800177b4 f   libucrt:wsetlocale.obj
- 0001:000167c0       __acrt_uninitialize_locale 00000001800177c0 f   libucrt:wsetlocale.obj
- 0001:000167f0       __acrt_initialize_locks    00000001800177f0 f   libucrt:locks.obj
- 0001:00016838       __acrt_lock                0000000180017838 f   libucrt:locks.obj
- 0001:00016854       __acrt_uninitialize_locks  0000000180017854 f   libucrt:locks.obj
- 0001:0001688c       __acrt_unlock              000000018001788c f   libucrt:locks.obj
- 0001:00016a48       __acrt_FlsAlloc            0000000180017a48 f   libucrt:winapi_thunks.obj
- 0001:00016aa0       __acrt_FlsFree             0000000180017aa0 f   libucrt:winapi_thunks.obj
- 0001:00016af8       __acrt_FlsGetValue         0000000180017af8 f   libucrt:winapi_thunks.obj
- 0001:00016b50       __acrt_FlsSetValue         0000000180017b50 f   libucrt:winapi_thunks.obj
- 0001:00016bb8       __acrt_InitializeCriticalSectionEx 0000000180017bb8 f   libucrt:winapi_thunks.obj
- 0001:00016c30       __acrt_LCMapStringEx       0000000180017c30 f   libucrt:winapi_thunks.obj
- 0001:00016d20       __acrt_LocaleNameToLCID    0000000180017d20 f   libucrt:winapi_thunks.obj
- 0001:00016d88       __acrt_initialize_winapi_thunks 0000000180017d88 f   libucrt:winapi_thunks.obj
- 0001:00016dc0       __acrt_is_packaged_app     0000000180017dc0 f   libucrt:winapi_thunks.obj
- 0001:00016e48       __acrt_uninitialize_winapi_thunks 0000000180017e48 f   libucrt:winapi_thunks.obj
- 0001:00017368       ?expand_if_necessary@?$argument_list@D@?A0x5f5c8891@@AEAAHXZ 0000000180018368 f i libucrt:argv_wildcards.obj
- 0001:00017430       __acrt_expand_narrow_argv_wildcards 0000000180018430 f   libucrt:argv_wildcards.obj
- 0001:00017438       ??$?RV<lambda_efb9b808e93e29b6b799d3875462c817>@@AEAV<lambda_2c5d36f8a66580c563e29092409944b2>@@V<lambda_31e551fca1567ef2425714047646aa90>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_efb9b808e93e29b6b799d3875462c817>@@AEAV<lambda_2c5d36f8a66580c563e29092409944b2>@@$$QEAV<lambda_31e551fca1567ef2425714047646aa90>@@@Z 0000000180018438 f i libucrt:mbctype.obj
- 0001:00017b80       __acrt_initialize_multibyte 0000000180018b80 f   libucrt:mbctype.obj
- 0001:00017be0       __acrt_update_thread_multibyte_data 0000000180018be0 f   libucrt:mbctype.obj
- 0001:00017bfc       _setmbcp_nolock            0000000180018bfc f   libucrt:mbctype.obj
- 0001:00017f1c       _ismbblead                 0000000180018f1c f   libucrt:ismbbyte.obj
- 0001:00017f30       __acrt_initialize_command_line 0000000180018f30 f   libucrt:argv_data.obj
- 0001:00017f58       ?CheckHighPriority@?$CQueueProcessor@PEAUIMAGE_CACHE_INFO@@@@MEAA_NAEBQEAUIMAGE_CACHE_INFO@@@Z 0000000180018f58 f   ImgCache.obj
- 0001:00017f58       ?CheckHighPriority@CImgLoader@@UEAA_NAEAPEBUIMAGE_CACHE_INFO@@@Z 0000000180018f58 f   ImgCache.obj
- 0001:00017f58       __acrt_uninitialize_command_line 0000000180018f58 f   libucrt:argv_data.obj
- 0001:00017f58       ?Filter@?$MToolHelp@UtagPROCESSENTRY32W@@$1?Process32FirstW@@YAHPEAXPEAU1@@Z$1?Process32NextW@@YAH01@Z@@MEAA_NPEAUtagPROCESSENTRY32W@@@Z 0000000180018f58 f   MProcess.obj
- 0001:00017f5c       __dcrt_get_narrow_environment_from_os 0000000180018f5c f   libucrt:get_environment_from_os.obj
- 0001:00018060       _recalloc                  0000000180019060 f   libucrt:recalloc.obj
- 0001:00018068       _recalloc_base             0000000180019068 f   libucrt:recalloc.obj
- 0001:00018100       __acrt_initialize_heap     0000000180019100 f   libucrt:heap_handle.obj
- 0001:0001811c       __acrt_uninitialize_heap   000000018001911c f   libucrt:heap_handle.obj
- 0001:00018310       __acrt_initialize_lowio    0000000180019310 f   libucrt:ioinit.obj
- 0001:0001834c       __acrt_uninitialize_lowio  000000018001934c f   libucrt:ioinit.obj
- 0001:0001838c       __acrt_execute_initializers 000000018001938c f   libucrt:shared_initialization.obj
- 0001:00018420       __acrt_execute_uninitializers 0000000180019420 f   libucrt:shared_initialization.obj
- 0001:00018470       __acrt_initialize_new_handler 0000000180019470 f   libucrt:new_handler.obj
- 0001:00018478       _callnewh                  0000000180019478 f   libucrt:new_handler.obj
- 0001:000184b8       _query_new_handler         00000001800194b8 f   libucrt:new_handler.obj
- 0001:000184ec       ??$?RV<lambda_c36588078e9f5dfd39652860aa6b3aaf>@@AEAV<lambda_ec61778202f4f5fc7e7711acc23c3bca>@@V<lambda_dc9d2797ccde5d239b4a0efae8ebd7db>@@@?$__crt_seh_guarded_call@P6AXH@Z@@QEAAP6AXH@Z$$QEAV<lambda_c36588078e9f5dfd39652860aa6b3aaf>@@AEAV<lambda_ec61778202f4f5fc7e7711acc23c3bca>@@$$QEAV<lambda_dc9d2797ccde5d239b4a0efae8ebd7db>@@@Z 00000001800194ec f i libucrt:signal.obj
- 0001:00018534       __acrt_get_sigabrt_handler 0000000180019534 f   libucrt:signal.obj
- 0001:00018564       __acrt_initialize_signal_handlers 0000000180019564 f   libucrt:signal.obj
- 0001:00018584       raise                      0000000180019584 f   libucrt:signal.obj
- 0001:00018820       __acrt_has_user_matherr    0000000180019820 f   libucrt:matherr.obj
- 0001:00018840       __acrt_initialize_user_matherr 0000000180019840 f   libucrt:matherr.obj
- 0001:00018848       __acrt_invoke_user_matherr 0000000180019848 f   libucrt:matherr.obj
- 0001:00018890       _query_new_mode            0000000180019890 f   libucrt:new_mode.obj
- 0001:00018898       _mbtowc_l                  0000000180019898 f   libucrt:mbtowc.obj
- 0001:000189e0       mbtowc                     00000001800199e0 f   libucrt:mbtowc.obj
- 0001:000189e8       _fileno                    00000001800199e8 f   libucrt:fileno.obj
- 0001:00018a10       __acrt_initialize_stdio    0000000180019a10 f   libucrt:_file.obj
- 0001:00018b30       __acrt_uninitialize_stdio  0000000180019b30 f   libucrt:_file.obj
- 0001:00018b8c       _lock_file                 0000000180019b8c f   libucrt:_file.obj
- 0001:00018b98       _unlock_file               0000000180019b98 f   libucrt:_file.obj
- 0001:00018ba4       _isleadbyte_l              0000000180019ba4 f i libucrt:_wctype.obj
- 0001:00018be4       __acrt_GetStringTypeA      0000000180019be4 f   libucrt:getstringtypea.obj
- 0001:00018d98       __acrt_add_locale_ref      0000000180019d98 f   libucrt:locale_refcounting.obj
- 0001:00018e24       __acrt_free_locale         0000000180019e24 f   libucrt:locale_refcounting.obj
- 0001:00018f9c       __acrt_locale_add_lc_time_reference 0000000180019f9c f   libucrt:locale_refcounting.obj
- 0001:00018fc4       __acrt_locale_free_lc_time_if_unreferenced 0000000180019fc4 f   libucrt:locale_refcounting.obj
- 0001:00018ffc       __acrt_locale_release_lc_time_reference 0000000180019ffc f   libucrt:locale_refcounting.obj
- 0001:00019024       __acrt_release_locale_ref  000000018001a024 f   libucrt:locale_refcounting.obj
- 0001:000190cc       __acrt_update_thread_locale_data 000000018001a0cc f   libucrt:locale_refcounting.obj
- 0001:0001913c       _updatetlocinfoEx_nolock   000000018001a13c f   libucrt:locale_refcounting.obj
- 0001:000191a4       __acrt_locale_free_monetary 000000018001a1a4 f   libucrt:initmon.obj
- 0001:000192b0       __acrt_locale_free_numeric 000000018001a2b0 f   libucrt:initnum.obj
- 0001:00019374       __acrt_locale_free_time    000000018001a374 f   libucrt:inittime.obj
- 0001:00019544       __acrt_DownlevelLocaleNameToLCID 000000018001a544 f   libucrt:lcidtoname_downlevel.obj
- 0001:00019650       qsort                      000000018001a650 f   libucrt:qsort.obj
- 0001:00019984       strncpy_s                  000000018001a984 f   libucrt:strncpy_s.obj
- 0001:00019a58       strpbrk                    000000018001aa58 f   libucrt:strpbrk.obj
- 0001:00019af8       _mbsdec                    000000018001aaf8 f   libucrt:mbsdec.obj
- 0001:00019b00       _mbsdec_l                  000000018001ab00 f   libucrt:mbsdec.obj
- 0001:00019f0c       __acrt_LCMapStringA        000000018001af0c f   libucrt:lcmapstringa.obj
- 0001:00019fa4       _msize                     000000018001afa4 f   libucrt:msize.obj
- 0001:00019fe0       _realloc_base              000000018001afe0 f   libucrt:realloc_base.obj
- 0001:0001a064       __acrt_lowio_create_handle_array 000000018001b064 f   libucrt:osfinfo.obj
- 0001:0001a0fc       __acrt_lowio_destroy_handle_array 000000018001b0fc f   libucrt:osfinfo.obj
- 0001:0001a14c       __acrt_lowio_ensure_fh_exists 000000018001b14c f   libucrt:osfinfo.obj
- 0001:0001a204       __acrt_lowio_lock_fh       000000018001b204 f   libucrt:osfinfo.obj
- 0001:0001a228       __acrt_lowio_unlock_fh     000000018001b228 f   libucrt:osfinfo.obj
- 0001:0001a24c       _free_osfhnd               000000018001b24c f   libucrt:osfinfo.obj
- 0001:0001a308       _get_osfhandle             000000018001b308 f   libucrt:osfinfo.obj
- 0001:0001a380       _isatty                    000000018001b380 f   libucrt:isatty.obj
- 0001:0001a3e0       __acrt_stdio_flush_nolock  000000018001b3e0 f   libucrt:fflush.obj
- 0001:0001a458       _fflush_nolock             000000018001b458 f   libucrt:fflush.obj
- 0001:0001a4a4       _flushall                  000000018001b4a4 f   libucrt:fflush.obj
- 0001:0001a594       _fcloseall                 000000018001b594 f   libucrt:closeall.obj
- 0001:0001a648       __acrt_stdio_free_buffer_nolock 000000018001b648 f   libucrt:_freebuf.obj
- 0001:0001a688       __strncnt                  000000018001b688 f   libucrt:strncnt.obj
- 0001:0001a6a0       _query_app_type            000000018001b6a0 f   libucrt:report_runtime_error.obj
- 0001:0001a6a8       ??$?RV<lambda_b521505b218e5242e90febf6bfebc422>@@AEAV<lambda_6978c1fb23f02e42e1d9e99668cc68aa>@@V<lambda_314360699dd331753a4119843814e9a7>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_b521505b218e5242e90febf6bfebc422>@@AEAV<lambda_6978c1fb23f02e42e1d9e99668cc68aa>@@$$QEAV<lambda_314360699dd331753a4119843814e9a7>@@@Z 000000018001b6a8 f i libucrt:commit.obj
- 0001:0001a734       _commit                    000000018001b734 f   libucrt:commit.obj
- 0001:0001ad68       _write                     000000018001bd68 f   libucrt:write.obj
- 0001:0001ae54       _write_nolock              000000018001be54 f   libucrt:write.obj
- 0001:0001b140       log10                      000000018001c140 f   libucrt:log10.obj
- 0001:0001b788       _lseeki64_nolock           000000018001c788 f   libucrt:lseek.obj
- 0001:0001b790       _fclose_nolock             000000018001c790 f   libucrt:fclose.obj
- 0001:0001b814       fclose                     000000018001c814 f   libucrt:fclose.obj
- 0001:0001b880       _putwch_nolock             000000018001c880 f   libucrt:putwch.obj
- 0001:0001ba00       _handle_error              000000018001ca00 f   libucrt:libm_error.obj
- 0001:0001bb30       __acrt_initialize_fma3     000000018001cb30 f   libucrt:fma3_available.obj
- 0001:0001bba0       _log10_special             000000018001cba0 f   libucrt:log_special.obj
- 0001:0001bc58       ??$?RV<lambda_bfedae4ebbf01fab1bb6dcc6a9e276e0>@@AEAV<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@V<lambda_237c231691f317818eb88cc1d5d642d6>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_bfedae4ebbf01fab1bb6dcc6a9e276e0>@@AEAV<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@$$QEAV<lambda_237c231691f317818eb88cc1d5d642d6>@@@Z 000000018001cc58 f i libucrt:close.obj
- 0001:0001bccc       _close                     000000018001cccc f   libucrt:close.obj
- 0001:0001bd70       _close_nolock              000000018001cd70 f   libucrt:close.obj
- 0001:0001be2c       ?__acrt_stdio_free_stream@@YAXV__crt_stdio_stream@@@Z 000000018001ce2c f   libucrt:stream.obj
- 0001:0001be70       __dcrt_lowio_initialize_console_output 000000018001ce70 f   libucrt:initcon.obj
- 0001:0001beac       __dcrt_terminate_console_output 000000018001ceac f   libucrt:initcon.obj
- 0001:0001bee0       _get_fpsr                  000000018001cee0 f   libucrt:fpsr.obj
- 0001:0001bef0       _set_fpsr                  000000018001cef0 f   libucrt:fpsr.obj
- 0001:0001befa       _fclrf                     000000018001cefa f   libucrt:fpsr.obj
- 0001:0001bf0e       _frnd                      000000018001cf0e f   libucrt:fpsr.obj
- 0001:0001bf30       _raise_exc                 000000018001cf30 f   libucrt:fpexcept.obj
- 0001:0001bf58       _raise_exc_ex              000000018001cf58 f   libucrt:fpexcept.obj
- 0001:0001c260       _set_errno_from_matherr    000000018001d260 f   libucrt:fpexcept.obj
- 0001:0001c290       _clrfp                     000000018001d290 f   libucrt:fpctrl.obj
- 0001:0001c2b0       _ctrlfp                    000000018001d2b0 f   libucrt:fpctrl.obj
- 0001:0001c32c       _set_statfp                000000018001d32c f   libucrt:fpctrl.obj
- 0001:0001c34c       _statfp                    000000018001d34c f   libucrt:fpctrl.obj
- 0001:0001c35e       IsProcessorFeaturePresent  000000018001d35e f   kernel32:KERNEL32.dll
- 0001:0001c364       RtlUnwindEx                000000018001d364 f   kernel32:KERNEL32.dll
- 0001:0001c370       _FindPESection             000000018001d370 f   LIBCMT:pesect.obj
- 0001:0001c3c0       _IsNonwritableInCurrentImage 000000018001d3c0 f   LIBCMT:pesect.obj
- 0001:0001c410       _ValidateImageBase         000000018001d410 f   LIBCMT:pesect.obj
- 0001:0001c440       __GSHandlerCheck           000000018001d440 f   LIBCMT:_gshandler_.obj
- 0001:0001c460       __GSHandlerCheckCommon     000000018001d460 f   LIBCMT:_gshandler_.obj
- 0001:0001c4d0       __security_check_cookie    000000018001d4d0 f   LIBCMT:_amdsecgs_.obj
- 0001:0001c4f4       __raise_securityfailure    000000018001d4f4 f   LIBCMT:gs_report.obj
- 0001:0001c528       __report_gsfailure         000000018001d528 f   LIBCMT:gs_report.obj
- 0001:0001c5fc       __report_rangecheckfailure 000000018001d5fc f   LIBCMT:gs_report.obj
- 0001:0001c610       __report_securityfailure   000000018001d610 f   LIBCMT:gs_report.obj
- 0001:0001c7a0       __chkstk                   000000018001d7a0 f   LIBCMT:_chkstk_.obj
- 0001:0001c7a0       _alloca_probe              000000018001d7a0 f   LIBCMT:_chkstk_.obj
- 0001:0001c810       _guard_dispatch_icall_nop  000000018001d810 f   LIBCMT:_guard_dispatch_.obj
+ 0001:0000f2e4       ?FindByBackground@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH222AEA_N@Z 00000001800102e4 f   RgnDetect.obj
+ 0001:0000f3e8       ?FindDialog_Any@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH222AEA_N@Z 00000001800103e8 f   RgnDetect.obj
+ 0001:0000f698       ?FindDialog_Inner@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH2@Z 0000000180010698 f   RgnDetect.obj
+ 0001:0000f7e4       ?FindDialog_Left@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH222AEA_N@Z 00000001800107e4 f   RgnDetect.obj
+ 0001:0000f9d4       ?FindDialog_Right@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH222AEA_N@Z 00000001800109d4 f   RgnDetect.obj
+ 0001:0000fb3c       ?FindDialog_TopLeft@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH222AEA_N@Z 0000000180010b3c f   RgnDetect.obj
+ 0001:0000fc48       ?FindDialog_TopRight@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH222AEA_N@Z 0000000180010c48 f   RgnDetect.obj
+ 0001:0000fd60       ?FindFrameBottom_ByLeft@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 0000000180010d60 f   RgnDetect.obj
+ 0001:0000fdf4       ?FindFrameBottom_ByRight@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 0000000180010df4 f   RgnDetect.obj
+ 0001:0000fea8       ?FindFrameLeft_ByBottom@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 0000000180010ea8 f   RgnDetect.obj
+ 0001:0000ff74       ?FindFrameLeft_ByTop@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 0000000180010f74 f   RgnDetect.obj
+ 0001:000100e0       ?FindFrameRight_ByBottom@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 00000001800110e0 f   RgnDetect.obj
+ 0001:000101c0       ?FindFrameRight_ByTop@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 00000001800111c0 f   RgnDetect.obj
+ 0001:000102e8       ?FindFrameTop_ByLeft@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 00000001800112e8 f   RgnDetect.obj
+ 0001:00010370       ?FindFrameTop_ByRight@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH22@Z 0000000180011370 f   RgnDetect.obj
+ 0001:00010420       ?FindFrame_TopLeft@CRgnDetect@@IEAA_NPEA_WPEAUtag_CharAttr@@HHAEAH222@Z 0000000180011420 f   RgnDetect.obj
+ 0001:00010524       ?GetCharAttr@CRgnDetect@@QEAAHHHAEA_WAEAUtag_CharAttr@@@Z 0000000180011524 f   RgnDetect.obj
+ 0001:000105a4       ?GetDetectedDialogsPtr@CRgnDetect@@QEBAPEBUtag_DetectedDialog@@XZ 00000001800115a4 f   RgnDetect.obj
+ 0001:000105ac       ?GetFlags@CRgnDetect@@QEBAKXZ 00000001800115ac f   RgnDetect.obj
+ 0001:000105b4       ?InitializeSBI@CRgnDetect@@QEAAHPEBK@Z 00000001800115b4 f   RgnDetect.obj
+ 0001:000109a0       ?MarkDialog@CRgnDetect@@IEAAHPEA_WPEAUtag_CharAttr@@HHHHHHI_NK@Z 00000001800119a0 f   RgnDetect.obj
+ 0001:000112ac       ?OnWindowSizeChanged@CRgnDetect@@QEAAXXZ 00000001800122ac f   RgnDetect.obj
+ 0001:000112b4       ?OnWriteConsoleOutput@CRgnDetect@@QEAAXPEBU_CHAR_INFO@@U_COORD@@1PEAU_SMALL_RECT@@PEBK@Z 00000001800122b4 f   RgnDetect.obj
+ 0001:00011528       ?PrepareTransparent@CRgnDetect@@QEAAXPEBUCEFAR_INFO_MAPPING@@PEBK@Z 0000000180012528 f   RgnDetect.obj
+ 0001:000115fc       ?PrepareTransparent@CRgnDetect@@QEAAXPEBUCEFAR_INFO_MAPPING@@PEBKPEBU_CONSOLE_SCREEN_BUFFER_INFO@@PEA_WPEAUtag_CharAttr@@HH@Z 00000001800125fc f   RgnDetect.obj
+ 0001:00011df0       ?SetFarRect@CRgnDetect@@QEAAXPEAU_SMALL_RECT@@@Z 0000000180012df0 f   RgnDetect.obj
+ 0001:00011e70       ?TextHeight@CRgnDetect@@QEAAHXZ 0000000180012e70 f   RgnDetect.obj
+ 0001:00011e9c       ?TextWidth@CRgnDetect@@QEAAHXZ 0000000180012e9c f   RgnDetect.obj
+ 0001:00011ec8       ?SearchAppPaths@@YA_NPEB_WAEAUCEStr@@_NPEAU1@@Z 0000000180012ec8 f   WFiles.obj
+ 0001:0001229c       ?ExpandEnvStr@@YAPEA_WPEB_W@Z 000000018001329c f   WObjects.obj
+ 0001:00012344       ?FileExists@@YA_NPEB_WPEAK@Z 0000000180013344 f   WObjects.obj
+ 0001:000124b8       ?GetEnvVar@@YAPEA_WPEB_W@Z 00000001800134b8 f   WObjects.obj
+ 0001:0001255c       ?IsWindows64@@YA_NXZ       000000018001355c f   WObjects.obj
+ 0001:00012580       ?SetThreadName@@YAXKPEAD@Z 0000000180013580 f   WThreads.obj
+ 0001:000125b8       ?apiCreateThread@@YAPEAXP6AKPEAX@Z0PEAKPEBDH@Z 00000001800135b8 f   WThreads.obj
+ 0001:00012708       ?apiTerminateThreadEx@@YAHPEAXKPEBDH@Z 0000000180013708 f   WThreads.obj
+ 0001:00012814       ?apiThreadHelper@@YAKPEAX@Z 0000000180013814 f   WThreads.obj
+ 0001:000129fc       ?apiShowWindow@@YA_NPEAUHWND__@@H@Z 00000001800139fc f   WUser.obj
+ 0001:00012a10       CreateToolhelp32Snapshot   0000000180013a10 f   kernel32:KERNEL32.dll
+ 0001:00012a16       Thread32First              0000000180013a16 f   kernel32:KERNEL32.dll
+ 0001:00012a1c       Thread32Next               0000000180013a1c f   kernel32:KERNEL32.dll
+ 0001:00012a22       Process32FirstW            0000000180013a22 f   kernel32:KERNEL32.dll
+ 0001:00012a28       Process32NextW             0000000180013a28 f   kernel32:KERNEL32.dll
+ 0001:00012a2e       GetFileVersionInfoSizeW    0000000180013a2e f   version:VERSION.dll
+ 0001:00012a34       GetFileVersionInfoW        0000000180013a34 f   version:VERSION.dll
+ 0001:00012a3a       VerQueryValueW             0000000180013a3a f   version:VERSION.dll
+ 0001:00012a40       ??3@YAXPEAX_K@Z            0000000180013a40 f   LIBCMT:delete_scalar_size.obj
+ 0001:00012d94       _DllMainCRTStartup         0000000180013d94 f   LIBCMT:dll_dllmain.obj
+ 0001:00012dd4       __scrt_acquire_startup_lock 0000000180013dd4 f   LIBCMT:utility.obj
+ 0001:00012e10       __scrt_dllmain_after_initialize_c 0000000180013e10 f   LIBCMT:utility.obj
+ 0001:00012e44       __scrt_dllmain_before_initialize_c 0000000180013e44 f   LIBCMT:utility.obj
+ 0001:00012e5c       __scrt_dllmain_crt_thread_attach 0000000180013e5c f   LIBCMT:utility.obj
+ 0001:00012e84       __scrt_dllmain_crt_thread_detach 0000000180013e84 f   LIBCMT:utility.obj
+ 0001:00012e9c       __scrt_dllmain_exception_filter 0000000180013e9c f   LIBCMT:utility.obj
+ 0001:00012f00       __scrt_dllmain_uninitialize_c 0000000180013f00 f   LIBCMT:utility.obj
+ 0001:00012f30       __scrt_dllmain_uninitialize_critical 0000000180013f30 f   LIBCMT:utility.obj
+ 0001:00012f44       __scrt_initialize_crt      0000000180013f44 f   LIBCMT:utility.obj
+ 0001:00012f90       __scrt_initialize_onexit_tables 0000000180013f90 f   LIBCMT:utility.obj
+ 0001:0001305c       __scrt_is_nonwritable_in_current_image 000000018001405c f   LIBCMT:utility.obj
+ 0001:000130f8       __scrt_release_startup_lock 00000001800140f8 f   LIBCMT:utility.obj
+ 0001:0001311c       __scrt_uninitialize_crt    000000018001411c f   LIBCMT:utility.obj
+ 0001:00013148       _onexit                    0000000180014148 f   LIBCMT:utility.obj
+ 0001:00013198       atexit                     0000000180014198 f   LIBCMT:utility.obj
+ 0001:000131b0       __security_init_cookie     00000001800141b0 f   LIBCMT:gs_support.obj
+ 0001:0001325c       ?__scrt_initialize_type_info@@YAXXZ 000000018001425c f   LIBCMT:tncleanup.obj
+ 0001:0001326c       ?__scrt_uninitialize_type_info@@YAXXZ 000000018001426c f   LIBCMT:tncleanup.obj
+ 0001:00013278       __local_stdio_printf_options 0000000180014278 f i LIBCMT:default_local_stdio_options.obj
+ 0001:00013280       __local_stdio_scanf_options 0000000180014280 f i LIBCMT:default_local_stdio_options.obj
+ 0001:00013288       __scrt_initialize_default_local_stdio_options 0000000180014288 f   LIBCMT:default_local_stdio_options.obj
+ 0001:000132a4       __scrt_get_dyn_tls_init_callback 00000001800142a4 f   LIBCMT:dyn_tls_init.obj
+ 0001:000132ac       __crt_debugger_hook        00000001800142ac f   LIBCMT:utility_desktop.obj
+ 0001:000132b4       __scrt_fastfail            00000001800142b4 f   LIBCMT:utility_desktop.obj
+ 0001:000133fc       _RTC_Initialize            00000001800143fc f   LIBCMT:_initsect_.obj
+ 0001:00013448       _RTC_Terminate             0000000180014448 f   LIBCMT:_initsect_.obj
+ 0001:00013494       _guard_check_icall         0000000180014494 f i LIBCMT:checkcfg.obj
+ 0001:0001349c       __isa_available_init       000000018001449c f   LIBCMT:_cpu_disp_.obj
+ 0001:00013664       _get_startup_argv_mode     0000000180014664 f   LIBCMT:argv_mode.obj
+ 0001:0001366c       __scrt_is_ucrt_dll_in_use  000000018001466c f   LIBCMT:ucrt_detection.obj
+ 0001:00013690       memcpy                     0000000180014690 f   libvcruntime:memcpy.obj
+ 0001:00013690       memmove                    0000000180014690 f   libvcruntime:memcpy.obj
+ 0001:00013ac8       strrchr                    0000000180014ac8 f   libvcruntime:strrchr.obj
+ 0001:00013c08       wcschr                     0000000180014c08 f   libvcruntime:wcschr.obj
+ 0001:00013c9c       wcsrchr                    0000000180014c9c f   libvcruntime:wcsrchr.obj
+ 0001:00013d60       memset                     0000000180014d60 f   libvcruntime:memset.obj
+ 0001:00013f10       memcmp                     0000000180014f10 f   libvcruntime:memcmp.obj
+ 0001:00013fd8       __C_specific_handler       0000000180014fd8 f   libvcruntime:_chandler_.obj
+ 0001:000141d4       strchr                     00000001800151d4 f   libvcruntime:strchr.obj
+ 0001:00014260       __vcrt_initialize          0000000180015260 f   libvcruntime:initialization.obj
+ 0001:00014294       __vcrt_thread_attach       0000000180015294 f   libvcruntime:initialization.obj
+ 0001:000142a8       __vcrt_thread_detach       00000001800152a8 f   libvcruntime:initialization.obj
+ 0001:000142bc       __vcrt_uninitialize        00000001800152bc f   libvcruntime:initialization.obj
+ 0001:000142dc       __vcrt_uninitialize_critical 00000001800152dc f   libvcruntime:initialization.obj
+ 0001:000142ec       __std_type_info_destroy_list 00000001800152ec f   libvcruntime:std_type_info.obj
+ 0001:00014330       _local_unwind              0000000180015330 f   libvcruntime:_jmpuwind_.obj
+ 0001:00014360       _NLG_Notify                0000000180015360 f   libvcruntime:_jmpuwind_.obj
+ 0001:00014380       __NLG_Dispatch2            0000000180015380 f   libvcruntime:_jmpuwind_.obj
+ 0001:00014390       __NLG_Return2              0000000180015390 f   libvcruntime:_jmpuwind_.obj
+ 0001:00014394       __vcrt_freefls             0000000180015394 f   libvcruntime:per_thread_data.obj
+ 0001:000143b4       __vcrt_freeptd             00000001800153b4 f   libvcruntime:per_thread_data.obj
+ 0001:00014404       __vcrt_getptd_noexit       0000000180015404 f   libvcruntime:per_thread_data.obj
+ 0001:000144bc       __vcrt_initialize_ptd      00000001800154bc f   libvcruntime:per_thread_data.obj
+ 0001:000144fc       __vcrt_uninitialize_ptd    00000001800154fc f   libvcruntime:per_thread_data.obj
+ 0001:00014520       __vcrt_initialize_locks    0000000180015520 f   libvcruntime:locks.obj
+ 0001:00014568       __vcrt_uninitialize_locks  0000000180015568 f   libvcruntime:locks.obj
+ 0001:00014768       __vcrt_FlsAlloc            0000000180015768 f   libvcruntime:winapi_downlevel.obj
+ 0001:000147bc       __vcrt_FlsFree             00000001800157bc f   libvcruntime:winapi_downlevel.obj
+ 0001:00014810       __vcrt_FlsGetValue         0000000180015810 f   libvcruntime:winapi_downlevel.obj
+ 0001:00014864       __vcrt_FlsSetValue         0000000180015864 f   libvcruntime:winapi_downlevel.obj
+ 0001:000148cc       __vcrt_InitializeCriticalSectionEx 00000001800158cc f   libvcruntime:winapi_downlevel.obj
+ 0001:00014944       __vcrt_initialize_winapi_thunks 0000000180015944 f   libvcruntime:winapi_downlevel.obj
+ 0001:00014990       __vcrt_uninitialize_winapi_thunks 0000000180015990 f   libvcruntime:winapi_downlevel.obj
+ 0001:000149d0       __vcrt_initialize_pure_virtual_call_handler 00000001800159d0 f   libvcruntime:purevirt_data.obj
+ 0001:000149f4       wcspbrk                    00000001800159f4 f   libucrt:wcspbrk.obj
+ 0001:00014a2c       ??0_LocaleUpdate@@QEAA@QEAU__crt_locale_pointers@@@Z 0000000180015a2c f i libucrt:strtox.obj
+ 0001:00014abc       _initterm                  0000000180015abc f   libucrt:initterm.obj
+ 0001:00014b34       _initterm_e                0000000180015b34 f   libucrt:initterm.obj
+ 0001:00014b80       _seh_filter_dll            0000000180015b80 f   libucrt:exception_filter.obj
+ 0001:00014b94       _seh_filter_exe            0000000180015b94 f   libucrt:exception_filter.obj
+ 0001:00014f54       __acrt_initialize_thread_local_exit_callback 0000000180015f54 f   libucrt:exit.obj
+ 0001:00014f5c       _cexit                     0000000180015f5c f   libucrt:exit.obj
+ 0001:00014f6c       _exit                      0000000180015f6c f   libucrt:exit.obj
+ 0001:00014f78       _is_c_termination_complete 0000000180015f78 f   libucrt:exit.obj
+ 0001:0001513c       __acrt_allocate_buffer_for_argv 000000018001613c f   libucrt:argv_parsing.obj
+ 0001:000151a0       _configure_narrow_argv     00000001800161a0 f   libucrt:argv_parsing.obj
+ 0001:000154fc       __dcrt_uninitialize_environments_nolock 00000001800164fc f   libucrt:environment_initialization.obj
+ 0001:00015534       _initialize_narrow_environment 0000000180016534 f   libucrt:environment_initialization.obj
+ 0001:0001553c       ??$?RV<lambda_b8c45f8f788dd370798f47cfe8ac3a86>@@AEAV<lambda_4e60a939b0d047cfe11ddc22648dfba9>@@V<lambda_332c3edc96d0294ec56c57d38c1cdfd5>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_b8c45f8f788dd370798f47cfe8ac3a86>@@AEAV<lambda_4e60a939b0d047cfe11ddc22648dfba9>@@$$QEAV<lambda_332c3edc96d0294ec56c57d38c1cdfd5>@@@Z 000000018001653c f i libucrt:onexit.obj
+ 0001:00015578       ??$?RV<lambda_e24bbb7b643b32fcea6fa61b31d4c984>@@AEAV<lambda_275893d493268fdec8709772e3fcec0e>@@V<lambda_9d71df4d7cf3f480f8d633942495c3b0>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_e24bbb7b643b32fcea6fa61b31d4c984>@@AEAV<lambda_275893d493268fdec8709772e3fcec0e>@@$$QEAV<lambda_9d71df4d7cf3f480f8d633942495c3b0>@@@Z 0000000180016578 f i libucrt:onexit.obj
+ 0001:000158f4       _crt_atexit                00000001800168f4 f   libucrt:onexit.obj
+ 0001:00015904       _execute_onexit_table      0000000180016904 f   libucrt:onexit.obj
+ 0001:00015940       _initialize_onexit_table   0000000180016940 f   libucrt:onexit.obj
+ 0001:00015980       _register_onexit_function  0000000180016980 f   libucrt:onexit.obj
+ 0001:00015ad8       ??$uninitialize@V<lambda_30a498feb8538b5c3153c22026e33470>@@@?$dual_state_global@PEAU__crt_multibyte_data@@@__crt_state_management@@QEAAX$$QEAV<lambda_30a498feb8538b5c3153c22026e33470>@@@Z 0000000180016ad8 f i libucrt:initialization.obj
+ 0001:00015b58       __acrt_initialize          0000000180016b58 f   libucrt:initialization.obj
+ 0001:00015b6c       __acrt_thread_attach       0000000180016b6c f   libucrt:initialization.obj
+ 0001:00015b80       __acrt_thread_detach       0000000180016b80 f   libucrt:initialization.obj
+ 0001:00015b90       __acrt_uninitialize        0000000180016b90 f   libucrt:initialization.obj
+ 0001:00015ba4       __acrt_uninitialize_critical 0000000180016ba4 f   libucrt:initialization.obj
+ 0001:00015bb4       terminate                  0000000180016bb4 f   libucrt:terminate.obj
+ 0001:00015bdc       _free_base                 0000000180016bdc f   libucrt:free_base.obj
+ 0001:00015c1c       _malloc_base               0000000180016c1c f   libucrt:malloc_base.obj
+ 0001:00015c7c       strcpy_s                   0000000180016c7c f   libucrt:strcpy_s.obj
+ 0001:00015cdc       abort                      0000000180016cdc f   libucrt:abort.obj
+ 0001:00015d34       _calloc_base               0000000180016d34 f   libucrt:calloc_base.obj
+ 0001:00015dac       __acrt_call_reportfault    0000000180016dac f   libucrt:invalid_parameter.obj
+ 0001:00015f08       __acrt_initialize_invalid_parameter_handler 0000000180016f08 f   libucrt:invalid_parameter.obj
+ 0001:00015f10       _invalid_parameter         0000000180016f10 f   libucrt:invalid_parameter.obj
+ 0001:00015fb8       _invalid_parameter_noinfo  0000000180016fb8 f   libucrt:invalid_parameter.obj
+ 0001:00015fd8       _invoke_watson             0000000180016fd8 f   libucrt:invalid_parameter.obj
+ 0001:00016020       __acrt_errno_from_os_error 0000000180017020 f   libucrt:errno.obj
+ 0001:00016068       __acrt_errno_map_os_error  0000000180017068 f   libucrt:errno.obj
+ 0001:000160b8       __doserrno                 00000001800170b8 f   libucrt:errno.obj
+ 0001:000160d8       _errno                     00000001800170d8 f   libucrt:errno.obj
+ 0001:000160f8       __pctype_func              00000001800170f8 f   libucrt:ctype.obj
+ 0001:00016128       ??$?RV<lambda_46352004c1216016012b18bd6f87e700>@@AEAV<lambda_3bd07e1a1191394380780325891bf33f>@@V<lambda_334532d3f185bcaa59b5be82d7d22bff>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_46352004c1216016012b18bd6f87e700>@@AEAV<lambda_3bd07e1a1191394380780325891bf33f>@@$$QEAV<lambda_334532d3f185bcaa59b5be82d7d22bff>@@@Z 0000000180017128 f i libucrt:per_thread_data.obj
+ 0001:00016188       ??$?RV<lambda_5e887d1dcbef67a5eb4283622ba103bf>@@AEAV<lambda_4466841279450cc726390878d4a41900>@@V<lambda_341c25c0346d94847f1f3c463c57e077>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_5e887d1dcbef67a5eb4283622ba103bf>@@AEAV<lambda_4466841279450cc726390878d4a41900>@@$$QEAV<lambda_341c25c0346d94847f1f3c463c57e077>@@@Z 0000000180017188 f i libucrt:per_thread_data.obj
+ 0001:000161d0       ??$?RV<lambda_72d1df2b273a38828b1ce30cbf4cdab5>@@AEAV<lambda_876a65b173b8412d3a47c70a915b0cf4>@@V<lambda_41932305e351933ebe8f8be3ed8bb5dc>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_72d1df2b273a38828b1ce30cbf4cdab5>@@AEAV<lambda_876a65b173b8412d3a47c70a915b0cf4>@@$$QEAV<lambda_41932305e351933ebe8f8be3ed8bb5dc>@@@Z 00000001800171d0 f i libucrt:per_thread_data.obj
+ 0001:00016210       ??$?RV<lambda_fb3a7dec4e47f37f22dae91bb15c9095>@@AEAV<lambda_698284760c8add0bfb0756c19673e34b>@@V<lambda_dfb8eca1e75fef3034a8fb18dd509707>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_fb3a7dec4e47f37f22dae91bb15c9095>@@AEAV<lambda_698284760c8add0bfb0756c19673e34b>@@$$QEAV<lambda_dfb8eca1e75fef3034a8fb18dd509707>@@@Z 0000000180017210 f i libucrt:per_thread_data.obj
+ 0001:000164a0       __acrt_freeptd             00000001800174a0 f   libucrt:per_thread_data.obj
+ 0001:000164e4       __acrt_getptd              00000001800174e4 f   libucrt:per_thread_data.obj
+ 0001:00016578       __acrt_getptd_head         0000000180017578 f   libucrt:per_thread_data.obj
+ 0001:000165ec       __acrt_getptd_noexit       00000001800175ec f   libucrt:per_thread_data.obj
+ 0001:0001668c       __acrt_initialize_ptd      000000018001768c f   libucrt:per_thread_data.obj
+ 0001:000166c8       __acrt_uninitialize_ptd    00000001800176c8 f   libucrt:per_thread_data.obj
+ 0001:000166ec       __acrt_update_locale_info  00000001800176ec f   libucrt:locale_update.obj
+ 0001:00016720       __acrt_update_multibyte_info 0000000180017720 f   libucrt:locale_update.obj
+ 0001:00016754       ??$?RV<lambda_9431c60049192bb82166e0947f95a2e9>@@AEAV<lambda_85fa512c59a4d94d4a89f575eefd92a6>@@V<lambda_487febba6ca58d9ce348204d67e1dba3>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_9431c60049192bb82166e0947f95a2e9>@@AEAV<lambda_85fa512c59a4d94d4a89f575eefd92a6>@@$$QEAV<lambda_487febba6ca58d9ce348204d67e1dba3>@@@Z 0000000180017754 f i libucrt:wsetlocale.obj
+ 0001:000167c4       __acrt_set_locale_changed  00000001800177c4 f   libucrt:wsetlocale.obj
+ 0001:000167d0       __acrt_uninitialize_locale 00000001800177d0 f   libucrt:wsetlocale.obj
+ 0001:00016800       __acrt_initialize_locks    0000000180017800 f   libucrt:locks.obj
+ 0001:00016848       __acrt_lock                0000000180017848 f   libucrt:locks.obj
+ 0001:00016864       __acrt_uninitialize_locks  0000000180017864 f   libucrt:locks.obj
+ 0001:0001689c       __acrt_unlock              000000018001789c f   libucrt:locks.obj
+ 0001:00016a58       __acrt_FlsAlloc            0000000180017a58 f   libucrt:winapi_thunks.obj
+ 0001:00016ab0       __acrt_FlsFree             0000000180017ab0 f   libucrt:winapi_thunks.obj
+ 0001:00016b08       __acrt_FlsGetValue         0000000180017b08 f   libucrt:winapi_thunks.obj
+ 0001:00016b60       __acrt_FlsSetValue         0000000180017b60 f   libucrt:winapi_thunks.obj
+ 0001:00016bc8       __acrt_InitializeCriticalSectionEx 0000000180017bc8 f   libucrt:winapi_thunks.obj
+ 0001:00016c40       __acrt_LCMapStringEx       0000000180017c40 f   libucrt:winapi_thunks.obj
+ 0001:00016d30       __acrt_LocaleNameToLCID    0000000180017d30 f   libucrt:winapi_thunks.obj
+ 0001:00016d98       __acrt_initialize_winapi_thunks 0000000180017d98 f   libucrt:winapi_thunks.obj
+ 0001:00016dd0       __acrt_is_packaged_app     0000000180017dd0 f   libucrt:winapi_thunks.obj
+ 0001:00016e58       __acrt_uninitialize_winapi_thunks 0000000180017e58 f   libucrt:winapi_thunks.obj
+ 0001:00017378       ?expand_if_necessary@?$argument_list@D@?A0x5f5c8891@@AEAAHXZ 0000000180018378 f i libucrt:argv_wildcards.obj
+ 0001:00017440       __acrt_expand_narrow_argv_wildcards 0000000180018440 f   libucrt:argv_wildcards.obj
+ 0001:00017448       ??$?RV<lambda_efb9b808e93e29b6b799d3875462c817>@@AEAV<lambda_2c5d36f8a66580c563e29092409944b2>@@V<lambda_31e551fca1567ef2425714047646aa90>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_efb9b808e93e29b6b799d3875462c817>@@AEAV<lambda_2c5d36f8a66580c563e29092409944b2>@@$$QEAV<lambda_31e551fca1567ef2425714047646aa90>@@@Z 0000000180018448 f i libucrt:mbctype.obj
+ 0001:00017b90       __acrt_initialize_multibyte 0000000180018b90 f   libucrt:mbctype.obj
+ 0001:00017bf0       __acrt_update_thread_multibyte_data 0000000180018bf0 f   libucrt:mbctype.obj
+ 0001:00017c0c       _setmbcp_nolock            0000000180018c0c f   libucrt:mbctype.obj
+ 0001:00017f2c       _ismbblead                 0000000180018f2c f   libucrt:ismbbyte.obj
+ 0001:00017f40       __acrt_initialize_command_line 0000000180018f40 f   libucrt:argv_data.obj
+ 0001:00017f68       ?CheckHighPriority@?$CQueueProcessor@PEAUIMAGE_CACHE_INFO@@@@MEAA_NAEBQEAUIMAGE_CACHE_INFO@@@Z 0000000180018f68 f   ImgCache.obj
+ 0001:00017f68       ?CheckHighPriority@CImgLoader@@UEAA_NAEAPEBUIMAGE_CACHE_INFO@@@Z 0000000180018f68 f   ImgCache.obj
+ 0001:00017f68       __acrt_uninitialize_command_line 0000000180018f68 f   libucrt:argv_data.obj
+ 0001:00017f68       ?Filter@?$MToolHelp@UtagPROCESSENTRY32W@@$1?Process32FirstW@@YAHPEAXPEAU1@@Z$1?Process32NextW@@YAH01@Z@@MEAA_NPEAUtagPROCESSENTRY32W@@@Z 0000000180018f68 f   MProcess.obj
+ 0001:00017f6c       __dcrt_get_narrow_environment_from_os 0000000180018f6c f   libucrt:get_environment_from_os.obj
+ 0001:00018070       _recalloc                  0000000180019070 f   libucrt:recalloc.obj
+ 0001:00018078       _recalloc_base             0000000180019078 f   libucrt:recalloc.obj
+ 0001:00018110       __acrt_initialize_heap     0000000180019110 f   libucrt:heap_handle.obj
+ 0001:0001812c       __acrt_uninitialize_heap   000000018001912c f   libucrt:heap_handle.obj
+ 0001:00018320       __acrt_initialize_lowio    0000000180019320 f   libucrt:ioinit.obj
+ 0001:0001835c       __acrt_uninitialize_lowio  000000018001935c f   libucrt:ioinit.obj
+ 0001:0001839c       __acrt_execute_initializers 000000018001939c f   libucrt:shared_initialization.obj
+ 0001:00018430       __acrt_execute_uninitializers 0000000180019430 f   libucrt:shared_initialization.obj
+ 0001:00018480       __acrt_initialize_new_handler 0000000180019480 f   libucrt:new_handler.obj
+ 0001:00018488       _callnewh                  0000000180019488 f   libucrt:new_handler.obj
+ 0001:000184c8       _query_new_handler         00000001800194c8 f   libucrt:new_handler.obj
+ 0001:000184fc       ??$?RV<lambda_c36588078e9f5dfd39652860aa6b3aaf>@@AEAV<lambda_ec61778202f4f5fc7e7711acc23c3bca>@@V<lambda_dc9d2797ccde5d239b4a0efae8ebd7db>@@@?$__crt_seh_guarded_call@P6AXH@Z@@QEAAP6AXH@Z$$QEAV<lambda_c36588078e9f5dfd39652860aa6b3aaf>@@AEAV<lambda_ec61778202f4f5fc7e7711acc23c3bca>@@$$QEAV<lambda_dc9d2797ccde5d239b4a0efae8ebd7db>@@@Z 00000001800194fc f i libucrt:signal.obj
+ 0001:00018544       __acrt_get_sigabrt_handler 0000000180019544 f   libucrt:signal.obj
+ 0001:00018574       __acrt_initialize_signal_handlers 0000000180019574 f   libucrt:signal.obj
+ 0001:00018594       raise                      0000000180019594 f   libucrt:signal.obj
+ 0001:00018830       __acrt_has_user_matherr    0000000180019830 f   libucrt:matherr.obj
+ 0001:00018850       __acrt_initialize_user_matherr 0000000180019850 f   libucrt:matherr.obj
+ 0001:00018858       __acrt_invoke_user_matherr 0000000180019858 f   libucrt:matherr.obj
+ 0001:000188a0       _query_new_mode            00000001800198a0 f   libucrt:new_mode.obj
+ 0001:000188a8       _mbtowc_l                  00000001800198a8 f   libucrt:mbtowc.obj
+ 0001:000189f0       mbtowc                     00000001800199f0 f   libucrt:mbtowc.obj
+ 0001:000189f8       _fileno                    00000001800199f8 f   libucrt:fileno.obj
+ 0001:00018a20       __acrt_initialize_stdio    0000000180019a20 f   libucrt:_file.obj
+ 0001:00018b40       __acrt_uninitialize_stdio  0000000180019b40 f   libucrt:_file.obj
+ 0001:00018b9c       _lock_file                 0000000180019b9c f   libucrt:_file.obj
+ 0001:00018ba8       _unlock_file               0000000180019ba8 f   libucrt:_file.obj
+ 0001:00018bb4       _isleadbyte_l              0000000180019bb4 f i libucrt:_wctype.obj
+ 0001:00018bf4       __acrt_GetStringTypeA      0000000180019bf4 f   libucrt:getstringtypea.obj
+ 0001:00018da8       __acrt_add_locale_ref      0000000180019da8 f   libucrt:locale_refcounting.obj
+ 0001:00018e34       __acrt_free_locale         0000000180019e34 f   libucrt:locale_refcounting.obj
+ 0001:00018fac       __acrt_locale_add_lc_time_reference 0000000180019fac f   libucrt:locale_refcounting.obj
+ 0001:00018fd4       __acrt_locale_free_lc_time_if_unreferenced 0000000180019fd4 f   libucrt:locale_refcounting.obj
+ 0001:0001900c       __acrt_locale_release_lc_time_reference 000000018001a00c f   libucrt:locale_refcounting.obj
+ 0001:00019034       __acrt_release_locale_ref  000000018001a034 f   libucrt:locale_refcounting.obj
+ 0001:000190dc       __acrt_update_thread_locale_data 000000018001a0dc f   libucrt:locale_refcounting.obj
+ 0001:0001914c       _updatetlocinfoEx_nolock   000000018001a14c f   libucrt:locale_refcounting.obj
+ 0001:000191b4       __acrt_locale_free_monetary 000000018001a1b4 f   libucrt:initmon.obj
+ 0001:000192c0       __acrt_locale_free_numeric 000000018001a2c0 f   libucrt:initnum.obj
+ 0001:00019384       __acrt_locale_free_time    000000018001a384 f   libucrt:inittime.obj
+ 0001:00019554       __acrt_DownlevelLocaleNameToLCID 000000018001a554 f   libucrt:lcidtoname_downlevel.obj
+ 0001:00019660       qsort                      000000018001a660 f   libucrt:qsort.obj
+ 0001:00019994       strncpy_s                  000000018001a994 f   libucrt:strncpy_s.obj
+ 0001:00019a68       strpbrk                    000000018001aa68 f   libucrt:strpbrk.obj
+ 0001:00019b08       _mbsdec                    000000018001ab08 f   libucrt:mbsdec.obj
+ 0001:00019b10       _mbsdec_l                  000000018001ab10 f   libucrt:mbsdec.obj
+ 0001:00019f1c       __acrt_LCMapStringA        000000018001af1c f   libucrt:lcmapstringa.obj
+ 0001:00019fb4       _msize                     000000018001afb4 f   libucrt:msize.obj
+ 0001:00019ff0       _realloc_base              000000018001aff0 f   libucrt:realloc_base.obj
+ 0001:0001a074       __acrt_lowio_create_handle_array 000000018001b074 f   libucrt:osfinfo.obj
+ 0001:0001a10c       __acrt_lowio_destroy_handle_array 000000018001b10c f   libucrt:osfinfo.obj
+ 0001:0001a15c       __acrt_lowio_ensure_fh_exists 000000018001b15c f   libucrt:osfinfo.obj
+ 0001:0001a214       __acrt_lowio_lock_fh       000000018001b214 f   libucrt:osfinfo.obj
+ 0001:0001a238       __acrt_lowio_unlock_fh     000000018001b238 f   libucrt:osfinfo.obj
+ 0001:0001a25c       _free_osfhnd               000000018001b25c f   libucrt:osfinfo.obj
+ 0001:0001a318       _get_osfhandle             000000018001b318 f   libucrt:osfinfo.obj
+ 0001:0001a390       _isatty                    000000018001b390 f   libucrt:isatty.obj
+ 0001:0001a3f0       __acrt_stdio_flush_nolock  000000018001b3f0 f   libucrt:fflush.obj
+ 0001:0001a468       _fflush_nolock             000000018001b468 f   libucrt:fflush.obj
+ 0001:0001a4b4       _flushall                  000000018001b4b4 f   libucrt:fflush.obj
+ 0001:0001a5a4       _fcloseall                 000000018001b5a4 f   libucrt:closeall.obj
+ 0001:0001a658       __acrt_stdio_free_buffer_nolock 000000018001b658 f   libucrt:_freebuf.obj
+ 0001:0001a698       __strncnt                  000000018001b698 f   libucrt:strncnt.obj
+ 0001:0001a6b0       _query_app_type            000000018001b6b0 f   libucrt:report_runtime_error.obj
+ 0001:0001a6b8       ??$?RV<lambda_b521505b218e5242e90febf6bfebc422>@@AEAV<lambda_6978c1fb23f02e42e1d9e99668cc68aa>@@V<lambda_314360699dd331753a4119843814e9a7>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_b521505b218e5242e90febf6bfebc422>@@AEAV<lambda_6978c1fb23f02e42e1d9e99668cc68aa>@@$$QEAV<lambda_314360699dd331753a4119843814e9a7>@@@Z 000000018001b6b8 f i libucrt:commit.obj
+ 0001:0001a744       _commit                    000000018001b744 f   libucrt:commit.obj
+ 0001:0001ad78       _write                     000000018001bd78 f   libucrt:write.obj
+ 0001:0001ae64       _write_nolock              000000018001be64 f   libucrt:write.obj
+ 0001:0001b150       log10                      000000018001c150 f   libucrt:log10.obj
+ 0001:0001b798       _lseeki64_nolock           000000018001c798 f   libucrt:lseek.obj
+ 0001:0001b7a0       _fclose_nolock             000000018001c7a0 f   libucrt:fclose.obj
+ 0001:0001b824       fclose                     000000018001c824 f   libucrt:fclose.obj
+ 0001:0001b890       _putwch_nolock             000000018001c890 f   libucrt:putwch.obj
+ 0001:0001ba10       _handle_error              000000018001ca10 f   libucrt:libm_error.obj
+ 0001:0001bb40       __acrt_initialize_fma3     000000018001cb40 f   libucrt:fma3_available.obj
+ 0001:0001bbb0       _log10_special             000000018001cbb0 f   libucrt:log_special.obj
+ 0001:0001bc68       ??$?RV<lambda_bfedae4ebbf01fab1bb6dcc6a9e276e0>@@AEAV<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@V<lambda_237c231691f317818eb88cc1d5d642d6>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_bfedae4ebbf01fab1bb6dcc6a9e276e0>@@AEAV<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@$$QEAV<lambda_237c231691f317818eb88cc1d5d642d6>@@@Z 000000018001cc68 f i libucrt:close.obj
+ 0001:0001bcdc       _close                     000000018001ccdc f   libucrt:close.obj
+ 0001:0001bd80       _close_nolock              000000018001cd80 f   libucrt:close.obj
+ 0001:0001be3c       ?__acrt_stdio_free_stream@@YAXV__crt_stdio_stream@@@Z 000000018001ce3c f   libucrt:stream.obj
+ 0001:0001be80       __dcrt_lowio_initialize_console_output 000000018001ce80 f   libucrt:initcon.obj
+ 0001:0001bebc       __dcrt_terminate_console_output 000000018001cebc f   libucrt:initcon.obj
+ 0001:0001bef0       _get_fpsr                  000000018001cef0 f   libucrt:fpsr.obj
+ 0001:0001bf00       _set_fpsr                  000000018001cf00 f   libucrt:fpsr.obj
+ 0001:0001bf0a       _fclrf                     000000018001cf0a f   libucrt:fpsr.obj
+ 0001:0001bf1e       _frnd                      000000018001cf1e f   libucrt:fpsr.obj
+ 0001:0001bf40       _raise_exc                 000000018001cf40 f   libucrt:fpexcept.obj
+ 0001:0001bf68       _raise_exc_ex              000000018001cf68 f   libucrt:fpexcept.obj
+ 0001:0001c270       _set_errno_from_matherr    000000018001d270 f   libucrt:fpexcept.obj
+ 0001:0001c2a0       _clrfp                     000000018001d2a0 f   libucrt:fpctrl.obj
+ 0001:0001c2c0       _ctrlfp                    000000018001d2c0 f   libucrt:fpctrl.obj
+ 0001:0001c33c       _set_statfp                000000018001d33c f   libucrt:fpctrl.obj
+ 0001:0001c35c       _statfp                    000000018001d35c f   libucrt:fpctrl.obj
+ 0001:0001c36e       IsProcessorFeaturePresent  000000018001d36e f   kernel32:KERNEL32.dll
+ 0001:0001c374       RtlUnwindEx                000000018001d374 f   kernel32:KERNEL32.dll
+ 0001:0001c380       _FindPESection             000000018001d380 f   LIBCMT:pesect.obj
+ 0001:0001c3d0       _IsNonwritableInCurrentImage 000000018001d3d0 f   LIBCMT:pesect.obj
+ 0001:0001c420       _ValidateImageBase         000000018001d420 f   LIBCMT:pesect.obj
+ 0001:0001c450       __GSHandlerCheck           000000018001d450 f   LIBCMT:_gshandler_.obj
+ 0001:0001c470       __GSHandlerCheckCommon     000000018001d470 f   LIBCMT:_gshandler_.obj
+ 0001:0001c4e0       __security_check_cookie    000000018001d4e0 f   LIBCMT:_amdsecgs_.obj
+ 0001:0001c504       __raise_securityfailure    000000018001d504 f   LIBCMT:gs_report.obj
+ 0001:0001c538       __report_gsfailure         000000018001d538 f   LIBCMT:gs_report.obj
+ 0001:0001c60c       __report_rangecheckfailure 000000018001d60c f   LIBCMT:gs_report.obj
+ 0001:0001c620       __report_securityfailure   000000018001d620 f   LIBCMT:gs_report.obj
+ 0001:0001c7b0       __chkstk                   000000018001d7b0 f   LIBCMT:_chkstk_.obj
+ 0001:0001c7b0       _alloca_probe              000000018001d7b0 f   LIBCMT:_chkstk_.obj
+ 0001:0001c820       _guard_dispatch_icall_nop  000000018001d820 f   LIBCMT:_guard_dispatch_.obj
  0002:00000000       __imp_RegSetValueExW       000000018001e000     advapi32:ADVAPI32.dll
  0002:00000008       __imp_RegQueryValueExW     000000018001e008     advapi32:ADVAPI32.dll
  0002:00000010       __imp_RegOpenKeyExW        000000018001e010     advapi32:ADVAPI32.dll
@@ -1765,7 +1765,7 @@
  0003:0002bac8       __dyn_tls_init_callback    0000000180055ac8     <common>
  0003:0002bad0       _pDestructExceptionObject  0000000180055ad0     <common>
 
- entry point at        0001:00012d8c
+ entry point at        0001:00012d94
 
  Static symbols
 
@@ -1778,110 +1778,110 @@
  0001:00006314       ?LoadFarSettingsW995@@YAXPEAUCEFarInterfaceSettings@@PEAUCEFarPanelSettings@@@Z 0000000180007314 f   ConEmuTh995.obj
  0001:00006f24       ?LoadFarSettingsA@@YAXPEAUCEFarInterfaceSettings@@PEAUCEFarPanelSettings@@@Z 0000000180007f24 f   ConEmuThA.obj
  0001:0000d72c       ?compare@cmp@?1??Find@MToolHelpProcess@@QEAA_NKPEAUtagPROCESSENTRY32W@@@Z@SA_N0_J@Z 000000018000e72c f   MProcess.obj
- 0001:00012a40       ?dllmain_crt_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180013a40 f   LIBCMT:dll_dllmain.obj
- 0001:00012a90       ?dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z 0000000180013a90 f   LIBCMT:dll_dllmain.obj
- 0001:00012bbc       ?dllmain_crt_process_detach@@YAH_N@Z 0000000180013bbc f   LIBCMT:dll_dllmain.obj
- 0001:00012c40       ?dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180013c40 f   LIBCMT:dll_dllmain.obj
- 0001:00012d38       ?dllmain_raw@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180013d38 f   LIBCMT:dll_dllmain.obj
- 0001:00013670       $$000000                   0000000180014670     libvcruntime:memcpy.obj
- 0001:00013717       MoveSmall                  0000000180014717     libvcruntime:memcpy.obj
- 0001:00013d40       $$000000                   0000000180014d40     libvcruntime:memset.obj
- 0001:00013e2c       MsetTab                    0000000180014e2c     libvcruntime:memset.obj
- 0001:00013ef0       $$000000                   0000000180014ef0     libvcruntime:memcmp.obj
- 0001:00014310       $$000000                   0000000180015310     libvcruntime:_jmpuwind_.obj
- 0001:00014590       ?try_get_function@@YAPEAXW4function_id@?A0x679b24ab@@QEBDQEBW4module_id@2@2@Z 0000000180015590 f   libvcruntime:winapi_downlevel.obj
- 0001:00014d14       ?atexit_exception_filter@@YAHK@Z 0000000180015d14 f   libucrt:exit.obj
- 0001:00014d20       ?common_exit@@YAXHW4_crt_exit_cleanup_mode@@W4_crt_exit_return_mode@@@Z 0000000180015d20 f   libucrt:exit.obj
- 0001:00014e8c       ?exit_or_terminate_process@@YAXI@Z 0000000180015e8c f   libucrt:exit.obj
- 0001:00014ed8       ?try_cor_exit_process@@YAXI@Z 0000000180015ed8 f   libucrt:exit.obj
- 0001:00014f70       ??$parse_command_line@D@@YAXPEADPEAPEAD0PEA_K2@Z 0000000180015f70 f   libucrt:argv_parsing.obj
- 0001:00015308       ??$common_initialize_environment_nolock@D@@YAHXZ 0000000180016308 f   libucrt:environment_initialization.obj
- 0001:00015374       ??$create_environment@D@@YAQEAPEADQEAD@Z 0000000180016374 f   libucrt:environment_initialization.obj
- 0001:00015470       ??$free_environment@D@@YAXQEAPEAD@Z 0000000180016470 f   libucrt:environment_initialization.obj
- 0001:00015470       ??$free_environment@_W@@YAXQEAPEA_W@Z 0000000180016470 f   libucrt:environment_initialization.obj
- 0001:000154b4       ??$uninitialize_environment_internal@D@@YAXAEAPEAPEAD@Z 00000001800164b4 f   libucrt:environment_initialization.obj
- 0001:000154d0       ??$uninitialize_environment_internal@_W@@YAXAEAPEAPEA_W@Z 00000001800164d0 f   libucrt:environment_initialization.obj
- 0001:00015708       ??R<lambda_4e60a939b0d047cfe11ddc22648dfba9>@@QEBAHXZ 0000000180016708 f   libucrt:onexit.obj
- 0001:000159b8       initialize_global_variables 00000001800169b8 f   libucrt:initialization.obj
- 0001:000159cc       initialize_c               00000001800169cc f   libucrt:initialization.obj
- 0001:000159f0       uninitialize_environment   00000001800169f0 f   libucrt:initialization.obj
- 0001:00015a00       initialize_pointers        0000000180016a00 f   libucrt:initialization.obj
- 0001:00015a54       uninitialize_vcruntime     0000000180016a54 f   libucrt:initialization.obj
- 0001:00015a5c       uninitialize_allocated_memory 0000000180016a5c f   libucrt:initialization.obj
- 0001:00016240       ?construct_ptd_array@@YAXQEAU__acrt_ptd@@@Z 0000000180017240 f   libucrt:per_thread_data.obj
- 0001:00016310       ?destroy_fls@@YAXPEAX@Z    0000000180017310 f   libucrt:per_thread_data.obj
- 0001:00016330       ?destroy_ptd_array@@YAXQEAU__acrt_ptd@@@Z 0000000180017330 f   libucrt:per_thread_data.obj
- 0001:00016428       ?replace_current_thread_locale_nolock@@YAXQEAU__acrt_ptd@@QEAU__crt_locale_data@@@Z 0000000180017428 f   libucrt:per_thread_data.obj
- 0001:000168a8       ?try_get_function@@YAPEAXW4function_id@?A0x391cf84c@@QEBDQEBW4module_id@2@2@Z 00000001800178a8 f   libucrt:winapi_thunks.obj
- 0001:00016e8c       ?<helper_func_cdecl>@<lambda_e4fcf3af52c7c9a5453685164d5c5959>@@CAHPEBX0@Z 0000000180017e8c f   libucrt:argv_wildcards.obj
- 0001:00016ea0       ??$common_expand_argv_wildcards@D@@YAHQEAPEADQEAPEAPEAD@Z 0000000180017ea0 f   libucrt:argv_wildcards.obj
- 0001:000170ac       ??$copy_and_add_argument_to_buffer@D@@YAHQEBD0_KAEAV?$argument_list@D@?A0x5f5c8891@@@Z 00000001800180ac f   libucrt:argv_wildcards.obj
- 0001:000171bc       ??$expand_argument_wildcards@D@@YAHQEAD0AEAV?$argument_list@D@?A0x5f5c8891@@@Z 00000001800181bc f   libucrt:argv_wildcards.obj
- 0001:00017470       ??R<lambda_2c5d36f8a66580c563e29092409944b2>@@QEBAXXZ 0000000180018470 f   libucrt:mbctype.obj
- 0001:00017610       ?getSystemCP@@YAHH@Z       0000000180018610 f   libucrt:mbctype.obj
- 0001:00017690       ?setSBCS@@YAXPEAU__crt_multibyte_data@@@Z 0000000180018690 f   libucrt:mbctype.obj
- 0001:00017720       ?setSBUpLow@@YAXPEAU__crt_multibyte_data@@@Z 0000000180018720 f   libucrt:mbctype.obj
- 0001:00017904       ?setmbcp_internal@@YAHH_NQEAU__acrt_ptd@@QEAPEAU__crt_multibyte_data@@@Z 0000000180018904 f   libucrt:mbctype.obj
- 0001:00017ac8       ?update_thread_multibyte_data_internal@@YAPEAU__crt_multibyte_data@@QEAU__acrt_ptd@@QEAU1@@Z 0000000180018ac8 f   libucrt:mbctype.obj
- 0001:00017ea4       ?x_ismbbtype_l@@YAHPEAU__crt_locale_pointers@@IHH@Z 0000000180018ea4 f   libucrt:ismbbyte.obj
- 0001:00017f58       report_memory_leaks        0000000180018f58 f   libucrt:initialization.obj
- 0001:00017f58       uninitialize_global_state_isolation 0000000180018f58 f   libucrt:initialization.obj
- 0001:00017f58       initialize_global_state_isolation 0000000180018f58 f   libucrt:initialization.obj
- 0001:00017f58       initialize_environment     0000000180018f58 f   libucrt:initialization.obj
- 0001:00017f58       uninitialize_c             0000000180018f58 f   libucrt:initialization.obj
- 0001:00018128       ?initialize_inherited_file_handles_nolock@@YAXXZ 0000000180019128 f   libucrt:ioinit.obj
- 0001:00018214       ?initialize_stdio_handles_nolock@@YAXXZ 0000000180019214 f   libucrt:ioinit.obj
- 0001:0001931c       ?free_crt_array_internal@@YAXQEAPEBX_K@Z 000000018001a31c f   libucrt:inittime.obj
- 0001:0001947c       ?GetTableIndexFromLocaleName@@YAHPEB_W@Z 000000018001a47c f   libucrt:lcidtoname_downlevel.obj
- 0001:00019580       ?shortsort@@YAXPEAD0_KP6AHPEBX2@Z@Z 000000018001a580 f   libucrt:qsort.obj
- 0001:00019b98       ?initialize_multibyte@@YAHXZ 000000018001ab98 f   libucrt:multibyte_initializer.obj
- 0001:00019bb0       ?__acrt_LCMapStringA_stat@@YAHPEAU__crt_locale_pointers@@PEB_WKPEBDHPEADHHH@Z 000000018001abb0 f   libucrt:lcmapstringa.obj
- 0001:0001a4b0       common_flush_all           000000018001b4b0 f   libucrt:fflush.obj
- 0001:0001a7c8       ?write_double_translated_ansi_nolock@@YA?AUwrite_result@?A0x17268360@@HQEBDI@Z 000000018001b7c8 f   libucrt:write.obj
- 0001:0001a9d0       ?write_text_ansi_nolock@@YA?AUwrite_result@?A0x17268360@@HQEBDI@Z 000000018001b9d0 f   libucrt:write.obj
- 0001:0001aad8       ?write_text_utf16le_nolock@@YA?AUwrite_result@?A0x17268360@@HQEBDI@Z 000000018001bad8 f   libucrt:write.obj
- 0001:0001abf4       ?write_text_utf8_nolock@@YA?AUwrite_result@?A0x17268360@@HQEBDI@Z 000000018001bbf4 f   libucrt:write.obj
- 0001:0001b140       $$000000                   000000018001c140     libucrt:log10.obj
- 0001:0001b6ec       ??$common_lseek_nolock@_J@@YA_JH_JH@Z 000000018001c6ec f   libucrt:lseek.obj
- 0001:0001b8dc       _call_matherr              000000018001c8dc f   libucrt:libm_error.obj
- 0001:0001b944       _exception_enabled         000000018001c944 f   libucrt:libm_error.obj
- 0001:0001bbc0       _log_special_common        000000018001cbc0 f   libucrt:log_special.obj
- 0001:0001bed0       $$000000                   000000018001ced0     libucrt:fpsr.obj
- 0001:0001c4c0       $$000000                   000000018001d4c0     LIBCMT:_amdsecgs_.obj
- 0001:0001c6ac       capture_current_context    000000018001d6ac f   LIBCMT:gs_report.obj
- 0001:0001c71c       capture_previous_context   000000018001d71c f   LIBCMT:gs_report.obj
- 0001:0001c790       $$000000                   000000018001d790     LIBCMT:_chkstk_.obj
- 0001:0001c800       $$000000                   000000018001d800     LIBCMT:_guard_dispatch_.obj
- 0001:0001c820       ?fin$0@?0??dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z@4HA 000000018001d820 f   LIBCMT:dll_dllmain.obj
- 0001:0001c837       ?fin$0@?0??dllmain_crt_process_detach@@YAH_N@Z@4HA 000000018001d837 f   LIBCMT:dll_dllmain.obj
- 0001:0001c853       ?filt$0@?0??dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z@4HA 000000018001d853 f   LIBCMT:dll_dllmain.obj
- 0001:0001c889       __scrt_is_nonwritable_in_current_image$filt$0 000000018001d889 f   LIBCMT:utility.obj
- 0001:0001c8a1       ?filt$0@?0??common_exit@@YAXHW4_crt_exit_cleanup_mode@@W4_crt_exit_return_mode@@@Z@4HA 000000018001d8a1 f   libucrt:exit.obj
- 0001:0001c8bc       ?fin$1@?0??common_exit@@YAXHW4_crt_exit_cleanup_mode@@W4_crt_exit_return_mode@@@Z@4HA 000000018001d8bc f   libucrt:exit.obj
- 0001:0001c8d5       ?fin$0@?0???$?RV<lambda_e24bbb7b643b32fcea6fa61b31d4c984>@@AEAV<lambda_275893d493268fdec8709772e3fcec0e>@@V<lambda_9d71df4d7cf3f480f8d633942495c3b0>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_e24bbb7b643b32fcea6fa61b31d4c984>@@AEAV<lambda_275893d493268fdec8709772e3fcec0e>@@$$QEAV<lambda_9d71df4d7cf3f480f8d633942495c3b0>@@@Z@4HA 000000018001d8d5 f   libucrt:onexit.obj
- 0001:0001c8f2       ?fin$0@?0???$?RV<lambda_efb9b808e93e29b6b799d3875462c817>@@AEAV<lambda_2c5d36f8a66580c563e29092409944b2>@@V<lambda_31e551fca1567ef2425714047646aa90>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_efb9b808e93e29b6b799d3875462c817>@@AEAV<lambda_2c5d36f8a66580c563e29092409944b2>@@$$QEAV<lambda_31e551fca1567ef2425714047646aa90>@@@Z@4HA 000000018001d8f2 f   libucrt:mbctype.obj
- 0001:0001c8f2       ?fin$0@?0???$?RV<lambda_72d1df2b273a38828b1ce30cbf4cdab5>@@AEAV<lambda_876a65b173b8412d3a47c70a915b0cf4>@@V<lambda_41932305e351933ebe8f8be3ed8bb5dc>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_72d1df2b273a38828b1ce30cbf4cdab5>@@AEAV<lambda_876a65b173b8412d3a47c70a915b0cf4>@@$$QEAV<lambda_41932305e351933ebe8f8be3ed8bb5dc>@@@Z@4HA 000000018001d8f2 f   libucrt:per_thread_data.obj
- 0001:0001c8f2       ?fin$0@?0???$?RV<lambda_5e887d1dcbef67a5eb4283622ba103bf>@@AEAV<lambda_4466841279450cc726390878d4a41900>@@V<lambda_341c25c0346d94847f1f3c463c57e077>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_5e887d1dcbef67a5eb4283622ba103bf>@@AEAV<lambda_4466841279450cc726390878d4a41900>@@$$QEAV<lambda_341c25c0346d94847f1f3c463c57e077>@@@Z@4HA 000000018001d8f2 f   libucrt:per_thread_data.obj
- 0001:0001c8f2       ?fin$0@?0???$?RV<lambda_b8c45f8f788dd370798f47cfe8ac3a86>@@AEAV<lambda_4e60a939b0d047cfe11ddc22648dfba9>@@V<lambda_332c3edc96d0294ec56c57d38c1cdfd5>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_b8c45f8f788dd370798f47cfe8ac3a86>@@AEAV<lambda_4e60a939b0d047cfe11ddc22648dfba9>@@$$QEAV<lambda_332c3edc96d0294ec56c57d38c1cdfd5>@@@Z@4HA 000000018001d8f2 f   libucrt:onexit.obj
- 0001:0001c8f2       ?fin$0@?0???$?RV<lambda_46352004c1216016012b18bd6f87e700>@@AEAV<lambda_3bd07e1a1191394380780325891bf33f>@@V<lambda_334532d3f185bcaa59b5be82d7d22bff>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_46352004c1216016012b18bd6f87e700>@@AEAV<lambda_3bd07e1a1191394380780325891bf33f>@@$$QEAV<lambda_334532d3f185bcaa59b5be82d7d22bff>@@@Z@4HA 000000018001d8f2 f   libucrt:per_thread_data.obj
- 0001:0001c8f2       ?fin$0@?0???$?RV<lambda_c36588078e9f5dfd39652860aa6b3aaf>@@AEAV<lambda_ec61778202f4f5fc7e7711acc23c3bca>@@V<lambda_dc9d2797ccde5d239b4a0efae8ebd7db>@@@?$__crt_seh_guarded_call@P6AXH@Z@@QEAAP6AXH@Z$$QEAV<lambda_c36588078e9f5dfd39652860aa6b3aaf>@@AEAV<lambda_ec61778202f4f5fc7e7711acc23c3bca>@@$$QEAV<lambda_dc9d2797ccde5d239b4a0efae8ebd7db>@@@Z@4HA 000000018001d8f2 f   libucrt:signal.obj
- 0001:0001c8f2       ?fin$0@?0???$?RV<lambda_fb3a7dec4e47f37f22dae91bb15c9095>@@AEAV<lambda_698284760c8add0bfb0756c19673e34b>@@V<lambda_dfb8eca1e75fef3034a8fb18dd509707>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_fb3a7dec4e47f37f22dae91bb15c9095>@@AEAV<lambda_698284760c8add0bfb0756c19673e34b>@@$$QEAV<lambda_dfb8eca1e75fef3034a8fb18dd509707>@@@Z@4HA 000000018001d8f2 f   libucrt:per_thread_data.obj
- 0001:0001c90c       ?fin$0@?0???$?RV<lambda_9431c60049192bb82166e0947f95a2e9>@@AEAV<lambda_85fa512c59a4d94d4a89f575eefd92a6>@@V<lambda_487febba6ca58d9ce348204d67e1dba3>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_9431c60049192bb82166e0947f95a2e9>@@AEAV<lambda_85fa512c59a4d94d4a89f575eefd92a6>@@$$QEAV<lambda_487febba6ca58d9ce348204d67e1dba3>@@@Z@4HA 000000018001d90c f   libucrt:wsetlocale.obj
- 0001:0001c926       ?fin$0@?0??update_thread_multibyte_data_internal@@YAPEAU__crt_multibyte_data@@QEAU__acrt_ptd@@QEAU1@@Z@4HA 000000018001d926 f   libucrt:mbctype.obj
- 0001:0001c93f       _query_new_handler$fin$0   000000018001d93f f   libucrt:new_handler.obj
- 0001:0001c955       raise$fin$0                000000018001d955 f   libucrt:signal.obj
- 0001:0001c979       __acrt_update_thread_locale_data$fin$0 000000018001d979 f   libucrt:locale_refcounting.obj
- 0001:0001c992       __acrt_initialize_lowio$fin$0 000000018001d992 f   libucrt:ioinit.obj
- 0001:0001c992       __acrt_lowio_ensure_fh_exists$fin$0 000000018001d992 f   libucrt:osfinfo.obj
- 0001:0001c9ab       common_flush_all$fin$0     000000018001d9ab f   libucrt:fflush.obj
- 0001:0001c9c5       common_flush_all$fin$1     000000018001d9c5 f   libucrt:fflush.obj
- 0001:0001c9de       _fcloseall$fin$0           000000018001d9de f   libucrt:closeall.obj
- 0001:0001c9f7       _write$fin$0               000000018001d9f7 f   libucrt:write.obj
- 0001:0001ca0e       fclose$fin$0               000000018001da0e f   libucrt:fclose.obj
- 0001:0001ca26       ?fin$0@?0???$?RV<lambda_b521505b218e5242e90febf6bfebc422>@@AEAV<lambda_6978c1fb23f02e42e1d9e99668cc68aa>@@V<lambda_314360699dd331753a4119843814e9a7>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_b521505b218e5242e90febf6bfebc422>@@AEAV<lambda_6978c1fb23f02e42e1d9e99668cc68aa>@@$$QEAV<lambda_314360699dd331753a4119843814e9a7>@@@Z@4HA 000000018001da26 f   libucrt:commit.obj
- 0001:0001ca26       ?fin$0@?0???$?RV<lambda_bfedae4ebbf01fab1bb6dcc6a9e276e0>@@AEAV<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@V<lambda_237c231691f317818eb88cc1d5d642d6>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_bfedae4ebbf01fab1bb6dcc6a9e276e0>@@AEAV<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@$$QEAV<lambda_237c231691f317818eb88cc1d5d642d6>@@@Z@4HA 000000018001da26 f   libucrt:close.obj
- 0001:0001ca40       _ctrlfp$filt$0             000000018001da40 f   libucrt:fpctrl.obj
- 0001:0001ca70       _IsNonwritableInCurrentImage$filt$0 000000018001da70 f   LIBCMT:pesect.obj
+ 0001:00012a48       ?dllmain_crt_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180013a48 f   LIBCMT:dll_dllmain.obj
+ 0001:00012a98       ?dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z 0000000180013a98 f   LIBCMT:dll_dllmain.obj
+ 0001:00012bc4       ?dllmain_crt_process_detach@@YAH_N@Z 0000000180013bc4 f   LIBCMT:dll_dllmain.obj
+ 0001:00012c48       ?dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180013c48 f   LIBCMT:dll_dllmain.obj
+ 0001:00012d40       ?dllmain_raw@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180013d40 f   LIBCMT:dll_dllmain.obj
+ 0001:00013680       $$000000                   0000000180014680     libvcruntime:memcpy.obj
+ 0001:00013727       MoveSmall                  0000000180014727     libvcruntime:memcpy.obj
+ 0001:00013d50       $$000000                   0000000180014d50     libvcruntime:memset.obj
+ 0001:00013e3c       MsetTab                    0000000180014e3c     libvcruntime:memset.obj
+ 0001:00013f00       $$000000                   0000000180014f00     libvcruntime:memcmp.obj
+ 0001:00014320       $$000000                   0000000180015320     libvcruntime:_jmpuwind_.obj
+ 0001:000145a0       ?try_get_function@@YAPEAXW4function_id@?A0x679b24ab@@QEBDQEBW4module_id@2@2@Z 00000001800155a0 f   libvcruntime:winapi_downlevel.obj
+ 0001:00014d24       ?atexit_exception_filter@@YAHK@Z 0000000180015d24 f   libucrt:exit.obj
+ 0001:00014d30       ?common_exit@@YAXHW4_crt_exit_cleanup_mode@@W4_crt_exit_return_mode@@@Z 0000000180015d30 f   libucrt:exit.obj
+ 0001:00014e9c       ?exit_or_terminate_process@@YAXI@Z 0000000180015e9c f   libucrt:exit.obj
+ 0001:00014ee8       ?try_cor_exit_process@@YAXI@Z 0000000180015ee8 f   libucrt:exit.obj
+ 0001:00014f80       ??$parse_command_line@D@@YAXPEADPEAPEAD0PEA_K2@Z 0000000180015f80 f   libucrt:argv_parsing.obj
+ 0001:00015318       ??$common_initialize_environment_nolock@D@@YAHXZ 0000000180016318 f   libucrt:environment_initialization.obj
+ 0001:00015384       ??$create_environment@D@@YAQEAPEADQEAD@Z 0000000180016384 f   libucrt:environment_initialization.obj
+ 0001:00015480       ??$free_environment@D@@YAXQEAPEAD@Z 0000000180016480 f   libucrt:environment_initialization.obj
+ 0001:00015480       ??$free_environment@_W@@YAXQEAPEA_W@Z 0000000180016480 f   libucrt:environment_initialization.obj
+ 0001:000154c4       ??$uninitialize_environment_internal@D@@YAXAEAPEAPEAD@Z 00000001800164c4 f   libucrt:environment_initialization.obj
+ 0001:000154e0       ??$uninitialize_environment_internal@_W@@YAXAEAPEAPEA_W@Z 00000001800164e0 f   libucrt:environment_initialization.obj
+ 0001:00015718       ??R<lambda_4e60a939b0d047cfe11ddc22648dfba9>@@QEBAHXZ 0000000180016718 f   libucrt:onexit.obj
+ 0001:000159c8       initialize_global_variables 00000001800169c8 f   libucrt:initialization.obj
+ 0001:000159dc       initialize_c               00000001800169dc f   libucrt:initialization.obj
+ 0001:00015a00       uninitialize_environment   0000000180016a00 f   libucrt:initialization.obj
+ 0001:00015a10       initialize_pointers        0000000180016a10 f   libucrt:initialization.obj
+ 0001:00015a64       uninitialize_vcruntime     0000000180016a64 f   libucrt:initialization.obj
+ 0001:00015a6c       uninitialize_allocated_memory 0000000180016a6c f   libucrt:initialization.obj
+ 0001:00016250       ?construct_ptd_array@@YAXQEAU__acrt_ptd@@@Z 0000000180017250 f   libucrt:per_thread_data.obj
+ 0001:00016320       ?destroy_fls@@YAXPEAX@Z    0000000180017320 f   libucrt:per_thread_data.obj
+ 0001:00016340       ?destroy_ptd_array@@YAXQEAU__acrt_ptd@@@Z 0000000180017340 f   libucrt:per_thread_data.obj
+ 0001:00016438       ?replace_current_thread_locale_nolock@@YAXQEAU__acrt_ptd@@QEAU__crt_locale_data@@@Z 0000000180017438 f   libucrt:per_thread_data.obj
+ 0001:000168b8       ?try_get_function@@YAPEAXW4function_id@?A0x391cf84c@@QEBDQEBW4module_id@2@2@Z 00000001800178b8 f   libucrt:winapi_thunks.obj
+ 0001:00016e9c       ?<helper_func_cdecl>@<lambda_e4fcf3af52c7c9a5453685164d5c5959>@@CAHPEBX0@Z 0000000180017e9c f   libucrt:argv_wildcards.obj
+ 0001:00016eb0       ??$common_expand_argv_wildcards@D@@YAHQEAPEADQEAPEAPEAD@Z 0000000180017eb0 f   libucrt:argv_wildcards.obj
+ 0001:000170bc       ??$copy_and_add_argument_to_buffer@D@@YAHQEBD0_KAEAV?$argument_list@D@?A0x5f5c8891@@@Z 00000001800180bc f   libucrt:argv_wildcards.obj
+ 0001:000171cc       ??$expand_argument_wildcards@D@@YAHQEAD0AEAV?$argument_list@D@?A0x5f5c8891@@@Z 00000001800181cc f   libucrt:argv_wildcards.obj
+ 0001:00017480       ??R<lambda_2c5d36f8a66580c563e29092409944b2>@@QEBAXXZ 0000000180018480 f   libucrt:mbctype.obj
+ 0001:00017620       ?getSystemCP@@YAHH@Z       0000000180018620 f   libucrt:mbctype.obj
+ 0001:000176a0       ?setSBCS@@YAXPEAU__crt_multibyte_data@@@Z 00000001800186a0 f   libucrt:mbctype.obj
+ 0001:00017730       ?setSBUpLow@@YAXPEAU__crt_multibyte_data@@@Z 0000000180018730 f   libucrt:mbctype.obj
+ 0001:00017914       ?setmbcp_internal@@YAHH_NQEAU__acrt_ptd@@QEAPEAU__crt_multibyte_data@@@Z 0000000180018914 f   libucrt:mbctype.obj
+ 0001:00017ad8       ?update_thread_multibyte_data_internal@@YAPEAU__crt_multibyte_data@@QEAU__acrt_ptd@@QEAU1@@Z 0000000180018ad8 f   libucrt:mbctype.obj
+ 0001:00017eb4       ?x_ismbbtype_l@@YAHPEAU__crt_locale_pointers@@IHH@Z 0000000180018eb4 f   libucrt:ismbbyte.obj
+ 0001:00017f68       report_memory_leaks        0000000180018f68 f   libucrt:initialization.obj
+ 0001:00017f68       uninitialize_global_state_isolation 0000000180018f68 f   libucrt:initialization.obj
+ 0001:00017f68       initialize_global_state_isolation 0000000180018f68 f   libucrt:initialization.obj
+ 0001:00017f68       initialize_environment     0000000180018f68 f   libucrt:initialization.obj
+ 0001:00017f68       uninitialize_c             0000000180018f68 f   libucrt:initialization.obj
+ 0001:00018138       ?initialize_inherited_file_handles_nolock@@YAXXZ 0000000180019138 f   libucrt:ioinit.obj
+ 0001:00018224       ?initialize_stdio_handles_nolock@@YAXXZ 0000000180019224 f   libucrt:ioinit.obj
+ 0001:0001932c       ?free_crt_array_internal@@YAXQEAPEBX_K@Z 000000018001a32c f   libucrt:inittime.obj
+ 0001:0001948c       ?GetTableIndexFromLocaleName@@YAHPEB_W@Z 000000018001a48c f   libucrt:lcidtoname_downlevel.obj
+ 0001:00019590       ?shortsort@@YAXPEAD0_KP6AHPEBX2@Z@Z 000000018001a590 f   libucrt:qsort.obj
+ 0001:00019ba8       ?initialize_multibyte@@YAHXZ 000000018001aba8 f   libucrt:multibyte_initializer.obj
+ 0001:00019bc0       ?__acrt_LCMapStringA_stat@@YAHPEAU__crt_locale_pointers@@PEB_WKPEBDHPEADHHH@Z 000000018001abc0 f   libucrt:lcmapstringa.obj
+ 0001:0001a4c0       common_flush_all           000000018001b4c0 f   libucrt:fflush.obj
+ 0001:0001a7d8       ?write_double_translated_ansi_nolock@@YA?AUwrite_result@?A0x17268360@@HQEBDI@Z 000000018001b7d8 f   libucrt:write.obj
+ 0001:0001a9e0       ?write_text_ansi_nolock@@YA?AUwrite_result@?A0x17268360@@HQEBDI@Z 000000018001b9e0 f   libucrt:write.obj
+ 0001:0001aae8       ?write_text_utf16le_nolock@@YA?AUwrite_result@?A0x17268360@@HQEBDI@Z 000000018001bae8 f   libucrt:write.obj
+ 0001:0001ac04       ?write_text_utf8_nolock@@YA?AUwrite_result@?A0x17268360@@HQEBDI@Z 000000018001bc04 f   libucrt:write.obj
+ 0001:0001b150       $$000000                   000000018001c150     libucrt:log10.obj
+ 0001:0001b6fc       ??$common_lseek_nolock@_J@@YA_JH_JH@Z 000000018001c6fc f   libucrt:lseek.obj
+ 0001:0001b8ec       _call_matherr              000000018001c8ec f   libucrt:libm_error.obj
+ 0001:0001b954       _exception_enabled         000000018001c954 f   libucrt:libm_error.obj
+ 0001:0001bbd0       _log_special_common        000000018001cbd0 f   libucrt:log_special.obj
+ 0001:0001bee0       $$000000                   000000018001cee0     libucrt:fpsr.obj
+ 0001:0001c4d0       $$000000                   000000018001d4d0     LIBCMT:_amdsecgs_.obj
+ 0001:0001c6bc       capture_current_context    000000018001d6bc f   LIBCMT:gs_report.obj
+ 0001:0001c72c       capture_previous_context   000000018001d72c f   LIBCMT:gs_report.obj
+ 0001:0001c7a0       $$000000                   000000018001d7a0     LIBCMT:_chkstk_.obj
+ 0001:0001c810       $$000000                   000000018001d810     LIBCMT:_guard_dispatch_.obj
+ 0001:0001c830       ?fin$0@?0??dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z@4HA 000000018001d830 f   LIBCMT:dll_dllmain.obj
+ 0001:0001c847       ?fin$0@?0??dllmain_crt_process_detach@@YAH_N@Z@4HA 000000018001d847 f   LIBCMT:dll_dllmain.obj
+ 0001:0001c863       ?filt$0@?0??dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z@4HA 000000018001d863 f   LIBCMT:dll_dllmain.obj
+ 0001:0001c899       __scrt_is_nonwritable_in_current_image$filt$0 000000018001d899 f   LIBCMT:utility.obj
+ 0001:0001c8b1       ?filt$0@?0??common_exit@@YAXHW4_crt_exit_cleanup_mode@@W4_crt_exit_return_mode@@@Z@4HA 000000018001d8b1 f   libucrt:exit.obj
+ 0001:0001c8cc       ?fin$1@?0??common_exit@@YAXHW4_crt_exit_cleanup_mode@@W4_crt_exit_return_mode@@@Z@4HA 000000018001d8cc f   libucrt:exit.obj
+ 0001:0001c8e5       ?fin$0@?0???$?RV<lambda_e24bbb7b643b32fcea6fa61b31d4c984>@@AEAV<lambda_275893d493268fdec8709772e3fcec0e>@@V<lambda_9d71df4d7cf3f480f8d633942495c3b0>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_e24bbb7b643b32fcea6fa61b31d4c984>@@AEAV<lambda_275893d493268fdec8709772e3fcec0e>@@$$QEAV<lambda_9d71df4d7cf3f480f8d633942495c3b0>@@@Z@4HA 000000018001d8e5 f   libucrt:onexit.obj
+ 0001:0001c902       ?fin$0@?0???$?RV<lambda_efb9b808e93e29b6b799d3875462c817>@@AEAV<lambda_2c5d36f8a66580c563e29092409944b2>@@V<lambda_31e551fca1567ef2425714047646aa90>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_efb9b808e93e29b6b799d3875462c817>@@AEAV<lambda_2c5d36f8a66580c563e29092409944b2>@@$$QEAV<lambda_31e551fca1567ef2425714047646aa90>@@@Z@4HA 000000018001d902 f   libucrt:mbctype.obj
+ 0001:0001c902       ?fin$0@?0???$?RV<lambda_72d1df2b273a38828b1ce30cbf4cdab5>@@AEAV<lambda_876a65b173b8412d3a47c70a915b0cf4>@@V<lambda_41932305e351933ebe8f8be3ed8bb5dc>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_72d1df2b273a38828b1ce30cbf4cdab5>@@AEAV<lambda_876a65b173b8412d3a47c70a915b0cf4>@@$$QEAV<lambda_41932305e351933ebe8f8be3ed8bb5dc>@@@Z@4HA 000000018001d902 f   libucrt:per_thread_data.obj
+ 0001:0001c902       ?fin$0@?0???$?RV<lambda_5e887d1dcbef67a5eb4283622ba103bf>@@AEAV<lambda_4466841279450cc726390878d4a41900>@@V<lambda_341c25c0346d94847f1f3c463c57e077>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_5e887d1dcbef67a5eb4283622ba103bf>@@AEAV<lambda_4466841279450cc726390878d4a41900>@@$$QEAV<lambda_341c25c0346d94847f1f3c463c57e077>@@@Z@4HA 000000018001d902 f   libucrt:per_thread_data.obj
+ 0001:0001c902       ?fin$0@?0???$?RV<lambda_b8c45f8f788dd370798f47cfe8ac3a86>@@AEAV<lambda_4e60a939b0d047cfe11ddc22648dfba9>@@V<lambda_332c3edc96d0294ec56c57d38c1cdfd5>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_b8c45f8f788dd370798f47cfe8ac3a86>@@AEAV<lambda_4e60a939b0d047cfe11ddc22648dfba9>@@$$QEAV<lambda_332c3edc96d0294ec56c57d38c1cdfd5>@@@Z@4HA 000000018001d902 f   libucrt:onexit.obj
+ 0001:0001c902       ?fin$0@?0???$?RV<lambda_46352004c1216016012b18bd6f87e700>@@AEAV<lambda_3bd07e1a1191394380780325891bf33f>@@V<lambda_334532d3f185bcaa59b5be82d7d22bff>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_46352004c1216016012b18bd6f87e700>@@AEAV<lambda_3bd07e1a1191394380780325891bf33f>@@$$QEAV<lambda_334532d3f185bcaa59b5be82d7d22bff>@@@Z@4HA 000000018001d902 f   libucrt:per_thread_data.obj
+ 0001:0001c902       ?fin$0@?0???$?RV<lambda_c36588078e9f5dfd39652860aa6b3aaf>@@AEAV<lambda_ec61778202f4f5fc7e7711acc23c3bca>@@V<lambda_dc9d2797ccde5d239b4a0efae8ebd7db>@@@?$__crt_seh_guarded_call@P6AXH@Z@@QEAAP6AXH@Z$$QEAV<lambda_c36588078e9f5dfd39652860aa6b3aaf>@@AEAV<lambda_ec61778202f4f5fc7e7711acc23c3bca>@@$$QEAV<lambda_dc9d2797ccde5d239b4a0efae8ebd7db>@@@Z@4HA 000000018001d902 f   libucrt:signal.obj
+ 0001:0001c902       ?fin$0@?0???$?RV<lambda_fb3a7dec4e47f37f22dae91bb15c9095>@@AEAV<lambda_698284760c8add0bfb0756c19673e34b>@@V<lambda_dfb8eca1e75fef3034a8fb18dd509707>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_fb3a7dec4e47f37f22dae91bb15c9095>@@AEAV<lambda_698284760c8add0bfb0756c19673e34b>@@$$QEAV<lambda_dfb8eca1e75fef3034a8fb18dd509707>@@@Z@4HA 000000018001d902 f   libucrt:per_thread_data.obj
+ 0001:0001c91c       ?fin$0@?0???$?RV<lambda_9431c60049192bb82166e0947f95a2e9>@@AEAV<lambda_85fa512c59a4d94d4a89f575eefd92a6>@@V<lambda_487febba6ca58d9ce348204d67e1dba3>@@@?$__crt_seh_guarded_call@X@@QEAAX$$QEAV<lambda_9431c60049192bb82166e0947f95a2e9>@@AEAV<lambda_85fa512c59a4d94d4a89f575eefd92a6>@@$$QEAV<lambda_487febba6ca58d9ce348204d67e1dba3>@@@Z@4HA 000000018001d91c f   libucrt:wsetlocale.obj
+ 0001:0001c936       ?fin$0@?0??update_thread_multibyte_data_internal@@YAPEAU__crt_multibyte_data@@QEAU__acrt_ptd@@QEAU1@@Z@4HA 000000018001d936 f   libucrt:mbctype.obj
+ 0001:0001c94f       _query_new_handler$fin$0   000000018001d94f f   libucrt:new_handler.obj
+ 0001:0001c965       raise$fin$0                000000018001d965 f   libucrt:signal.obj
+ 0001:0001c989       __acrt_update_thread_locale_data$fin$0 000000018001d989 f   libucrt:locale_refcounting.obj
+ 0001:0001c9a2       __acrt_initialize_lowio$fin$0 000000018001d9a2 f   libucrt:ioinit.obj
+ 0001:0001c9a2       __acrt_lowio_ensure_fh_exists$fin$0 000000018001d9a2 f   libucrt:osfinfo.obj
+ 0001:0001c9bb       common_flush_all$fin$0     000000018001d9bb f   libucrt:fflush.obj
+ 0001:0001c9d5       common_flush_all$fin$1     000000018001d9d5 f   libucrt:fflush.obj
+ 0001:0001c9ee       _fcloseall$fin$0           000000018001d9ee f   libucrt:closeall.obj
+ 0001:0001ca07       _write$fin$0               000000018001da07 f   libucrt:write.obj
+ 0001:0001ca1e       fclose$fin$0               000000018001da1e f   libucrt:fclose.obj
+ 0001:0001ca36       ?fin$0@?0???$?RV<lambda_b521505b218e5242e90febf6bfebc422>@@AEAV<lambda_6978c1fb23f02e42e1d9e99668cc68aa>@@V<lambda_314360699dd331753a4119843814e9a7>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_b521505b218e5242e90febf6bfebc422>@@AEAV<lambda_6978c1fb23f02e42e1d9e99668cc68aa>@@$$QEAV<lambda_314360699dd331753a4119843814e9a7>@@@Z@4HA 000000018001da36 f   libucrt:commit.obj
+ 0001:0001ca36       ?fin$0@?0???$?RV<lambda_bfedae4ebbf01fab1bb6dcc6a9e276e0>@@AEAV<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@V<lambda_237c231691f317818eb88cc1d5d642d6>@@@?$__crt_seh_guarded_call@H@@QEAAH$$QEAV<lambda_bfedae4ebbf01fab1bb6dcc6a9e276e0>@@AEAV<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@$$QEAV<lambda_237c231691f317818eb88cc1d5d642d6>@@@Z@4HA 000000018001da36 f   libucrt:close.obj
+ 0001:0001ca50       _ctrlfp$filt$0             000000018001da50 f   libucrt:fpctrl.obj
+ 0001:0001ca80       _IsNonwritableInCurrentImage$filt$0 000000018001da80 f   LIBCMT:pesect.obj
  0002:00001550       ?gsDisplayClassName@@3QB_WB 000000018001f550     Display.obj
  0002:00001be0       ?module_names@?A0x679b24ab@@3QBQEB_WB 000000018001fbe0     libvcruntime:winapi_downlevel.obj
  0002:00001cb0       ?candidate_modules@?1??try_get_FlsAlloc@@YAP6AKP6AXPEAX@Z@ZXZ@4QBW4module_id@?A0x679b24ab@@B 000000018001fcb0     libvcruntime:winapi_downlevel.obj

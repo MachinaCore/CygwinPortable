@@ -1,6 +1,6 @@
  ConEmu
 
- Timestamp is 580bed08 (Sun Oct 23 01:49:44 2016)
+ Timestamp is 5847d71c (Wed Dec 07 12:32:12 2016)
 
  Preferred load address is 10000000
 
@@ -123,14 +123,14 @@
  0001:00003420       ?PackInputRecord@@YIHPBU_INPUT_RECORD@@PAUMsgStr@MSG64@@@Z 10004420 f   Common.obj
  0001:00003630       ?UnpackInputRecord@@YIHPBUMsgStr@MSG64@@PAU_INPUT_RECORD@@@Z 10004630 f   Common.obj
  0001:00003890       ?TranslateKeyPress@@YIXGK_WHPAU_INPUT_RECORD@@1@Z 10004890 f   Common.obj
- 0001:00003a80       ?GetCommand@CESERVER_REQ_NEWCMD@@QAEPA_WXZ 10004a80 f   Common.obj
- 0001:00003ac0       ?GetEnvStrings@CESERVER_REQ_NEWCMD@@QAEPA_WXZ 10004ac0 f   Common.obj
- 0001:00003b10       ?SetCommand@CESERVER_REQ_NEWCMD@@QAEXPB_W@Z 10004b10 f   Common.obj
- 0001:00003b90       ?SetEnvStrings@CESERVER_REQ_NEWCMD@@QAEXPB_WK@Z 10004b90 f   Common.obj
- 0001:00003cb0       ?IsEnvBlockVariableValid@@YI_NPB_WAAPB_W@Z 10004cb0 f   Common.obj
- 0001:00003d10       ?IsEnvBlockVariableValid@@YI_NPB_W@Z 10004d10 f   Common.obj
- 0001:00003d50       ?CommonShutdown@@YIXXZ     10004d50 f   Common.obj
- 0001:00003d70       ?ModuleName@@YIPB_WPB_W@Z  10004d70 f   ConEmuCheck.obj
+ 0001:00003a90       ?GetCommand@CESERVER_REQ_NEWCMD@@QAEPA_WXZ 10004a90 f   Common.obj
+ 0001:00003ad0       ?GetEnvStrings@CESERVER_REQ_NEWCMD@@QAEPA_WXZ 10004ad0 f   Common.obj
+ 0001:00003b20       ?SetCommand@CESERVER_REQ_NEWCMD@@QAEXPB_W@Z 10004b20 f   Common.obj
+ 0001:00003ba0       ?SetEnvStrings@CESERVER_REQ_NEWCMD@@QAEXPB_WK@Z 10004ba0 f   Common.obj
+ 0001:00003cc0       ?IsEnvBlockVariableValid@@YI_NPB_WAAPB_W@Z 10004cc0 f   Common.obj
+ 0001:00003d20       ?IsEnvBlockVariableValid@@YI_NPB_W@Z 10004d20 f   Common.obj
+ 0001:00003d60       ?CommonShutdown@@YIXXZ     10004d60 f   Common.obj
+ 0001:00003d80       ?ModuleName@@YIPB_WPB_W@Z  10004d80 f   ConEmuCheck.obj
  0001:00003e60       ?ExecuteOpenPipe@@YIPAXPB_WAAY0CAI@_W0KKHPAXH@Z 10004e60 f   ConEmuCheck.obj
  0001:00004080       ?ExecutePrepareCmd@@YIXPAUCESERVER_REQ@@KI@Z 10005080 f   ConEmuCheck.obj
  0001:000040d0       ?ExecutePrepareCmd@@YIXPAUCESERVER_REQ_HDR@@KI@Z 100050d0 f   ConEmuCheck.obj
