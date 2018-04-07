@@ -25,6 +25,8 @@ print (GlobalReleasePath)
 
 if not os.path.isdir(GlobalReleasePath):
     os.makedirs(GlobalReleasePath, exist_ok=True)
+if not os.path.isdir(GlobalReleasePath + "/App"):
+    os.makedirs(GlobalReleasePath + "/App", exist_ok=True)	
 
 config = configparser.ConfigParser()
 config.read(GlobalScriptPath + '/App/AppInfo/appinfo.ini')
@@ -32,10 +34,10 @@ fileName = config['Details']['AppId']
 fileVersion = config['Version']['PackageVersion']
 
 #Copy Files to Release Folder
-copyfiles(GlobalScriptPath , GlobalReleasePath, '*.exe')
-copyfiles(GlobalScriptPath, GlobalReleasePath, '*.config')
-copyfiles(GlobalScriptPath, GlobalReleasePath, '*.pdb')
-copyfiles(GlobalScriptPath, GlobalReleasePath, '*.dll')
+copyfiles(GlobalScriptPath + '/App', GlobalReleasePath + '/App/', '*.exe')
+copyfiles(GlobalScriptPath + '/App', GlobalReleasePath + '/App/', '*.config')
+copyfiles(GlobalScriptPath + '/App', GlobalReleasePath + '/App/', '*.pdb')
+copyfiles(GlobalScriptPath + '/App', GlobalReleasePath + '/App/', '*.dll')
 shutil.copy2(GlobalScriptPath + '/help.html', GlobalReleasePath + '/help.html')
 distutils.dir_util.copy_tree(GlobalScriptPath + '/App/AppInfo', GlobalReleasePath + '/App/AppInfo')
 distutils.dir_util.copy_tree(GlobalScriptPath + '/App/DefaultData', GlobalReleasePath + '/App/DefaultData')
@@ -46,7 +48,7 @@ distutils.dir_util.copy_tree(GlobalScriptPath + '/App/RuntimeClean/ConEmu', Glob
 
 if not os.path.isdir(GlobalScriptPath + "/BuildHelpers"):
     os.makedirs(GlobalScriptPath + "/BuildHelpers", exist_ok=True)
-    os.system('git clone https://github.com/GathSystems/GathSystems.comAppInstaller.git ' + GlobalScriptPath + "/BuildHelpers/AppInstaller")
+    os.system('git clone https://github.com/MachinaCore/MachinaCore.comAppInstaller.git ' + GlobalScriptPath + "/BuildHelpers/AppInstaller")
 
 #Create Launcher
 os.system('%CD%/BuildHelpers/AppInstaller/App/nsis/makensis.exe Other/source/CygwinPortable.nsi')

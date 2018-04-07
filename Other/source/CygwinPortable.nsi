@@ -1,12 +1,12 @@
 ; =================================================================
-; CybeSystems NSIS Launcher
+; MachinaCore NSIS Launcher
 ; =================================================================
 
 !define PORTABLEAPPNAME "Cygwin Portable"
 !define APPNAME "Cygwin"
 !define NAME "CygwinPortable"
 !define VER "1.5.5.0"
-!define WEBSITE "CybeSystems.com"
+!define WEBSITE "MachinaCore.com"
 !define DEFAULTEXE "CygwinPortable.exe"
 !define DEFAULTSETTINGSPATH "settings"
 !define DISABLEMULTIINSTANCE "False"
@@ -14,17 +14,17 @@
 ;=== Program Details
 Name "${PORTABLEAPPNAME}"
 OutFile "${NAME}.exe"
-Caption "${PORTABLEAPPNAME} | CybeSystems.com"
+Caption "${PORTABLEAPPNAME} | MachinaCore.com"
 VIProductVersion "${VER}"
 VIAddVersionKey ProductName "${PORTABLEAPPNAME}"
 VIAddVersionKey Comments "Allows ${APPNAME} to be run from a removable drive.  For additional details, visit ${WEBSITE}"
-VIAddVersionKey CompanyName "CybeSystems.com"
-VIAddVersionKey LegalCopyright "CybeSystems.com & Contributors"
+VIAddVersionKey CompanyName "MachinaCore.com"
+VIAddVersionKey LegalCopyright "MachinaCore.com & Contributors"
 VIAddVersionKey FileDescription "${PORTABLEAPPNAME}"
 VIAddVersionKey FileVersion "${VER}"
 VIAddVersionKey ProductVersion "${VER}"
 VIAddVersionKey InternalName "${PORTABLEAPPNAME}"
-VIAddVersionKey LegalTrademarks "CybeSystems.com"
+VIAddVersionKey LegalTrademarks "MachinaCore.com"
 VIAddVersionKey OriginalFilename "${NAME}.exe"
 ;VIAddVersionKey PrivateBuild ""
 ;VIAddVersionKey SpecialBuild ""
