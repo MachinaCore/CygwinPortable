@@ -124,6 +124,15 @@ namespace CygwinPortableCS
             commandDirectoryKey.SetValue("", "\"" + Globals.ExeFile + "\" -cygwin -path \"%L\"");
             commandDirectoryKey.Close();
 
+            //Icon Blank Directory
+            RegistryKey iconBlankDirectoryKey = Registry.ClassesRoot.CreateSubKey("Directory\\Background\\shell\\OpenDirectoryInCygwin");
+            iconBlankDirectoryKey.SetValue("Icon", Globals.AppPath + "\\AppInfo\\appicon.ico", RegistryValueKind.ExpandString);
+            iconBlankDirectoryKey.Close();
+
+            RegistryKey commandBlankDirectoryKey = Registry.ClassesRoot.CreateSubKey("Directory\\Background\\shell\\OpenDirectoryInCygwin\\command");
+            commandBlankDirectoryKey.SetValue("", "\"" + Globals.ExeFile + "\" -cygwin -path \"%V\"");
+            commandBlankDirectoryKey.Close();
+
             //Icon Drive
             RegistryKey iconDriveKey = Registry.ClassesRoot.CreateSubKey("Drive\\shell\\OpenDriveInCygwin");
             iconDriveKey.SetValue("Icon", Globals.AppPath + "\\AppInfo\\appicon.ico", RegistryValueKind.ExpandString);
@@ -155,6 +164,15 @@ namespace CygwinPortableCS
             commandDirectoryKey.SetValue("", "\"" + Globals.ExeFile + "\" -wsl -path \"%L\"");
             commandDirectoryKey.Close();
 
+            //Icon Blank Directory
+            RegistryKey iconBlankDirectoryKey = Registry.ClassesRoot.CreateSubKey("Directory\\Background\\shell\\OpenDirectoryInBash");
+            iconBlankDirectoryKey.SetValue("Icon", Globals.AppPath + "\\AppInfo\\ubuntu.ico", RegistryValueKind.ExpandString);
+            iconBlankDirectoryKey.Close();
+
+            RegistryKey commandBlankDirectoryKey = Registry.ClassesRoot.CreateSubKey("Directory\\Background\\shell\\OpenDirectoryInBash\\command");
+            commandBlankDirectoryKey.SetValue("", "\"" + Globals.ExeFile + "\" -wsl -path \"%V\"");
+            commandBlankDirectoryKey.Close();
+
             //Icon Drive
             RegistryKey iconDriveKey = Registry.ClassesRoot.CreateSubKey("Drive\\shell\\OpenDriveInBash");
             iconDriveKey.SetValue("Icon", Globals.AppPath + "\\AppInfo\\ubuntu.ico", RegistryValueKind.ExpandString);
@@ -175,6 +193,9 @@ namespace CygwinPortableCS
             Registry.ClassesRoot.DeleteSubKey("Directory\\shell\\OpenDirectoryInCygwin\\command");
             Registry.ClassesRoot.DeleteSubKey("Directory\\shell\\OpenDirectoryInCygwin");
 
+            Registry.ClassesRoot.DeleteSubKey("Directory\\Background\\shell\\OpenDirectoryInCygwin\\command");
+            Registry.ClassesRoot.DeleteSubKey("Directory\\Background\\shell\\OpenDirectoryInCygwin");
+
             Registry.ClassesRoot.DeleteSubKey("Drive\\shell\\OpenDriveInCygwin\\command");
             Registry.ClassesRoot.DeleteSubKey("Drive\\shell\\OpenDriveInCygwin");
         }
@@ -186,6 +207,9 @@ namespace CygwinPortableCS
 
             Registry.ClassesRoot.DeleteSubKey("Directory\\shell\\OpenDirectoryInBash\\command");
             Registry.ClassesRoot.DeleteSubKey("Directory\\shell\\OpenDirectoryInBash");
+
+            Registry.ClassesRoot.DeleteSubKey("Directory\\Background\\shell\\OpenDirectoryInBash\\command");
+            Registry.ClassesRoot.DeleteSubKey("Directory\\Background\\shell\\OpenDirectoryInBash");
 
             Registry.ClassesRoot.DeleteSubKey("Drive\\shell\\OpenDriveInBash\\command");
             Registry.ClassesRoot.DeleteSubKey("Drive\\shell\\OpenDriveInBash");
