@@ -1,7 +1,8 @@
 CygwinPortable
 ==============
 
-[![Build status](https://ci.appveyor.com/api/projects/status/nsye5j8qpf8dg45g/branch/master?svg=true)](https://ci.appveyor.com/project/MachinaCore/cygwinportable/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/eo2iu7wv3mx7tn4u/branch/master?svg=true
+)](https://ci.appveyor.com/project/MachinaCore/cygwinportable/branch/master)
 
 [Download current working branches as .paf.exe and .7z from appveyor](https://ci.appveyor.com/project/MachinaCore/cygwinportable/build/artifacts)
 
