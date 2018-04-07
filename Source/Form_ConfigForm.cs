@@ -24,6 +24,8 @@ namespace CygwinPortableCS
             checkBox_delete_unneeded_files.Checked = (bool)Globals.MainConfig["Cygwin"]["CygwinFirstInstallDeleteUnneeded"];
             checkBox_install_unofficial_cygwin_tools.Checked = (bool)Globals.MainConfig["Cygwin"]["InstallUnofficial"];
             checkBox_add_windows_path_variables_to_cygwin.Checked = (bool)Globals.MainConfig["Cygwin"]["WindowsPathToCygwin"];
+            checkBox_support_wsl.Checked = (bool)Globals.MainConfig["Cygwin"]["SupportWSL"];
+            comboBox_default_environment.Text = (string)Globals.MainConfig["Cygwin"]["DefaultEnvironment"];
 
             textBox_username.Text = (string)Globals.MainConfig["Cygwin"]["Username"];
             checkBox_delete_complete_installation.Checked = (bool)Globals.MainConfig["Cygwin"]["CygwinDeleteInstallation"];
@@ -45,6 +47,7 @@ namespace CygwinPortableCS
             Globals.MainConfig["Cygwin"]["InstallUnofficial"] = checkBox_install_unofficial_cygwin_tools.Checked;
             Globals.MainConfig["Cygwin"]["WindowsPathToCygwin"] = checkBox_add_windows_path_variables_to_cygwin.Checked;
             Globals.MainConfig["Cygwin"]["SupportWSL"] = checkBox_support_wsl.Checked;
+            Globals.MainConfig["Cygwin"]["DefaultEnvironment"] = comboBox_default_environment.Text;
 
             Globals.MainConfig["Cygwin"]["Username"] = textBox_username.Text;
             Globals.MainConfig["Cygwin"]["CygwinDeleteInstallation"] = checkBox_delete_complete_installation.Checked;

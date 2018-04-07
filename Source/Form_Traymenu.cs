@@ -40,7 +40,6 @@ namespace CygwinPortableCS
                         string path = "";
                         string exitAfterExecute = "0";
                         int idx = 0;
-                        bool useCygwin = true;
 
                         foreach (string arg in args)
                         {
@@ -51,7 +50,12 @@ namespace CygwinPortableCS
 
                             if (args[idx] == "-wsl")
                             {
-                                useCygwin = false;
+                                Globals.CurrentEnvironment = "wsl";
+                            }
+
+                            if (args[idx] == "-cygwin")
+                            {
+                                Globals.CurrentEnvironment = "cygwin";
                             }
 
                             if (args[idx] == "-exit")
@@ -69,17 +73,11 @@ namespace CygwinPortableCS
                         {
                             Globals.MainConfig["Cygwin"]["ExitAfterExec"] = true;
                         }
-                        
+
 
                         //MessageBox.Show("Test" + path, "Test", MessageBoxButtons.YesNo);
-                        if (useCygwin)
-                        {
-                            Cygwin.CygwinOpen(path, "cygwin");
-                        } else
-                        {
-                            Cygwin.CygwinOpen(path, "wsl");
-                        }
-                        
+                        Cygwin.CygwinOpen(path);
+
                         Environment.Exit(-1);
                     }
 
@@ -87,7 +85,7 @@ namespace CygwinPortableCS
             }
             catch (IndexOutOfRangeException)
             {
-                Console.WriteLine("Possible Commandline options: " + args[0] + " [-path <PATH>] [-exit <0/1>]");
+                Console.WriteLine("Possible Commandline options: " + args[0] + " [-cygwin] [-wsl] [-path <PATH>] [-exit <0/1>]");
                 Console.WriteLine("-path 'C:\\Windows' open Windows folder");
                 Console.WriteLine("-exit 0 let the cygwin window open, -exit 1 close the cygwin window after execution");
                 Console.WriteLine("");
@@ -97,6 +95,10 @@ namespace CygwinPortableCS
                 Console.WriteLine("   " + args[0] + " -path 'C:\\shellscript.sh' -exit 0");
                 Console.WriteLine("Sample to open C:\\Windows Folder WITHOUT arguemnts:");
                 Console.WriteLine("   " + args[0] + " 'C:\\Windows'");
+                Console.WriteLine("Sample to open C:\\Windows Folder with cygwin:");
+                Console.WriteLine("   " + args[0] + " -cygwin -path 'C:\\Windows'");
+                Console.WriteLine("Sample to open C:\\Windows Folder with wsl:");
+                Console.WriteLine("   " + args[0] + " -wsl -path 'C:\\Windows'");
             }
 
             ChangeRegistryPath.Change();

@@ -67,7 +67,7 @@ namespace CygwinPortableCS
             }
         }
 
-        public static string CygDrivePath(string fileOrFolder, string currentEnvironment = "cygwin")
+        public static string CygDrivePath(string fileOrFolder)
         {
             string winDrive = "";
             FileInfo file = new FileInfo(fileOrFolder);
@@ -75,14 +75,14 @@ namespace CygwinPortableCS
             Console.WriteLine(drive);
             string path = file.FullName.Replace(drive, "").Replace("\\", "/").Replace(" ", "\\ ").Replace("(", "\\(").Replace(")", "\\)");
             winDrive = drive.Replace(":", "").Replace("\\", "").ToLower();
-            if (currentEnvironment == "wsl")
+            if (Globals.CurrentEnvironment == "wsl")
             {
                 return ("/mnt/" + winDrive + "/" + path);
             }
             return ("/cygdrive/" + winDrive + "/" + path);
         }
 
-        public static string[] Folder2CygFolder(string fileOrFolder, string currentEnvironment = "cygwin")
+        public static string[] Folder2CygFolder(string fileOrFolder)
         {
             //Folder2CygFolder(cygwinPath)[0] -> Complete path (e.g. /cygdrive/c/windows/system32/cmd.exe)
             //Folder2CygFolder(cygwinPath)[1] -> If request is a file (True) or a folder (False)
@@ -98,9 +98,9 @@ namespace CygwinPortableCS
 
             if (Directory.Exists(fileOrFolder))
             {
-                cygPath[0] = CygDrivePath(fileOrFolder, currentEnvironment);
+                cygPath[0] = CygDrivePath(fileOrFolder);
                 cygPath[1] = "folder";
-                cygPath[2] = CygDrivePath(fileOrFolder, currentEnvironment);
+                cygPath[2] = CygDrivePath(fileOrFolder);
             }
             else if (File.Exists(fileOrFolder))
             {
@@ -109,24 +109,24 @@ namespace CygwinPortableCS
                     string shortcut = GetShortcutTarget(fileOrFolder);
                     if (Directory.Exists(shortcut))
                     {
-                        cygPath[0] = CygDrivePath(shortcut, currentEnvironment);
+                        cygPath[0] = CygDrivePath(shortcut);
                         cygPath[1] = "folder";
-                        cygPath[2] = CygDrivePath(Path.GetDirectoryName(shortcut), currentEnvironment);
+                        cygPath[2] = CygDrivePath(Path.GetDirectoryName(shortcut));
                     }
                     else if (File.Exists(shortcut))
                     {
-                        cygPath[0] = CygDrivePath(shortcut, currentEnvironment);
+                        cygPath[0] = CygDrivePath(shortcut);
                         cygPath[1] = "file";
-                        cygPath[2] = CygDrivePath(Path.GetDirectoryName(shortcut), currentEnvironment);
+                        cygPath[2] = CygDrivePath(Path.GetDirectoryName(shortcut));
                         cygPath[3] = Path.GetFileName(shortcut).Replace(" ", "\\ ");
                         cygPath[4] = Path.GetExtension(shortcut);
                     }
                 }
                 else
                 {
-                    cygPath[0] = CygDrivePath(fileOrFolder, currentEnvironment);
+                    cygPath[0] = CygDrivePath(fileOrFolder);
                     cygPath[1] = "file";
-                    cygPath[2] = CygDrivePath(Path.GetDirectoryName(fileOrFolder), currentEnvironment);
+                    cygPath[2] = CygDrivePath(Path.GetDirectoryName(fileOrFolder));
                     cygPath[3] = Path.GetFileName(fileOrFolder).Replace(" ", "\\ ");
                     cygPath[4] = Path.GetExtension(fileOrFolder);
                 }
@@ -142,7 +142,7 @@ namespace CygwinPortableCS
         [DllImport("shell32.dll", EntryPoint = "ShellExecute")]
         public static extern long ShellExecute(int hwnd, string cmd, string file, string param1, string param2, int swmode);
 
-        public static void CygwinOpen(string fileOrFolder, string currentEnvironment = "cygwin")
+        public static void CygwinOpen(string fileOrFolder)
         {
 
             string[] cygFolder = new string[5];
@@ -157,7 +157,7 @@ namespace CygwinPortableCS
             }
             else
             {
-                cygFolder = Cygwin.Folder2CygFolder(fileOrFolder, currentEnvironment);
+                cygFolder = Cygwin.Folder2CygFolder(fileOrFolder);
                 Console.WriteLine("Fullpath " + cygFolder[0]);
                 Console.WriteLine("FileOrFolder " + cygFolder[1]);
                 Console.WriteLine("Path " + cygFolder[2]);
@@ -166,7 +166,7 @@ namespace CygwinPortableCS
             }
 
 
-            if (currentEnvironment == "cygwin")
+            if (Globals.CurrentEnvironment == "cygwin")
             {
                 if (!Directory.Exists(Globals.AppPath + "\\Runtime\\cygwin\\home\\" + (string)Globals.MainConfig["Cygwin"]["Username"]))
                 {
@@ -209,7 +209,7 @@ namespace CygwinPortableCS
 
                     if ((string)Globals.MainConfig["Cygwin"]["Shell"] == "ConEmu")
                     {
-                        if (currentEnvironment == "wsl")
+                        if (Globals.CurrentEnvironment == "wsl")
                         {
                             path = Globals.AppPath + "\\Runtime\\ConEmu\\ConEmu.exe";
                             parameter = " /cmd " + "bash -i -c 'cd " + cygFolder[2] + executeCommand + shellStayOpen;
@@ -222,7 +222,7 @@ namespace CygwinPortableCS
                     }
                     else
                     {
-                        if (currentEnvironment == "wsl")
+                        if (Globals.CurrentEnvironment == "wsl")
                         {
                             path = "cmd.exe";
                             parameter = " /k bash -c 'cd " + cygFolder[2] + executeCommand + shellStayOpen;
@@ -304,7 +304,7 @@ namespace CygwinPortableCS
             {
                 if ((string)Globals.MainConfig["Cygwin"]["Shell"] == "ConEmu")
                 {
-                    if (currentEnvironment == "wsl")
+                    if (Globals.CurrentEnvironment == "wsl")
                     {
                         path = Globals.AppPath + "\\Runtime\\ConEmu\\ConEmu.exe";
                         parameter = " /cmd " + "bash -i -c 'cd " + cygFolder[0] + shellStayOpen;
@@ -316,7 +316,7 @@ namespace CygwinPortableCS
                 }
                 else
                 {
-                    if (currentEnvironment == "wsl")
+                    if (Globals.CurrentEnvironment == "wsl")
                     {
                         path = "cmd.exe";
                         parameter = " /k bash -c 'cd " + cygFolder[0] + shellStayOpen;

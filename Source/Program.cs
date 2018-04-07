@@ -93,6 +93,7 @@ namespace CygwinPortableCS
             Globals.MainConfig["Cygwin"]["InstallUnofficial"] = true;
             Globals.MainConfig["Cygwin"]["WindowsPathToCygwin"] = true;
             Globals.MainConfig["Cygwin"]["SupportWSL"] = true;
+            Globals.MainConfig["Cygwin"]["DefaultEnvironment"] = "cygwin";
             Globals.MainConfig["Cygwin"]["WindowsAdditionalPath"] = "/cygdrive/c/python27;/cygdrive/c/windows;/cygdrive/c/windows/system32;/cygdrive/c/windows/SysWOW64";
             Globals.MainConfig["Cygwin"]["WindowsPythonPath"] = "/cygdrive/c/python27";
             Globals.MainConfig["Cygwin"]["CygwinX86URL"] = "https://www.cygwin.com/setup-x86.exe";
@@ -133,6 +134,8 @@ namespace CygwinPortableCS
             {
                 Helpers.MergeCsDictionaryAndSave((JObject)Globals.MainConfig["Cygwin"], Globals.ConfigPath + "\\Configuration.json");
             }
+
+            Globals.CurrentEnvironment = (string)Globals.MainConfig["Cygwin"]["DefaultEnvironment"];
 
             //Check if Cygwin exists
             if (!File.Exists(Globals.AppPath + "\\Runtime\\Cygwin\\CygwinConfig.exe"))
@@ -223,6 +226,7 @@ namespace CygwinPortableCS
         public static JObject MainConfig = new JObject();
         public static JObject RuntimeSettings = new JObject();
 
+        public static string CurrentEnvironment = "cygwin";
         public static string ExeFile = "";
         public static string AppPath = "";
         public static string BasePath = "";

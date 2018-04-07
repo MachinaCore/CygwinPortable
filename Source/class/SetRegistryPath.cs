@@ -112,7 +112,7 @@ namespace CygwinPortableCS
             iconFileKey.Close();
 
             RegistryKey commandFileKey = Registry.ClassesRoot.CreateSubKey("*\\shell\\Run in Cygwin\\command");
-            commandFileKey.SetValue("", "\"" + Globals.ExeFile + "\" -path \"%1\"");
+            commandFileKey.SetValue("", "\"" + Globals.ExeFile + "\" -cygwin -path \"%1\"");
             commandFileKey.Close();
 
             //Icon Directory
@@ -121,7 +121,7 @@ namespace CygwinPortableCS
             iconDirectoryKey.Close();
 
             RegistryKey commandDirectoryKey = Registry.ClassesRoot.CreateSubKey("Directory\\shell\\OpenDirectoryInCygwin\\command");
-            commandDirectoryKey.SetValue("", "\"" + Globals.ExeFile + "\" -path \"%L\"");
+            commandDirectoryKey.SetValue("", "\"" + Globals.ExeFile + "\" -cygwin -path \"%L\"");
             commandDirectoryKey.Close();
 
             //Icon Drive
@@ -130,7 +130,7 @@ namespace CygwinPortableCS
             iconDriveKey.Close();
 
             RegistryKey commandDriveKey = Registry.ClassesRoot.CreateSubKey("Drive\\shell\\OpenDriveInCygwin\\command");
-            commandDriveKey.SetValue("", "\"" + Globals.ExeFile + "\" -path \"%1\"");
+            commandDriveKey.SetValue("", "\"" + Globals.ExeFile + "\" -cygwin -path \"%1\"");
             commandDriveKey.Close();
 
         }
