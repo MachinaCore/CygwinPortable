@@ -12,7 +12,7 @@ ShellExtensions needs admin rights (Only one time to register the ShellExtension
 
 Download ready to use files
 -----
-You can download prebuild (Cygwin x86) version on http://www.cybesystems.com -> Downloads. I've compiled a PAF (PortableApps) and a 7z compressed version. Cygwin defaults are already installed.
+You can download prebuild (Cygwin x86) version on from [AppVeyer](https://ci.appveyor.com/project/GathSystems/cygwinportable/build/artifacts). I've compiled a PAF (PortableApps) and a 7z compressed version. Cygwin defaults are already installed.
 
 First Start
 -----
@@ -26,6 +26,8 @@ Commandline Parameters:
 These options overrides the options from Data/config.ini
  - CygwinPortable.exe -path [PATH] -> Open the folder in path or execute the file (if the file is executable)  
  - CygwinPortable.exe -exit [0/1]	-> Exit the cygwin window after execution
+ - CygwinPortable.exe -cygwin	-> Optional: Force run command or open folder in Cygwin
+ - CygwinPortable.exe -wsl	-> Optional: Force run command or open folder on Windows Subsystem for Linux from Microsoft
  - CygwinPortable.exe [PATH] 		-> Open the folder in path or execute the file (if the file is executable) All other parameters are ignored (needed for "open with" in Windows)
 
  
@@ -61,7 +63,9 @@ There are some interesting options - Rightclick on the CygwinPortable Trayicon -
 **Settings:**
 
  - Shell: You can choose between mintty (default) and ConEmu. I've already included the last stable version of ConEmu (you can replace it with beta if you want - You should only preserve my ConEmu.xml file).
+ - Default Environment: Choose between Cygwin and Windows Subsystem for Linux as default handler for running commands and open folders (you can still override this with "-cygwin" for cygwin and "-wsl" for Windows Subsystem for Linux. Useful if you associate e.g. .sh files with CygwinPortable.exe.
  - Executable File Extensions: Define what extensions are should by executed with Cygwin. This will NOT register the files directly ! This option will tell Cygwin Portable if a "open with" under windows is a extension that can be used from bash. If you open a file with a unknown extesion CygwinPortable will open the folder and not run the file.
+ - Support WSL: Enable Windows Subsystem for Linux for running commands, open folders and Context Manu
  - Use TrayMenu: Enable/Disable the Traymenu (NOT RECOMMEND !) - if the Traymenu is disabled you can reactivate this option in Data/config.ini -> TrayMenu=True
  - Exit after execution: If you open a file in Cygwin (e.g. a Shellscript) the window is closed after successfully execution. If you want see the output leave it disabled.
  - Disable Message Boxes: If CygwinPortable failed it will show the error in a Message Box. Disable it if you are working in a non GUI environment.
