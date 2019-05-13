@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Windows.Forms;
-using CygwinPortableCS.Properties;
+using CygwinPortable.Properties;
 
 namespace CygwinPortableCS
 {
@@ -166,7 +166,7 @@ namespace CygwinPortableCS
             scriptsMenu.Image = Resources.appicon_16; ;
             string[] scriptsEntries = Directory.GetFiles(Globals.BasePath + "\\Data\\ShellScript");
             foreach (string fileName in scriptsEntries) {
-                Icon fileIcon = IconFromFile.GetFileIcon(fileName, IconFromFile.IconSizeEnum.SmallIcon16);
+                Icon fileIcon = IconFromFile.GetSystemIcon(fileName);
                 scriptsMenu.DropDownItems.Add(Path.GetFileName(fileName), fileIcon.ToBitmap(), (sender, e) => { CybeSystemsRunCygwin_Click(sender, e, fileName); });
             }
 
@@ -177,7 +177,7 @@ namespace CygwinPortableCS
             string[] shortcutsEntries = Directory.GetFiles(Globals.BasePath + "\\Data\\Shortcuts");
             foreach (string fileName in shortcutsEntries)
             {
-                Icon fileIcon = IconFromFile.GetFileIcon(fileName, IconFromFile.IconSizeEnum.SmallIcon16);
+                Icon fileIcon = IconFromFile.GetSystemIcon(fileName);
                 shortcutsMenu.DropDownItems.Add(Path.GetFileName(fileName), fileIcon.ToBitmap(), (sender, e) => { CybeSystemsRunCygwin_Click(sender, e, fileName); });
             }
 
@@ -187,16 +187,16 @@ namespace CygwinPortableCS
             DriveInfo[] allDrives = DriveInfo.GetDrives();
             foreach (DriveInfo drive in allDrives)
             {
-                Icon fileIcon = IconFromFile.GetFileIcon(drive.Name, IconFromFile.IconSizeEnum.SmallIcon16);
+                Icon fileIcon = IconFromFile.GetSystemIcon(drive.Name);
                 drivesMenu.DropDownItems.Add(drive.Name, fileIcon.ToBitmap(), (sender, e) => { CybeSystemsRunCygwin_Click(sender, e, drive.Name); });
             }
 
             contextMenuStrip1.Items.Add(new ToolStripSeparator());
 
-            Icon fileIconC = IconFromFile.GetFileIcon(@"C:\", IconFromFile.IconSizeEnum.SmallIcon16);
+            Icon fileIconC = IconFromFile.GetSystemIcon(@"C:\");
             contextMenuStrip1.Items.Add("Open Bash (C:)", fileIconC.ToBitmap(), (sender, e) => { CybeSystemsRunCygwin_Click(sender, e, "C:\\"); });
 
-            Icon fileIconU = IconFromFile.GetFileIcon(@"C:\", IconFromFile.IconSizeEnum.SmallIcon16);
+            Icon fileIconU = IconFromFile.GetSystemIcon(@"C:\");
             contextMenuStrip1.Items.Add("Open Homefolder", fileIconC.ToBitmap(), (sender, e) => { CybeSystemsRunCygwin_Click(sender, e, "~"); });
 
             if (File.Exists(Globals.AppPath + "\\Runtime\\Cygwin\\bin\\startxwin"))

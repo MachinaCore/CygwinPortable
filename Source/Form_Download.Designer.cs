@@ -1,4 +1,6 @@
-﻿namespace CygwinPortableCS
+﻿using CygwinPortable.Properties;
+
+namespace CygwinPortableCS
 {
     partial class Form_Download
     {
@@ -70,7 +72,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = Resources.appicon;
             this.Name = "Form_Download";
             this.Text = "Downloading Cygwin";
             this.ResumeLayout(false);

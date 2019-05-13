@@ -1,4 +1,6 @@
-﻿namespace CygwinPortableCS
+﻿using CygwinPortable.Properties;
+
+namespace CygwinPortableCS
 {
     partial class Form_FirstInstall
     {
@@ -142,7 +144,7 @@
             this.Controls.Add(this.button_download_x64);
             this.Controls.Add(this.button_download_x86);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = Resources.appicon;
             this.Name = "Form_FirstInstall";
             this.Text = "Cygwin Installation";
             this.tableLayoutPanel1.ResumeLayout(false);
