@@ -6,6 +6,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources/appicon.ico</ApplicationIcon>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <RuntimeIdentifiers>win-x64;win-x86</RuntimeIdentifiers>
+    <TrimUnusedDependencies>true</TrimUnusedDependencies>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -1,4 +1,5 @@
 ﻿using CygwinPortable.Properties;
+using System.Drawing;
 
 namespace CygwinPortableCS
 {
@@ -44,7 +45,7 @@ namespace CygwinPortableCS
             // notifyIcon1
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
-            this.notifyIcon1.Icon = Resources.appicon;
+            this.notifyIcon1.Icon = (Icon)Resources.appicon;
             this.notifyIcon1.Text = "CybeSystems";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
@@ -54,7 +55,7 @@ namespace CygwinPortableCS
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(227, 19);
-            this.Icon = Resources.appicon;
+            this.Icon = (Icon)Resources.appicon;
             this.Name = "Form_TrayMenu";
             this.Text = "Cygwin Config";
             this.ResumeLayout(false);
