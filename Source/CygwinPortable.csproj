@@ -6,8 +6,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources/appicon.ico</ApplicationIcon>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <RuntimeIdentifiers>win-x64;win-x86</RuntimeIdentifiers>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <TrimUnusedDependencies>true</TrimUnusedDependencies>
+    <SelfContained>true</SelfContained>
+    <PreserveCompilationContext>false</PreserveCompilationContext>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
