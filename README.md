@@ -13,7 +13,7 @@ ShellExtensions needs admin rights (Only one time to register the ShellExtension
 
 Download ready to use files
 -----
-You can download prebuild (Cygwin x86) version on from [AppVeyer](https://ci.appveyor.com/project/MachinaCore/cygwinportable/build/artifacts). I've compiled a PAF (PortableApps) and a 7z compressed version. Cygwin defaults are already installed.
+You can download prebuild (Cygwin x86) version on from [AppVeyor](https://ci.appveyor.com/project/MachinaCore/cygwinportable/build/artifacts). I've compiled a PAF (PortableApps) and a 7z compressed version. Cygwin defaults are already installed.
 
 First Start
 -----
