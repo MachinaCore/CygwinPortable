@@ -50,18 +50,22 @@ distutils.dir_util.copy_tree(GlobalScriptPath + '/Other', GlobalReleasePath + '/
 #Copy conemu
 distutils.dir_util.copy_tree(GlobalScriptPath + '/App/RuntimeClean/ConEmu', GlobalReleasePath + '/App/RuntimeClean/ConEmu')
 
+# Cleanup Source Folders before distribute
+shutil.rmtree(GlobalReleasePath + '/Other/Source', ignore_errors=True)
+shutil.rmtree(GlobalReleasePath + '/Other/SourceNSIS', ignore_errors=True)
+shutil.rmtree(GlobalReleasePath + '/Other/BuildHelpers', ignore_errors=True)
 
 if not os.path.isdir(GlobalScriptPath + "/Other/BuildHelpers"):
     os.makedirs(GlobalScriptPath + "/Other/BuildHelpers", exist_ok=True)
-    os.system('git clone https://github.com/MachinaCore/MachinaCore.comAppInstaller.git ' + GlobalScriptPath + "/BuildHelpers/AppInstaller")
+    os.system('git clone https://github.com/MachinaCore/MachinaCore.comAppInstaller.git ' + GlobalScriptPath + "/Other/BuildHelpers/AppInstaller")
 
 #Create Launcher
 os.system('%CD%/BuildHelpers/AppInstaller/App/nsis/makensis.exe Other/SourceNSIS/CygwinPortable.nsi')
-shutil.copy2(GlobalScriptPath + '/CygwinPortable.exe', GlobalReleasePath + '/CygwinPortable.exe')
+shutil.copy2(GlobalScriptPath + '/Other/SourceNSIS/CygwinPortable.exe', GlobalReleasePath + '/CygwinPortable.exe')
 
 #Create 7-zip
 os.system('7z.exe a -r -t7z -mx=9 '+ fileName +'_'+ fileVersion +'.7z .\Release\*')
 
 #Create Installer
-os.system('%CD%/BuildHelpers/AppInstaller/PortableApps.comInstaller.exe %CD%\\Release')
+os.system('%CD%/Other/BuildHelpers/AppInstaller/PortableApps.comInstaller.exe %CD%\\Release')
 

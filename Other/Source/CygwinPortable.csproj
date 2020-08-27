@@ -10,7 +10,7 @@
     <PublishTrimmed>true</PublishTrimmed>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <ResourceLanguages>en</ResourceLanguages>
-    <PublishDir>..\..\</PublishDir>
+    <PublishDir>..\..\App\</PublishDir>
     <ApplicationIcon>Resources/appicon.ico</ApplicationIcon>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
   </PropertyGroup>
