@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
+    <PublishSingleFile>true</PublishSingleFile>
+    <PublishTrimmed>true</PublishTrimmed>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <ResourceLanguages>en</ResourceLanguages>
+    <PublishDir>..\..\</PublishDir>
+    <ApplicationIcon>Resources/appicon.ico</ApplicationIcon>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="3.0.0-preview5.19224.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources/appicon.ico" />
+    <EmbeddedResource Include="Resources/appicon_16.png" />
+    <EmbeddedResource Include="Resources/appicon2_16.png" />
+    <EmbeddedResource Include="Resources/appicon3_16.png" />
+    <EmbeddedResource Include="Resources/cancel.png" />
+    <EmbeddedResource Include="Resources/cancel.png.png" />
+    <EmbeddedResource Include="Resources/cog.png" />
+    <EmbeddedResource Include="Resources/drive.png" />
+    <EmbeddedResource Include="Resources/icon.png" />
+    <EmbeddedResource Include="Resources/shortcuts.png" />
+    <EmbeddedResource Include="Resources/wand.png" />
+  </ItemGroup>
+
+</Project>

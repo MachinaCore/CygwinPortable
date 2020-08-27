@@ -23,7 +23,7 @@ namespace CygwinPortableCS
 
             //Set Path
             //ExeFile -> C:\PortableApps\CygwinPortable\App\CygwinPortable.exe
-            Globals.ExeFile = Assembly.GetExecutingAssembly().Location;
+            Globals.ExeFile = Process.GetCurrentProcess().MainModule.FileName;
             //AppPath -> C:\PortableApps\CygwinPortable\App
             Globals.AppPath = Path.GetDirectoryName(Globals.ExeFile);
             //BasePath -> C:\PortableApps\CygwinPortable
