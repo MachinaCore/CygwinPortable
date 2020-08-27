@@ -18,6 +18,10 @@ def copyfiles(srcdir, dstdir, filepattern):
             shutil.copy2(os.path.join(dirpath, file), dstdir)
         break # no recursion
 
+def set_rw(operation, name, exc):
+    os.chmod(name, stat.S_IWRITE)
+    return True
+
 GlobalScriptPath = os.path.dirname(os.path.realpath(__file__)).replace('\\','/')
 GlobalReleasePath = GlobalScriptPath + "/Release"
 print (GlobalScriptPath)
@@ -51,9 +55,9 @@ distutils.dir_util.copy_tree(GlobalScriptPath + '/Other', GlobalReleasePath + '/
 distutils.dir_util.copy_tree(GlobalScriptPath + '/App/RuntimeClean/ConEmu', GlobalReleasePath + '/App/RuntimeClean/ConEmu')
 
 # Cleanup Source Folders before distribute
-shutil.rmtree(GlobalReleasePath + '/Other/Source', ignore_errors=True)
-shutil.rmtree(GlobalReleasePath + '/Other/SourceNSIS', ignore_errors=True)
-shutil.rmtree(GlobalReleasePath + '/Other/BuildHelpers', ignore_errors=True)
+shutil.rmtree(GlobalReleasePath + '/Other/Source', ignore_errors=True, onerror=set_rw)
+shutil.rmtree(GlobalReleasePath + '/Other/SourceNSIS', ignore_errors=True, onerror=set_rw)
+shutil.rmtree(GlobalReleasePath + '/Other/BuildHelpers', ignore_errors=True, onerror=set_rw)
 
 if not os.path.isdir(GlobalScriptPath + "/Other/BuildHelpers"):
     os.makedirs(GlobalScriptPath + "/Other/BuildHelpers", exist_ok=True)
