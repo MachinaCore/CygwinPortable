@@ -4,6 +4,8 @@ CygwinPortable
 [![Build status](https://ci.appveyor.com/api/projects/status/eo2iu7wv3mx7tn4u/branch/master?svg=true
 )](https://ci.appveyor.com/project/MachinaCore/cygwinportable/branch/master)
 
+[Download current released branches as .paf.exe and .7z from github](https://github.com/MachinaCore/CygwinPortable/releases)
+
 [Download current working branches as .paf.exe and .7z from appveyor](https://ci.appveyor.com/project/MachinaCore/cygwinportable/build/artifacts)
 
 
@@ -13,7 +15,7 @@ ShellExtensions needs admin rights (Only one time to register the ShellExtension
 
 Download ready to use files
 -----
-You can download prebuild (Cygwin x86) version on from [AppVeyor](https://ci.appveyor.com/project/MachinaCore/cygwinportable/build/artifacts). I've compiled a PAF (PortableApps) and a 7z compressed version. Cygwin defaults are already installed.
+You can download prebuild (Cygwin x64) version on from [GitHub](https://github.com/MachinaCore/CygwinPortable/releases). I've compiled a PAF (PortableApps) and a 7z compressed version. Cygwin defaults are already installed.
 
 First Start
 -----
