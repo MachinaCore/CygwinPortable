@@ -33,6 +33,11 @@ config.read(GlobalScriptPath + '/App/AppInfo/appinfo.ini')
 fileName = config['Details']['AppId']
 fileVersion = config['Version']['PackageVersion']
 
+#Build dotnet exe
+os.chdir(GlobalScriptPath + "/Other/Source")
+os.system("dotnet publish -r win10-x64 -c Release -p:PublishSingleFile=true")
+os.chdir(GlobalScriptPath)
+
 #Copy Files to Release Folder
 copyfiles(GlobalScriptPath + '/App', GlobalReleasePath + '/App/', '*.exe')
 copyfiles(GlobalScriptPath + '/App', GlobalReleasePath + '/App/', '*.config')
@@ -46,13 +51,13 @@ distutils.dir_util.copy_tree(GlobalScriptPath + '/Other', GlobalReleasePath + '/
 distutils.dir_util.copy_tree(GlobalScriptPath + '/App/RuntimeClean/ConEmu', GlobalReleasePath + '/App/RuntimeClean/ConEmu')
 
 
-if not os.path.isdir(GlobalScriptPath + "/BuildHelpers"):
-    os.makedirs(GlobalScriptPath + "/BuildHelpers", exist_ok=True)
+if not os.path.isdir(GlobalScriptPath + "/Other/BuildHelpers"):
+    os.makedirs(GlobalScriptPath + "/Other/BuildHelpers", exist_ok=True)
     os.system('git clone https://github.com/MachinaCore/MachinaCore.comAppInstaller.git ' + GlobalScriptPath + "/BuildHelpers/AppInstaller")
 
 #Create Launcher
-os.system('%CD%/BuildHelpers/AppInstaller/App/nsis/makensis.exe Other/source/CygwinPortable.nsi')
-shutil.copy2(GlobalScriptPath + '/Other/source/CygwinPortable.exe', GlobalReleasePath + '/CygwinPortable.exe')
+os.system('%CD%/BuildHelpers/AppInstaller/App/nsis/makensis.exe Other/SourceNSIS/CygwinPortable.nsi')
+shutil.copy2(GlobalScriptPath + '/CygwinPortable.exe', GlobalReleasePath + '/CygwinPortable.exe')
 
 #Create 7-zip
 os.system('7z.exe a -r -t7z -mx=9 '+ fileName +'_'+ fileVersion +'.7z .\Release\*')

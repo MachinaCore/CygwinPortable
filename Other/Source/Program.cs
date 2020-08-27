@@ -25,7 +25,7 @@ namespace CygwinPortableCS
             //ExeFile -> C:\PortableApps\CygwinPortable\App\CygwinPortable.exe
             Globals.ExeFile = Process.GetCurrentProcess().MainModule.FileName;
             //AppPath -> C:\PortableApps\CygwinPortable\App
-            Globals.AppPath = Path.GetDirectoryName(Globals.ExeFile);
+            Globals.AppPath = Path.GetDirectoryName(Globals.ExeFile) + "\\App";
             //BasePath -> C:\PortableApps\CygwinPortable
             Globals.BasePath = Directory.GetParent(Path.GetDirectoryName(Globals.ExeFile)).FullName;
             //RootPath -> C:\
