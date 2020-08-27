@@ -31,3 +31,5 @@ libxslt
 mingw-zlib1
 mingw-zlib-devel
 dos2unix
+rsync
+ssh
