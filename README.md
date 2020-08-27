@@ -89,7 +89,12 @@ There are some interesting options - Rightclick on the CygwinPortable Trayicon -
 Compile
 -----
 
-You can compile CygwinPortable with any version of Visual Studio (I use 2015) or mono (see build_mono.sh -> This needs a Cygwin Installation)
+You can compile CygwinPortable with dotnet -> Use:
+
+cd Other/Source
+dotnet publish -r win10-x64 -c Release -p:PublishSingleFile=true
+
+to create a new Build - please notice: If you build from Visual Studio it will return in a wrong folder structure
 
 Feedback
 -----
