@@ -1,6 +1,5 @@
-image: Visual Studio 2019
 version: 1.0.{build}
-build: off
+image: Visual Studio 2019
 build_script:
 - cmd: C:\Python36-x64\python.exe BuildScript.py
 artifacts:
