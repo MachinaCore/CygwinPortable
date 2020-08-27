@@ -3,6 +3,7 @@ version: 1.0.{build}
 before_build:
 - cmd: nuget restore ./Other/Source/CygwinPortable.sln
 build:
+  project: Other/Source/CygwinPortable.sln
   verbosity: minimal
 after_build:
 - cmd: C:\Python36-x64\python.exe BuildScript.py
